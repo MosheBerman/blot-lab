@@ -77,13 +77,14 @@
   #toolbar button { width:44px; height:44px; border-radius:22px; font-size:1.05rem;
              border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
              -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
-  #minimap { position:fixed; z-index:20; right:10px; top:calc(70px + env(safe-area-inset-top));
-             width:56px; height:56px; border:1px solid rgba(255,255,255,0.25);
-             border-radius:8px; background:#000; }
-  #bigmap { position:fixed; inset:0; z-index:40; background:rgba(0,0,0,0.92);
+  #btn-minimap { padding:0; overflow:hidden; }
+  #btn-minimap img { width:100%; height:100%; object-fit:cover; display:block; }
+  #bigmap { position:fixed; inset:0; z-index:40; background:rgba(0,0,0,0.55);
             display:flex; align-items:center; justify-content:center; }
   #bigmap.hidden { display:none; }
-  #bigmap img { max-width:94vw; max-height:94dvh; object-fit:contain; border-radius:8px; }
+  #bigmap img { max-width:74vw; max-height:58dvh; object-fit:contain;
+                border-radius:12px; border:1px solid rgba(255,255,255,0.25);
+                background:#000; }
   #toast { position:fixed; z-index:50; left:50%; bottom:120px; transform:translateX(-50%);
            background:rgba(20,20,20,0.92); border:1px solid #444; color:#fff;
            padding:10px 18px; border-radius:20px; font-size:0.82rem; opacity:0;
@@ -96,7 +97,7 @@
     #topbar { right:36%; }
     #wipebar { right:calc(36% + 12px); bottom:12px; }
     #infocard { right:calc(36% + 12px); }
-    #minimap { right:calc(36% + 10px); }
+    #bigmap img { max-width:52vw; }
     #sheet { right:36%; }
     #panel { left:64%; top:0; border-top:none; border-left:1px solid #2c2c2c; border-radius:0;
              display:flex; flex-direction:column; }
@@ -114,11 +115,11 @@
   <button id="btn-info">&#9432;</button>
 </div>
 <div id="toolbar">
+  <button id="btn-minimap" title="Original preview"><img id="btn-minimap-img" alt=""></button>
   <button id="btn-export" title="Export side-by-side">&#10515;</button>
   <button id="btn-snap" title="Snapshot link">&#128279;</button>
   <button id="btn-reset" title="Reset view">&#10226;</button>
 </div>
-<canvas id="minimap" width="112" height="112"></canvas>
 <div id="bigmap" class="hidden"><img id="bigmap-img" alt="Original image"></div>
 <div id="toast"></div>
 <div id="sheet" class="hidden">
@@ -795,16 +796,8 @@ function toast(msg){
   toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800);
 }
 
-var thumbSrc = null;
-function drawMinimap(){
-  var mm = document.getElementById('minimap');
-  if (!thumbSrc) return;
-  var g = mm.getContext('2d'), S = mm.width;
-  var sw = thumbSrc.width, sh = thumbSrc.height, side = Math.min(sw, sh);
-  g.drawImage(thumbSrc, (sw-side)/2, (sh-side)/2, side, side, 0, 0, S, S);
-}
-document.getElementById('minimap').addEventListener('click', function(){
-  document.getElementById('bigmap').classList.remove('hidden');
+document.getElementById('btn-minimap').addEventListener('click', function(){
+  document.getElementById('bigmap').classList.toggle('hidden');
 });
 document.getElementById('bigmap').addEventListener('click', function(){
   document.getElementById('bigmap').classList.add('hidden');
@@ -934,9 +927,11 @@ function loadImageURL(src, label){
     if (imgTex) gl.deleteTexture(imgTex);
     imgTex = makeTex(imgW, imgH, c);
     imgObj = img;
-    thumbSrc = c;
-    drawMinimap();
-    try { document.getElementById('bigmap-img').src = c.toDataURL('image/jpeg', 0.85); } catch(e){}
+    try {
+      var du = c.toDataURL('image/jpeg', 0.85);
+      document.getElementById('bigmap-img').src = du;
+      document.getElementById('btn-minimap-img').src = du;
+    } catch(e){}
     analyzeImage(c);
     buildControls();
     statusEl.textContent = label + ' — ' + imgW + '×' + imgH +
