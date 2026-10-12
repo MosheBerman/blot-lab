@@ -1,0 +1,32 @@
+{
+ "A1_kmeans_LS": {
+  "blob_recall": 0.911504424778761,
+  "write_keep": 0.6824127906976745,
+  "kept_components": 65
+ },
+ "A2_parametric_L100_S150": {
+  "blob_recall": 0.8399034593724859,
+  "write_keep": 1.0,
+  "kept_components": 28
+ },
+ "B_seeded_growth": {
+  "blob_recall": 1.0,
+  "write_keep": 1.0,
+  "kept_components": 24
+ },
+ "C_grabcut": {
+  "blob_recall": 0.916331456154465,
+  "write_keep": 1.0,
+  "kept_components": 27
+ },
+ "D1_tophat_r6": {
+  "blob_recall": 0.7288817377312953,
+  "write_keep": 0.9232073643410853,
+  "kept_components": 30
+ },
+ "D2_opening_subtract": {
+  "blob_recall": 0.7288817377312953,
+  "write_keep": 0.9232073643410853,
+  "kept_components": 30
+ }
+}
