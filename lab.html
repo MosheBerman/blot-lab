@@ -17,8 +17,14 @@
   .bar button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   #stage { position:relative; background:#000; border-radius:10px; overflow:hidden; }
   canvas { width:100%; display:block; touch-action:none; }
-  #desc { font-size:0.84rem; color:#ccc; line-height:1.55; background:#1b1b1b;
-          border:1px solid #333; border-radius:10px; padding:10px 12px; margin:10px 0; }
+  #desc { font-size:0.84rem; color:#ccc; background:#1b1b1b;
+          border:1px solid #333; border-radius:10px; padding:10px 12px; margin:10px 0;
+          cursor:pointer; }
+  #desc .one { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #desc .one::after { content:' ▾'; color:#4da3ff; }
+  #desc .full { display:none; line-height:1.55; margin-top:8px; }
+  #desc.open .one::after { content:' ▴'; }
+  #desc.open .full { display:block; }
   #desc b { color:#fff; }
   #desc .approx { color:#c9a227; font-size:0.78rem; display:block; margin-top:6px; }
   #controls { display:grid; gap:10px; background:#1b1b1b; border:1px solid #333;
@@ -491,7 +497,10 @@ function syncBars(){
 
 function buildControls(){
   var t = TABS[curTab];
-  descEl.innerHTML = t.desc;
+  var title = t.desc.replace(/<[^>]+>/g, '').split('.')[0] + '.';
+  descEl.innerHTML = '<span class="one">' + title + '</span><span class="full">' + t.desc + '</span>';
+  descEl.classList.remove('open');
+  descEl.onclick = function(){ descEl.classList.toggle('open'); };
   controlsEl.innerHTML = '';
   t._inputs = {};
   t.controls.forEach(function(c){
