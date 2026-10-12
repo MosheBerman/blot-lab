@@ -82,7 +82,7 @@
   #bigmap { position:fixed; inset:0; z-index:40; background:rgba(0,0,0,0.55);
             display:flex; align-items:center; justify-content:center; }
   #bigmap.hidden { display:none; }
-  #bigmap img { max-width:74vw; max-height:58dvh; object-fit:contain;
+  #bigmap-canvas { width:min(74vw, 340px); aspect-ratio:1;
                 border-radius:12px; border:1px solid rgba(255,255,255,0.25);
                 background:#000; }
   #toast { position:fixed; z-index:50; left:50%; bottom:120px; transform:translateX(-50%);
@@ -97,7 +97,6 @@
     #topbar { right:36%; }
     #wipebar { right:calc(36% + 12px); bottom:12px; }
     #infocard { right:calc(36% + 12px); }
-    #bigmap img { max-width:52vw; }
     #sheet { right:36%; }
     #panel { left:64%; top:0; border-top:none; border-left:1px solid #2c2c2c; border-radius:0;
              display:flex; flex-direction:column; }
@@ -120,7 +119,7 @@
   <button id="btn-snap" title="Snapshot link">&#128279;</button>
   <button id="btn-reset" title="Reset view">&#10226;</button>
 </div>
-<div id="bigmap" class="hidden"><img id="bigmap-img" alt="Original image"></div>
+<div id="bigmap" class="hidden"><canvas id="bigmap-canvas" width="640" height="640"></canvas></div>
 <div id="toast"></div>
 <div id="sheet" class="hidden">
   <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
@@ -796,11 +795,35 @@ function toast(msg){
   toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800);
 }
 
+var thumbSrc = null;
+var bigmapEl = document.getElementById('bigmap');
+function drawMinimap(){
+  var cv = document.getElementById('bigmap-canvas');
+  if (!thumbSrc || !imgW || !imgH) return;
+  var g = cv.getContext('2d'), S = cv.width;
+  g.clearRect(0, 0, S, S);
+  g.fillStyle = '#000'; g.fillRect(0, 0, S, S);
+  var s = Math.min(S/imgW, S/imgH), w = imgW*s, hh = imgH*s;
+  var ox = (S-w)/2, oy = (S-hh)/2;
+  g.drawImage(thumbSrc, ox, oy, w, hh);
+  var ca = Math.cos(rot), sa = Math.sin(rot);
+  g.strokeStyle = '#4da3ff'; g.lineWidth = 5;
+  g.beginPath();
+  [[0,0],[1,0],[1,1],[0,1]].forEach(function(pt, i){
+    var cx = pt[0]-0.5, cy = pt[1]-0.5;
+    var ux = (ca*cx + sa*cy)/zoom + 0.5 + panX;
+    var uy = (-sa*cx + ca*cy)/zoom + 0.5 + panY;
+    var px = ox + ux*w, py = oy + (1-uy)*hh;
+    if (i === 0) g.moveTo(px, py); else g.lineTo(px, py);
+  });
+  g.closePath(); g.stroke();
+}
 document.getElementById('btn-minimap').addEventListener('click', function(){
-  document.getElementById('bigmap').classList.toggle('hidden');
+  bigmapEl.classList.toggle('hidden');
+  drawMinimap();
 });
-document.getElementById('bigmap').addEventListener('click', function(){
-  document.getElementById('bigmap').classList.add('hidden');
+bigmapEl.addEventListener('click', function(){
+  bigmapEl.classList.add('hidden');
 });
 
 function buildControls(){
@@ -895,6 +918,7 @@ function render(){
   var ge = gl.getError();
   if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
   } catch(err){ statusEl.textContent = 'Render error: ' + err.message; }
+  if (typeof bigmapEl !== 'undefined' && !bigmapEl.classList.contains('hidden')) drawMinimap();
 }
 
 function selectTab(i){
@@ -927,11 +951,8 @@ function loadImageURL(src, label){
     if (imgTex) gl.deleteTexture(imgTex);
     imgTex = makeTex(imgW, imgH, c);
     imgObj = img;
-    try {
-      var du = c.toDataURL('image/jpeg', 0.85);
-      document.getElementById('bigmap-img').src = du;
-      document.getElementById('btn-minimap-img').src = du;
-    } catch(e){}
+    thumbSrc = c;
+    try { document.getElementById('btn-minimap-img').src = c.toDataURL('image/jpeg', 0.85); } catch(e){}
     analyzeImage(c);
     buildControls();
     statusEl.textContent = label + ' — ' + imgW + '×' + imgH +
