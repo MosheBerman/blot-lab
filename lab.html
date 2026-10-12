@@ -322,15 +322,13 @@ var FS_BAND1 =
 
 var VS_STACK =
 'attribute vec2 a_pos;\n' +
-'uniform mat4 u_mvp; uniform float u_dz; uniform float u_aspect;\n' +
+'uniform mat4 u_mvp; uniform mat4 u_rot; uniform float u_dz; uniform float u_aspect;\n' +
 'varying vec2 v_uv;\n' +
 'void main(){\n' +
 '  v_uv = a_pos*0.5+0.5;\n' +
-'  float c = 0.7071068;\n' +
-'  vec3 p = vec3(a_pos.x*u_aspect, a_pos.y*c, a_pos.y*c);\n' +
-'  vec3 nrm = vec3(0.0, -c, c);\n' +
-'  p += nrm*u_dz;\n' +
-'  gl_Position = u_mvp*vec4(p,1.0);\n' +
+'  vec3 p = vec3(a_pos.x*u_aspect, a_pos.y, 0.0);\n' +
+'  p += vec3(0.0, 0.0, 1.0)*u_dz;\n' +
+'  gl_Position = u_mvp*(u_rot*vec4(p,1.0));\n' +
 '}\n';
 
 var FS_STACK =
@@ -353,6 +351,9 @@ function mul4(a,b){
   return o;
 }
 function transM(x,y,z){ return [1,0,0,0, 0,1,0,0, 0,0,1,0, x,y,z,1]; }
+function rotXM(a){var c=Math.cos(a),s=Math.sin(a);return [1,0,0,0, 0,c,s,0, 0,-s,c,0, 0,0,0,1];}
+function rotYM(a){var c=Math.cos(a),s=Math.sin(a);return [c,0,-s,0, 0,1,0,0, s,0,c,0, 0,0,0,1];}
+function rotZM(a){var c=Math.cos(a),s=Math.sin(a);return [c,s,0,0, -s,c,0,0, 0,0,1,0, 0,0,0,1];}
 var _stackProg = null;
 function stackProg(){
   if (_stackProg) return _stackProg;
@@ -363,7 +364,7 @@ function stackProg(){
   gl.attachShader(p, sh(gl.FRAGMENT_SHADER, FS_STACK));
   gl.linkProgram(p);
   p.aPos=gl.getAttribLocation(p,'a_pos'); p.uMvp=gl.getUniformLocation(p,'u_mvp');
-  p.uDz=gl.getUniformLocation(p,'u_dz'); p.uAspect=gl.getUniformLocation(p,'u_aspect');
+  p.uDz=gl.getUniformLocation(p,'u_dz'); p.uAspect=gl.getUniformLocation(p,'u_aspect'); p.uRot=gl.getUniformLocation(p,'u_rot');
   p.uTex=gl.getUniformLocation(p,'u_tex'); p.uTint=gl.getUniformLocation(p,'u_tint');
   return _stackProg = p;
 }
@@ -575,7 +576,10 @@ var TABS = [
     {key:'n', label:'Bands', min:2, max:16, step:1, val:12},
     {key:'pos', label:'Window end', min:0, max:11, step:1, val:11},
     {key:'width', label:'Window width', min:1, max:12, step:1, val:12},
-    {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35}
+    {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35},
+    {key:'rx', label:'Rotate X', min:-90, max:90, step:1, val:45},
+    {key:'ry', label:'Rotate Y', min:-90, max:90, step:1, val:0},
+    {key:'rz', label:'Rotate Z', min:-180, max:180, step:1, val:0}
   ],
   state:{},
   render:function(){
@@ -596,11 +600,13 @@ var TABS = [
     gl.disable(gl.DEPTH_TEST);
     var prog=stackProg(), asp=(tgt?tgt.w:canvas.width)/(tgt?tgt.h:canvas.height);
     var mvp=mul4(persp(38*Math.PI/180,asp,0.1,50),transM(0,-0.15,-4.4));
+    var rot=mul4(mul4(rotZM(s.rz*Math.PI/180),rotYM(s.ry*Math.PI/180)),rotXM(s.rx*Math.PI/180));
     gl.useProgram(prog);
     gl.bindBuffer(gl.ARRAY_BUFFER,quadBuf);
     gl.enableVertexAttribArray(prog.aPos);
     gl.vertexAttribPointer(prog.aPos,2,gl.FLOAT,false,0,0);
     gl.uniformMatrix4fv(prog.uMvp,false,new Float32Array(mvp));
+    gl.uniformMatrix4fv(prog.uRot,false,new Float32Array(rot));
     gl.uniform1f(prog.uAspect,imgW/imgH);
     var span=Math.max(1,hi-lo);
     for(i=lo;i<=hi;i++){
@@ -755,8 +761,13 @@ function selectTab(i){
 }
 
 function loadImage(i){
-  curImg = i; cmpMode = 0; zoom = 1; panX = 0; panY = 0; syncCmp();
-  statusEl.textContent = 'Loading ' + IMAGES[i].label + '…';
+  curImg = i;
+  loadImageURL(IMAGES[i].src, IMAGES[i].label);
+}
+var lastObjURL = null;
+function loadImageURL(src, label){
+  cmpMode = 0; zoom = 1; panX = 0; panY = 0; syncCmp();
+  statusEl.textContent = 'Loading ' + label + '…';
   var img = new Image();
   img.onload = function(){
     var scale = Math.min(1, 1024/Math.max(img.width, img.height));
@@ -770,15 +781,32 @@ function loadImage(i){
     imgObj = img;
     analyzeImage(c);
     buildControls();
-    statusEl.textContent = IMAGES[i].label + ' — ' + imgW + '×' + imgH +
+    statusEl.textContent = label + ' — ' + imgW + '×' + imgH +
       ' · band range L ' + bandLo.toFixed(0) + '–' + bandHi.toFixed(0) +
       ' · est. light ' + Math.round(((lightAz%360)+360)%360) + '°';
     render();
     requestAnimationFrame(function(){ render(); });
   };
-  img.onerror = function(){ statusEl.textContent = 'Could not load ' + IMAGES[i].src; };
-  img.src = IMAGES[i].src;
+  img.onerror = function(){ statusEl.textContent = 'Could not load ' + src; };
+  img.src = src;
 }
+// local file upload
+var fileInput = document.createElement('input');
+fileInput.type = 'file'; fileInput.accept = 'image/*'; fileInput.style.display = 'none';
+document.body.appendChild(fileInput);
+(function(){
+  var ub = document.createElement('button'); ub.textContent = '+ Upload';
+  ub.addEventListener('click', function(){ fileInput.click(); });
+  document.getElementById('imgbar').appendChild(ub);
+})();
+fileInput.addEventListener('change', function(){
+  if (!fileInput.files || !fileInput.files[0]) return;
+  if (lastObjURL) URL.revokeObjectURL(lastObjURL);
+  lastObjURL = URL.createObjectURL(fileInput.files[0]);
+  curImg = -1;
+  loadImageURL(lastObjURL, fileInput.files[0].name);
+  fileInput.value = '';
+});
 
 function syncCmp(){
   Array.prototype.forEach.call(cmpBar.children, function(b){
