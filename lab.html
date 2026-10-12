@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%234da3ff'/%3E%3Ccircle cx='39' cy='25' r='7' fill='%23111111' opacity='0.6'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%234da3ff'/%3E%3Ccircle cx='39' cy='25' r='7' fill='%23111111' opacity='0.6'/%3E%3C/svg%3E">
 <title>Blot Lab — WebGL Lab</title>
 <style>
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -72,6 +78,12 @@
   #wipebar.closed input { display:none; }
   #wipebar.closed { right:auto; padding:6px; }
   #status { font-size:0.74rem; color:#777; padding:10px 2px 0; }
+  #topbar button:active, #toolbar button:active, #sheet-body button:active,
+  #panel-handle:active { opacity:0.55; }
+  #sheet-head { touch-action:none; cursor:grab; }
+  #sheet-head::before { content:''; position:absolute; top:6px; left:50%; width:40px; height:4px;
+    border-radius:2px; background:#555; transform:translateX(-50%); }
+  #sheet-head { position:relative; }
   #toolbar { position:fixed; z-index:20; left:10px; top:calc(70px + env(safe-area-inset-top));
              display:flex; flex-direction:column; gap:8px; }
   #toolbar button { width:44px; height:44px; border-radius:22px; font-size:1.05rem;
@@ -780,9 +792,44 @@ document.getElementById('btn-info').addEventListener('click', function(){
   infoEl.classList.toggle('hidden');
   closeSheet();
 });
+var lastPanelSwipe = 0;
 document.getElementById('panel-handle').addEventListener('click', function(){
+  if (Date.now() - lastPanelSwipe < 450) return;
   panelEl.classList.toggle('open');
 });
+(function(){
+  var el = document.getElementById('panel-handle'), sy = 0;
+  el.addEventListener('touchstart', function(e){ sy = e.touches[0].clientY; }, {passive:true});
+  el.addEventListener('touchend', function(e){
+    var dy = e.changedTouches[0].clientY - sy;
+    if (dy < -30){ panelEl.classList.add('open'); lastPanelSwipe = Date.now(); }
+    else if (dy > 30){ panelEl.classList.remove('open'); lastPanelSwipe = Date.now(); }
+  });
+})();
+(function(){
+  var head = document.getElementById('sheet-head'), dragging = false, startY = 0, curY = 0;
+  head.addEventListener('touchstart', function(e){
+    dragging = true; startY = e.touches[0].clientY; curY = startY;
+    sheetEl.style.transition = 'none';
+  }, {passive:true});
+  head.addEventListener('touchmove', function(e){
+    if (!dragging) return;
+    curY = e.touches[0].clientY;
+    sheetEl.style.transform = 'translateY(' + Math.max(0, curY - startY) + 'px)';
+  }, {passive:true});
+  head.addEventListener('touchend', function(){
+    if (!dragging) return;
+    dragging = false;
+    sheetEl.style.transition = '';
+    if (curY - startY > 90){
+      sheetEl.style.transform = 'translateY(110%)';
+      setTimeout(function(){ closeSheet(); sheetEl.style.transform = ''; }, 230);
+    } else {
+      sheetEl.style.transform = '';
+    }
+  });
+})();
+document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
 document.getElementById('wipe-toggle').addEventListener('click', function(){
   document.getElementById('wipebar').classList.toggle('closed');
 });
@@ -919,6 +966,7 @@ function render(){
   if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
   } catch(err){ statusEl.textContent = 'Render error: ' + err.message; }
   if (typeof bigmapEl !== 'undefined' && !bigmapEl.classList.contains('hidden')) drawMinimap();
+  autoSave();
 }
 
 function selectTab(i){
@@ -1061,6 +1109,38 @@ document.getElementById('btn-reset').addEventListener('click', function(){
   render();
   toast('View reset');
 });
+var autoSaveTimer = null;
+function autoSave(){
+  if (autoSaveTimer) clearTimeout(autoSaveTimer);
+  autoSaveTimer = setTimeout(function(){
+    try {
+      localStorage.setItem('blotlab.auto', JSON.stringify({ v:1, tab:curTab, img:curImg,
+        imgLabel:imgnameEl.textContent, up:(curImg === -1), cmpX:cmpX, zoom:zoom,
+        panX:panX, panY:panY, rot:rot, tabs:TABS.map(function(t){ return t.state; }) }));
+    } catch(e){}
+  }, 1200);
+}
+function restoreAuto(){
+  try {
+    var raw = localStorage.getItem('blotlab.auto');
+    if (!raw) return false;
+    var st = JSON.parse(raw);
+    if (!st || st.v !== 1) return false;
+    (st.tabs || []).forEach(function(s, i){
+      if (s && TABS[i]) for (var k in s) TABS[i].state[k] = s[k];
+    });
+    curTab = Math.min(Math.max(0, st.tab | 0), TABS.length - 1);
+    pendingRestore = st;
+    if (st.up){
+      var du = null;
+      try { du = localStorage.getItem('blotlab.up'); } catch(e){}
+      if (du){ loadImageURL(du, st.imgLabel || 'Upload'); return true; }
+    }
+    if (st.img >= 0 && st.img < IMAGES.length){ loadImage(st.img); return true; }
+  } catch(e){}
+  pendingRestore = null;
+  return false;
+}
 function restoreFromHash(){
   var m = location.hash.match(/#s=([A-Za-z0-9\-_]+)/);
   if (!m) return false;
@@ -1155,7 +1235,7 @@ canvas.addEventListener('pointercancel', endPtr);
 var stackIdx = 0;
 TABS.forEach(function(t, i){ if (t.id === 'stack') stackIdx = i; });
 TABS[stackIdx].state.rx = 45; TABS[stackIdx].state.ry = 0; TABS[stackIdx].state.rz = 0;
-if (!restoreFromHash()){ selectTab(stackIdx); loadImage(0); }
+if (!restoreFromHash()){ if (!restoreAuto()){ selectTab(stackIdx); loadImage(0); } }
 </script>
 </body>
 </html>
