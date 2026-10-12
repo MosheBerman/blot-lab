@@ -336,9 +336,8 @@ var FS_STACK =
 'varying vec2 v_uv;\n' +
 'uniform sampler2D u_tex; uniform vec3 u_tint;\n' +
 'void main(){\n' +
-'  float m = texture2D(u_tex, v_uv).a;\n' +
-'  if (m < 0.02) discard;\n' +
-'  gl_FragColor = vec4(u_tint, 0.8);\n' +
+'  vec4 tx = texture2D(u_tex, v_uv);\n' +
+'  gl_FragColor = vec4(tx.rgb*u_tint, 0.78*tx.a);\n' +
 '}\n';
 
 function persp(fovy, asp, n, f){
@@ -571,9 +570,10 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded band stack.</b> Each shade band becomes a translucent sheet tilted at 45 degrees. Collapse the spacing to fuse them into the composite, or explode the stack and read the bands in depth. The window controls pick which bands go into the stack.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Rotation on all three axes.' ,
   controls:[
-    {key:'n', label:'Bands', min:2, max:16, step:1, val:12},
+    {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking'], val:0},
+    {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
     {key:'pos', label:'Window end', min:0, max:11, step:1, val:11},
     {key:'width', label:'Window width', min:1, max:12, step:1, val:12},
     {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35},
@@ -583,14 +583,44 @@ var TABS = [
   ],
   state:{},
   render:function(){
-    var s=this.state;
-    var n=Math.max(2,Math.round(s.n)), w=Math.min(Math.round(s.width),n);
-    var hi=Math.min(Math.round(s.pos),n-1), lo=Math.max(0,hi-w+1);
+    var s=this.state, src=s.src;
+    function tabSt(id){ for(var k=0;k<TABS.length;k++) if(TABS[k].id===id) return TABS[k].state; return {}; }
+    var n=Math.max(2,Math.round(s.n));
     var bw=Math.min(512,imgW), bh=Math.max(2,Math.round(imgH*bw/imgW));
-    var i, t;
+    var i, t, lo=0, hi=n-1;
+    // per-source layer parameter
+    function layerU(k){
+      var f = n<=1?0:k/(n-1);
+      if(src===1) return {lt:60+100*f};
+      if(src===2) return {center:180*f};
+      if(src===3) return {kk:1.0+2.0*f};
+      if(src===4) return {ang:180*f};
+      if(src===5) return {view:360*f};
+      return {};
+    }
+    // shared precomputes (once, at layer res)
+    var dirMean=null, embBlur=null, rakeFlat=null, rakeSmall=null;
+    if(src===3){ dirMean=scratch(0,bw,bh); blurInto(imgTex,bw,bh,20,1,0,1,dirMean); }
+    if(src===4){ var e0=scratch(0,bw,bh); blurInto(imgTex,bw,bh,8,1,0,0,e0);
+                 embBlur=scratch(1,bw,bh); blurInto(e0.tex,bw,bh,8,0,1,0,embBlur); }
+    if(src===5){ var g0=scratch(0,bw,bh); blurInto(imgTex,bw,bh,40,1,0,0,g0);
+                 var g1=scratch(1,bw,bh); blurInto(g0.tex,bw,bh,40,0,1,0,g1);
+                 rakeFlat=scratch(2,bw,bh);
+                 draw(program(FS_FLAT),{u_img:{tex:imgTex},u_big:{tex:g1.tex}},rakeFlat);
+                 var g2=scratch(3,bw,bh); blurInto(rakeFlat.tex,bw,bh,3,1,0,0,g2);
+                 rakeSmall=scratch(4,bw,bh); blurInto(g2.tex,bw,bh,3,0,1,0,rakeSmall); }
+    var a2s=tabSt('a2'), chs=tabSt('chroma'), dis=tabSt('dir'), ems=tabSt('emboss'), rks=tabSt('rake');
+    if(src===0){ var w=Math.min(Math.round(s.width),n);
+                 hi=Math.min(Math.round(s.pos),n-1); lo=Math.max(0,hi-w+1); }
     for(i=lo;i<=hi;i++){
       t=scratch(20+i,bw,bh);
-      draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},t);
+      var lu=layerU(i), uu={u_img:{tex:imgTex}};
+      if(src===0) draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},t);
+      else if(src===1) draw(program(FS_A2),{u_img:{tex:imgTex},u_lt:lu.lt,u_st:a2s.st||150,u_inkmode:a2s.inkmode||0,u_view:1},t);
+      else if(src===2) draw(program(FS_CHROMA),{u_img:{tex:imgTex},u_center:lu.center,u_width:chs.width||8,u_view:0},t);
+      else if(src===3) draw(program(FS_DIR),{u_img:{tex:imgTex},u_mean:{tex:dirMean.tex},u_k:lu.kk},t);
+      else if(src===4) draw(program(FS_EMBOSS),{u_img:{tex:imgTex},u_blur:{tex:embBlur.tex},u_texel:[1/bw,1/bh],u_ang:lu.ang},t);
+      else draw(program(FS_RAKE),{u_flat:{tex:rakeFlat.tex},u_small:{tex:rakeSmall.tex},u_view:lu.view,u_light:lightAz,u_gain:rks.gain||5},t);
     }
     var tgt=renderTarget;
     gl.bindFramebuffer(gl.FRAMEBUFFER, tgt?tgt.fb:null);
@@ -613,8 +643,9 @@ var TABS = [
       t=scratch(20+i,bw,bh);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,t.tex);
       gl.uniform1i(prog.uTex,0);
-      var f=(i-lo)/span;
-      gl.uniform3f(prog.uTint, 0.25+0.75*f, 0.55-0.35*f, 1.0-0.8*f);
+      if(src===0){ var f=(i-lo)/span;
+        gl.uniform3f(prog.uTint, 0.25+0.75*f, 0.55-0.35*f, 1.0-0.8*f);
+      } else gl.uniform3f(prog.uTint, 1,1,1);
       gl.uniform1f(prog.uDz,(i-lo)*s.gap*0.006);
       gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
     }
