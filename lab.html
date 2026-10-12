@@ -664,13 +664,15 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
     {key:'pos', label:'Window end', min:0, max:11, step:1, val:11},
     {key:'width', label:'Window width', min:1, max:12, step:1, val:12},
-    {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35}
+    {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35},
+    {key:'sweep0', label:'Sweep from', min:0, max:160, step:1, val:60},
+    {key:'sweep1', label:'Sweep to', min:0, max:160, step:1, val:160}
   ],
   state:{},
   render:function(){
@@ -682,11 +684,12 @@ var TABS = [
     // per-source layer parameter
     function layerU(k){
       var f = n<=1?0:k/(n-1);
-      if(src===1) return {lt:60+100*f};
-      if(src===2) return {center:180*f};
-      if(src===3) return {kk:1.0+2.0*f};
-      if(src===4) return {ang:180*f};
-      if(src===5) return {view:360*f};
+      var w0 = +s.sweep0, w1 = +s.sweep1;
+      if(src===1) return {lt:w0+(w1-w0)*f};
+      if(src===2) return {center:w0+(w1-w0)*f};
+      if(src===3) return {kk:w0+(w1-w0)*f};
+      if(src===4) return {ang:w0+(w1-w0)*f};
+      if(src===5) return {view:w0+(w1-w0)*f};
       return {};
     }
     // shared precomputes (once, at layer res)
@@ -876,6 +879,7 @@ bigmapEl.addEventListener('click', function(){
 function buildControls(){
   var t = TABS[curTab];
   controlsEl.innerHTML = '';
+  t._rows = {};
   t._inputs = {};
   t.controls.forEach(function(c){
     var row = document.createElement('div'); row.className = 'row';
@@ -915,26 +919,37 @@ function buildControls(){
             t._inputs.idx.val.textContent = t.state.idx;
           }
         }
+        if (c.key === 'n' && t._inputs.pos){
+          t._inputs.pos.inp.max = Math.max(0, t.state.n - 1);
+          t._inputs.width.inp.max = t.state.n;
+          if (t.state.pos > t.state.n - 1){
+            t.state.pos = Math.max(0, t.state.n - 1);
+            t._inputs.pos.inp.value = t.state.pos;
+            t._inputs.pos.val.textContent = t.state.pos;
+          }
+        }
         render();
       });
       t._inputs[c.key] = {inp:inp, val:val};
       row.appendChild(inp); row.appendChild(val);
-      val.title = 'Tap to set max';
+      val.title = 'Tap to type a value';
       val.addEventListener('click', function(){
-        var v = prompt('Maximum for ' + c.label, inp.max);
+        var v = prompt('Set ' + c.label, t.state[c.key]);
         if (v === null) return;
         var m = parseFloat(v);
-        if (isFinite(m) && m > parseFloat(inp.min)){
-          inp.max = m;
-          if (parseFloat(inp.value) > m){ inp.value = m; t.state[c.key] = m; val.textContent = m; }
-          render();
-        }
+        if (!isFinite(m)) return;
+        if (m > parseFloat(inp.max)) inp.max = m;
+        if (m < parseFloat(inp.min)) inp.min = m;
+        inp.value = m;
+        inp.dispatchEvent(new Event('input'));
       });
     }
     if (t.id === 'bands' && c.key === 'width') row.id = 'widthrow';
+    t._rows[c.key] = row;
     controlsEl.appendChild(row);
   });
   if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
+  if (t._inputs.pos){ t._inputs.pos.inp.max = Math.max(0, t.state.n - 1); t._inputs.width.inp.max = t.state.n; }
   var rrow = document.createElement('div'); rrow.className = 'row';
   var rb = document.createElement('button'); rb.textContent = 'Reset sliders';
   rb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
@@ -950,10 +965,36 @@ function syncWidthRow(){
   if (wr) wr.style.display = (t.id === 'bands' && t.state.mode === 1) ? 'flex' : 'none';
 }
 
+var SWEEPS = [null,
+  {lo:60, hi:160, min:0, max:255, step:1},
+  {lo:0, hi:180, min:0, max:180, step:1},
+  {lo:1, hi:3, min:0.2, max:6, step:0.1},
+  {lo:0, hi:180, min:0, max:180, step:1},
+  {lo:0, hi:360, min:0, max:360, step:1}];
+function syncStackUI(){
+  var t = TABS[stackIdx], s = t.state;
+  if (!t._rows || !t._inputs) return;
+  var isBands = s.src === 0;
+  ['pos','width'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = isBands ? '' : 'none'; });
+  ['sweep0','sweep1'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = isBands ? 'none' : ''; });
+  if (s.src !== t._lastSrc){
+    t._lastSrc = s.src;
+    var sw = SWEEPS[s.src];
+    if (sw){
+      [['sweep0', sw.lo], ['sweep1', sw.hi]].forEach(function(pair){
+        var r = t._inputs[pair[0]];
+        s[pair[0]] = pair[1];
+        if (r){ r.inp.min = sw.min; r.inp.max = sw.max; r.inp.step = sw.step;
+                r.inp.value = pair[1]; r.val.textContent = pair[1]; }
+      });
+    }
+  }
+}
 function render(){
   if (!imgTex || !gl) return;
   try {
   syncWidthRow();
+  if (typeof stackIdx !== 'undefined' && curTab === stackIdx) syncStackUI();
   var tgt = scratch(10, imgW, imgH);
   renderTarget = tgt;
   var t = TABS[curTab];
