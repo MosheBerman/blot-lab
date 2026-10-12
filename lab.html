@@ -5,57 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Blot Lab — WebGL Lab</title>
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:-apple-system,system-ui,sans-serif; background:#111; color:#eee;
-         padding:12px; max-width:960px; margin-left:auto; margin-right:auto; }
-  h1 { font-size:1.15rem; margin:0 0 4px; }
-  p.sub { font-size:0.82rem; color:#999; margin:0 0 12px; }
-  p.sub a { color:#4da3ff; }
-  .bar { display:flex; gap:6px; margin-bottom:10px; overflow-x:auto; padding-bottom:2px; }
-  .bar button { flex:1 0 auto; padding:10px 8px; font-size:0.8rem; border-radius:8px;
-                border:1px solid #444; background:#222; color:#ddd; white-space:nowrap; }
-  .bar button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
-  #stage { position:relative; background:#000; border-radius:10px; overflow:hidden; }
-  canvas { width:100%; display:block; touch-action:none; }
-  #desc { font-size:0.84rem; color:#ccc; background:#1b1b1b;
-          border:1px solid #333; border-radius:10px; padding:10px 12px; margin:10px 0;
-          cursor:pointer; }
-  #desc .one { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  #desc .one::after { content:' ▾'; color:#4da3ff; }
-  #desc .full { display:none; line-height:1.55; margin-top:8px; }
-  #desc.open .one::after { content:' ▴'; }
-  #desc.open .full { display:block; }
-  #desc b { color:#fff; }
-  #desc .approx { color:#c9a227; font-size:0.78rem; display:block; margin-top:6px; }
-  #controls { display:grid; gap:10px; background:#1b1b1b; border:1px solid #333;
-              border-radius:10px; padding:12px; margin-bottom:10px; }
-  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-  .row label { font-size:0.82rem; color:#bbb; min-width:110px; }
-  input[type=range] { flex:1; min-width:150px; height:44px; accent-color:#4da3ff; }
-  .val { font-size:0.85rem; color:#4da3ff; min-width:52px; text-align:right; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { height:100%; }
+  body { margin:0; font-family:-apple-system,system-ui,sans-serif; background:#000; color:#eee;
+         overflow:hidden; overscroll-behavior:none; position:fixed; inset:0; width:100%; height:100dvh;
+         user-select:none; -webkit-user-select:none; }
+  #stage { position:fixed; inset:0; background:#000; }
+  #stage canvas { width:100%; height:100%; object-fit:contain; display:block; touch-action:none; }
+  #topbar { position:fixed; top:0; left:0; right:0; z-index:20; display:flex; gap:8px;
+            align-items:center; justify-content:space-between;
+            padding:calc(10px + env(safe-area-inset-top)) 10px 8px; pointer-events:none; }
+  #topbar button { pointer-events:auto; font-size:0.82rem; border-radius:20px;
+            border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
+            padding:9px 14px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            max-width:44vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #btn-info { max-width:none; }
+  #sheet { position:fixed; left:0; right:0; bottom:0; z-index:30;
+           background:rgba(22,22,22,0.97); border-top:1px solid #333; border-radius:16px 16px 0 0;
+           max-height:64dvh; display:flex; flex-direction:column;
+           padding-bottom:env(safe-area-inset-bottom); transition:transform 0.22s ease; }
+  #sheet.hidden { transform:translateY(105%); }
+  #sheet-head { display:flex; align-items:center; justify-content:space-between;
+                padding:12px 16px 2px; font-size:0.92rem; font-weight:600; }
+  #sheet-head button { background:none; border:none; color:#999; font-size:1.1rem; padding:8px; }
+  #sheet-body { overflow-y:auto; padding:8px 12px 14px; display:grid; gap:8px;
+                grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
+  #sheet-body button { padding:13px 8px; font-size:0.82rem; border-radius:10px;
+                border:1px solid #444; background:#242424; color:#ddd; }
+  #sheet-body button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
+  #sheet-nav { padding:0 16px 14px; font-size:0.8rem; color:#999; }
+  #sheet-nav a { color:#4da3ff; text-decoration:none; margin-right:14px; }
+  #infocard { position:fixed; z-index:30; left:12px; right:12px;
+              top:calc(64px + env(safe-area-inset-top));
+              background:rgba(22,22,22,0.97); border:1px solid #333; border-radius:12px;
+              padding:14px 16px; font-size:0.86rem; line-height:1.55; color:#ccc;
+              max-height:52dvh; overflow-y:auto; }
+  #infocard.hidden { display:none; }
+  #infocard b { color:#fff; }
+  #panel { position:fixed; left:0; right:0; bottom:0; z-index:20;
+           background:rgba(16,16,16,0.9); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+           border-top:1px solid #2c2c2c; border-radius:14px 14px 0 0;
+           padding-bottom:env(safe-area-inset-bottom); }
+  #panel-handle { display:flex; justify-content:space-between; align-items:center;
+                  padding:14px 16px; font-size:0.88rem; font-weight:600; cursor:pointer; }
+  #panel-chev { color:#4da3ff; font-size:0.7rem; transition:transform 0.18s ease; }
+  #panel.open #panel-chev { transform:rotate(180deg); }
+  #panel-body { display:none; max-height:54dvh; overflow-y:auto; padding:0 14px 14px; }
+  #panel.open #panel-body { display:block; }
+  .row { display:flex; gap:8px; align-items:center; padding:2px 0; }
+  .row label { font-size:0.82rem; color:#bbb; min-width:96px; }
+  input[type=range] { flex:1; min-width:120px; height:44px; accent-color:#4da3ff; }
+  .val { font-size:0.85rem; color:#4da3ff; min-width:52px; text-align:right; cursor:pointer; }
   .seg { display:flex; gap:6px; flex:1; }
-  .seg button { flex:1; padding:10px 4px; font-size:0.8rem; border-radius:8px;
-                border:1px solid #444; background:#222; color:#ddd; }
+  .seg button { flex:1; padding:11px 4px; font-size:0.8rem; border-radius:8px;
+                border:1px solid #444; background:#242424; color:#ddd; }
   .seg button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
-  #wipewrap { position:absolute; left:10px; right:10px; bottom:10px; pointer-events:none; }
-  #wipewrap input { pointer-events:auto; width:100%; height:36px; accent-color:#4da3ff; opacity:0.85; }
-  #wipehint { font-size:0.78rem; color:#4da3ff; padding:2px 0 8px; }
-  .val { cursor:pointer; }
-  #status { font-size:0.82rem; color:#999; padding:6px 0; }
+  #status { font-size:0.74rem; color:#777; padding:10px 2px 0; }
 </style>
 </head>
 <body>
-<h1>WebGL lab</h1>
-<p class="sub">The repo's algorithms, live in your browser. <a href="index.html">Lab home</a> &middot;
-<a href="experiments.html">Experiments</a> &middot; <a href="scrubber.html">Scrubber</a></p>
-
-<div class="bar" id="imgbar"></div>
-<div class="bar" id="tabbar"></div>
-<div id="stage"><canvas id="gl"></canvas><div id="wipewrap"><input type="range" id="wipeslider" min="0" max="100" value="100" step="1"></div></div>
-<div id="wipehint">Slide or drag across the image: left = original, right = processed &middot; double-tap to reset zoom</div>
-<div id="status">Loading…</div>
-<div id="desc"></div>
-<div id="controls"></div>
+<div id="stage"><canvas id="gl"></canvas></div>
+<div id="topbar">
+  <button id="btn-img">&#128444; <span id="imgname"></span></button>
+  <button id="btn-tab"><span id="tabname"></span> &#9662;</button>
+  <button id="btn-info">&#9432;</button>
+</div>
+<div id="sheet" class="hidden">
+  <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
+  <div id="sheet-body"></div>
+  <div id="sheet-nav"><a href="index.html">Lab home</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a></div>
+</div>
+<div id="infocard" class="hidden"></div>
+<div id="panel">
+  <div id="panel-handle"><span id="panel-title"></span><span id="panel-chev">&#9650;</span></div>
+  <div id="panel-body">
+    <div class="row"><label>Wipe</label><input type="range" id="wipeslider" min="0" max="100" value="100" step="1"></div>
+    <div id="controls"></div>
+    <div id="status">Loading…</div>
+  </div>
+</div>
 
 <script>
 "use strict";
@@ -278,9 +306,12 @@ var FS_PASS =
 
 var FS_VIEW =
 'uniform sampler2D u_proc; uniform sampler2D u_orig;\n' +
-'uniform float u_mode; uniform float u_div; uniform float u_zoom; uniform vec2 u_pan;\n' +
+'uniform float u_mode; uniform float u_div; uniform float u_zoom; uniform vec2 u_pan; uniform float u_rot;\n' +
 'void main(){\n' +
-'  vec2 uv = (v_uv - vec2(0.5)) / u_zoom + vec2(0.5) + u_pan;\n' +
+'  vec2 c0 = v_uv - vec2(0.5);\n' +
+'  float ca = cos(u_rot), sa = sin(u_rot);\n' +
+'  c0 = mat2(ca,-sa,sa,ca)*c0;\n' +
+'  vec2 uv = c0 / u_zoom + vec2(0.5) + u_pan;\n' +
 '  if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0){ gl_FragColor = vec4(0.04,0.04,0.04,1.0); return; }\n' +
 '  vec3 pc = texture2D(u_proc, uv).rgb;\n' +
 '  vec3 oc = texture2D(u_orig, uv).rgb;\n' +
@@ -372,7 +403,7 @@ var IMAGES = [
   {label:'Scan 17 block', src:'img/passes/postcards/scan17/block-closeup.png'},
   {label:'Scan 51 dabs', src:'img/passes/postcards/scan51/source-crop-blob.png'}
 ];
-var curImg = 0, curTab = 0, cmpX = 1, zoom = 1, panX = 0, panY = 0, renderTarget = null;
+var curImg = 0, curTab = 0, cmpX = 1, zoom = 1, panX = 0, panY = 0, rot = 0, renderTarget = null;
 var imgTex = null, imgW = 0, imgH = 0, imgObj = null;
 var bandLo = 0, bandHi = 100, lightAz = 0;
 var targets = []; // scratch FBOs
@@ -651,43 +682,55 @@ var TABS = [
 ];
 
 /* ============ UI wiring ============ */
-var imgbar = document.getElementById('imgbar');
-var tabbar = document.getElementById('tabbar');
-var descEl = document.getElementById('desc');
+var imgnameEl = document.getElementById('imgname');
+var tabnameEl = document.getElementById('tabname');
+var panelEl = document.getElementById('panel');
+var panelTitleEl = document.getElementById('panel-title');
+var sheetEl = document.getElementById('sheet');
+var sheetTitleEl = document.getElementById('sheet-title');
+var sheetBodyEl = document.getElementById('sheet-body');
+var infoEl = document.getElementById('infocard');
 var controlsEl = document.getElementById('controls');
 var wipeSlider = document.getElementById('wipeslider');
 function syncWipe(){ wipeSlider.value = Math.round(cmpX*100); }
 
-IMAGES.forEach(function(im, i){
-  var b = document.createElement('button');
-  b.textContent = im.label;
-  b.addEventListener('click', function(){ loadImage(i); });
-  imgbar.appendChild(b);
-});
-TABS.forEach(function(t, i){
-  var b = document.createElement('button');
-  b.textContent = t.name;
-  b.addEventListener('click', function(){ selectTab(i); });
-  tabbar.appendChild(b);
+TABS.forEach(function(t){
   t.state = {};
   t.controls.forEach(function(c){ t.state[c.key] = c.val; c.def = c.val; });
 });
 
-function syncBars(){
-  Array.prototype.forEach.call(imgbar.children, function(b, i){
-    b.classList.toggle('on', i === curImg);
+function openSheet(title, labels, cur, onpick){
+  sheetTitleEl.textContent = title;
+  sheetBodyEl.innerHTML = '';
+  labels.forEach(function(label, i){
+    var b = document.createElement('button');
+    b.textContent = label;
+    if (i === cur) b.classList.add('on');
+    b.addEventListener('click', function(){ closeSheet(); onpick(i); });
+    sheetBodyEl.appendChild(b);
   });
-  Array.prototype.forEach.call(tabbar.children, function(b, i){
-    b.classList.toggle('on', i === curTab);
-  });
+  sheetEl.classList.remove('hidden');
+  infoEl.classList.add('hidden');
 }
+function closeSheet(){ sheetEl.classList.add('hidden'); }
+document.getElementById('sheet-x').addEventListener('click', closeSheet);
+document.getElementById('btn-img').addEventListener('click', function(){
+  openSheet('Image', IMAGES.map(function(im){ return im.label; }).concat(['+ Upload']),
+    curImg, function(i){ if (i < IMAGES.length) loadImage(i); else fileInput.click(); });
+});
+document.getElementById('btn-tab').addEventListener('click', function(){
+  openSheet('Algorithm', TABS.map(function(t){ return t.name; }), curTab, selectTab);
+});
+document.getElementById('btn-info').addEventListener('click', function(){
+  infoEl.classList.toggle('hidden');
+  closeSheet();
+});
+document.getElementById('panel-handle').addEventListener('click', function(){
+  panelEl.classList.toggle('open');
+});
 
 function buildControls(){
   var t = TABS[curTab];
-  var title = t.desc.replace(/<[^>]+>/g, '').split('.')[0] + '.';
-  descEl.innerHTML = '<span class="one">' + title + '</span><span class="full">' + t.desc + '</span>';
-  descEl.classList.remove('open');
-  descEl.onclick = function(){ descEl.classList.toggle('open'); };
   controlsEl.innerHTML = '';
   t._inputs = {};
   t.controls.forEach(function(c){
@@ -766,7 +809,7 @@ function syncWidthRow(){
 function render(){
   if (!imgTex || !gl) return;
   try {
-  syncBars(); syncWidthRow();
+  syncWidthRow();
   var tgt = scratch(10, imgW, imgH);
   renderTarget = tgt;
   var t = TABS[curTab];
@@ -774,7 +817,7 @@ function render(){
   renderTarget = null;
   var vm = cmpX <= 0.001 ? 1 : (cmpX >= 0.999 ? 0 : 2);
   draw(program(FS_VIEW), {u_proc:{tex:tgt.tex}, u_orig:{tex:imgTex},
-    u_mode:vm, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY]}, null);
+    u_mode:vm, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY], u_rot:rot}, null);
   var ge = gl.getError();
   if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
   } catch(err){ statusEl.textContent = 'Render error: ' + err.message; }
@@ -782,6 +825,10 @@ function render(){
 
 function selectTab(i){
   curTab = i;
+  var t = TABS[i];
+  tabnameEl.textContent = t.name;
+  panelTitleEl.textContent = t.name;
+  infoEl.innerHTML = t.desc;
   buildControls();
   render();
 }
@@ -792,7 +839,8 @@ function loadImage(i){
 }
 var lastObjURL = null;
 function loadImageURL(src, label){
-  cmpX = 1; zoom = 1; panX = 0; panY = 0; syncWipe();
+  cmpX = 1; zoom = 1; panX = 0; panY = 0; rot = 0; syncWipe();
+  imgnameEl.textContent = label;
   statusEl.textContent = 'Loading ' + label + '…';
   var img = new Image();
   img.onload = function(){
@@ -820,11 +868,7 @@ function loadImageURL(src, label){
 var fileInput = document.createElement('input');
 fileInput.type = 'file'; fileInput.accept = 'image/*'; fileInput.style.display = 'none';
 document.body.appendChild(fileInput);
-(function(){
-  var ub = document.createElement('button'); ub.textContent = '+ Upload';
-  ub.addEventListener('click', function(){ fileInput.click(); });
-  document.getElementById('imgbar').appendChild(ub);
-})();
+
 fileInput.addEventListener('change', function(){
   if (!fileInput.files || !fileInput.files[0]) return;
   if (lastObjURL) URL.revokeObjectURL(lastObjURL);
@@ -841,7 +885,7 @@ wipeSlider.addEventListener('input', function(){
 
 /* pan / zoom / wipe gestures */
 var ptrs = {}, dragMode = null, dStart = [0,0], pStart = [0,0];
-var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0;
+var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0, ang0 = 0, rot0 = 0;
 canvas.addEventListener('pointerdown', function(e){
   try { canvas.setPointerCapture(e.pointerId); } catch(_){}
   ptrs[e.pointerId] = [e.clientX, e.clientY];
@@ -849,7 +893,7 @@ canvas.addEventListener('pointerdown', function(e){
   if (ks.length === 1){
     var now = Date.now();
     if (now - lastTap < 320){
-      zoom = 1; panX = 0; panY = 0; render();
+      zoom = 1; panX = 0; panY = 0; rot = 0; render();
       delete ptrs[e.pointerId]; lastTap = 0; dragMode = null; return;
     }
     lastTap = now;
@@ -859,27 +903,36 @@ canvas.addEventListener('pointerdown', function(e){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     pinchD0 = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1; zoom0 = zoom;
     mid0 = [(a[0]+b[0])/2, (a[1]+b[1])/2]; pStart = [panX, panY];
+    ang0 = Math.atan2(b[1]-a[1], b[0]-a[0]); rot0 = rot;
     dragMode = 'pinch';
   }
 });
+function contentRect(){
+  var r = canvas.getBoundingClientRect();
+  if (!imgW || !imgH) return [r.left, r.top, r.width, r.height];
+  var s = Math.min(r.width/imgW, r.height/imgH);
+  var w = imgW*s, hh = imgH*s;
+  return [r.left + (r.width-w)/2, r.top + (r.height-hh)/2, w, hh];
+}
 canvas.addEventListener('pointermove', function(e){
   if (!ptrs[e.pointerId]) return;
   ptrs[e.pointerId] = [e.clientX, e.clientY];
-  var ks = Object.keys(ptrs), r = canvas.getBoundingClientRect();
+  var ks = Object.keys(ptrs), cr = contentRect();
   if (dragMode === 'wipe' && ks.length === 1){
-    cmpX = Math.min(1, Math.max(0, (e.clientX - r.left)/r.width));
+    cmpX = Math.min(1, Math.max(0, (e.clientX - cr[0])/cr[2]));
     syncWipe(); render();
   } else if (dragMode === 'pan' && ks.length === 1){
-    panX = pStart[0] - (e.clientX - dStart[0])/r.width/zoom;
-    panY = pStart[1] + (e.clientY - dStart[1])/r.height/zoom;
+    panX = pStart[0] - (e.clientX - dStart[0])/cr[2]/zoom;
+    panY = pStart[1] + (e.clientY - dStart[1])/cr[3]/zoom;
     render();
   } else if (dragMode === 'pinch' && ks.length === 2){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     var d = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1;
     zoom = Math.min(8, Math.max(1, zoom0*d/pinchD0));
+    rot = rot0 + (Math.atan2(b[1]-a[1], b[0]-a[0]) - ang0);
     var mid = [(a[0]+b[0])/2, (a[1]+b[1])/2];
-    panX = pStart[0] - (mid[0]-mid0[0])/r.width/zoom;
-    panY = pStart[1] + (mid[1]-mid0[1])/r.height/zoom;
+    panX = pStart[0] - (mid[0]-mid0[0])/cr[2]/zoom;
+    panY = pStart[1] + (mid[1]-mid0[1])/cr[3]/zoom;
     if (zoom === 1){ panX = 0; panY = 0; }
     render();
   }
