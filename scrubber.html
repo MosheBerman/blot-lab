@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blot Lab — Shade Scrubber</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: #111; color: #eee;
+         padding: 12px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  h1 { font-size: 1.15rem; margin: 0 0 4px; }
+  p.sub { font-size: 0.82rem; color: #999; margin: 0 0 12px; }
+  .controls { display: grid; gap: 10px; background: #1b1b1b; border: 1px solid #333;
+              border-radius: 10px; padding: 12px; margin-bottom: 12px; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .row label { font-size: 0.82rem; color: #bbb; min-width: 86px; }
+  input[type=range] { flex: 1; min-width: 160px; height: 44px; accent-color: #4da3ff; }
+  .seg { display: flex; gap: 6px; }
+  .seg button { flex: 1; padding: 10px 6px; font-size: 0.85rem; border-radius: 8px;
+                border: 1px solid #444; background: #222; color: #ddd; }
+  .seg button.on { background: #1c4d8f; border-color: #4da3ff; color: #fff; }
+  .val { font-size: 0.85rem; color: #4da3ff; min-width: 40px; text-align: right; }
+  canvas { width: 100%; border-radius: 10px; background: #000; display: block; touch-action: none; }
+  .ref { margin-top: 12px; font-size: 0.8rem; color: #999; }
+  .ref img { width: 100%; max-width: 340px; border-radius: 8px; display: block; margin-top: 6px; }
+  .hint { font-size: 0.78rem; color: #777; margin-top: 10px; line-height: 1.5; }
+  #status { font-size: 0.82rem; color: #999; padding: 8px 0; }
+</style>
+</head>
+<body>
+<h1>Shade-band scrubber</h1>
+<p class="sub">Letter-39 blot &middot; drag the slider to sweep through shade bands</p>
+
+<div class="controls">
+  <div class="row">
+    <label>Bands</label>
+    <div class="seg" id="bandset" style="flex:1">
+      <button data-n="6">6</button>
+      <button data-n="12" class="on">12</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Mode</label>
+    <div class="seg" id="mode" style="flex:1">
+      <button data-m="acc" class="on">Accumulate</button>
+      <button data-m="win">Window</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Position</label>
+    <input type="range" id="pos" min="0" max="11" value="11" step="1">
+    <span class="val" id="posval">11</span>
+  </div>
+  <div class="row" id="widthrow" style="display:none">
+    <label>Width</label>
+    <input type="range" id="width" min="1" max="12" value="3" step="1">
+    <span class="val" id="widthval">3</span>
+  </div>
+  <div class="row">
+    <label>Colorize</label>
+    <div class="seg" id="color" style="flex:1">
+      <button data-c="0" class="on">White</button>
+      <button data-c="1">Depth</button>
+    </div>
+  </div>
+</div>
+
+<div id="status">Loading band masks…</div>
+<canvas id="cv"></canvas>
+
+<div class="ref">Source blot (for reference)
+  <img src="img/blot39.jpg" alt="letter-39 blot source">
+</div>
+<p class="hint">
+  Accumulate: slider at k shows bands 0&ndash;k stacked, like the composite. Window: only the trailing w
+  bands stay visible, so you can isolate a narrow shade slice and drag it across the range. Depth colors
+  each band by its shade level, matching the depthmap.
+</p>
+
+<script>
+(function(){
+  var cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+  var status = document.getElementById('status');
+  var state = { n: 12, mode: 'acc', pos: 11, width: 3, color: 0 };
+  var imgs = { 6: [], 12: [] };
+  var tinted = { 6: [], 12: [] };  // colorized copies
+
+  function bandHue(i, n){ return Math.round(210 - 210 * i / Math.max(1, n - 1)); } // blue -> red
+
+  function tint(img, hue){
+    var c = document.createElement('canvas');
+    c.width = img.naturalWidth; c.height = img.naturalHeight;
+    var g = c.getContext('2d');
+    g.drawImage(img, 0, 0);
+    g.globalCompositeOperation = 'source-in';
+    g.fillStyle = 'hsl(' + hue + ', 90%, 60%)';
+    g.fillRect(0, 0, c.width, c.height);
+    return c;
+  }
+
+  function loadSet(n, done){
+    var list = [], count = 0;
+    for (var i = 0; i < n; i++){
+      (function(i){
+        var img = new Image();
+        img.onload = function(){
+          list[i] = img;
+          tinted[n][i] = tint(img, bandHue(i, n));
+          if (++count === n) done();
+        };
+        img.onerror = function(){ list[i] = null; if (++count === n) done(); };
+        img.src = 'img/passes/blot39/A_bands' + n + '_band_' +
+                  (i < 10 ? '0' + i : i) + '.png';
+      })(i);
+    }
+    imgs[n] = list;
+  }
+
+  function render(){
+    var n = state.n, set = (state.color ? tinted[n] : imgs[n]);
+    var first = set[0];
+    if (!first) return;
+    if (cv.width !== first.naturalWidth){ cv.width = first.naturalWidth; cv.height = first.naturalHeight; }
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.globalCompositeOperation = 'lighter';
+    var lo, hi = Math.min(state.pos, n - 1);
+    lo = (state.mode === 'acc') ? 0 : Math.max(0, hi - state.width + 1);
+    for (var i = lo; i <= hi; i++){
+      var im = set[i];
+      if (im) ctx.drawImage(im, 0, 0);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  function segWire(id, attr, fn){
+    var el = document.getElementById(id);
+    el.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if (!b) return;
+      el.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      fn(b.getAttribute(attr));
+    });
+  }
+
+  segWire('bandset', 'data-n', function(v){
+    state.n = +v; state.pos = state.n - 1;
+    var p = document.getElementById('pos');
+    p.max = state.n - 1; p.value = state.pos;
+    document.getElementById('posval').textContent = state.pos;
+    document.getElementById('width').max = state.n;
+    render();
+  });
+  segWire('mode', 'data-m', function(v){
+    state.mode = v;
+    document.getElementById('widthrow').style.display = (v === 'win') ? 'flex' : 'none';
+    render();
+  });
+  segWire('color', 'data-c', function(v){ state.color = +v; render(); });
+
+  document.getElementById('pos').addEventListener('input', function(e){
+    state.pos = +e.target.value;
+    document.getElementById('posval').textContent = state.pos;
+    render();
+  });
+  document.getElementById('width').addEventListener('input', function(e){
+    state.width = +e.target.value;
+    document.getElementById('widthval').textContent = state.width;
+    render();
+  });
+
+  // swipe on canvas also scrubs position
+  var scrubbing = false;
+  function scrubTo(e){
+    var r = cv.getBoundingClientRect();
+    var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    var frac = Math.min(1, Math.max(0, x / r.width));
+    state.pos = Math.round(frac * (state.n - 1));
+    var p = document.getElementById('pos');
+    p.value = state.pos;
+    document.getElementById('posval').textContent = state.pos;
+    render();
+  }
+  cv.addEventListener('pointerdown', function(e){ scrubbing = true; scrubTo(e); });
+  window.addEventListener('pointermove', function(e){ if (scrubbing) scrubTo(e); });
+  window.addEventListener('pointerup', function(){ scrubbing = false; });
+
+  var pending = 2;
+  function ready(){
+    if (--pending === 0){
+      status.textContent = 'Ready — ' + imgs[12].filter(Boolean).length +
+                           ' + ' + imgs[6].filter(Boolean).length + ' band masks loaded.';
+      render();
+    }
+  }
+  loadSet(6, ready); loadSet(12, ready);
+})();
+</script>
+</body>
+</html>
