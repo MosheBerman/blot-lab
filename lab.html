@@ -1085,7 +1085,7 @@ function restoreFromHash(){
 
 /* pan / zoom / wipe gestures */
 var ptrs = {}, dragMode = null, dStart = [0,0], pStart = [0,0];
-var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0, ang0 = 0, rot0 = 0, rz0 = 0;
+var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0, angPrev = 0;
 canvas.addEventListener('pointerdown', function(e){
   try { canvas.setPointerCapture(e.pointerId); } catch(_){}
   ptrs[e.pointerId] = [e.clientX, e.clientY];
@@ -1105,8 +1105,7 @@ canvas.addEventListener('pointerdown', function(e){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     pinchD0 = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1; zoom0 = zoom;
     mid0 = [(a[0]+b[0])/2, (a[1]+b[1])/2]; pStart = [panX, panY];
-    ang0 = Math.atan2(b[1]-a[1], b[0]-a[0]); rot0 = rot;
-    if (TABS[curTab].id === 'stack') rz0 = TABS[curTab].state.rz;
+    angPrev = Math.atan2(b[1]-a[1], b[0]-a[0]);
     dragMode = 'pinch';
   }
 });
@@ -1135,9 +1134,12 @@ canvas.addEventListener('pointermove', function(e){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     var d = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1;
     zoom = Math.min(8, Math.max(1, zoom0*d/pinchD0));
-    var dAng = Math.atan2(b[1]-a[1], b[0]-a[0]) - ang0;
-    if (TABS[curTab].id === 'stack') TABS[curTab].state.rz = rz0 - dAng*180/Math.PI;
-    else rot = rot0 - dAng;
+    var ang = Math.atan2(b[1]-a[1], b[0]-a[0]);
+    var dA = ang - angPrev;
+    if (dA > Math.PI) dA -= 2*Math.PI; else if (dA < -Math.PI) dA += 2*Math.PI;
+    angPrev = ang;
+    if (TABS[curTab].id === 'stack') TABS[curTab].state.rz -= dA*180/Math.PI;
+    else rot -= dA;
     var mid = [(a[0]+b[0])/2, (a[1]+b[1])/2];
     panX = pStart[0] - (mid[0]-mid0[0])/cr[2]/zoom;
     panY = pStart[1] + (mid[1]-mid0[1])/cr[3]/zoom;
