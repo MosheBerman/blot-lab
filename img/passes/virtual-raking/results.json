@@ -1,0 +1,87 @@
+{
+ "blot39": {
+  "target": "blot39",
+  "light_azimuth_deg": -59.75330092581162,
+  "paper_fraction": 0.7040712781168801,
+  "relief_rms": 6.855735470824047,
+  "renders": [
+   "rake_rel000.png",
+   "rake_rel045.png",
+   "rake_rel090.png",
+   "rake_rel135.png",
+   "rake_rel180.png",
+   "rake_rel225.png",
+   "rake_rel270.png",
+   "rake_rel315.png"
+  ],
+  "note": "renders are relative to estimated light azimuth; rel090/rel270 are the honest null (no cross-light signal in a single photo)"
+ },
+ "scan17": {
+  "target": "scan17",
+  "light_azimuth_deg": -122.72486830760091,
+  "paper_fraction": 0.5209544159544159,
+  "relief_rms": 8.662270647687885,
+  "renders": [
+   "rake_rel000.png",
+   "rake_rel045.png",
+   "rake_rel090.png",
+   "rake_rel135.png",
+   "rake_rel180.png",
+   "rake_rel225.png",
+   "rake_rel270.png",
+   "rake_rel315.png"
+  ],
+  "note": "renders are relative to estimated light azimuth; rel090/rel270 are the honest null (no cross-light signal in a single photo)"
+ },
+ "scan51b": {
+  "target": "scan51b",
+  "light_azimuth_deg": 49.981518401690884,
+  "paper_fraction": 0.790161943319838,
+  "relief_rms": 5.345320479263843,
+  "renders": [
+   "rake_rel000.png",
+   "rake_rel045.png",
+   "rake_rel090.png",
+   "rake_rel135.png",
+   "rake_rel180.png",
+   "rake_rel225.png",
+   "rake_rel270.png",
+   "rake_rel315.png"
+  ],
+  "note": "renders are relative to estimated light azimuth; rel090/rel270 are the honest null (no cross-light signal in a single photo)"
+ },
+ "scan51l": {
+  "target": "scan51l",
+  "light_azimuth_deg": 97.23554329201882,
+  "paper_fraction": 0.6364583333333333,
+  "relief_rms": 6.97720544233962,
+  "renders": [
+   "rake_rel000.png",
+   "rake_rel045.png",
+   "rake_rel090.png",
+   "rake_rel135.png",
+   "rake_rel180.png",
+   "rake_rel225.png",
+   "rake_rel270.png",
+   "rake_rel315.png"
+  ],
+  "note": "renders are relative to estimated light azimuth; rel090/rel270 are the honest null (no cross-light signal in a single photo)"
+ },
+ "berliner": {
+  "target": "berliner",
+  "light_azimuth_deg": 50.283529458095856,
+  "paper_fraction": 0.5974242424242424,
+  "relief_rms": 9.389757483475838,
+  "renders": [
+   "rake_rel000.png",
+   "rake_rel045.png",
+   "rake_rel090.png",
+   "rake_rel135.png",
+   "rake_rel180.png",
+   "rake_rel225.png",
+   "rake_rel270.png",
+   "rake_rel315.png"
+  ],
+  "note": "renders are relative to estimated light azimuth; rel090/rel270 are the honest null (no cross-light signal in a single photo)"
+ }
+}
