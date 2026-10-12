@@ -449,8 +449,9 @@ function analyzeImage(img){
       lightAz = Math.atan2(b,a)*180/Math.PI; // x-right, y-down, 0=east
     }
   }
-  var rake = TABS[5];
-  if (rake) { rake.state.view = Math.round(((lightAz%360)+360)%360); }
+  for (var ri = 0; ri < TABS.length; ri++){
+    if (TABS[ri].id === 'rake'){ TABS[ri].state.view = Math.round(((lightAz%360)+360)%360); break; }
+  }
 }
 
 /* ============ tabs ============ */
@@ -729,6 +730,7 @@ function syncWidthRow(){
 
 function render(){
   if (!imgTex || !gl) return;
+  try {
   syncBars(); syncWidthRow(); syncCmp();
   var tgt = scratch(10, imgW, imgH);
   renderTarget = tgt;
@@ -741,6 +743,9 @@ function render(){
   renderTarget = null;
   draw(program(FS_VIEW), {u_proc:{tex:tgt.tex}, u_orig:{tex:imgTex},
     u_mode:cmpMode, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY]}, null);
+  var ge = gl.getError();
+  if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
+  } catch(err){ statusEl.textContent = 'Render error: ' + err.message; }
 }
 
 function selectTab(i){
@@ -769,6 +774,7 @@ function loadImage(i){
       ' · band range L ' + bandLo.toFixed(0) + '–' + bandHi.toFixed(0) +
       ' · est. light ' + Math.round(((lightAz%360)+360)%360) + '°';
     render();
+    requestAnimationFrame(function(){ render(); });
   };
   img.onerror = function(){ statusEl.textContent = 'Could not load ' + IMAGES[i].src; };
   img.src = IMAGES[i].src;
