@@ -37,9 +37,8 @@
   .seg button { flex:1; padding:10px 4px; font-size:0.8rem; border-radius:8px;
                 border:1px solid #444; background:#222; color:#ddd; }
   .seg button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
-  #origbtn { width:100%; padding:13px; font-size:0.9rem; border-radius:10px;
-             border:1px solid #444; background:#222; color:#eee; }
-  #origbtn.on { background:#5a3a10; border-color:#c9a227; }
+  #wipehint { display:none; font-size:0.78rem; color:#4da3ff; padding:2px 0 8px; }
+  .val { cursor:pointer; }
   #status { font-size:0.82rem; color:#999; padding:6px 0; }
 </style>
 </head>
@@ -51,10 +50,15 @@
 <div class="bar" id="imgbar"></div>
 <div class="bar" id="tabbar"></div>
 <div id="stage"><canvas id="gl"></canvas></div>
+<div class="bar" id="cmpbar">
+  <button data-c="0" class="on">Processed</button>
+  <button data-c="2">Wipe</button>
+  <button data-c="1">Original</button>
+</div>
+<div id="wipehint">Drag across the image to move the divider &middot; double-tap to reset zoom</div>
 <div id="status">Loading…</div>
 <div id="desc"></div>
 <div id="controls"></div>
-<button id="origbtn">Show original</button>
 
 <script>
 "use strict";
@@ -275,6 +279,95 @@ var FS_PASS =
 'uniform sampler2D u_img;\n' +
 'void main(){ gl_FragColor = texture2D(u_img, v_uv); }\n';
 
+var FS_VIEW =
+'uniform sampler2D u_proc; uniform sampler2D u_orig;\n' +
+'uniform float u_mode; uniform float u_div; uniform float u_zoom; uniform vec2 u_pan;\n' +
+'void main(){\n' +
+'  vec2 uv = (v_uv - vec2(0.5)) / u_zoom + vec2(0.5) + u_pan;\n' +
+'  if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0){ gl_FragColor = vec4(0.04,0.04,0.04,1.0); return; }\n' +
+'  vec3 pc = texture2D(u_proc, uv).rgb;\n' +
+'  vec3 oc = texture2D(u_orig, uv).rgb;\n' +
+'  vec3 c;\n' +
+'  if (u_mode < 0.5) c = pc;\n' +
+'  else if (u_mode < 1.5) c = oc;\n' +
+'  else { c = v_uv.x < u_div ? pc : oc;\n' +
+'    if (abs(v_uv.x - u_div) < 0.004) c = vec3(0.3,0.6,1.0); }\n' +
+'  gl_FragColor = vec4(c, 1.0);\n' +
+'}\n';
+
+var FS_TUNE =
+'uniform sampler2D u_img; uniform float u_hue; uniform float u_sat; uniform float u_con; uniform float u_bri;\n' +
+'void main(){\n' +
+'  vec3 c = texture2D(u_img, v_uv).rgb;\n' +
+'  float Y = dot(c, vec3(0.299,0.587,0.114));\n' +
+'  vec3 yiq = vec3(Y, 0.596*c.r-0.274*c.g-0.322*c.b, 0.211*c.r-0.523*c.g+0.312*c.b);\n' +
+'  float a = u_hue*3.14159265/180.0;\n' +
+'  vec2 iq = mat2(cos(a),-sin(a),sin(a),cos(a))*yiq.yz;\n' +
+'  c = vec3(yiq.x+0.956*iq.x+0.621*iq.y, yiq.x-0.272*iq.x-0.647*iq.y, yiq.x-1.106*iq.x+1.703*iq.y);\n' +
+'  float l = dot(c, vec3(0.299,0.587,0.114));\n' +
+'  c = mix(vec3(l), c, u_sat);\n' +
+'  c = (c-0.5)*u_con+0.5+u_bri;\n' +
+'  gl_FragColor = vec4(clamp(c,0.0,1.0),1.0);\n' +
+'}\n';
+
+var FS_BAND1 =
+'uniform sampler2D u_img; uniform float u_lo; uniform float u_hi; uniform float u_n; uniform float u_i;\n' +
+'void main(){\n' +
+'  float L = rgb2lab(texture2D(u_img, v_uv).rgb).x;\n' +
+'  float t = clamp((L-u_lo)/max(u_hi-u_lo,1e-3), 0.0, 1.0);\n' +
+'  float band = min(floor(t*u_n), u_n-1.0);\n' +
+'  float m = abs(band-u_i) < 0.5 ? 1.0 : 0.0;\n' +
+'  gl_FragColor = vec4(1.0,1.0,1.0,m);\n' +
+'}\n';
+
+var VS_STACK =
+'attribute vec2 a_pos;\n' +
+'uniform mat4 u_mvp; uniform float u_dz; uniform float u_aspect;\n' +
+'varying vec2 v_uv;\n' +
+'void main(){\n' +
+'  v_uv = a_pos*0.5+0.5;\n' +
+'  float c = 0.7071068;\n' +
+'  vec3 p = vec3(a_pos.x*u_aspect, a_pos.y*c, a_pos.y*c);\n' +
+'  vec3 nrm = vec3(0.0, -c, c);\n' +
+'  p += nrm*u_dz;\n' +
+'  gl_Position = u_mvp*vec4(p,1.0);\n' +
+'}\n';
+
+var FS_STACK =
+'precision highp float;\n' +
+'varying vec2 v_uv;\n' +
+'uniform sampler2D u_tex; uniform vec3 u_tint;\n' +
+'void main(){\n' +
+'  float m = texture2D(u_tex, v_uv).a;\n' +
+'  if (m < 0.02) discard;\n' +
+'  gl_FragColor = vec4(u_tint, 0.8);\n' +
+'}\n';
+
+function persp(fovy, asp, n, f){
+  var t = 1/Math.tan(fovy/2), d = 1/(n-f);
+  return [t/asp,0,0,0, 0,t,0,0, 0,0,(f+n)*d,-1, 0,0,2*f*n*d,0];
+}
+function mul4(a,b){
+  var o = new Array(16);
+  for (var c=0;c<4;c++) for (var r=0;r<4;r++){ var s=0; for (var k=0;k<4;k++) s+=a[k*4+r]*b[c*4+k]; o[c*4+r]=s; }
+  return o;
+}
+function transM(x,y,z){ return [1,0,0,0, 0,1,0,0, 0,0,1,0, x,y,z,1]; }
+var _stackProg = null;
+function stackProg(){
+  if (_stackProg) return _stackProg;
+  function sh(t,src){ var s=gl.createShader(t); gl.shaderSource(s,src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s)); return s; }
+  var p = gl.createProgram();
+  gl.attachShader(p, sh(gl.VERTEX_SHADER, VS_STACK));
+  gl.attachShader(p, sh(gl.FRAGMENT_SHADER, FS_STACK));
+  gl.linkProgram(p);
+  p.aPos=gl.getAttribLocation(p,'a_pos'); p.uMvp=gl.getUniformLocation(p,'u_mvp');
+  p.uDz=gl.getUniformLocation(p,'u_dz'); p.uAspect=gl.getUniformLocation(p,'u_aspect');
+  p.uTex=gl.getUniformLocation(p,'u_tex'); p.uTint=gl.getUniformLocation(p,'u_tint');
+  return _stackProg = p;
+}
+
 /* ============ state & helpers ============ */
 var IMAGES = [
   {label:'Letter-39 blot', src:'img/blot39.jpg'},
@@ -282,7 +375,7 @@ var IMAGES = [
   {label:'Scan 17 block', src:'img/passes/postcards/scan17/block-closeup.png'},
   {label:'Scan 51 dabs', src:'img/passes/postcards/scan51/source-crop-blob.png'}
 ];
-var curImg = 0, curTab = 0, showOriginal = false;
+var curImg = 0, curTab = 0, cmpMode = 0, cmpX = 0.5, zoom = 1, panX = 0, panY = 0, renderTarget = null;
 var imgTex = null, imgW = 0, imgH = 0, imgObj = null;
 var bandLo = 0, bandHi = 100, lightAz = 0;
 var targets = []; // scratch FBOs
@@ -362,6 +455,19 @@ function analyzeImage(img){
 
 /* ============ tabs ============ */
 var TABS = [
+{ id:'tune', name:'Tune',
+  desc:'<b>Simple photo tuning.</b> Hue shift, saturation, contrast and brightness, Preview-style. Sometimes the simple tools see what the fancy ones miss.',
+  controls:[
+    {key:'hue', label:'Hue shift', min:-180, max:180, step:1, val:0},
+    {key:'sat', label:'Saturation', min:0, max:3, step:0.05, val:1},
+    {key:'con', label:'Contrast', min:0, max:3, step:0.05, val:1},
+    {key:'bri', label:'Brightness', min:-0.5, max:0.5, step:0.01, val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    draw(program(FS_TUNE), {u_img:{tex:imgTex}, u_hue:s.hue, u_sat:s.sat, u_con:s.con, u_bri:s.bri}, renderTarget);
+  }},
 { id:'bands', name:'Bands',
   desc:'<b>Shade-band slicing.</b> Splits the image\'s lightness range into N bands and shows one slice at a time, like the scrubber but computed live. Slide the position to sweep dark to light; window mode keeps only a narrow trailing slice visible.' +
        '<span class="approx">Approximates scripts/shade_isolate.py family A. Range is the image 2nd/98th lightness percentiles (Python used the blot mask only). Full CIE LAB is computed in-shader.</span>',
@@ -375,7 +481,7 @@ var TABS = [
   render:function(){
     var s=this.state;
     draw(program(FS_BANDS), {u_img:{tex:imgTex}, u_lo:bandLo, u_hi:bandHi,
-      u_n:s.n, u_idx:s.idx, u_mode:s.mode, u_width:s.width}, null);
+      u_n:s.n, u_idx:s.idx, u_mode:s.mode, u_width:s.width}, renderTarget);
   }},
 { id:'a2', name:'A2 gate',
   desc:'<b>Parametric overwrite gate.</b> Masks the ink, then removes pixels darker than the lightness threshold AND more saturated than the saturation threshold. This is the sensitivity control: drag both and watch the covering ink peel away.' +
@@ -390,7 +496,7 @@ var TABS = [
   render:function(){
     var s=this.state;
     draw(program(FS_A2), {u_img:{tex:imgTex}, u_lt:s.lt, u_st:s.st,
-      u_inkmode:s.inkmode, u_view:s.view}, null);
+      u_inkmode:s.inkmode, u_view:s.view}, renderTarget);
   }},
 { id:'chroma', name:'Chroma',
   desc:'<b>Hue-band isolation.</b> Shows only pixels whose hue falls inside a window around the hue center. Dabs and writing that share a hue cannot be separated this way; saturation sometimes can.' +
@@ -404,7 +510,7 @@ var TABS = [
   render:function(){
     var s=this.state;
     draw(program(FS_CHROMA), {u_img:{tex:imgTex}, u_center:s.center,
-      u_width:s.width, u_view:s.view}, null);
+      u_width:s.width, u_view:s.view}, renderTarget);
   }},
 { id:'dir', name:'Directional',
   desc:'<b>Local z-score deviation.</b> Each pixel is compared against the average lightness along a line through it; pixels that deviate by more than k standard deviations light up. This finds strokes that differ from the local wash.' +
@@ -420,7 +526,7 @@ var TABS = [
     var t = scratch(0, imgW, imgH);
     var d = s.dir===0?[1,0]:s.dir===1?[0,1]:[0.7071,0.7071];
     blurInto(imgTex, imgW, imgH, Math.floor(s.win/2), d[0], d[1], 1, t);
-    draw(program(FS_DIR), {u_img:{tex:imgTex}, u_mean:{tex:t.tex}, u_k:s.k}, null);
+    draw(program(FS_DIR), {u_img:{tex:imgTex}, u_mean:{tex:t.tex}, u_k:s.k}, renderTarget);
   }},
 { id:'emboss', name:'Emboss',
   desc:'<b>Paper-texture embossing.</b> Removes slow illumination variation, keeps only fine detail, then takes a directional derivative at the chosen angle to emphasize grooves and ridges left by the pen.' +
@@ -437,7 +543,7 @@ var TABS = [
     var t2 = scratch(1, imgW, imgH);
     blurInto(t.tex, imgW, imgH, s.cutoff, 0, 1, 0, t2);
     draw(program(FS_EMBOSS), {u_img:{tex:imgTex}, u_blur:{tex:t2.tex},
-      u_texel:[1/imgW,1/imgH], u_ang:s.ang}, null);
+      u_texel:[1/imgW,1/imgH], u_ang:s.ang}, renderTarget);
   }},
 { id:'rake', name:'Raking',
   desc:'<b>Virtual raking light.</b> Estimates the surface micro-relief from the photo\'s shading, then re-renders it under a virtual lamp at a grazing angle. Swing the lamp: relief inverts at 180&deg;.' +
@@ -460,7 +566,52 @@ var TABS = [
     var small2 = scratch(4, imgW, imgH);
     blurInto(small.tex, imgW, imgH, 3, 0, 1, 0, small2);
     draw(program(FS_RAKE), {u_flat:{tex:flat.tex}, u_small:{tex:small2.tex},
-      u_view:s.view, u_light:lightAz, u_gain:s.gain}, null);
+      u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
+  }},
+{ id:'stack', name:'3D stack',
+  desc:'<b>Exploded band stack.</b> Each shade band becomes a translucent sheet tilted at 45 degrees. Collapse the spacing to fuse them into the composite, or explode the stack and read the bands in depth. The window controls pick which bands go into the stack.' ,
+  controls:[
+    {key:'n', label:'Bands', min:2, max:16, step:1, val:12},
+    {key:'pos', label:'Window end', min:0, max:11, step:1, val:11},
+    {key:'width', label:'Window width', min:1, max:12, step:1, val:12},
+    {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    var n=Math.max(2,Math.round(s.n)), w=Math.min(Math.round(s.width),n);
+    var hi=Math.min(Math.round(s.pos),n-1), lo=Math.max(0,hi-w+1);
+    var bw=Math.min(512,imgW), bh=Math.max(2,Math.round(imgH*bw/imgW));
+    var i, t;
+    for(i=lo;i<=hi;i++){
+      t=scratch(20+i,bw,bh);
+      draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},t);
+    }
+    var tgt=renderTarget;
+    gl.bindFramebuffer(gl.FRAMEBUFFER, tgt?tgt.fb:null);
+    gl.viewport(0,0,tgt?tgt.w:canvas.width,tgt?tgt.h:canvas.height);
+    gl.clearColor(0.04,0.04,0.04,1); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+    gl.disable(gl.DEPTH_TEST);
+    var prog=stackProg(), asp=(tgt?tgt.w:canvas.width)/(tgt?tgt.h:canvas.height);
+    var mvp=mul4(persp(38*Math.PI/180,asp,0.1,50),transM(0,-0.15,-4.4));
+    gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER,quadBuf);
+    gl.enableVertexAttribArray(prog.aPos);
+    gl.vertexAttribPointer(prog.aPos,2,gl.FLOAT,false,0,0);
+    gl.uniformMatrix4fv(prog.uMvp,false,new Float32Array(mvp));
+    gl.uniform1f(prog.uAspect,imgW/imgH);
+    var span=Math.max(1,hi-lo);
+    for(i=lo;i<=hi;i++){
+      t=scratch(20+i,bw,bh);
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,t.tex);
+      gl.uniform1i(prog.uTex,0);
+      var f=(i-lo)/span;
+      gl.uniform3f(prog.uTint, 0.25+0.75*f, 0.55-0.35*f, 1.0-0.8*f);
+      gl.uniform1f(prog.uDz,(i-lo)*s.gap*0.006);
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+    }
+    gl.disable(gl.BLEND);
   }}
 ];
 
@@ -469,7 +620,7 @@ var imgbar = document.getElementById('imgbar');
 var tabbar = document.getElementById('tabbar');
 var descEl = document.getElementById('desc');
 var controlsEl = document.getElementById('controls');
-var origBtn = document.getElementById('origbtn');
+var cmpBar = document.getElementById('cmpbar');
 
 IMAGES.forEach(function(im, i){
   var b = document.createElement('button');
@@ -483,7 +634,7 @@ TABS.forEach(function(t, i){
   b.addEventListener('click', function(){ selectTab(i); });
   tabbar.appendChild(b);
   t.state = {};
-  t.controls.forEach(function(c){ t.state[c.key] = c.val; });
+  t.controls.forEach(function(c){ t.state[c.key] = c.val; c.def = c.val; });
 });
 
 function syncBars(){
@@ -545,11 +696,30 @@ function buildControls(){
       });
       t._inputs[c.key] = {inp:inp, val:val};
       row.appendChild(inp); row.appendChild(val);
+      val.title = 'Tap to set max';
+      val.addEventListener('click', function(){
+        var v = prompt('Maximum for ' + c.label, inp.max);
+        if (v === null) return;
+        var m = parseFloat(v);
+        if (isFinite(m) && m > parseFloat(inp.min)){
+          inp.max = m;
+          if (parseFloat(inp.value) > m){ inp.value = m; t.state[c.key] = m; val.textContent = m; }
+          render();
+        }
+      });
     }
     if (t.id === 'bands' && c.key === 'width') row.id = 'widthrow';
     controlsEl.appendChild(row);
   });
   if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
+  var rrow = document.createElement('div'); rrow.className = 'row';
+  var rb = document.createElement('button'); rb.textContent = 'Reset sliders';
+  rb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
+  rb.addEventListener('click', function(){
+    t.controls.forEach(function(c){ t.state[c.key] = c.def; });
+    buildControls(); render();
+  });
+  rrow.appendChild(rb); controlsEl.appendChild(rrow);
 }
 
 function syncWidthRow(){
@@ -559,13 +729,18 @@ function syncWidthRow(){
 
 function render(){
   if (!imgTex || !gl) return;
-  syncBars(); syncWidthRow();
-  if (showOriginal){
-    draw(program(FS_PASS), {u_img:{tex:imgTex}}, null);
-    return;
-  }
+  syncBars(); syncWidthRow(); syncCmp();
+  var tgt = scratch(10, imgW, imgH);
+  renderTarget = tgt;
   var t = TABS[curTab];
-  t.render();
+  if (cmpMode === 1){
+    draw(program(FS_PASS), {u_img:{tex:imgTex}}, tgt);
+  } else {
+    t.render();
+  }
+  renderTarget = null;
+  draw(program(FS_VIEW), {u_proc:{tex:tgt.tex}, u_orig:{tex:imgTex},
+    u_mode:cmpMode, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY]}, null);
 }
 
 function selectTab(i){
@@ -575,8 +750,7 @@ function selectTab(i){
 }
 
 function loadImage(i){
-  curImg = i; showOriginal = false;
-  origBtn.classList.remove('on'); origBtn.textContent = 'Show original';
+  curImg = i; cmpMode = 0; zoom = 1; panX = 0; panY = 0; syncCmp();
   statusEl.textContent = 'Loading ' + IMAGES[i].label + '…';
   var img = new Image();
   img.onload = function(){
@@ -600,12 +774,66 @@ function loadImage(i){
   img.src = IMAGES[i].src;
 }
 
-origBtn.addEventListener('click', function(){
-  showOriginal = !showOriginal;
-  origBtn.classList.toggle('on', showOriginal);
-  origBtn.textContent = showOriginal ? 'Back to algorithm' : 'Show original';
+function syncCmp(){
+  Array.prototype.forEach.call(cmpBar.children, function(b){
+    b.classList.toggle('on', parseInt(b.getAttribute('data-c'),10) === cmpMode);
+  });
+  document.getElementById('wipehint').style.display = cmpMode === 2 ? 'block' : 'none';
+}
+cmpBar.addEventListener('click', function(e){
+  var b = e.target.closest('button'); if (!b) return;
+  cmpMode = parseInt(b.getAttribute('data-c'),10);
   render();
 });
+
+/* pan / zoom / wipe gestures */
+var ptrs = {}, dragMode = null, dStart = [0,0], pStart = [0,0];
+var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0;
+canvas.addEventListener('pointerdown', function(e){
+  try { canvas.setPointerCapture(e.pointerId); } catch(_){}
+  ptrs[e.pointerId] = [e.clientX, e.clientY];
+  var ks = Object.keys(ptrs);
+  if (ks.length === 1){
+    var now = Date.now();
+    if (now - lastTap < 320){
+      zoom = 1; panX = 0; panY = 0; render();
+      delete ptrs[e.pointerId]; lastTap = 0; dragMode = null; return;
+    }
+    lastTap = now;
+    dStart = [e.clientX, e.clientY]; pStart = [panX, panY];
+    dragMode = (cmpMode === 2 && zoom === 1) ? 'wipe' : 'pan';
+  } else if (ks.length === 2){
+    var a = ptrs[ks[0]], b = ptrs[ks[1]];
+    pinchD0 = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1; zoom0 = zoom;
+    mid0 = [(a[0]+b[0])/2, (a[1]+b[1])/2]; pStart = [panX, panY];
+    dragMode = 'pinch';
+  }
+});
+canvas.addEventListener('pointermove', function(e){
+  if (!ptrs[e.pointerId]) return;
+  ptrs[e.pointerId] = [e.clientX, e.clientY];
+  var ks = Object.keys(ptrs), r = canvas.getBoundingClientRect();
+  if (dragMode === 'wipe' && ks.length === 1){
+    cmpX = Math.min(1, Math.max(0, (e.clientX - r.left)/r.width));
+    render();
+  } else if (dragMode === 'pan' && ks.length === 1){
+    panX = pStart[0] - (e.clientX - dStart[0])/r.width/zoom;
+    panY = pStart[1] + (e.clientY - dStart[1])/r.height/zoom;
+    render();
+  } else if (dragMode === 'pinch' && ks.length === 2){
+    var a = ptrs[ks[0]], b = ptrs[ks[1]];
+    var d = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1;
+    zoom = Math.min(8, Math.max(1, zoom0*d/pinchD0));
+    var mid = [(a[0]+b[0])/2, (a[1]+b[1])/2];
+    panX = pStart[0] - (mid[0]-mid0[0])/r.width/zoom;
+    panY = pStart[1] + (mid[1]-mid0[1])/r.height/zoom;
+    if (zoom === 1){ panX = 0; panY = 0; }
+    render();
+  }
+});
+function endPtr(e){ delete ptrs[e.pointerId]; if (Object.keys(ptrs).length === 0) dragMode = null; }
+canvas.addEventListener('pointerup', endPtr);
+canvas.addEventListener('pointercancel', endPtr);
 
 /* init */
 selectTab(0);
