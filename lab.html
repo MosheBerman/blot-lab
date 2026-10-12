@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Blot Lab — WebGL Lab</title>
 <style>
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -78,9 +78,12 @@
              border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
              -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
   #minimap { position:fixed; z-index:20; right:10px; top:calc(70px + env(safe-area-inset-top));
-             width:132px; height:132px; border:1px solid rgba(255,255,255,0.25);
-             border-radius:8px; background:#000; display:none; }
-  #minimap.on { display:block; }
+             width:56px; height:56px; border:1px solid rgba(255,255,255,0.25);
+             border-radius:8px; background:#000; }
+  #bigmap { position:fixed; inset:0; z-index:40; background:rgba(0,0,0,0.92);
+            display:flex; align-items:center; justify-content:center; }
+  #bigmap.hidden { display:none; }
+  #bigmap img { max-width:94vw; max-height:94dvh; object-fit:contain; border-radius:8px; }
   #toast { position:fixed; z-index:50; left:50%; bottom:120px; transform:translateX(-50%);
            background:rgba(20,20,20,0.92); border:1px solid #444; color:#fff;
            padding:10px 18px; border-radius:20px; font-size:0.82rem; opacity:0;
@@ -111,13 +114,12 @@
   <button id="btn-info">&#9432;</button>
 </div>
 <div id="toolbar">
-  <button id="btn-gesture" title="Gesture mode: rotate / wipe-pan">&#128260;</button>
-  <button id="btn-minimap" title="Minimap">&#128506;</button>
   <button id="btn-export" title="Export side-by-side">&#10515;</button>
   <button id="btn-snap" title="Snapshot link">&#128279;</button>
   <button id="btn-reset" title="Reset view">&#10226;</button>
 </div>
-<canvas id="minimap" width="264" height="264"></canvas>
+<canvas id="minimap" width="112" height="112"></canvas>
+<div id="bigmap" class="hidden"><img id="bigmap-img" alt="Original image"></div>
 <div id="toast"></div>
 <div id="sheet" class="hidden">
   <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
@@ -650,7 +652,7 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. The toolbar toggles one-finger rotate vs wipe.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
@@ -793,43 +795,20 @@ function toast(msg){
   toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800);
 }
 
-var gestureMode = 'rotate';
-function syncGestureBtn(){
-  document.getElementById('btn-gesture').textContent = gestureMode === 'rotate' ? '\u{1F504}' : '\u{1F446}';
-}
-document.getElementById('btn-gesture').addEventListener('click', function(){
-  gestureMode = gestureMode === 'rotate' ? 'touch' : 'rotate';
-  syncGestureBtn();
-  toast(gestureMode === 'rotate' ? 'Gesture: rotate' : 'Gesture: wipe / pan');
-});
-
-var minimapOn = false, thumbSrc = null;
-document.getElementById('btn-minimap').addEventListener('click', function(){
-  minimapOn = !minimapOn;
-  document.getElementById('minimap').classList.toggle('on', minimapOn);
-  drawMinimap();
-});
+var thumbSrc = null;
 function drawMinimap(){
   var mm = document.getElementById('minimap');
-  if (!minimapOn || !thumbSrc || !imgW || !imgH) return;
+  if (!thumbSrc) return;
   var g = mm.getContext('2d'), S = mm.width;
-  g.clearRect(0, 0, S, S);
-  g.fillStyle = '#000'; g.fillRect(0, 0, S, S);
-  var s = Math.min(S/imgW, S/imgH), w = imgW*s, hh = imgH*s;
-  var ox = (S-w)/2, oy = (S-hh)/2;
-  g.drawImage(thumbSrc, ox, oy, w, hh);
-  var ca = Math.cos(rot), sa = Math.sin(rot);
-  g.strokeStyle = '#4da3ff'; g.lineWidth = 3;
-  g.beginPath();
-  [[0,0],[1,0],[1,1],[0,1]].forEach(function(pt, i){
-    var cx = pt[0]-0.5, cy = pt[1]-0.5;
-    var ux = (ca*cx + sa*cy)/zoom + 0.5 + panX;
-    var uy = (-sa*cx + ca*cy)/zoom + 0.5 + panY;
-    var px = ox + ux*w, py = oy + (1-uy)*hh;
-    if (i === 0) g.moveTo(px, py); else g.lineTo(px, py);
-  });
-  g.closePath(); g.stroke();
+  var sw = thumbSrc.width, sh = thumbSrc.height, side = Math.min(sw, sh);
+  g.drawImage(thumbSrc, (sw-side)/2, (sh-side)/2, side, side, 0, 0, S, S);
 }
+document.getElementById('minimap').addEventListener('click', function(){
+  document.getElementById('bigmap').classList.remove('hidden');
+});
+document.getElementById('bigmap').addEventListener('click', function(){
+  document.getElementById('bigmap').classList.add('hidden');
+});
 
 function buildControls(){
   var t = TABS[curTab];
@@ -923,7 +902,6 @@ function render(){
   var ge = gl.getError();
   if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
   } catch(err){ statusEl.textContent = 'Render error: ' + err.message; }
-  drawMinimap();
 }
 
 function selectTab(i){
@@ -957,6 +935,8 @@ function loadImageURL(src, label){
     imgTex = makeTex(imgW, imgH, c);
     imgObj = img;
     thumbSrc = c;
+    drawMinimap();
+    try { document.getElementById('bigmap-img').src = c.toDataURL('image/jpeg', 0.85); } catch(e){}
     analyzeImage(c);
     buildControls();
     statusEl.textContent = label + ' — ' + imgW + '×' + imgH +
@@ -1048,7 +1028,7 @@ var pendingRestore = null;
 document.getElementById('btn-snap').addEventListener('click', function(){
   var st = { v:1, tab:curTab, img:curImg, imgLabel:imgnameEl.textContent,
     up:(curImg === -1), cmpX:cmpX, zoom:zoom, panX:panX, panY:panY, rot:rot,
-    gm:gestureMode, tabs:TABS.map(function(t){ return t.state; }) };
+    tabs:TABS.map(function(t){ return t.state; }) };
   var s = btoa(unescape(encodeURIComponent(JSON.stringify(st))))
     .replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
   try { history.replaceState(null, '', '#s=' + s); }
@@ -1074,7 +1054,6 @@ function restoreFromHash(){
     (st.tabs || []).forEach(function(s, i){
       if (s && TABS[i]) for (var k in s) TABS[i].state[k] = s[k];
     });
-    gestureMode = st.gm === 'touch' ? 'touch' : 'rotate'; syncGestureBtn();
     curTab = Math.min(Math.max(0, st.tab | 0), TABS.length - 1);
     pendingRestore = st;
     if (st.up){
@@ -1090,7 +1069,7 @@ function restoreFromHash(){
 
 /* pan / zoom / wipe gestures */
 var ptrs = {}, dragMode = null, dStart = [0,0], pStart = [0,0];
-var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0, ang0 = 0;
+var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0, ang0 = 0, rot0 = 0, rz0 = 0;
 canvas.addEventListener('pointerdown', function(e){
   try { canvas.setPointerCapture(e.pointerId); } catch(_){}
   ptrs[e.pointerId] = [e.clientX, e.clientY];
@@ -1105,13 +1084,13 @@ canvas.addEventListener('pointerdown', function(e){
     }
     lastTap = now;
     dStart = [e.clientX, e.clientY]; pStart = [panX, panY];
-    if (gestureMode === 'rotate') dragMode = (TABS[curTab].id === 'stack') ? 'rot3d' : 'rot2d';
-    else dragMode = (zoom === 1) ? 'wipe' : 'pan';
+    dragMode = (TABS[curTab].id === 'stack') ? 'rot3d' : 'pan';
   } else if (ks.length === 2){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     pinchD0 = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1; zoom0 = zoom;
     mid0 = [(a[0]+b[0])/2, (a[1]+b[1])/2]; pStart = [panX, panY];
-    ang0 = Math.atan2(b[1]-a[1], b[0]-a[0]);
+    ang0 = Math.atan2(b[1]-a[1], b[0]-a[0]); rot0 = rot;
+    if (TABS[curTab].id === 'stack') rz0 = TABS[curTab].state.rz;
     dragMode = 'pinch';
   }
 });
@@ -1132,16 +1111,6 @@ canvas.addEventListener('pointermove', function(e){
     st3.rx = Math.min(90, Math.max(-90, st3.rx - (e.clientY - dStart[1])/cr[3]*180));
     dStart = [e.clientX, e.clientY];
     render();
-  } else if (dragMode === 'rot2d' && ks.length === 1){
-    var ccx = cr[0]+cr[2]/2, ccy = cr[1]+cr[3]/2;
-    var aa1 = Math.atan2(dStart[1]-ccy, dStart[0]-ccx);
-    var aa2 = Math.atan2(e.clientY-ccy, e.clientX-ccx);
-    rot -= (aa2 - aa1);
-    dStart = [e.clientX, e.clientY];
-    render();
-  } else if (dragMode === 'wipe' && ks.length === 1){
-    cmpX = Math.min(1, Math.max(0, (e.clientX - cr[0])/cr[2]));
-    syncWipe(); render();
   } else if (dragMode === 'pan' && ks.length === 1){
     panX = pStart[0] - (e.clientX - dStart[0])/cr[2]/zoom;
     panY = pStart[1] + (e.clientY - dStart[1])/cr[3]/zoom;
@@ -1150,8 +1119,9 @@ canvas.addEventListener('pointermove', function(e){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     var d = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1;
     zoom = Math.min(8, Math.max(1, zoom0*d/pinchD0));
-    if (TABS[curTab].id === 'stack')
-      TABS[curTab].state.rz -= (Math.atan2(b[1]-a[1], b[0]-a[0]) - ang0)*180/Math.PI;
+    var dAng = Math.atan2(b[1]-a[1], b[0]-a[0]) - ang0;
+    if (TABS[curTab].id === 'stack') TABS[curTab].state.rz = rz0 - dAng*180/Math.PI;
+    else rot = rot0 - dAng;
     var mid = [(a[0]+b[0])/2, (a[1]+b[1])/2];
     panX = pStart[0] - (mid[0]-mid0[0])/cr[2]/zoom;
     panY = pStart[1] + (mid[1]-mid0[1])/cr[3]/zoom;
@@ -1167,7 +1137,6 @@ canvas.addEventListener('pointercancel', endPtr);
 var stackIdx = 0;
 TABS.forEach(function(t, i){ if (t.id === 'stack') stackIdx = i; });
 TABS[stackIdx].state.rx = 45; TABS[stackIdx].state.ry = 0; TABS[stackIdx].state.rz = 0;
-syncGestureBtn();
 if (!restoreFromHash()){ selectTab(stackIdx); loadImage(0); }
 </script>
 </body>
