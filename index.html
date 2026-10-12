@@ -81,17 +81,17 @@ component. Density separates them.</p>
 <h3>The two known blots, up close</h3>
 <div class="pair">
 <figure>
-  <img src="img/blot39.jpg" alt="Letter 39 blot close-up" loading="lazy">
+  <img src="img/page/blot39-tight.jpg" alt="Letter 39 blot close-up" loading="lazy">
   <figcaption>Letter 39: the blot between “daß” and “du sollst”.</figcaption>
 </figure>
 <figure>
-  <img src="img/blot39-enh.jpg" alt="Letter 39 blot enhanced" loading="lazy">
+  <img src="img/page/blot39-enh-tight.jpg" alt="Letter 39 blot enhanced" loading="lazy">
   <figcaption>Same blot with ink-maximizing enhancement. Core fully
   saturated — no letterforms survive.</figcaption>
 </figure>
 </div>
 <figure>
-  <img src="img/blot45.jpg" alt="Letter 45 scribble close-up" loading="lazy">
+  <img src="img/page/blot45-tight.jpg" alt="Letter 45 scribble close-up" loading="lazy">
   <figcaption>Letter 45: the scribble between “Berlin” and
   “Hamburg-Amerika”. Grammar fixes the reading as “Berliner”.</figcaption>
 </figure>
@@ -202,6 +202,42 @@ addressed.</p>
 <p>On the originals: raking-light photos with a desk lamp and any camera —
 one low light position per side. That two-minute setup beats any software
 on a flat scan. ESDA or RTI if a forensic pass is ever wanted.</p>
+
+<h2>Experiment 3 — Multi-Pass Shade Isolation</h2>
+
+<h3>The question</h3>
+<p>A blot has finite transparency, layers, colors, and shades. If writing
+hides under the ink, it may sit at a slightly different shade or depth
+than the surrounding wash. Slice the blot's shade range into bands and
+isolate each band separately — like frames of a movie — and the hidden
+markings should emerge in one of the frames.</p>
+
+<h3>How it works</h3>
+<ol>
+  <li>Auto-detect the blot region (saturated blue ink mask, largest blob
+  plus a calibration margin).</li>
+  <li>Find the blot's darkest and lightest shades (2nd/98th percentile of
+  lightness).</li>
+  <li>Stepwise isolate each shade band (6- and 12-band passes); stitch
+  into a color-coded composite, a depth map, and an animated dark-to-light
+  sweep.</li>
+  <li>Directional passes: per-row, per-column, and diagonal z-score
+  deviation from the local wash, at two thresholds.</li>
+  <li>Repeat the row pass at 2&times; upscale for wider strokes.</li>
+</ol>
+<p>37 pass outputs per blot, all saved in the repo under
+<code>img/passes/</code>. Script: <code>scripts/shade_isolate.py</code>.</p>
+
+<div class="verdict">
+  <strong>Verdict on Letter 39</strong>
+  Honest negative. Across 12 shade bands, 4 directions, 2 thresholds, and
+  2 scales, no pass resolves into letterforms, numbers, or script. The
+  darkest bands show only fragmented blot-edge pixels. The method separates
+  shade structure cleanly — there is simply no writing under this blot to
+  find.
+</div>
+
+<p>Full technique log: <code>TECHNIQUES.md</code> in the repo.</p>
 
 </main>
 <footer>
