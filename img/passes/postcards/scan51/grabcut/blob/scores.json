@@ -1,0 +1,128 @@
+{
+ "a2_main": {
+  "blob_recall": 1.0,
+  "write_keep": 1.0,
+  "in_bbox_write_px": 0,
+  "in_bbox_ink_px": 8237,
+  "kept_px": 6743
+ },
+ "grabcut_main": {
+  "blob_recall": 1.0,
+  "write_keep": 1.0,
+  "in_bbox_write_px": 0,
+  "in_bbox_ink_px": 8237,
+  "kept_px": 6256
+ },
+ "baseline": {
+  "in_bbox_write_like_px": 2091
+ },
+ "a2_sweep": {
+  "L80_S100": {
+   "blob_recall": 0.05583379706918939,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 11833
+  },
+  "L80_S150": {
+   "blob_recall": 0.05583379706918939,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 11833
+  },
+  "L80_S200": {
+   "blob_recall": 0.05305138193285105,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 11848
+  },
+  "L100_S100": {
+   "blob_recall": 1.0,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 6740
+  },
+  "L100_S150": {
+   "blob_recall": 1.0,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 6743
+  },
+  "L100_S200": {
+   "blob_recall": 0.9953626414394361,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 6768
+  },
+  "L120_S100": {
+   "blob_recall": 1.0,
+   "write_keep": 0.6866218692730605,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 2884
+  },
+  "L120_S150": {
+   "blob_recall": 1.0,
+   "write_keep": 0.692425167990226,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 2916
+  },
+  "L120_S200": {
+   "blob_recall": 0.9953626414394361,
+   "write_keep": 0.7122785583384239,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 3042
+  },
+  "L140_S100": {
+   "blob_recall": 1.0,
+   "write_keep": 0.386682956627978,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 1692
+  },
+  "L140_S150": {
+   "blob_recall": 1.0,
+   "write_keep": 0.47892486255345146,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 2020
+  },
+  "L140_S200": {
+   "blob_recall": 0.9953626414394361,
+   "write_keep": 0.598045204642639,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 2516
+  }
+ },
+ "grabcut_sweep": {
+  "strict": {
+   "blob_recall": 0.3845297718419588,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 9994
+  },
+  "mid": {
+   "blob_recall": 1.0,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 6267
+  },
+  "loose": {
+   "blob_recall": 1.0,
+   "write_keep": 0.8173488087965791,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 8237,
+   "kept_px": 3663
+  }
+ }
+}

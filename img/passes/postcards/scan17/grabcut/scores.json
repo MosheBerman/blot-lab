@@ -1,0 +1,128 @@
+{
+ "a2_main": {
+  "blob_recall": 0.0790612516644474,
+  "write_keep": 1.0,
+  "in_bbox_write_px": 0,
+  "in_bbox_ink_px": 3000,
+  "kept_px": 11410
+ },
+ "grabcut_main": {
+  "blob_recall": 1.0,
+  "write_keep": 0.7808219178082192,
+  "in_bbox_write_px": 0,
+  "in_bbox_ink_px": 3000,
+  "kept_px": 2528
+ },
+ "baseline": {
+  "in_bbox_write_like_px": 330
+ },
+ "a2_sweep": {
+  "V80_S60": {
+   "blob_recall": 0.02463382157123835,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11902
+  },
+  "V80_S100": {
+   "blob_recall": 0.0790612516644474,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11533
+  },
+  "V80_S140": {
+   "blob_recall": 0.22020639147802928,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 10418
+  },
+  "V100_S60": {
+   "blob_recall": 0.02463382157123835,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11896
+  },
+  "V100_S100": {
+   "blob_recall": 0.0790612516644474,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11410
+  },
+  "V100_S140": {
+   "blob_recall": 0.22020639147802928,
+   "write_keep": 0.9373776908023483,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 9762
+  },
+  "V120_S60": {
+   "blob_recall": 0.02463382157123835,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11892
+  },
+  "V120_S100": {
+   "blob_recall": 0.0790612516644474,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11300
+  },
+  "V120_S140": {
+   "blob_recall": 0.22020639147802928,
+   "write_keep": 0.7938682322243966,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 9319
+  },
+  "V140_S60": {
+   "blob_recall": 0.02463382157123835,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11892
+  },
+  "V140_S100": {
+   "blob_recall": 0.0790612516644474,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 11300
+  },
+  "V140_S140": {
+   "blob_recall": 0.22020639147802928,
+   "write_keep": 0.7938682322243966,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 9319
+  }
+ },
+ "grabcut_sweep": {
+  "strict": {
+   "blob_recall": 0.9998335552596538,
+   "write_keep": 0.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 8
+  },
+  "mid": {
+   "blob_recall": 1.0,
+   "write_keep": 0.7808219178082192,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 2530
+  },
+  "loose": {
+   "blob_recall": 1.0,
+   "write_keep": 1.0,
+   "in_bbox_write_px": 0,
+   "in_bbox_ink_px": 3000,
+   "kept_px": 2692
+  }
+ }
+}
