@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blot Lab — Experiments</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: #111; color: #eee;
+         padding: 12px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  h1 { font-size: 1.15rem; margin: 0 0 4px; }
+  p.sub { font-size: 0.82rem; color: #999; margin: 0 0 12px; }
+  p.sub a { color: #4da3ff; }
+  .seg { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+  .seg button { flex: 1 1 40%; padding: 10px 6px; font-size: 0.82rem; border-radius: 8px;
+                border: 1px solid #444; background: #222; color: #ddd; }
+  .seg button.on { background: #1c4d8f; border-color: #4da3ff; color: #fff; }
+  .card { background: #1b1b1b; border: 1px solid #333; border-radius: 10px; padding: 12px; }
+  .stephead { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .stephead h2 { font-size: 1rem; margin: 0; }
+  .count { font-size: 0.78rem; color: #999; white-space: nowrap; }
+  .stepimg { width: 100%; border-radius: 8px; background: #000; display: block; min-height: 120px; }
+  .steptext { font-size: 0.85rem; color: #ccc; line-height: 1.55; margin: 10px 0 0; }
+  .steptext b { color: #fff; }
+  .nav { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+  .nav button { flex: 1; padding: 14px; font-size: 1rem; border-radius: 10px;
+                border: 1px solid #444; background: #222; color: #eee; }
+  .nav button:disabled { opacity: 0.3; }
+  .dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+  .dots span { width: 10px; height: 10px; border-radius: 50%; background: #444; }
+  .dots span.on { background: #4da3ff; }
+  .verdict { border-left: 3px solid #c9a227; padding-left: 10px; }
+</style>
+</head>
+<body>
+<h1>Experiments</h1>
+<p class="sub">Every algorithm, step by step, for each input. <a href="index.html">Lab home</a> &middot; <a href="scrubber.html">Scrubber</a></p>
+
+<div class="seg" id="inputs"></div>
+
+<div class="card">
+  <div class="stephead"><h2 id="steptitle"></h2><span class="count" id="stepcount"></span></div>
+  <img class="stepimg" id="stepimg" alt="">
+  <p class="steptext" id="steptext"></p>
+  <div class="nav">
+    <button id="prev">&#8592; Prev</button>
+    <button id="next">Next &#8594;</button>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<script>
+var DATA = {
+  blot39: {
+    label: "Letter-39 blot",
+    steps: [
+      { t: "Source", img: "img/blot39.jpg",
+        x: "The saturated ink blot on letter 39. The target of ~1,100 isolation permutations." },
+      { t: "12-band shade slicing", img: "img/passes/blot39/A_bands12_composite.png",
+        x: "LAB-lightness split into 12 bands, composited. The two best frames of the first batch." },
+      { t: "Depth map", img: "img/passes/blot39/A_bands12_depthmap.png",
+        x: "Same 12 bands colored by shade depth, blue (light) to red (dark)." },
+      { t: "Directional z-score", img: "img/passes/blot39/BCD_rows_k1.5.png",
+        x: "Per-row deviation at k=1.5. The most sensitive pass family in calibration." },
+      { t: "Sliding windows", img: "img/passes/blot39/sweep_N255/montage_w50.png",
+        x: "934 masks at 255 shade levels, widths 5/10/25/50. Top scorers: wash texture, not strokes." },
+      { t: "Multi-resolution", img: "img/passes/blot39/multires/compare_strip.png",
+        x: "12-band slicing at 1/1 down to 1/16. No hidden structure emerges at any scale." },
+      { t: "Checkerboard", img: "img/passes/blot39/checkerboard/patches_s32_N16.png",
+        x: "57 patches, grid seeds expanding outward. Local shade texture everywhere, no letterforms." },
+      { t: "Calibration: half opacity", img: "img/passes/calibration/10_synth_s0.5.png",
+        x: "Synthetic blot at 0.5x real opacity over known text. The method recovers letterforms cleanly. It works." },
+      { t: "Calibration: full opacity", img: "img/passes/calibration/10_synth_s1.0.png",
+        x: "Same text at 1.0x, the real blot's opacity. Nothing recovered, with known text underneath." },
+      { t: "Emboss", img: "img/passes/emboss/emboss_hp16_sob0_s1.png",
+        x: "Paper-texture pipeline, 36 combos. Paper grain and wrinkles only; flatbed light kills the signal." },
+      { t: "Verdict", img: "img/passes/blot39/A_bands12_composite.png", v: 1,
+        x: "<b>Honest negative on the fringes; unknowable core.</b> Calibration proves the method works below ~0.5x opacity, so the negative covers only the blot's edges. The saturated core is beyond this method's measured reach. Needs chroma separation or the physical original." }
+    ]
+  },
+  berliner: {
+    label: "Letter-45 overwrite (Berliner)",
+    steps: [
+      { t: "Source", img: "img/passes/berliner-baseline/berliner_roi_3x.png",
+        x: "Overwritten ending of letter 45, read earlier as \"er\" (Berliner). Ground truth for the separation test." },
+      { t: "A2 parametric gate", img: "img/passes/berliner-baseline/A2_parametric_kept.png",
+        x: "Simple lightness+saturation gate (L<100, S>150). Score 0.84. Best effort-to-result ratio." },
+      { t: "GrabCut", img: "img/passes/berliner-baseline/C_grabcut_kept.png",
+        x: "Score 0.92, the winner. The B reads cleanly; the color model stays forgiving at stroke crossings." },
+      { t: "Comparison", img: "img/passes/berliner-baseline/comparison_panel.png",
+        x: "All four approaches side by side. Key measurement: both inks share one hue (103-113). Separation works only through pen pressure." },
+      { t: "Verdict", img: "img/passes/berliner-baseline/final_compare.png", v: 1,
+        x: "<b>GrabCut wins and bounds the technique.</b> Light overwrite strokes are color-identical to the writing and can never separate. Generalizes to partial overwrites where text peeks through lighter scribble, not to opaque coverings." }
+    ]
+  },
+  scan17: {
+    label: "Postcard 17: black block",
+    steps: [
+      { t: "Source", img: "img/passes/postcards/scan17/source-crop.png",
+        x: "Heavy black ink block, ~1.5x6 cm, ~2 lines blacked out above \"Küsse Euch vielmals\". Writer's own pen, fully opaque. Deliberate." },
+      { t: "Band isolation", img: "img/passes/postcards/scan17/K_bands16_band_08.png",
+        x: "16 shade bands with a dark-ink gate. Mid bands show only opaque scribble texture." },
+      { t: "A2 sensitivity sweep", img: "img/passes/postcards/scan17/grabcut/a2_sweep_montage.png",
+        x: "12-tile threshold grid. At no setting do underlying strokes emerge." },
+      { t: "GrabCut", img: "img/passes/postcards/scan17/grabcut/grabcut_main_kept.png",
+        x: "Masks the covering ink cleanly, keeps the surrounding writing intact. Nothing underneath." },
+      { t: "Verdict", img: "img/passes/postcards/scan17/grabcut/a2_main_removedred.png", v: 1,
+        x: "<b>Destroyed, not covered.</b> Zero writing-like pixels under the block at every threshold and every strictness level. Two independent methods agree. Full sweeps (1,052 files) concur." }
+    ]
+  },
+  scan51: {
+    label: "Postcard 51: blue dabs",
+    steps: [
+      { t: "Source", img: "img/passes/postcards/scan51/source-crop-blob.png",
+        x: "Blue ink dabs sitting on words mid-text, same blue as the writing. \"Wien den 7/4 1941, Liebste Schwester!\"" },
+      { t: "Chroma banding", img: "img/passes/postcards/scan51/chroma-blob/bluech_band_04.png",
+        x: "Hue/saturation/channel banding. Dabs and writing share one hue (102-109): no hue separation is possible." },
+      { t: "A2 sensitivity sweep", img: "img/passes/postcards/scan51/grabcut/blob/a2_sweep_montage.png",
+        x: "L<120 removes dab cores while preserving all visible writing. No setting reveals what is under them." },
+      { t: "GrabCut", img: "img/passes/postcards/scan51/grabcut/blob/grabcut_main_kept.png",
+        x: "Clean masking of dab cores. The surrounding text reads fully; the dabbed words stay hidden." },
+      { t: "Verdict", img: "img/passes/postcards/scan51/grabcut/blob/a2_main_removedred.png", v: 1,
+        x: "<b>Destroyed, not covered.</b> The dabs are opaque. What remains is a German transcription puzzle: the readable surrounding text may let a reader infer the dabbed words." }
+    ]
+  }
+};
+
+var keys = Object.keys(DATA), cur = keys[0], step = 0;
+var inputsEl = document.getElementById('inputs');
+var titleEl = document.getElementById('steptitle'), countEl = document.getElementById('stepcount');
+var imgEl = document.getElementById('stepimg'), textEl = document.getElementById('steptext');
+var dotsEl = document.getElementById('dots');
+var prevB = document.getElementById('prev'), nextB = document.getElementById('next');
+
+keys.forEach(function(k){
+  var b = document.createElement('button');
+  b.textContent = DATA[k].label;
+  b.setAttribute('data-k', k);
+  b.addEventListener('click', function(){ cur = k; step = 0; syncInputs(); render(); });
+  inputsEl.appendChild(b);
+});
+function syncInputs(){
+  inputsEl.querySelectorAll('button').forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-k') === cur);
+  });
+}
+function render(){
+  var steps = DATA[cur].steps, s = steps[step];
+  titleEl.textContent = s.t;
+  countEl.textContent = (step + 1) + " / " + steps.length;
+  imgEl.src = s.img;
+  imgEl.alt = s.t;
+  textEl.innerHTML = s.x;
+  textEl.classList.toggle('verdict', !!s.v);
+  prevB.disabled = step === 0;
+  nextB.disabled = step === steps.length - 1;
+  dotsEl.innerHTML = '';
+  steps.forEach(function(_, i){
+    var d = document.createElement('span');
+    if (i === step) d.classList.add('on');
+    dotsEl.appendChild(d);
+  });
+}
+prevB.addEventListener('click', function(){ if (step > 0){ step--; render(); } });
+nextB.addEventListener('click', function(){ if (step < DATA[cur].steps.length - 1){ step++; render(); } });
+// swipe on the image steps too
+var sx = null;
+imgEl.addEventListener('pointerdown', function(e){ sx = e.clientX; });
+imgEl.addEventListener('pointerup', function(e){
+  if (sx === null) return;
+  var dx = e.clientX - sx; sx = null;
+  if (dx < -40 && step < DATA[cur].steps.length - 1){ step++; render(); }
+  else if (dx > 40 && step > 0){ step--; render(); }
+});
+
+syncInputs(); render();
+</script>
+</body>
+</html>
