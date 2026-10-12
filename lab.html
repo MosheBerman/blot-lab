@@ -115,6 +115,7 @@
   <button id="btn-minimap" title="Minimap">&#128506;</button>
   <button id="btn-export" title="Export side-by-side">&#10515;</button>
   <button id="btn-snap" title="Snapshot link">&#128279;</button>
+  <button id="btn-reset" title="Reset view">&#10226;</button>
 </div>
 <canvas id="minimap" width="264" height="264"></canvas>
 <div id="toast"></div>
@@ -649,7 +650,7 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Drag with one finger to tumble, pinch to zoom, double-tap to reset the view. The toolbar toggles one-finger rotate vs wipe.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. The toolbar toggles one-finger rotate vs wipe.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
@@ -1058,6 +1059,12 @@ document.getElementById('btn-snap').addEventListener('click', function(){
     navigator.clipboard.writeText(url).then(function(){ done(true); }, function(){ done(false); });
   else done(false);
 });
+document.getElementById('btn-reset').addEventListener('click', function(){
+  zoom = 1; panX = 0; panY = 0; rot = 0; cmpX = 1; syncWipe();
+  if (TABS[curTab].id === 'stack'){ var rs = TABS[curTab].state; rs.rx = 45; rs.ry = 0; rs.rz = 0; }
+  render();
+  toast('View reset');
+});
 function restoreFromHash(){
   var m = location.hash.match(/#s=([A-Za-z0-9\-_]+)/);
   if (!m) return false;
@@ -1083,7 +1090,7 @@ function restoreFromHash(){
 
 /* pan / zoom / wipe gestures */
 var ptrs = {}, dragMode = null, dStart = [0,0], pStart = [0,0];
-var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0;
+var pinchD0 = 1, zoom0 = 1, mid0 = [0,0], lastTap = 0, ang0 = 0;
 canvas.addEventListener('pointerdown', function(e){
   try { canvas.setPointerCapture(e.pointerId); } catch(_){}
   ptrs[e.pointerId] = [e.clientX, e.clientY];
@@ -1104,6 +1111,7 @@ canvas.addEventListener('pointerdown', function(e){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     pinchD0 = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1; zoom0 = zoom;
     mid0 = [(a[0]+b[0])/2, (a[1]+b[1])/2]; pStart = [panX, panY];
+    ang0 = Math.atan2(b[1]-a[1], b[0]-a[0]);
     dragMode = 'pinch';
   }
 });
@@ -1142,6 +1150,8 @@ canvas.addEventListener('pointermove', function(e){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     var d = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1;
     zoom = Math.min(8, Math.max(1, zoom0*d/pinchD0));
+    if (TABS[curTab].id === 'stack')
+      TABS[curTab].state.rz -= (Math.atan2(b[1]-a[1], b[0]-a[0]) - ang0)*180/Math.PI;
     var mid = [(a[0]+b[0])/2, (a[1]+b[1])/2];
     panX = pStart[0] - (mid[0]-mid0[0])/cr[2]/zoom;
     panY = pStart[1] + (mid[1]-mid0[1])/cr[3]/zoom;
