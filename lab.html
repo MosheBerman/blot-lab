@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blot Lab — WebGL Lab</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,system-ui,sans-serif; background:#111; color:#eee;
+         padding:12px; max-width:960px; margin-left:auto; margin-right:auto; }
+  h1 { font-size:1.15rem; margin:0 0 4px; }
+  p.sub { font-size:0.82rem; color:#999; margin:0 0 12px; }
+  p.sub a { color:#4da3ff; }
+  .bar { display:flex; gap:6px; margin-bottom:10px; overflow-x:auto; padding-bottom:2px; }
+  .bar button { flex:1 0 auto; padding:10px 8px; font-size:0.8rem; border-radius:8px;
+                border:1px solid #444; background:#222; color:#ddd; white-space:nowrap; }
+  .bar button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
+  #stage { position:relative; background:#000; border-radius:10px; overflow:hidden; }
+  canvas { width:100%; display:block; touch-action:none; }
+  #desc { font-size:0.84rem; color:#ccc; line-height:1.55; background:#1b1b1b;
+          border:1px solid #333; border-radius:10px; padding:10px 12px; margin:10px 0; }
+  #desc b { color:#fff; }
+  #desc .approx { color:#c9a227; font-size:0.78rem; display:block; margin-top:6px; }
+  #controls { display:grid; gap:10px; background:#1b1b1b; border:1px solid #333;
+              border-radius:10px; padding:12px; margin-bottom:10px; }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .row label { font-size:0.82rem; color:#bbb; min-width:110px; }
+  input[type=range] { flex:1; min-width:150px; height:44px; accent-color:#4da3ff; }
+  .val { font-size:0.85rem; color:#4da3ff; min-width:52px; text-align:right; }
+  .seg { display:flex; gap:6px; flex:1; }
+  .seg button { flex:1; padding:10px 4px; font-size:0.8rem; border-radius:8px;
+                border:1px solid #444; background:#222; color:#ddd; }
+  .seg button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
+  #origbtn { width:100%; padding:13px; font-size:0.9rem; border-radius:10px;
+             border:1px solid #444; background:#222; color:#eee; }
+  #origbtn.on { background:#5a3a10; border-color:#c9a227; }
+  #status { font-size:0.82rem; color:#999; padding:6px 0; }
+</style>
+</head>
+<body>
+<h1>WebGL lab</h1>
+<p class="sub">The repo's algorithms, live in your browser. <a href="index.html">Lab home</a> &middot;
+<a href="experiments.html">Experiments</a> &middot; <a href="scrubber.html">Scrubber</a></p>
+
+<div class="bar" id="imgbar"></div>
+<div class="bar" id="tabbar"></div>
+<div id="stage"><canvas id="gl"></canvas></div>
+<div id="status">Loading…</div>
+<div id="desc"></div>
+<div id="controls"></div>
+<button id="origbtn">Show original</button>
+
+<script>
+"use strict";
+/* ============ WebGL boilerplate ============ */
+var canvas = document.getElementById('gl');
+var gl = canvas.getContext('webgl', {antialias:false, preserveDrawingBuffer:false});
+var statusEl = document.getElementById('status');
+if (!gl) { statusEl.textContent = 'WebGL not available on this device.'; }
+
+var VS = 'attribute vec2 a_pos; varying vec2 v_uv;\n' +
+         'void main(){ v_uv = a_pos*0.5+0.5; gl_Position = vec4(a_pos,0.,1.); }';
+
+var COMMON = 'precision highp float;\n' +
+'varying vec2 v_uv;\n' +
+'vec3 rgb2lab(vec3 c){\n' +
+'  vec3 v = c;\n' +
+'  vec3 lt = v/12.92;\n' +
+'  vec3 gt = pow((v+0.055)/1.055, vec3(2.4));\n' +
+'  vec3 m = vec3(step(v.x,0.04045), step(v.y,0.04045), step(v.z,0.04045));\n' +
+'  v = mix(gt, lt, m);\n' +
+'  float X = dot(v, vec3(0.4124,0.3576,0.1805));\n' +
+'  float Y = dot(v, vec3(0.2126,0.7152,0.0722));\n' +
+'  float Z = dot(v, vec3(0.0193,0.1192,0.9505));\n' +
+'  vec3 e = vec3(X/0.95047, Y/1.0, Z/1.08883);\n' +
+'  vec3 f;\n' +
+'  f.x = e.x>0.008856 ? pow(e.x,0.3333333) : 7.787*e.x+0.137931;\n' +
+'  f.y = e.y>0.008856 ? pow(e.y,0.3333333) : 7.787*e.y+0.137931;\n' +
+'  f.z = e.z>0.008856 ? pow(e.z,0.3333333) : 7.787*e.z+0.137931;\n' +
+'  return vec3(116.0*f.y-16.0, 500.0*(f.x-f.y), 200.0*(f.y-f.z));\n' +
+'}\n' +
+'vec3 rgb2hsv(vec3 c){\n' +
+'  vec4 K = vec4(0.0,-1.0/3.0,2.0/3.0,-1.0);\n' +
+'  vec4 p = mix(vec4(c.bg,K.wz), vec4(c.gb,K.xy), step(c.b,c.g));\n' +
+'  vec4 q = mix(vec4(p.xyw,c.r), vec4(c.r,p.yzx), step(p.x,c.r));\n' +
+'  float d = q.x - min(q.w,q.y);\n' +
+'  float e = 1e-10;\n' +
+'  return vec3(abs(q.z+(q.w-q.y)/(6.0*d+e)), d/(q.x+e), q.x);\n' +
+'}\n' +
+'float lum(vec3 c){ return dot(c, vec3(0.299,0.587,0.114)); }\n';
+
+function compile(type, src){
+  var s = gl.createShader(type);
+  gl.shaderSource(s, src); gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)){
+    console.error(gl.getShaderInfoLog(s)); statusEl.textContent = 'Shader error.';
+  }
+  return s;
+}
+var progCache = {};
+function program(fsSrc){
+  if (progCache[fsSrc]) return progCache[fsSrc];
+  var p = gl.createProgram();
+  gl.attachShader(p, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(p, compile(gl.FRAGMENT_SHADER, COMMON + fsSrc));
+  gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) console.error(gl.getProgramInfoLog(p));
+  p.aPos = gl.getAttribLocation(p, 'a_pos');
+  progCache[fsSrc] = p;
+  return p;
+}
+var quadBuf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+
+function draw(prog, uniforms, target){
+  gl.bindFramebuffer(gl.FRAMEBUFFER, target ? target.fb : null);
+  if (target) gl.viewport(0, 0, target.w, target.h);
+  else gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.useProgram(prog);
+  gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);
+  gl.enableVertexAttribArray(prog.aPos);
+  gl.vertexAttribPointer(prog.aPos, 2, gl.FLOAT, false, 0, 0);
+  var unit = 0;
+  for (var name in uniforms){
+    var u = uniforms[name], loc = gl.getUniformLocation(prog, name);
+    if (u && u.tex){ gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, u.tex);
+      gl.uniform1i(loc, unit); unit++; }
+    else if (typeof u === 'number') gl.uniform1f(loc, u);
+    else if (u.length === 2) gl.uniform2f(loc, u[0], u[1]);
+  }
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+}
+
+function makeTex(w, h, img){
+  var t = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, t);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  if (img){
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+  }
+  else gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  return t;
+}
+function makeTarget(w, h){
+  var t = makeTex(w, h, null);
+  var f = gl.createFramebuffer();
+  gl.bindFramebuffer(gl.FRAMEBUFFER, f);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  return {tex:t, fb:f, w:w, h:h};
+}
+
+/* ============ shared blur (separable box) ============ */
+var BLUR_FS =
+'uniform sampler2D u_src; uniform vec2 u_texel; uniform vec2 u_dir;\n' +
+'uniform float u_radius; uniform float u_mode;\n' + // 0: blur rgb, 1: pack (L,L^2)
+'void main(){\n' +
+'  vec3 acc = vec3(0.0); float n = 0.0;\n' +
+'  for (int i=-64; i<=64; i++){\n' +
+'    if (float(i) < -u_radius || float(i) > u_radius) continue;\n' +
+'    vec4 s = texture2D(u_src, v_uv + u_dir*u_texel*float(i));\n' +
+'    if (u_mode > 0.5){ float L = rgb2lab(s.rgb).x/100.0; acc += vec3(L, L*L, 0.0); }\n' +
+'    else acc += s.rgb;\n' +
+'    n += 1.0;\n' +
+'  }\n' +
+'  acc /= max(n,1.0);\n' +
+'  gl_FragColor = u_mode > 0.5 ? vec4(acc.xy, 0.0, 1.0) : vec4(acc, 1.0);\n' +
+'}\n';
+
+/* ============ tab fragment shaders ============ */
+var FS_BANDS =
+'uniform sampler2D u_img; uniform float u_lo; uniform float u_hi;\n' +
+'uniform float u_n; uniform float u_idx; uniform float u_mode; uniform float u_width;\n' +
+'void main(){\n' +
+'  float L = rgb2lab(texture2D(u_img, v_uv).rgb).x;\n' +
+'  float t = clamp((L-u_lo)/max(u_hi-u_lo, 1e-3), 0.0, 1.0);\n' +
+'  float band = min(floor(t*u_n), u_n-1.0);\n' +
+'  bool show = u_mode < 0.5 ? (band <= u_idx) : (band > u_idx-u_width && band <= u_idx);\n' +
+'  gl_FragColor = vec4(vec3(show ? 1.0 : 0.0), 1.0);\n' +
+'}\n';
+
+var FS_A2 =
+'uniform sampler2D u_img; uniform float u_lt; uniform float u_st;\n' +
+'uniform float u_inkmode; uniform float u_view;\n' +
+'void main(){\n' +
+'  vec3 rgb = texture2D(u_img, v_uv).rgb;\n' +
+'  float L = rgb2lab(rgb).x;\n' +
+'  vec3 hsv = rgb2hsv(rgb);\n' +
+'  float H = hsv.x*180.0, S = hsv.y*255.0, V = hsv.z*255.0;\n' +
+'  bool ink = u_inkmode < 0.5\n' +
+'    ? (H >= 85.0 && H <= 130.0 && S > 60.0 && V > 30.0)\n' +
+'    : (V < 110.0);\n' +
+'  bool over = u_inkmode < 0.5 ? (ink && L < u_lt && S > u_st)\n' +
+'                              : (ink && V < u_lt && S < u_st);\n' +
+'  bool kept = ink && !over;\n' +
+'  vec3 outc;\n' +
+'  if (u_view < 0.5){ outc = rgb; if (ink && !kept) outc = vec3(1.0); }\n' +
+'  else { outc = vec3(0.94); if (kept) outc = rgb; if (ink && !kept) outc = vec3(1.0,0.2,0.2); }\n' +
+'  gl_FragColor = vec4(outc, 1.0);\n' +
+'}\n';
+
+var FS_CHROMA =
+'uniform sampler2D u_img; uniform float u_center; uniform float u_width; uniform float u_view;\n' +
+'void main(){\n' +
+'  vec3 hsv = rgb2hsv(texture2D(u_img, v_uv).rgb);\n' +
+'  float H = hsv.x*180.0;\n' +
+'  float dh = abs(H-u_center); dh = min(dh, 180.0-dh);\n' +
+'  vec3 outc;\n' +
+'  if (u_view < 0.5) outc = vec3(dh < u_width ? 1.0 : 0.0);\n' +
+'  else if (u_view < 1.5) outc = vec3(hsv.y);\n' +
+'  else outc = vec3(hsv.x);\n' +
+'  gl_FragColor = vec4(outc, 1.0);\n' +
+'}\n';
+
+var FS_DIR =
+'uniform sampler2D u_img; uniform sampler2D u_mean; uniform float u_k;\n' +
+'void main(){\n' +
+'  float L = rgb2lab(texture2D(u_img, v_uv).rgb).x/100.0;\n' +
+'  vec2 m = texture2D(u_mean, v_uv).rg;\n' +
+'  float varr = max(m.y - m.x*m.x, 1e-6);\n' +
+'  float z = abs(L - m.x)/sqrt(varr);\n' +
+'  gl_FragColor = vec4(vec3(z > u_k ? 1.0 : 0.0), 1.0);\n' +
+'}\n';
+
+var FS_EMBOSS =
+'uniform sampler2D u_img; uniform sampler2D u_blur; uniform vec2 u_texel;\n' +
+'uniform float u_ang;\n' +
+'float hp(vec2 uv){ return lum(texture2D(u_img,uv).rgb) - lum(texture2D(u_blur,uv).rgb); }\n' +
+'void main(){\n' +
+'  vec2 ex = vec2(u_texel.x, 0.0), ey = vec2(0.0, u_texel.y);\n' +
+'  float gx = hp(v_uv+ex) - hp(v_uv-ex);\n' +
+'  float gy = hp(v_uv+ey) - hp(v_uv-ey);\n' +
+'  float a = radians(u_ang);\n' +
+'  float d = gx*cos(a) + gy*sin(a);\n' +
+'  float g = lum(texture2D(u_img, v_uv).rgb);\n' +
+'  float bg = lum(texture2D(u_blur, v_uv).rgb);\n' +
+'  float ink = step(g, bg - 0.08);\n' +
+'  float v = abs(d); v = v/(v+0.02);\n' +
+'  gl_FragColor = vec4(vec3(v*(1.0-ink)), 1.0);\n' +
+'}\n';
+
+var FS_FLAT =
+'uniform sampler2D u_img; uniform sampler2D u_big;\n' +
+'void main(){\n' +
+'  float g = lum(texture2D(u_img, v_uv).rgb);\n' +
+'  float b = lum(texture2D(u_big, v_uv).rgb);\n' +
+'  gl_FragColor = vec4(vec3((g-b)*0.5+0.5), 1.0);\n' +
+'}\n';
+
+var FS_RAKE =
+'uniform sampler2D u_flat; uniform sampler2D u_small;\n' +
+'uniform float u_view; uniform float u_light; uniform float u_gain;\n' +
+'void main(){\n' +
+'  float f = texture2D(u_flat, v_uv).r*2.0-1.0;\n' +
+'  float s = texture2D(u_small, v_uv).r*2.0-1.0;\n' +
+'  float relief = f - s;\n' +
+'  float w = cos(radians(u_view - u_light));\n' +
+'  float v = 0.5 + u_gain*w*relief;\n' +
+'  gl_FragColor = vec4(vec3(clamp(v, 0.0, 1.0)), 1.0);\n' +
+'}\n';
+
+var FS_PASS =
+'uniform sampler2D u_img;\n' +
+'void main(){ gl_FragColor = texture2D(u_img, v_uv); }\n';
+
+/* ============ state & helpers ============ */
+var IMAGES = [
+  {label:'Letter-39 blot', src:'img/blot39.jpg'},
+  {label:'Letter-45 (Berliner)', src:'img/blot45.jpg'},
+  {label:'Scan 17 block', src:'img/passes/postcards/scan17/source-crop.png'},
+  {label:'Scan 51 dabs', src:'img/passes/postcards/scan51/source-crop-blob.png'}
+];
+var curImg = 0, curTab = 0, showOriginal = false;
+var imgTex = null, imgW = 0, imgH = 0, imgObj = null;
+var bandLo = 0, bandHi = 100, lightAz = 0;
+var targets = []; // scratch FBOs
+
+function scratch(i, w, h){
+  if (!targets[i] || targets[i].w !== w || targets[i].h !== h){
+    if (targets[i]) { gl.deleteTexture(targets[i].tex); gl.deleteFramebuffer(targets[i].fb); }
+    targets[i] = makeTarget(w, h);
+  }
+  return targets[i];
+}
+function blurInto(srcTex, w, h, radius, dx, dy, mode, tgt){
+  draw(program(BLUR_FS), {u_src:{tex:srcTex}, u_texel:[1/w,1/h],
+    u_dir:[dx,dy], u_radius:radius, u_mode:mode}, tgt);
+}
+
+/* CPU helpers: LAB percentiles for band range, light azimuth for raking */
+function labOf(r, g, b){
+  var v = [r/255, g/255, b/255].map(function(c){
+    return c <= 0.04045 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4);
+  });
+  var X = (0.4124*v[0]+0.3576*v[1]+0.1805*v[2])/0.95047;
+  var Y = 0.2126*v[0]+0.7152*v[1]+0.0722*v[2];
+  var Z = (0.0193*v[0]+0.1192*v[1]+0.9505*v[2])/1.08883;
+  var f = [X,Y,Z].map(function(t){
+    return t > 0.008856 ? Math.cbrt(t) : 7.787*t + 16/116;
+  });
+  return 116*f[1]-16;
+}
+function analyzeImage(img){
+  var s = 128, c = document.createElement('canvas');
+  c.width = s; c.height = Math.max(1, Math.round(s*img.height/img.width));
+  var g = c.getContext('2d', {willReadFrequently:true});
+  g.drawImage(img, 0, 0, c.width, c.height);
+  var d = g.getImageData(0, 0, c.width, c.height).data;
+  var Ls = [];
+  var sx=0, sy=0, sxx=0, sxy=0, n=0, sb=0;
+  for (var i=0; i<d.length; i+=4){
+    var L = labOf(d[i], d[i+1], d[i+2]);
+    Ls.push(L);
+    var v = (0.299*d[i]+0.587*d[i+1]+0.114*d[i+2])/255; // paper = bright
+    if (v > 0.55){
+      var x = (i/4)%c.width, y = Math.floor((i/4)/c.width);
+      n++; sx+=x; sy+=y; sxx+=x*x; sxy+=x*y; sb+=v;
+    }
+  }
+  Ls.sort(function(a,b){return a-b;});
+  bandLo = Ls[Math.floor(Ls.length*0.02)];
+  bandHi = Ls[Math.floor(Ls.length*0.98)];
+  if (n > 500){
+    // proper 2-var least-squares fit: brightness = a*x + b*y + c
+    n = 0; sx = 0; sy = 0; sb = 0;
+    var sxx = 0, syy = 0, sxy = 0, sxb = 0, syb = 0;
+    for (var j=0; j<d.length; j+=4){
+      var vv = (0.299*d[j]+0.587*d[j+1]+0.114*d[j+2])/255;
+      if (vv > 0.55){
+        var xx=(j/4)%c.width, yy=Math.floor((j/4)/c.width);
+        n++; sx+=xx; sy+=yy; sxx+=xx*xx; syy+=yy*yy; sxy+=xx*yy; sxb+=xx*vv; syb+=yy*vv; sb+=vv;
+      }
+    }
+    // solve 3x3 normal equations via Cramer
+    var M=[[sxx,sxy,sx],[sxy,syy,sy],[sx,sy,n]], rhs=[sxb,syb,sb];
+    function det3(m){return m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])
+      -m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])
+      +m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);}
+    var Dd=det3(M);
+    if (Math.abs(Dd)>1e-9){
+      var Ma=[[rhs[0],M[0][1],M[0][2]],[rhs[1],M[1][1],M[1][2]],[rhs[2],M[2][1],M[2][2]]];
+      var Mb=[[M[0][0],rhs[0],M[0][2]],[M[1][0],rhs[1],M[1][2]],[M[2][0],rhs[2],M[2][2]]];
+      var a=det3(Ma)/Dd, b=det3(Mb)/Dd;
+      lightAz = Math.atan2(b,a)*180/Math.PI; // x-right, y-down, 0=east
+    }
+  }
+  var rake = TABS[5];
+  if (rake) { rake.state.view = Math.round(((lightAz%360)+360)%360); }
+}
+
+/* ============ tabs ============ */
+var TABS = [
+{ id:'bands', name:'Bands',
+  desc:'<b>Shade-band slicing.</b> Splits the image\'s lightness range into N bands and shows one slice at a time, like the scrubber but computed live. Slide the position to sweep dark to light; window mode keeps only a narrow trailing slice visible.' +
+       '<span class="approx">Approximates scripts/shade_isolate.py family A. Range is the image 2nd/98th lightness percentiles (Python used the blot mask only). Full CIE LAB is computed in-shader.</span>',
+  controls:[
+    {key:'n', label:'Band count', min:2, max:24, step:1, val:12},
+    {key:'idx', label:'Band position', min:0, max:11, step:1, val:11},
+    {key:'mode', label:'Mode', seg:['Accumulate','Window'], val:0},
+    {key:'width', label:'Window width', min:1, max:12, step:1, val:3}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    draw(program(FS_BANDS), {u_img:{tex:imgTex}, u_lo:bandLo, u_hi:bandHi,
+      u_n:s.n, u_idx:s.idx, u_mode:s.mode, u_width:s.width}, null);
+  }},
+{ id:'a2', name:'A2 gate',
+  desc:'<b>Parametric overwrite gate.</b> Masks the ink, then removes pixels darker than the lightness threshold AND more saturated than the saturation threshold. This is the sensitivity control: drag both and watch the covering ink peel away.' +
+       '<span class="approx">Mirrors the A2 gate in scripts/berliner_baseline.py (defaults L&lt;100, S&gt;150). Blue-ink mode for overwrite scribble; black-ink mode for scan 17\'s block, where the gate flips to dark AND desaturated.</span>',
+  controls:[
+    {key:'inkmode', label:'Ink', seg:['Blue','Black'], val:0},
+    {key:'lt', label:'Lightness threshold', min:60, max:160, step:1, val:100},
+    {key:'st', label:'Saturation threshold', min:50, max:250, step:1, val:150},
+    {key:'view', label:'View', seg:['Kept','Mask'], val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    draw(program(FS_A2), {u_img:{tex:imgTex}, u_lt:s.lt, u_st:s.st,
+      u_inkmode:s.inkmode, u_view:s.view}, null);
+  }},
+{ id:'chroma', name:'Chroma',
+  desc:'<b>Hue-band isolation.</b> Shows only pixels whose hue falls inside a window around the hue center. Dabs and writing that share a hue cannot be separated this way; saturation sometimes can.' +
+       '<span class="approx">Mirrors scripts/chroma_isolate.py. Defaults (center 105, width 8) are the measured blue-ink hue of scan 51. OpenCV hue units 0-179.</span>',
+  controls:[
+    {key:'center', label:'Hue center', min:0, max:179, step:1, val:105},
+    {key:'width', label:'Hue width', min:1, max:40, step:1, val:8},
+    {key:'view', label:'View', seg:['Mask','Saturation','Hue'], val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    draw(program(FS_CHROMA), {u_img:{tex:imgTex}, u_center:s.center,
+      u_width:s.width, u_view:s.view}, null);
+  }},
+{ id:'dir', name:'Directional',
+  desc:'<b>Local z-score deviation.</b> Each pixel is compared against the average lightness along a line through it; pixels that deviate by more than k standard deviations light up. This finds strokes that differ from the local wash.' +
+       '<span class="approx">Approximates scripts/shade_isolate.py families B/C/D. Python used whole-line median/std over the blot mask; this uses a local windowed mean/variance over all pixels, which is faster but noisier.</span>',
+  controls:[
+    {key:'dir', label:'Direction', seg:['Rows','Cols','Diag'], val:0},
+    {key:'k', label:'Threshold k', min:1.0, max:3.0, step:0.1, val:1.5},
+    {key:'win', label:'Window px', min:5, max:61, step:2, val:31}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    var t = scratch(0, imgW, imgH);
+    var d = s.dir===0?[1,0]:s.dir===1?[0,1]:[0.7071,0.7071];
+    blurInto(imgTex, imgW, imgH, Math.floor(s.win/2), d[0], d[1], 1, t);
+    draw(program(FS_DIR), {u_img:{tex:imgTex}, u_mean:{tex:t.tex}, u_k:s.k}, null);
+  }},
+{ id:'emboss', name:'Emboss',
+  desc:'<b>Paper-texture embossing.</b> Removes slow illumination variation, keeps only fine detail, then takes a directional derivative at the chosen angle to emphasize grooves and ridges left by the pen.' +
+       '<span class="approx">Approximates scripts/emboss_sweep.py (high-pass cutoff, directional Sobel). Ink masking here is a simple local-darkness test; Python used background subtraction plus Otsu.</span>',
+  controls:[
+    {key:'cutoff', label:'High-pass cutoff px', min:2, max:32, step:1, val:8},
+    {key:'ang', label:'Sobel angle', min:0, max:180, step:5, val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    var t = scratch(0, imgW, imgH);
+    blurInto(imgTex, imgW, imgH, s.cutoff, 1, 0, 0, t);
+    var t2 = scratch(1, imgW, imgH);
+    blurInto(t.tex, imgW, imgH, s.cutoff, 0, 1, 0, t2);
+    draw(program(FS_EMBOSS), {u_img:{tex:imgTex}, u_blur:{tex:t2.tex},
+      u_texel:[1/imgW,1/imgH], u_ang:s.ang}, null);
+  }},
+{ id:'rake', name:'Raking',
+  desc:'<b>Virtual raking light.</b> Estimates the surface micro-relief from the photo\'s shading, then re-renders it under a virtual lamp at a grazing angle. Swing the lamp: relief inverts at 180&deg;.' +
+       '<span class="approx">Approximates scripts/virtual_raking.py. Honest limit, same as Python: only the shading along the original light direction is observable, so the &plusmn;90&deg; views are flat by physics, not by failure.</span>',
+  controls:[
+    {key:'view', label:'Lamp azimuth', min:0, max:360, step:5, val:0},
+    {key:'gain', label:'Grazing gain', min:1, max:12, step:0.5, val:5}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    var big = scratch(0, imgW, imgH);
+    blurInto(imgTex, imgW, imgH, 40, 1, 0, 0, big);
+    var big2 = scratch(1, imgW, imgH);
+    blurInto(big.tex, imgW, imgH, 40, 0, 1, 0, big2);
+    var flat = scratch(2, imgW, imgH);
+    draw(program(FS_FLAT), {u_img:{tex:imgTex}, u_big:{tex:big2.tex}}, flat);
+    var small = scratch(3, imgW, imgH);
+    blurInto(flat.tex, imgW, imgH, 3, 1, 0, 0, small);
+    var small2 = scratch(4, imgW, imgH);
+    blurInto(small.tex, imgW, imgH, 3, 0, 1, 0, small2);
+    draw(program(FS_RAKE), {u_flat:{tex:flat.tex}, u_small:{tex:small2.tex},
+      u_view:s.view, u_light:lightAz, u_gain:s.gain}, null);
+  }}
+];
+
+/* ============ UI wiring ============ */
+var imgbar = document.getElementById('imgbar');
+var tabbar = document.getElementById('tabbar');
+var descEl = document.getElementById('desc');
+var controlsEl = document.getElementById('controls');
+var origBtn = document.getElementById('origbtn');
+
+IMAGES.forEach(function(im, i){
+  var b = document.createElement('button');
+  b.textContent = im.label;
+  b.addEventListener('click', function(){ loadImage(i); });
+  imgbar.appendChild(b);
+});
+TABS.forEach(function(t, i){
+  var b = document.createElement('button');
+  b.textContent = t.name;
+  b.addEventListener('click', function(){ selectTab(i); });
+  tabbar.appendChild(b);
+  t.state = {};
+  t.controls.forEach(function(c){ t.state[c.key] = c.val; });
+});
+
+function syncBars(){
+  Array.prototype.forEach.call(imgbar.children, function(b, i){
+    b.classList.toggle('on', i === curImg);
+  });
+  Array.prototype.forEach.call(tabbar.children, function(b, i){
+    b.classList.toggle('on', i === curTab);
+  });
+}
+
+function buildControls(){
+  var t = TABS[curTab];
+  descEl.innerHTML = t.desc;
+  controlsEl.innerHTML = '';
+  t._inputs = {};
+  t.controls.forEach(function(c){
+    var row = document.createElement('div'); row.className = 'row';
+    var lab = document.createElement('label'); lab.textContent = c.label;
+    row.appendChild(lab);
+    if (c.seg){
+      var seg = document.createElement('div'); seg.className = 'seg';
+      c.seg.forEach(function(opt, oi){
+        var b = document.createElement('button');
+        b.textContent = opt;
+        if (oi === t.state[c.key]) b.classList.add('on');
+        b.addEventListener('click', function(){
+          t.state[c.key] = oi;
+          Array.prototype.forEach.call(seg.children, function(x, xi){
+            x.classList.toggle('on', xi === oi);
+          });
+          render();
+        });
+        seg.appendChild(b);
+      });
+      row.appendChild(seg);
+    } else {
+      var inp = document.createElement('input');
+      inp.type = 'range'; inp.min = c.min; inp.max = c.max;
+      inp.step = c.step; inp.value = t.state[c.key];
+      var val = document.createElement('span'); val.className = 'val';
+      val.textContent = t.state[c.key];
+      inp.addEventListener('input', function(){
+        t.state[c.key] = parseFloat(inp.value);
+        val.textContent = inp.value;
+        if (c.key === 'n' && t._inputs.idx){
+          t._inputs.idx.inp.max = t.state.n - 1;
+          t._inputs.width.inp.max = t.state.n;
+          if (t.state.idx > t.state.n - 1){
+            t.state.idx = t.state.n - 1;
+            t._inputs.idx.inp.value = t.state.idx;
+            t._inputs.idx.val.textContent = t.state.idx;
+          }
+        }
+        render();
+      });
+      t._inputs[c.key] = {inp:inp, val:val};
+      row.appendChild(inp); row.appendChild(val);
+    }
+    if (t.id === 'bands' && c.key === 'width') row.id = 'widthrow';
+    controlsEl.appendChild(row);
+  });
+  if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
+}
+
+function syncWidthRow(){
+  var t = TABS[curTab], wr = document.getElementById('widthrow');
+  if (wr) wr.style.display = (t.id === 'bands' && t.state.mode === 1) ? 'flex' : 'none';
+}
+
+function render(){
+  if (!imgTex || !gl) return;
+  syncBars(); syncWidthRow();
+  if (showOriginal){
+    draw(program(FS_PASS), {u_img:{tex:imgTex}}, null);
+    return;
+  }
+  var t = TABS[curTab];
+  t.render();
+}
+
+function selectTab(i){
+  curTab = i;
+  buildControls();
+  render();
+}
+
+function loadImage(i){
+  curImg = i; showOriginal = false;
+  origBtn.classList.remove('on'); origBtn.textContent = 'Show original';
+  statusEl.textContent = 'Loading ' + IMAGES[i].label + '…';
+  var img = new Image();
+  img.onload = function(){
+    var scale = Math.min(1, 1024/Math.max(img.width, img.height));
+    imgW = Math.max(2, Math.round(img.width*scale));
+    imgH = Math.max(2, Math.round(img.height*scale));
+    canvas.width = imgW; canvas.height = imgH;
+    var c = document.createElement('canvas'); c.width = imgW; c.height = imgH;
+    c.getContext('2d').drawImage(img, 0, 0, imgW, imgH);
+    if (imgTex) gl.deleteTexture(imgTex);
+    imgTex = makeTex(imgW, imgH, c);
+    imgObj = img;
+    analyzeImage(c);
+    buildControls();
+    statusEl.textContent = IMAGES[i].label + ' — ' + imgW + '×' + imgH +
+      ' · band range L ' + bandLo.toFixed(0) + '–' + bandHi.toFixed(0) +
+      ' · est. light ' + Math.round(((lightAz%360)+360)%360) + '°';
+    render();
+  };
+  img.onerror = function(){ statusEl.textContent = 'Could not load ' + IMAGES[i].src; };
+  img.src = IMAGES[i].src;
+}
+
+origBtn.addEventListener('click', function(){
+  showOriginal = !showOriginal;
+  origBtn.classList.toggle('on', showOriginal);
+  origBtn.textContent = showOriginal ? 'Back to algorithm' : 'Show original';
+  render();
+});
+
+/* init */
+selectTab(0);
+loadImage(0);
+</script>
+</body>
+</html>
