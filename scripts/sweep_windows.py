@@ -151,7 +151,7 @@ def family_multires(Lc, blot, dark, light, outdir, n_bands=12):
         print(f"1/{denom}: {w}x{h}, blot px={small_b.sum()}, "
               f"score={sc} ncomp={nc}")
         records.append({"denom": denom, "size": (w, h),
-                        "score": sc, "ncomp": nc})
+                        "score": int(sc), "ncomp": int(nc)})
     # comparison strip
     strips = [cv2.imread(os.path.join(mdir, f"res_1_{d}_up.png"))
               for d in (1, 2, 4, 8, 12, 16)]
@@ -203,7 +203,7 @@ def family_checkerboard(Lc, blot, dark, light, outdir, n_bands=12):
         print(f"spacing={spacing} N={N}: {len(tiles)} patches "
               f"-> montage")
         records.append({"spacing": spacing, "N": N,
-                        "npatches": len(tiles)})
+                        "npatches": int(len(tiles))})
     return records
 
 

@@ -82,6 +82,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("image")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--roi", type=int, nargs=4, default=list(ROI),
+                    help="x0 y0 x1 y1 region; use 0 0 0 0 for full image")
     ap.add_argument("--cutoffs", type=int, nargs="+", default=[4, 8, 16])
     ap.add_argument("--angles", type=int, nargs="+", default=[0, 45, 90, 135])
     ap.add_argument("--scales", type=float, nargs="+", default=[1.0, 0.5, 0.25])
@@ -89,8 +91,11 @@ def main():
 
     os.makedirs(args.out, exist_ok=True)
     img = cv2.imread(args.image, cv2.IMREAD_GRAYSCALE)
-    x0, y0, x1, y1 = ROI
-    roi = img[y0:y1, x0:x1]
+    x0, y0, x1, y1 = args.roi
+    if (x0, y0, x1, y1) == (0, 0, 0, 0):
+        roi = img
+    else:
+        roi = img[y0:y1, x0:x1]
     cv2.imwrite(os.path.join(args.out, "roi.png"), roi)
 
     n = 0
