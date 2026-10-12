@@ -104,4 +104,65 @@
     390,
     180
    ],
-   "score": 
+   "score": 3200,
+   "ncomp": 4
+  },
+  {
+   "denom": 2,
+   "size": [
+    195,
+    90
+   ],
+   "score": 817,
+   "ncomp": 4
+  },
+  {
+   "denom": 4,
+   "size": [
+    97,
+    45
+   ],
+   "score": 378,
+   "ncomp": 5
+  },
+  {
+   "denom": 8,
+   "size": [
+    48,
+    22
+   ],
+   "score": 0,
+   "ncomp": 0
+  },
+  {
+   "denom": 12,
+   "size": [
+    32,
+    15
+   ],
+   "score": 0,
+   "ncomp": 0
+  },
+  {
+   "denom": 16,
+   "size": [
+    24,
+    11
+   ],
+   "score": 0,
+   "ncomp": 0
+  }
+ ],
+ "checkerboard": [
+  {
+   "spacing": 32,
+   "N": 16,
+   "npatches": 60
+  },
+  {
+   "spacing": 64,
+   "N": 32,
+   "npatches": 12
+  }
+ ]
+}

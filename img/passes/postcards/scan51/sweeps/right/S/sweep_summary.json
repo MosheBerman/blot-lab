@@ -1,0 +1,168 @@
+{
+ "sliding": [
+  {
+   "N": 25,
+   "w": 2,
+   "nwin": 24,
+   "top": {
+    "i": 18,
+    "w": 2,
+    "score": 296,
+    "ncomp": 3
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N25"
+  },
+  {
+   "N": 25,
+   "w": 3,
+   "nwin": 23,
+   "top": {
+    "i": 18,
+    "w": 3,
+    "score": 549,
+    "ncomp": 2
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N25"
+  },
+  {
+   "N": 25,
+   "w": 5,
+   "nwin": 21,
+   "top": {
+    "i": 5,
+    "w": 5,
+    "score": 1026,
+    "ncomp": 8
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N25"
+  },
+  {
+   "N": 25,
+   "w": 8,
+   "nwin": 18,
+   "top": {
+    "i": 3,
+    "w": 8,
+    "score": 2093,
+    "ncomp": 7
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N25"
+  },
+  {
+   "N": 255,
+   "w": 5,
+   "nwin": 251,
+   "top": {
+    "i": 213,
+    "w": 5,
+    "score": 124,
+    "ncomp": 1
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N255"
+  },
+  {
+   "N": 255,
+   "w": 10,
+   "nwin": 246,
+   "top": {
+    "i": 213,
+    "w": 10,
+    "score": 240,
+    "ncomp": 1
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N255"
+  },
+  {
+   "N": 255,
+   "w": 25,
+   "nwin": 231,
+   "top": {
+    "i": 186,
+    "w": 25,
+    "score": 466,
+    "ncomp": 2
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N255"
+  },
+  {
+   "N": 255,
+   "w": 50,
+   "nwin": 206,
+   "top": {
+    "i": 168,
+    "w": 50,
+    "score": 1438,
+    "ncomp": 4
+   },
+   "dir": "img/passes/postcards/scan51/sweeps/right/S/sweep_N255"
+  }
+ ],
+ "multires": [
+  {
+   "denom": 1,
+   "size": [
+    172,
+    121
+   ],
+   "score": 1513,
+   "ncomp": 5
+  },
+  {
+   "denom": 2,
+   "size": [
+    86,
+    60
+   ],
+   "score": 280,
+   "ncomp": 2
+  },
+  {
+   "denom": 4,
+   "size": [
+    43,
+    30
+   ],
+   "score": 46,
+   "ncomp": 1
+  },
+  {
+   "denom": 8,
+   "size": [
+    21,
+    15
+   ],
+   "score": 43,
+   "ncomp": 1
+  },
+  {
+   "denom": 12,
+   "size": [
+    14,
+    10
+   ],
+   "score": 0,
+   "ncomp": 0
+  },
+  {
+   "denom": 16,
+   "size": [
+    10,
+    7
+   ],
+   "score": 0,
+   "ncomp": 0
+  }
+ ],
+ "checkerboard": [
+  {
+   "spacing": 32,
+   "N": 16,
+   "npatches": 14
+  },
+  {
+   "spacing": 64,
+   "N": 32,
+   "npatches": 2
+  }
+ ]
+}
