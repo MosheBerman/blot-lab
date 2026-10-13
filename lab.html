@@ -62,6 +62,11 @@
   .row label { font-size:0.82rem; color:#bbb; min-width:96px; }
   input[type=range] { flex:1; min-width:120px; height:44px; accent-color:#4da3ff; }
   .val { font-size:0.85rem; color:#4da3ff; min-width:52px; text-align:right; cursor:pointer; }
+  #laychips { display:flex; flex-wrap:wrap; gap:6px; flex:1; }
+  #laychips button { min-width:34px; padding:8px 6px; font-size:0.78rem; border-radius:8px;
+    border:1px solid #444; background:#242424; color:#ddd; }
+  #laychips button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
+  #laychips button.wide { min-width:0; padding:8px 12px; }
   .seg { display:flex; gap:6px; flex:1; }
   .seg button { flex:1; padding:11px 4px; font-size:0.8rem; border-radius:8px;
                 border:1px solid #444; background:#242424; color:#ddd; }
@@ -667,12 +672,13 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
     {key:'pos', label:'Window end', min:0, max:11, step:1, val:11},
     {key:'width', label:'Window width', min:1, max:12, step:1, val:12},
+    {key:'adv', label:'Layer pick', seg:['Window','Advanced'], val:0},
     {key:'gap', label:'Sheet spacing', min:0, max:100, step:1, val:35},
     {key:'sweep0', label:'Sweep from', min:0, max:160, step:1, val:60},
     {key:'sweep1', label:'Sweep to', min:0, max:160, step:1, val:160}
@@ -684,6 +690,9 @@ var TABS = [
     var n=Math.max(2,Math.round(s.n));
     var bw=Math.min(512,imgW), bh=Math.max(2,Math.round(imgH*bw/imgW));
     var i, t, lo=0, hi=n-1;
+    ensureSel(this);
+    var adv = !!s.adv;
+    function isVis(k){ return adv ? !!s.sel[k] : (k>=lo && k<=hi); }
     // per-source layer parameter
     function layerU(k){
       var f = n<=1?0:k/(n-1);
@@ -709,7 +718,8 @@ var TABS = [
     var a2s=tabSt('a2'), chs=tabSt('chroma'), dis=tabSt('dir'), ems=tabSt('emboss'), rks=tabSt('rake');
     if(src===0){ var w=Math.min(Math.round(s.width),n);
                  hi=Math.min(Math.round(s.pos),n-1); lo=Math.max(0,hi-w+1); }
-    for(i=lo;i<=hi;i++){
+    for(i=0;i<n;i++){
+      if(!isVis(i)) continue;
       t=scratch(20+i,bw,bh);
       var lu=layerU(i), uu={u_img:{tex:imgTex}};
       if(src===0) draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},t);
@@ -735,16 +745,19 @@ var TABS = [
     gl.uniformMatrix4fv(prog.uMvp,false,new Float32Array(mvp));
     gl.uniformMatrix4fv(prog.uRot,false,new Float32Array(rot));
     gl.uniform1f(prog.uAspect,imgW/imgH);
-    var span=Math.max(1,hi-lo);
-    for(i=lo;i<=hi;i++){
+    var vc=0; for(i=0;i<n;i++) if(isVis(i)) vc++;
+    var order=0;
+    for(i=0;i<n;i++){
+      if(!isVis(i)) continue;
       t=scratch(20+i,bw,bh);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,t.tex);
       gl.uniform1i(prog.uTex,0);
-      if(src===0){ var f=(i-lo)/span;
+      if(src===0){ var f=vc<=1?0:order/(vc-1);
         gl.uniform3f(prog.uTint, 0.25+0.75*f, 0.55-0.35*f, 1.0-0.8*f);
       } else gl.uniform3f(prog.uTint, 1,1,1);
-      gl.uniform1f(prog.uDz,(i-lo)*s.gap*0.006);
+      gl.uniform1f(prog.uDz,order*s.gap*0.006);
       gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+      order++;
     }
     gl.disable(gl.BLEND);
   }}
@@ -951,6 +964,15 @@ function buildControls(){
     t._rows[c.key] = row;
     controlsEl.appendChild(row);
   });
+  if (t.id === 'stack'){
+    var lr = document.createElement('div'); lr.className = 'row'; lr.id = 'laypickrow';
+    var ll = document.createElement('label'); ll.textContent = 'Layers';
+    lr.appendChild(ll);
+    var chips = document.createElement('div'); chips.id = 'laychips';
+    lr.appendChild(chips);
+    controlsEl.appendChild(lr);
+    t._laychips = chips;
+  }
   if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
   if (t._inputs.pos){ t._inputs.pos.inp.max = Math.max(0, t.state.n - 1); t._inputs.width.inp.max = t.state.n; }
   var rrow = document.createElement('div'); rrow.className = 'row';
@@ -958,6 +980,7 @@ function buildControls(){
   rb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
   rb.addEventListener('click', function(){
     t.controls.forEach(function(c){ t.state[c.key] = c.def; });
+    if (t.id === 'stack'){ t.state.sel = []; ensureSel(t); if (t._laychips) t._laychips._n = -1; }
     buildControls(); render();
   });
   rrow.appendChild(rb); controlsEl.appendChild(rrow);
@@ -974,11 +997,50 @@ var SWEEPS = [null,
   {lo:1, hi:3, min:0.2, max:6, step:0.1},
   {lo:0, hi:180, min:0, max:180, step:1},
   {lo:0, hi:360, min:0, max:360, step:1}];
+function ensureSel(t){
+  var s = t.state, n = Math.max(2, Math.round(s.n));
+  if (!Array.isArray(s.sel) || s.sel.length !== n){
+    var old = Array.isArray(s.sel) ? s.sel : [], nw = [];
+    for (var i = 0; i < n; i++) nw.push(i < old.length ? !!old[i] : true);
+    s.sel = nw;
+  }
+}
+function syncChips(t){
+  var box = t._laychips;
+  if (!box) return;
+  var n = t.state.sel.length;
+  if (box._n === n) return;
+  box._n = n; box.innerHTML = '';
+  t.state.sel.forEach(function(on, i){
+    var b = document.createElement('button');
+    b.textContent = i;
+    b.classList.toggle('on', !!on);
+    b.addEventListener('click', function(){
+      t.state.sel[i] = !t.state.sel[i];
+      b.classList.toggle('on', t.state.sel[i]);
+      render();
+    });
+    box.appendChild(b);
+  });
+  [['All', true], ['None', false]].forEach(function(pair){
+    var b = document.createElement('button');
+    b.textContent = pair[0]; b.className = 'wide';
+    b.addEventListener('click', function(){
+      for (var i = 0; i < t.state.sel.length; i++) t.state.sel[i] = pair[1];
+      box._n = -1; syncChips(t); render();
+    });
+    box.appendChild(b);
+  });
+}
 function syncStackUI(){
   var t = TABS[stackIdx], s = t.state;
   if (!t._rows || !t._inputs) return;
-  var isBands = s.src === 0;
-  ['pos','width'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = isBands ? '' : 'none'; });
+  ensureSel(t);
+  var isBands = s.src === 0, adv = s.adv === 1;
+  ['pos','width'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = (isBands && !adv) ? '' : 'none'; });
+  var lr = document.getElementById('laypickrow');
+  if (lr) lr.style.display = adv ? '' : 'none';
+  if (adv) syncChips(t);
   ['sweep0','sweep1'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = isBands ? 'none' : ''; });
   if (s.src !== t._lastSrc){
     t._lastSrc = s.src;

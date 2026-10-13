@@ -92,3 +92,22 @@ saturated ink: nothing under it differs in chroma on this photo. Outputs in
   top-right corner (top, left of the tools panel in landscape), tappable to
   dismiss; the toolbar thumbnail button reopens it. Live viewport rectangle
   redraws while expanded, unchanged.
+
+## 2026-10-12 — UI: trackpad support
+
+- Pinch-to-zoom on the trackpad (ctrl+wheel): zooms around the cursor, same
+  0.5–8× range as touch pinch.
+- Two-finger scroll (wheel): pans, content follows the fingers, scaled by zoom.
+- preventDefault stops the browser's page-zoom gesture over the canvas.
+
+## 2026-10-12 — UI: 3D stack advanced layer picker
+
+- 3D stack tab: new "Layer pick" control (Window / Advanced). Advanced hides
+  the sliding-window sliders (Window end, Window width) and shows a column of
+  per-layer toggle chips (one per layer, 0..n-1), so any non-contiguous set of
+  layers can be shown by hand. Works for every algorithm source, not just Bands.
+- Chips row has All / None quick buttons; chip count follows the Layers slider
+  (growing preserves the existing pattern, shrinking keeps the prefix).
+- Tint gradient and sheet spacing follow the visible order, not the raw index.
+- Selection lives in tab state, so it survives Reset sliders (resets to all on),
+  session auto-restore, and snapshot links.
