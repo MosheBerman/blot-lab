@@ -1275,6 +1275,28 @@ function endPtr(e){ delete ptrs[e.pointerId]; if (Object.keys(ptrs).length === 0
 canvas.addEventListener('pointerup', endPtr);
 canvas.addEventListener('pointercancel', endPtr);
 
+/* trackpad: pinch to zoom, two-finger scroll to pan */
+canvas.addEventListener('wheel', function(e){
+  e.preventDefault();
+  var cr = contentRect();
+  var scale = (e.deltaMode === 1) ? 16 : 1;
+  if (e.ctrlKey){
+    // trackpad pinch: zoom around the cursor
+    var z0 = zoom;
+    zoom = Math.min(8, Math.max(0.5, zoom*Math.exp(-e.deltaY*scale*0.01)));
+    var cx = (e.clientX - cr[0] - cr[2]/2)/cr[2];
+    var cy = (e.clientY - cr[1] - cr[3]/2)/cr[3];
+    panX += cx*(1/z0 - 1/zoom);
+    panY += cy*(1/z0 - 1/zoom);
+    if (zoom === 1){ panX = 0; panY = 0; }
+  } else {
+    // two-finger scroll: pan, content follows the fingers
+    panX -= e.deltaX*scale/cr[2]/zoom;
+    panY += e.deltaY*scale/cr[3]/zoom;
+  }
+  render();
+}, {passive:false});
+
 /* init */
 var stackIdx = 0;
 TABS.forEach(function(t, i){ if (t.id === 'stack') stackIdx = i; });
