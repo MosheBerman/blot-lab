@@ -65,3 +65,30 @@ saturated, nothing recoverable. The sentence reads complete without the
 Note for future runs: the method itself is sound (clean shade separation,
 verified on the composite/depthmap); it is the right tool if a new blot
 candidate ever appears with a non-saturated core.
+
+## 2026-10-12 — Color-separation pass (`scripts/color_pass.py`)
+
+External review suggested the shade bands throw away chroma: a different ink
+under blue dye ink can separate in the red vs blue channels. Ran on the
+letter-39 blot ROI (x[88:474] y[389:726]):
+
+1. R/G/B channel views (grayscale, 1–99% normalized).
+2. Decorrelation stretch (PCA whitening, contrast matched) on the ROI.
+3. PC1/2/3 false-color composite.
+4. B-minus-R asymmetry map (blue dye ink absorbs red strongly).
+
+Outcome: negative. R and B channels are near-identical — one uniform ink.
+The decorrelation stretch and false-color show mottled wash texture only, no
+letterforms, numbers, or script. The B−R map is smooth (saturated blue core
+vs gray text), with no structures shaped like writing. The core is a single
+saturated ink: nothing under it differs in chroma on this photo. Outputs in
+`img/passes/color39/`.
+
+## 2026-10-12 — UI: pinch zoom out to 50%, floating minimap
+
+- Pinch zoom minimum lowered from 1.0 to 0.5 (sidebar-less; zoom is
+  gesture-only). Double-tap still resets to 100%.
+- The expanded minimap is no longer a fullscreen modal: it floats in the
+  top-right corner (top, left of the tools panel in landscape), tappable to
+  dismiss; the toolbar thumbnail button reopens it. Live viewport rectangle
+  redraws while expanded, unchanged.

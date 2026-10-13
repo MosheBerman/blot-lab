@@ -91,12 +91,14 @@
              -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
   #btn-minimap { padding:0; overflow:hidden; }
   #btn-minimap img { width:100%; height:100%; object-fit:cover; display:block; }
-  #bigmap { position:fixed; inset:0; z-index:40; background:rgba(0,0,0,0.55);
-            display:flex; align-items:center; justify-content:center; }
+  #bigmap { position:fixed; z-index:40;
+            top:calc(64px + env(safe-area-inset-top)); right:12px;
+            width:min(30vw, 168px); }
   #bigmap.hidden { display:none; }
-  #bigmap-canvas { width:min(74vw, 340px); aspect-ratio:1;
+  #bigmap-canvas { width:100%; aspect-ratio:1; display:block;
                 border-radius:12px; border:1px solid rgba(255,255,255,0.25);
-                background:#000; }
+                background:#000; box-shadow:0 8px 28px rgba(0,0,0,0.55);
+                cursor:pointer; }
   #toast { position:fixed; z-index:50; left:50%; bottom:120px; transform:translateX(-50%);
            background:rgba(20,20,20,0.92); border:1px solid #444; color:#fff;
            padding:10px 18px; border-radius:20px; font-size:0.82rem; opacity:0;
@@ -110,6 +112,7 @@
     #wipebar { right:calc(36% + 12px); bottom:12px; }
     #infocard { right:calc(36% + 12px); }
     #sheet { right:36%; }
+    #bigmap { right:calc(36% + 12px); top:calc(10px + env(safe-area-inset-top)); }
     #panel { left:64%; top:0; border-top:none; border-left:1px solid #2c2c2c; border-radius:0;
              display:flex; flex-direction:column; }
     #panel-handle { cursor:default; }
@@ -1254,7 +1257,7 @@ canvas.addEventListener('pointermove', function(e){
   } else if (dragMode === 'pinch' && ks.length === 2){
     var a = ptrs[ks[0]], b = ptrs[ks[1]];
     var d = Math.hypot(b[0]-a[0], b[1]-a[1]) || 1;
-    zoom = Math.min(8, Math.max(1, zoom0*d/pinchD0));
+    zoom = Math.min(8, Math.max(0.5, zoom0*d/pinchD0));
     var ang = Math.atan2(b[1]-a[1], b[0]-a[0]);
     var dA = ang - angPrev;
     if (dA > Math.PI) dA -= 2*Math.PI; else if (dA < -Math.PI) dA += 2*Math.PI;
