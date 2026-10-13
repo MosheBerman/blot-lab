@@ -354,6 +354,38 @@ var FS_EMBOSS =
 '  gl_FragColor = vec4(vec3(v*(1.0-ink)), 1.0);\n' +
 '}\n';
 
+var FS_FRANGI =
+'uniform sampler2D u_img; uniform vec2 u_texel;\n' +
+'uniform float u_s0; uniform float u_s1; uniform float u_steps;\n' +
+'uniform float u_beta; uniform float u_c; uniform float u_polarity; uniform float u_view;\n' +
+'float L(vec2 uv){ return lum(texture2D(u_img, uv).rgb); }\n' +
+'void main(){\n' +
+'  float best = 0.0;\n' +
+'  for (float k = 0.0; k < 8.0; k++){\n' +
+'    if (k >= u_steps) break;\n' +
+'    float s = u_steps > 1.0 ? mix(u_s0, u_s1, k/(u_steps-1.0)) : u_s0;\n' +
+'    vec2 ex = vec2(u_texel.x*s, 0.0), ey = vec2(0.0, u_texel.y*s);\n' +
+'    float c = L(v_uv);\n' +
+'    float dxx = (L(v_uv+ex) - 2.0*c + L(v_uv-ex))/(s*s);\n' +
+'    float dyy = (L(v_uv+ey) - 2.0*c + L(v_uv-ey))/(s*s);\n' +
+'    float dxy = (L(v_uv+ex+ey) - L(v_uv+ex-ey) - L(v_uv-ex+ey) + L(v_uv-ex-ey))/(4.0*s*s);\n' +
+'    float tr = dxx + dyy;\n' +
+'    float disc = sqrt(max(tr*tr*0.25 - (dxx*dyy - dxy*dxy), 0.0));\n' +
+'    float l1 = tr*0.5 - disc, l2 = tr*0.5 + disc;\n' +
+'    float lam1 = min(abs(l1), abs(l2)), lam2 = max(abs(l1), abs(l2));\n' +
+'    float rb = lam2 > 1e-9 ? lam1/lam2 : 0.0;\n' +
+'    float S = sqrt(l1*l1 + l2*l2);\n' +
+'    float v = exp(-rb*rb/(2.0*u_beta*u_beta)) * (1.0 - exp(-S*S/(2.0*u_c*u_c)));\n' +
+'    float ridgeSign = u_polarity < 0.5 ? step(0.0, l2) : step(l2, 0.0);\n' +
+'    best = max(best, v*ridgeSign);\n' +
+'  }\n' +
+'  vec3 outc;\n' +
+'  if (u_view < 0.5) outc = vec3(best);\n' +
+'  else { vec3 rgb = texture2D(u_img, v_uv).rgb;\n' +
+'         outc = mix(rgb, vec3(1.0,0.2,0.2), clamp(best*1.5, 0.0, 0.85)); }\n' +
+'  gl_FragColor = vec4(outc, 1.0);\n' +
+'}\n';
+
 var FS_FLAT =
 'uniform sampler2D u_img; uniform sampler2D u_big;\n' +
 'void main(){\n' +
@@ -630,6 +662,25 @@ var TABS = [
     var d = s.dir===0?[1,0]:s.dir===1?[0,1]:[0.7071,0.7071];
     blurInto(imgTex, imgW, imgH, Math.floor(s.win/2), d[0], d[1], 1, t);
     draw(program(FS_DIR), {u_img:{tex:imgTex}, u_mean:{tex:t.tex}, u_k:s.k}, renderTarget);
+  }},
+{ id:'ridge', name:'Ridge',
+  desc:'<b>Frangi ridge detection.</b> Finds elongated stroke-like structures at the chosen scales from the Hessian eigenvalues, the vesselness measure from medical imaging. Dark mode finds ink strokes; light mode finds bright ridges. Overlay paints the ridges over the photo in red.' +
+       '<span class="approx">Mirrors scripts/ridge_isolate.py (Frangi branch). Python used scikit-image sigmas 2-6; the shader sweeps pixel scales with scale-normalized second derivatives and takes the max vesselness.</span>',
+  controls:[
+    {key:'s0', label:'Scale from px', min:1, max:10, step:0.5, val:2},
+    {key:'s1', label:'Scale to px', min:1, max:10, step:0.5, val:6},
+    {key:'steps', label:'Scale steps', min:1, max:8, step:1, val:5},
+    {key:'beta', label:'Blob reject', min:0.1, max:2, step:0.05, val:0.5},
+    {key:'sens', label:'Sensitivity', min:0.002, max:0.1, step:0.001, val:0.02},
+    {key:'pol', label:'Ridges', seg:['Dark','Light'], val:0},
+    {key:'view', label:'View', seg:['Ridges','Overlay'], val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    draw(program(FS_FRANGI), {u_img:{tex:imgTex}, u_texel:[1/imgW,1/imgH],
+      u_s0:s.s0, u_s1:s.s1, u_steps:s.steps, u_beta:s.beta, u_c:s.sens,
+      u_polarity:s.pol, u_view:s.view}, renderTarget);
   }},
 { id:'emboss', name:'Emboss',
   desc:'<b>Paper-texture embossing.</b> Removes slow illumination variation, keeps only fine detail, then takes a directional derivative at the chosen angle to emphasize grooves and ridges left by the pen.' +
