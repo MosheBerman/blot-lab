@@ -129,3 +129,26 @@ Re-ran the color pass on the PNG crop (`img/source/39-blot.png`): same
 negative (uniform ink, mottled wash, no letterforms). `color_pass.py` now
 reads the PNG by default. Remaining untapped source: the original iPhone
 photo itself (39-hi-1.png is not a native 12MP size), if it still exists.
+
+## 2026-10-12 — Ridge isolation (`scripts/ridge_isolate.py`)
+
+Moshe's hypothesis: the blot is not uniform — ink pools unevenly along each
+underlying stroke, so letter strokes should survive as LOCAL maxima/minima
+(ridges) inside the blot even though global shade bands see only wash.
+
+Three 2D-local, orientation-free methods on the clean PNG crop:
+1. Frangi vesselness (Hessian ridges), sigmas 2–6 px (stroke scale).
+2. Black/white top-hat with a 15-px disk (structures on uneven background).
+3. Local z-score vs a 31-px median (per-pixel deviation from neighborhood).
+
+Control: the same pipeline on adjacent visible handwriting ("die sollst").
+The control validates the method — Frangi and local-z extract the visible
+strokes as clean, bright, elongated ridges.
+
+Outcome: negative on structure. The blot interior does vary locally, but the
+variation is fine isotropic grain, not elongated stroke-shaped ridges. All
+three methods agree; none resolves anything with the character of the
+control text. Combined with the morning's synthetic calibration (known text
+recoverable at half the real blot's opacity, invisible at full), the
+negative is well characterized: no stroke-shaped signal exists in the blot
+interior at this scan's resolution. Outputs in `img/passes/ridge39/`.
