@@ -152,3 +152,21 @@ control text. Combined with the morning's synthetic calibration (known text
 recoverable at half the real blot's opacity, invisible at full), the
 negative is well characterized: no stroke-shaped signal exists in the blot
 interior at this scan's resolution. Outputs in `img/passes/ridge39/`.
+
+## 2026-10-12 — Join tab (cross-layer connected components)
+
+Moshe's idea: between the 3D stack's layers, find adjacent strokes and join
+them — e.g. layer 0 pixel (2,3) meets the criteria and layer 1 pixel (2,4)
+does too, so they join — then project the joined layers onto a flat surface.
+The automated version of the stack's manual Advanced layer-pick; conceptually
+like tilting a letter to the light, where each layer is a tilt and only
+strokes persisting across tilts survive.
+
+Implementation (lab.html, Join tab): renders the same sweep layers as the 3D
+stack (Bands, A2 gate, Chroma, Directional, Ridge) at 512px width, reads each
+back to a binary mask, runs a CPU 3D flood fill with 26-connectivity over the
+layer volume, drops components spanning fewer than Min span layers, and
+projects the survivors flat. Two views: binary Projection and a Span map
+colored by how many layers each pixel's structure persisted through. Ridge
+borrows its scale sweep from the Ridge tab. Flood-fill logic unit-tested in
+node (Moshe's example joins; lone pixels drop).

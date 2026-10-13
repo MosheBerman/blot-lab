@@ -144,7 +144,7 @@
 <div id="sheet" class="hidden">
   <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
   <div id="sheet-body"></div>
-  <div id="sheet-nav"><a href="index.html">Lab home</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a></div>
+  <div id="sheet-nav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a></div>
 </div>
 <div id="infocard" class="hidden"></div>
 <div id="wipebar">
@@ -814,7 +814,7 @@ var TABS = [
     gl.disable(gl.BLEND);
   }},
 { id:'join', name:'Join',
-  desc:'<b>Cross-layer stroke joining.</b> Builds the same sweep layers as the 3D stack, then joins strokes that touch across adjacent layers (26-connectivity in x, y and layer) into 3D structures. Structures spanning fewer than Min span layers are dropped as noise; the survivors are projected onto a flat surface. Like holding the letter to the light and tilting it: each layer is a tilt, and only strokes that persist across tilts survive. The automated version of the stack\'s Advanced layer-pick.' +
+  desc:'<b>Cross-layer stroke joining.</b> Builds the same sweep layers as the 3D stack, then joins strokes that touch across adjacent layers (26-connectivity in x, y and layer) into 3D structures. Structures spanning fewer than Min span layers are dropped as noise; the survivors are projected onto a flat surface. Like holding the letter to the light and tilting it: each layer is a tilt, and only strokes that persist across tilts survive. The automated version of the stack\'s Advanced layer-pick. Target=Holes inverts the search: it finds background regions enclosed by the ink in each layer and joins those across layers, surfacing the paper windows where the top ink is thinnest.' +
        '<span class="approx">New in-lab algorithm. CPU flood fill over the layer volume at 512px width; per-source binary masks. Ridge borrows its scale sweep from the Ridge tab.</span>',
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Ridge'], val:0},
@@ -822,6 +822,7 @@ var TABS = [
     {key:'sweep0', label:'Sweep from', min:0, max:160, step:1, val:60},
     {key:'sweep1', label:'Sweep to', min:0, max:160, step:1, val:160},
     {key:'rth', label:'Ridge threshold', min:0.05, max:0.95, step:0.05, val:0.5},
+    {key:'target', label:'Target', seg:['Ink','Holes'], val:0},
     {key:'minspan', label:'Min span', min:1, max:16, step:1, val:2},
     {key:'view', label:'View', seg:['Projection','Span map'], val:0}
   ],
@@ -869,6 +870,33 @@ var TABS = [
         else m=px[p4]>127;
         vol[off+i]=m?1:0;
       }
+    }
+    // 1b. Holes mode: per layer, keep only background regions enclosed by the ink
+    // (border flood fill over the inverted mask; holes = background not reached)
+    if(+s.target===1){
+      var hv=new Uint8Array(N*H*W);
+      var seen=new Uint8Array(W*H), q=[];
+      for(var k4=0;k4<N;k4++){
+        var off4=k4*H*W;
+        seen.fill(0); q.length=0;
+        for(var bx=0;bx<W;bx++){ if(!vol[off4+bx]){seen[bx]=1;q.push(bx);}
+          var bb2=off4+(H-1)*W+bx, bi=(H-1)*W+bx;
+          if(!vol[bb2]&&!seen[bi]){seen[bi]=1;q.push(bi);} }
+        for(var by=0;by<H;by++){ var l=by*W, r2=by*W+W-1;
+          if(!vol[off4+l]&&!seen[l]){seen[l]=1;q.push(l);}
+          if(!vol[off4+r2]&&!seen[r2]){seen[r2]=1;q.push(r2);} }
+        var qp=0;
+        while(qp<q.length){
+          var c=q[qp++], cx2=c%W, cy2=(c/W)|0;
+          if(cx2>0&&!vol[off4+c-1]&&!seen[c-1]){seen[c-1]=1;q.push(c-1);}
+          if(cx2<W-1&&!vol[off4+c+1]&&!seen[c+1]){seen[c+1]=1;q.push(c+1);}
+          if(cy2>0&&!vol[off4+c-W]&&!seen[c-W]){seen[c-W]=1;q.push(c-W);}
+          if(cy2<H-1&&!vol[off4+c+W]&&!seen[c+W]){seen[c+W]=1;q.push(c+W);}
+        }
+        for(var i5=0;i5<W*H;i5++)
+          if(!vol[off4+i5]&&!seen[i5]) hv[off4+i5]=1;
+      }
+      vol=hv;
     }
     // 2. 3D connected components, 26-connectivity
     var labels=new Int32Array(N*H*W).fill(-1);
