@@ -39,13 +39,10 @@
 <body>
 <header>
   <h1>Letter Forensics Lab</h1>
-  <p>Two image-analysis experiments on the Bermann family letters (1940–42):
-  finding ink blots that may hide words, and trying to lift stylus-press
-  embossing from flat scans.</p>
+  <p>Image-analysis experiments on the Bermann family letters (1940–42):
+  ink blots that may hide words, stylus-press embossing, redacted postcards,
+  and the physics of ink layers.</p>
   <p>October 2026 · methods, code notes, and honest negatives</p>
-  <p><a href="experiments.html" style="color:var(--paper);">Step through every experiment</a> ·
-     <a href="scrubber.html" style="color:var(--paper);">Shade-band scrubber</a> ·
-     <a href="lab.html" style="color:var(--paper);">WebGL lab: run the algorithms live</a></p>
 </header>
 <nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="https://muse.ai/s/postcard-ink-layer-physics-xvxf5xsuxgmxntxqxx">Ink-layer report</a></nav>
 <main>
@@ -246,6 +243,31 @@ markings should emerge in one of the frames.</p>
 </div>
 
 <p>Full technique log: <code>TECHNIQUES.md</code> in the repo.</p>
+
+<h2>Experiment 4 — Redacted Postcards</h2>
+
+<h3>The question</h3>
+<p>Two postcards carry deliberate redactions in the writer's own pen: a
+heavy black block over two lines (scan 17) and blue ink dabs on words
+mid-text (scan 51). Unlike the accidental blots, these were meant to
+hide. Can anything be recovered from the existing scans?</p>
+
+<h3>What was tried</h3>
+<p>Band isolation, A2 sensitivity sweeps, GrabCut masking, Frangi ridge
+detection on the block interior, and a speckle analysis of the block's
+thinner spots (real variance, but the top layer's own unevenness, not
+under-writing). Then the physics: postcard stock, ink penetration depth,
+and Kubelka-Munk hiding power.</p>
+
+<div class="verdict">
+  <strong>Verdict</strong>
+  The black block sits at near-complete hiding: 99.9% of its deep
+  interior is below L 20, so no reflected-light method recovers the two
+  lines from these scans. The blue dabs share the writing's exact hue and
+  are opaque at their cores. The full write-up, with the measurements and
+  what would actually work (transmitted and oblique re-photography of the
+  originals), is the <a href="https://muse.ai/s/postcard-ink-layer-physics-xvxf5xsuxgmxntxqxx">ink-layer physics report</a>.
+</div>
 
 </main>
 <footer>

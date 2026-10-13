@@ -91,11 +91,14 @@
   #sheet-head { position:relative; }
   #toolbar { position:fixed; z-index:20; left:10px; top:calc(70px + env(safe-area-inset-top));
              display:flex; flex-direction:column; gap:8px; }
-  #toolbar button { width:44px; height:44px; border-radius:22px; font-size:1.05rem;
+  #toolbar button { width:48px; border-radius:14px; font-size:1.05rem;
              border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
-             -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
-  #btn-minimap { padding:0; overflow:hidden; }
-  #btn-minimap img { width:100%; height:100%; object-fit:cover; display:block; }
+             -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+             display:flex; flex-direction:column; align-items:center; justify-content:center;
+             padding:7px 2px 6px; gap:3px; }
+  #toolbar button .tlab { font-size:0.58rem; color:#bbb; line-height:1; }
+  #btn-minimap { overflow:hidden; }
+  #btn-minimap img { width:34px; height:34px; border-radius:17px; object-fit:cover; display:block; }
   #bigmap { position:fixed; z-index:40;
             top:calc(64px + env(safe-area-inset-top)); right:12px;
             width:min(30vw, 168px); }
@@ -134,10 +137,10 @@
   <button id="btn-info">&#9432;</button>
 </div>
 <div id="toolbar">
-  <button id="btn-minimap" title="Original preview"><img id="btn-minimap-img" alt=""></button>
-  <button id="btn-export" title="Export side-by-side">&#10515;</button>
-  <button id="btn-snap" title="Snapshot link">&#128279;</button>
-  <button id="btn-reset" title="Reset view">&#10226;</button>
+  <button id="btn-minimap" title="Original preview"><img id="btn-minimap-img" alt=""><span class="tlab">Map</span></button>
+  <button id="btn-export" title="Export side-by-side">&#10515;<span class="tlab">Export</span></button>
+  <button id="btn-snap" title="Snapshot link">&#128279;<span class="tlab">Link</span></button>
+  <button id="btn-reset" title="Reset view">&#10226;<span class="tlab">Reset</span></button>
 </div>
 <div id="bigmap" class="hidden"><canvas id="bigmap-canvas" width="640" height="640"></canvas></div>
 <div id="toast"></div>
