@@ -589,6 +589,7 @@ function analyzeImage(img){
 }
 
 /* ============ tabs ============ */
+var joinTex = null, joinTexW = 0, joinTexH = 0;
 var TABS = [
 { id:'tune', name:'Tune',
   desc:'<b>Simple photo tuning.</b> Hue shift, saturation, contrast and brightness, Preview-style. Sometimes the simple tools see what the fancy ones miss.',
@@ -811,6 +812,125 @@ var TABS = [
       order++;
     }
     gl.disable(gl.BLEND);
+  }},
+{ id:'join', name:'Join',
+  desc:'<b>Cross-layer stroke joining.</b> Builds the same sweep layers as the 3D stack, then joins strokes that touch across adjacent layers (26-connectivity in x, y and layer) into 3D structures. Structures spanning fewer than Min span layers are dropped as noise; the survivors are projected onto a flat surface. Like holding the letter to the light and tilting it: each layer is a tilt, and only strokes that persist across tilts survive. The automated version of the stack\'s Advanced layer-pick.' +
+       '<span class="approx">New in-lab algorithm. CPU flood fill over the layer volume at 512px width; per-source binary masks. Ridge borrows its scale sweep from the Ridge tab.</span>',
+  controls:[
+    {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Ridge'], val:0},
+    {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
+    {key:'sweep0', label:'Sweep from', min:0, max:160, step:1, val:60},
+    {key:'sweep1', label:'Sweep to', min:0, max:160, step:1, val:160},
+    {key:'rth', label:'Ridge threshold', min:0.05, max:0.95, step:0.05, val:0.5},
+    {key:'minspan', label:'Min span', min:1, max:16, step:1, val:2},
+    {key:'view', label:'View', seg:['Projection','Span map'], val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state, src=s.src;
+    function tabSt(id){ for(var k=0;k<TABS.length;k++) if(TABS[k].id===id) return TABS[k].state; return {}; }
+    var n=Math.max(2,Math.round(s.n));
+    var bw=Math.min(512,imgW), bh=Math.max(2,Math.round(imgH*bw/imgW));
+    var W=bw, H=bh, N=n;
+    var a2s=tabSt('a2'), chs=tabSt('chroma'), rgs=tabSt('ridge');
+    var dirMean=null;
+    if(src===3){ dirMean=scratch(60,bw,bh); blurInto(imgTex,bw,bh,20,1,0,1,dirMean); }
+    function layerU(k){
+      var f = n<=1?0:k/(n-1);
+      var w0=+s.sweep0, w1=+s.sweep1;
+      if(src===1) return {lt:w0+(w1-w0)*f};
+      if(src===2) return {center:w0+(w1-w0)*f};
+      if(src===3) return {kk:w0+(w1-w0)*f};
+      return {};
+    }
+    // 1. render each layer, read back a binary mask
+    var vol=new Uint8Array(N*H*W);
+    var px=new Uint8Array(W*H*4);
+    var rs0=+(rgs.s0||2), rs1=+(rgs.s1||6);
+    for(var k=0;k<N;k++){
+      var t=scratch(70+k,bw,bh);
+      var lu=layerU(k);
+      if(src===0) draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:k},t);
+      else if(src===1) draw(program(FS_A2),{u_img:{tex:imgTex},u_lt:lu.lt,u_st:a2s.st||150,u_inkmode:a2s.inkmode||0,u_view:1},t);
+      else if(src===2) draw(program(FS_CHROMA),{u_img:{tex:imgTex},u_center:lu.center,u_width:chs.width||8,u_view:0},t);
+      else if(src===3) draw(program(FS_DIR),{u_img:{tex:imgTex},u_mean:{tex:dirMean.tex},u_k:lu.kk},t);
+      else { var sc=rs0+(rs1-rs0)*(N<=1?0:k/(N-1));
+        draw(program(FS_FRANGI),{u_img:{tex:imgTex},u_texel:[1/imgW,1/imgH],
+          u_s0:sc,u_s1:sc,u_steps:1,u_beta:rgs.beta||0.5,u_c:rgs.sens||0.02,
+          u_polarity:rgs.pol||0,u_view:0},t); }
+      gl.readPixels(0,0,W,H,gl.RGBA,gl.UNSIGNED_BYTE,px);
+      var off=k*H*W, rth8=s.rth*255;
+      for(var i=0;i<W*H;i++){
+        var p4=i*4, m;
+        if(src===0) m=px[p4+3]>127;
+        else if(src===1){ var r=px[p4],g=px[p4+1],b=px[p4+2];
+          m=!((r>200&&g>200&&b>200)||(r>200&&g<100)); }
+        else if(src===4) m=px[p4]>rth8;
+        else m=px[p4]>127;
+        vol[off+i]=m?1:0;
+      }
+    }
+    // 2. 3D connected components, 26-connectivity
+    var labels=new Int32Array(N*H*W).fill(-1);
+    var compMin=[], compMax=[], ncomp=0, stack=[];
+    function vid(x,y,k){ return (k*H+y)*W+x; }
+    for(var k2=0;k2<N;k2++)for(var y2=0;y2<H;y2++)for(var x2=0;x2<W;x2++){
+      var id0=vid(x2,y2,k2);
+      if(!vol[id0]||labels[id0]>=0) continue;
+      var mn=k2, mx=k2;
+      stack.push(id0); labels[id0]=ncomp;
+      while(stack.length){
+        var id=stack.pop();
+        var ck=(id/(W*H))|0, rem=id%(W*H), cy=(rem/W)|0, cx=rem%W;
+        if(ck<mn)mn=ck; if(ck>mx)mx=ck;
+        for(var dz=-1;dz<=1;dz++)for(var dy=-1;dy<=1;dy++)for(var dx=-1;dx<=1;dx++){
+          if(!dx&&!dy&&!dz)continue;
+          var nx=cx+dx, ny=cy+dy, nk=ck+dz;
+          if(nx<0||ny<0||nk<0||nx>=W||ny>=H||nk>=N)continue;
+          var nid=vid(nx,ny,nk);
+          if(vol[nid]&&labels[nid]<0){ labels[nid]=ncomp; stack.push(nid); }
+        }
+      }
+      compMin.push(mn); compMax.push(mx); ncomp++;
+    }
+    // 3. project kept components flat; value = layer span
+    var minspan=Math.min(Math.max(1,Math.round(s.minspan)),N);
+    var proj=new Uint8Array(W*H);
+    for(var k3=0;k3<N;k3++)for(var y3=0;y3<H;y3++)for(var x3=0;x3<W;x3++){
+      var id3=vid(x3,y3,k3), c3=labels[id3];
+      if(c3<0)continue;
+      var span=compMax[c3]-compMin[c3]+1;
+      if(span>=minspan){ var o3=y3*W+x3; if(span>proj[o3])proj[o3]=span; }
+    }
+    // 4. output texture (row 0 = image bottom, matching readPixels)
+    var out=new Uint8Array(W*H*4);
+    var spanview=s.view>0.5;
+    for(var i4=0;i4<W*H;i4++){
+      var sp=proj[i4], o4=i4*4, rr,gg2,bb;
+      if(!spanview){ var v=sp>0?255:0; rr=gg2=bb=v; }
+      else { var f=sp/N;
+        rr=Math.round(255*Math.min(1,f*2.2));
+        gg2=Math.round(255*Math.min(1,Math.max(0,f*2.2-0.7)));
+        bb=Math.round(255*Math.min(1,Math.max(0,f*2.2-1.4))); }
+      out[o4]=rr; out[o4+1]=gg2; out[o4+2]=bb; out[o4+3]=255;
+    }
+    if(!joinTex||joinTexW!==W||joinTexH!==H){
+      if(joinTex)gl.deleteTexture(joinTex);
+      joinTex=gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D,joinTex);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,W,H,0,gl.RGBA,gl.UNSIGNED_BYTE,out);
+      joinTexW=W; joinTexH=H;
+    } else {
+      gl.bindTexture(gl.TEXTURE_2D,joinTex);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,W,H,gl.RGBA,gl.UNSIGNED_BYTE,out);
+    }
+    draw(program(FS_PASS),{u_img:{tex:joinTex}},renderTarget);
   }}
 ];
 
