@@ -14,14 +14,14 @@ import os
 import numpy as np
 from PIL import Image
 
-SRC = os.path.join(os.path.dirname(__file__), "..", "img", "blot39.jpg")
+SRC = os.path.join(os.path.dirname(__file__), "..", "img", "source", "39-blot.png")
 OUT = os.path.join(os.path.dirname(__file__), "..", "img", "passes", "color39")
 ROI = (88, 389, 474, 726)  # x0, y0, x1, y1
 
 def main():
     os.makedirs(OUT, exist_ok=True)
     img = np.array(Image.open(SRC).convert("RGB"))
-    x0, y0, x1, y1 = ROI
+    x0, y0, x1, y1 = 88, 389, 474, 726
     roi = img[y0:y1, x0:x1].astype(np.float32)
     print("roi", roi.shape)
 

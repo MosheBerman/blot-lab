@@ -111,3 +111,21 @@ saturated ink: nothing under it differs in chroma on this photo. Outputs in
 - Tint gradient and sheet spacing follow the visible order, not the raw index.
 - Selection lives in tab state, so it survives Reset sliders (resets to all on),
   session auto-restore, and snapshot links.
+
+## 2026-10-12 — Source-resolution audit (prompted by Moshe)
+
+Question: did the analyses run on downscaled copies? Provenance chain,
+verified by blot-blob matching:
+- Best local source: `goals/the-coded-letters/hidden_files/drive/39-hi-1.png`
+  (2550x3300).
+- `39-blot.png` (765x726) is a native-resolution crop of it: the blot's
+  saturated mask is 306x297 px there vs 306x333 px on the full page (same
+  ink, threshold noise). No downscaling of the blot region.
+- `img/blot39.jpg` is a JPEG recompress of that PNG crop.
+- The PDF (`39.pdf`) embeds a SMALLER 1940x2013 copy — worse, not better.
+
+So the analyses ran at native resolution; only JPEG recompression was lost.
+Re-ran the color pass on the PNG crop (`img/source/39-blot.png`): same
+negative (uniform ink, mottled wash, no letterforms). `color_pass.py` now
+reads the PNG by default. Remaining untapped source: the original iPhone
+photo itself (39-hi-1.png is not a native 12MP size), if it still exists.
