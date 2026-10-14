@@ -285,3 +285,48 @@ one-direction dark->light sweep?
    depth-persistent structure can be eyeballed in one view - built for
    Moshe's 2026-10-14 note that human eyes beat the algorithms on
    curvature.
+
+## 2026-10-14 — 3D-stack thickness readout (per-layer µm + layer–thickness correlation)
+
+Moshe: referencing the forensics report's thickness section, add a
+thickness↔layer correlation and show the per-layer µm.
+
+- Model: dye glaze R = Rg·exp(−2K·X) (report §5) → K·X = −0.5·ln(Y/Yg),
+  Y from CIE L*, Yg at the image 98th percentile. µm scale: K·X=1 ↔ 30µm,
+  the midpoint of the report's 10–50µm single-pass penetration bracket
+  (§§2–4); labeled on the UI as an estimate, not a measurement.
+- 3D stack, Bands source only: each Advanced layer-pick chip shows its
+  layer's µm under the index; a Thickness row reports r(layer index, K·X)
+  and the layer-0 → layer-(n−1) µm span. On the blot-39 crop (12 bands):
+  r = −0.997, layer 0 (darkest) ≈ 24µm → layer 11 ≈ 1µm. Other sources
+  show no thickness UI — their layers are parameter sweeps, not depth.
+- Verified: node --check on the page script; µm math cross-checked in
+  Python against the real crop numbers before shipping.
+
+## 2026-10-14 — Postcard sizes re-researched + manufacturer-marking hunt
+
+Moshe: research German postcard sizes again; look for manufacturer
+markings on the edges of our postcards.
+
+- Standards: UPU 1878 max 14×9cm → UPU 1924 max 10.5×15cm; DIN A6
+  "Normalformat" (148×105mm) introduced in Germany 1 Oct 1927, standard
+  through the 1930s–40s; official DR Ganzsachen postcards 148:105mm
+  (Hindenburg-Medaillon article: 29 templates P216–P244). Reichspost 1875
+  norm was 140×90mm.
+- Our cards (scans 1, 5, 17, 18, 19, 23 — all Chaja/Ch. Willner or Salomon
+  Willner): measured ~190×136mm against the PDF letter pages — BUT the
+  10pf Hindenburg stamp on card 1 (true size 21.5×26mm) measures ~28.8mm
+  in the same render, so the Apple Notes scan-to-PDF pipeline enlarged
+  the photos ~1.3×. Corrected size ≈ 146×105mm = A6 Normalformat, ratio
+  1.40 ≈ √2. The forensics report's A6 assumption was correct. Card/aspect
+  check: card:stamp width ratio 6.58 vs 6.88 expected for A6 (4% off);
+  the 190mm reading would need 8.84 — ruled out.
+- ⚠ Standing caution: do NOT measure absolute mm from the coded-letters
+  PDFs without a reference object — the scans are ~1.3× enlarged.
+- Scan 51 is not a postcard (small handwritten note, blue dabs).
+- Markings: none found. Examined at 300dpi: bottom/top/left edges and
+  center-bottom of cards 1, 5, 17, plus both message sides (fully
+  handwritten). Post-1905 publisher imprints usually sit on the address
+  side (Ansichtskarte article) — ours are clean. Either unmarked stock or
+  the imprint hides under handwriting / the airmail label. 300dpi edge
+  crops kept in img/pc-edges-hires/.

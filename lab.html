@@ -74,6 +74,7 @@
     border:1px solid #444; background:#242424; color:#ddd; }
   #laychips button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   #laychips button.wide { min-width:0; padding:8px 12px; }
+  #laychips button small { display:block; font-size:0.62rem; opacity:0.72; line-height:1.15; }
   .seg { display:flex; gap:6px; flex:1; }
   .seg button { flex:1; padding:11px 4px; font-size:0.8rem; border-radius:8px;
                 border:1px solid #444; background:#242424; color:#ddd; }
@@ -819,7 +820,7 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking','Gabor'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
@@ -1268,6 +1269,13 @@ function buildControls(){
     lr.appendChild(chips);
     controlsEl.appendChild(lr);
     t._laychips = chips;
+    var tr = document.createElement('div'); tr.className = 'row'; tr.id = 'thickrow';
+    var tl = document.createElement('label'); tl.textContent = 'Thickness';
+    tr.appendChild(tl);
+    var tc = document.createElement('div'); tc.id = 'thickcorr';
+    tc.style.cssText = 'flex:1;font-size:0.78rem;color:#bbb;line-height:1.35';
+    tr.appendChild(tc);
+    controlsEl.appendChild(tr);
   }
   if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
   if (t._inputs.pos){ t._inputs.pos.inp.max = Math.max(0, t.state.n - 1); t._inputs.width.inp.max = t.state.n; }
@@ -1276,7 +1284,7 @@ function buildControls(){
   rb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
   rb.addEventListener('click', function(){
     t.controls.forEach(function(c){ t.state[c.key] = c.def; });
-    if (t.id === 'stack'){ t.state.sel = []; ensureSel(t); if (t._laychips) t._laychips._n = -1; }
+    if (t.id === 'stack'){ t.state.sel = []; ensureSel(t); if (t._laychips){ t._laychips._n = -1; t._laychips._src = -1; } }
     buildControls(); render();
   });
   rrow.appendChild(rb); controlsEl.appendChild(rrow);
@@ -1302,15 +1310,38 @@ function ensureSel(t){
     s.sel = nw;
   }
 }
+// Ink-thickness model, from the forensics report (ink-layer-report.html):
+// dye glaze: R = Rg·exp(-2·K·X)  =>  K·X = -0.5·ln(Y/Yg), with Y from L*.
+// um scale: K·X = 1 <-> 30 um, the midpoint of the report's 10-50 um
+// single-pass penetration bracket (§§2-5). bandLo/bandHi are the image's
+// 2nd/98th L* percentiles; Yg (paper) is taken at bandHi.
+var UM_PER_KX = 30;
+function _labToY(L){ L=Math.max(0,Math.min(100,L)); var v=(L+16)/116; return v*v*v; }
+function bandKX(i, n){
+  var Yg = _labToY(bandHi);
+  var Lc = bandLo + (i+0.5)/n*(bandHi-bandLo);
+  var r = _labToY(Lc)/Math.max(Yg, 1e-6);
+  return Math.max(0, -0.5*Math.log(Math.max(r, 1e-6)));
+}
+function bandUm(i, n){ return bandKX(i, n)*UM_PER_KX; }
+function thicknessLayerCorr(n){
+  var i, mx=0, my=0, sxy=0, sxx=0, syy=0, xs=[], ys=[];
+  for (i=0;i<n;i++){ xs.push(i); ys.push(bandKX(i,n)); mx+=i; my+=ys[i]; }
+  mx/=n; my/=n;
+  for (i=0;i<n;i++){ var dx=xs[i]-mx, dy=ys[i]-my; sxy+=dx*dy; sxx+=dx*dx; syy+=dy*dy; }
+  return (sxx>0 && syy>0) ? sxy/Math.sqrt(sxx*syy) : 0;
+}
 function syncChips(t){
   var box = t._laychips;
   if (!box) return;
-  var n = t.state.sel.length;
-  if (box._n === n) return;
-  box._n = n; box.innerHTML = '';
+  var n = t.state.sel.length, src = t.state.src;
+  if (box._n === n && box._src === src && box._lo === bandLo && box._hi === bandHi) return;
+  box._n = n; box._src = src; box._lo = bandLo; box._hi = bandHi; box.innerHTML = '';
+  var isBands = src === 0;
   t.state.sel.forEach(function(on, i){
     var b = document.createElement('button');
-    b.textContent = i;
+    if (isBands) b.innerHTML = i + '<small>' + Math.round(bandUm(i, n)) + 'µ</small>';
+    else b.textContent = i;
     b.classList.toggle('on', !!on);
     b.addEventListener('click', function(){
       t.state.sel[i] = !t.state.sel[i];
@@ -1338,6 +1369,17 @@ function syncStackUI(){
   var lr = document.getElementById('laypickrow');
   if (lr) lr.style.display = adv ? '' : 'none';
   if (adv) syncChips(t);
+  var trow = document.getElementById('thickrow');
+  if (trow) trow.style.display = isBands ? '' : 'none';
+  var tc = document.getElementById('thickcorr');
+  if (tc && isBands){
+    var nn = Math.max(2, Math.round(s.n));
+    var r = thicknessLayerCorr(nn);
+    tc.textContent = 'r(layer, K·X) = ' + r.toFixed(3) +
+      ' · layer 0 ≈ ' + Math.round(bandUm(0, nn)) + 'µm → layer ' + (nn-1) +
+      ' ≈ ' + Math.round(bandUm(nn-1, nn)) + 'µm' +
+      ' · scale K·X=1 ↔ 30µm (forensics report §§2–5)';
+  }
   ['sweep0','sweep1'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = isBands ? 'none' : ''; });
   if (s.src !== t._lastSrc){
     t._lastSrc = s.src;
