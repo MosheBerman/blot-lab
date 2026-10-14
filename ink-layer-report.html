@@ -1,213 +1,811 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Postcard Ink-Layer Physics — Blot Lab</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Postcard Ink-Layer Physics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-  :root { --ink:#1c1a17; --paper:#faf7f0; --accent:#1f4e79; --line:#ddd5c3; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:Georgia,serif; color:var(--ink); background:var(--paper); line-height:1.6; }
-  header { background:var(--ink); color:var(--paper); padding:2.2rem 1.2rem; }
-  header h1 { margin:0 0 .4rem; font-size:1.7rem; letter-spacing:.02em; }
-  header p { margin:.2rem 0; opacity:.85; max-width:46rem; }
-  .sitenav { background:#efe9da; border-bottom:1px solid var(--line);
-             padding:.55rem 1.2rem; font-size:.9rem; }
-  .sitenav a { color:var(--accent); text-decoration:none; margin-right:1rem; }
-  .sitenav a:hover { text-decoration:underline; }
-  main { max-width:46rem; margin:0 auto; padding:1.4rem 1.2rem 3rem; }
-  h2 { font-size:1.35rem; margin:2.4rem 0 .6rem; border-bottom:2px solid var(--ink); padding-bottom:.3rem; }
-  h3 { font-size:1.1rem; margin:1.6rem 0 .4rem; }
-  p, li { font-size:1rem; }
-  li { margin-bottom:.35rem; }
-  .verdict { background:#f0ead9; border-left:4px solid var(--accent); padding:.8rem 1rem; margin:1.2rem 0; }
-  .verdict strong { display:block; margin-bottom:.2rem; }
-  .legend { font-size:.9rem; background:#efe9da; padding:.6rem .9rem; border:1px solid var(--line); }
-  code { font-size:.88em; background:#efe9da; padding:.1em .3em; }
-  a { color:var(--accent); }
-  footer { border-top:1px solid var(--line); padding:1.2rem; font-size:.85rem; opacity:.75; max-width:46rem; margin:0 auto; }
-  .widget { border:1px solid var(--line); background:#fff; padding:1rem; margin:1.2rem 0; }
-  .widget h4 { margin:0 0 .6rem; font-size:1rem; }
-  .widget label { display:block; font-size:.9rem; margin:.5rem 0 .15rem; }
-  .widget input[type=range] { width:100%; }
-  .widget output { font-weight:bold; }
-  .btnrow { display:flex; gap:.5rem; margin-bottom:.8rem; flex-wrap:wrap; }
-  .btnrow button { font-family:inherit; font-size:.9rem; padding:.45rem .9rem; border-radius:8px;
-                   border:1px solid var(--accent); background:#fff; color:var(--accent); cursor:pointer; }
-  .btnrow button.on { background:var(--accent); color:#fff; }
-  svg.diagram { width:100%; height:auto; display:block; }
-  .src { font-size:.85rem; }
-  .src li { margin-bottom:.25rem; }
-  @media (max-width:560px){ header h1 { font-size:1.4rem; } }
+  :root{
+    --bg:#f7f5f0;
+    --surface:#fffdf8;
+    --surface-2:#efece3;
+    --ink:#1c1a16;
+    --ink-soft:#4a463d;
+    --ink-faint:#7a7466;
+    --line:#d8d2c2;
+    --line-strong:#b9b19c;
+    --blue:#1d4e89;          /* fountain-pen ink blue */
+    --blue-deep:#123a68;
+    --blue-wash:#dbe6f2;
+    --black-ink:#23211d;
+    --red:#a4261f;           /* annotation red */
+    --red-wash:#f6e3df;
+    --amber:#8a5a12;
+    --amber-wash:#f3e8cf;
+    --green:#2f6b3a;
+    --green-wash:#e0ecdd;
+    --chip-a:#2f6b3a;
+    --chip-b:#1d4e89;
+    --chip-c:#8a5a12;
+    --shadow:0 1px 2px rgba(28,26,22,.06),0 8px 24px rgba(28,26,22,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#16140f;
+      --surface:#201d17;
+      --surface-2:#2a271e;
+      --ink:#ece7da;
+      --ink-soft:#c6c0b0;
+      --ink-faint:#948d7c;
+      --line:#3a362b;
+      --line-strong:#57523f;
+      --blue:#7aa7dd;
+      --blue-deep:#a9c6ec;
+      --blue-wash:#22344e;
+      --black-ink:#0d0c0a;
+      --red:#e08a80;
+      --red-wash:#46241f;
+      --amber:#d9ab5e;
+      --amber-wash:#42351c;
+      --green:#93c79b;
+      --green-wash:#263a28;
+      --chip-a:#93c79b;
+      --chip-b:#7aa7dd;
+      --chip-c:#d9ab5e;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Source Sans 3",system-ui,sans-serif;
+    font-size:17px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px 72px}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px}
+  a:hover{color:var(--blue-deep)}
+  .sitenav{background:var(--surface-2);border-bottom:1px solid var(--line);
+    padding:.55rem 20px;font-size:.92rem;
+    font-family:"Source Sans 3",system-ui,sans-serif;}
+  .sitenav a{color:var(--blue);text-decoration:none;margin-right:1rem;}
+  .sitenav a:hover{text-decoration:underline;}
+
+  /* ---------- header ---------- */
+  header{padding:44px 0 8px}
+  .kicker{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px;
+  }
+  h1{font-size:clamp(34px,6vw,54px);letter-spacing:-.01em;max-width:16em}
+  .lede{font-size:clamp(18px,2.6vw,21px);color:var(--ink-soft);max-width:44em;margin:18px 0 0}
+  .lede strong{color:var(--ink)}
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;padding-top:16px;
+    border-top:1px solid var(--line);
+    font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);
+  }
+  .meta-row b{color:var(--ink-soft);font-weight:500}
+
+  /* ---------- verdict strip ---------- */
+  .verdicts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 8px}
+  @media (max-width:720px){.verdicts{grid-template-columns:1fr}}
+  .verdict{
+    background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--red);
+    padding:20px 22px;box-shadow:var(--shadow);
+  }
+  .verdict.case-b{border-top-color:var(--blue)}
+  .verdict h3{font-size:21px;margin-bottom:4px}
+  .verdict .case-tag{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px;
+  }
+  .verdict .call{
+    font-family:"Newsreader",serif;font-size:24px;font-weight:700;line-height:1.2;margin:6px 0 8px;
+  }
+  .verdict.case-a .call{color:var(--red)}
+  .verdict.case-b .call{color:var(--blue-deep)}
+  .verdict p{margin:0;color:var(--ink-soft);font-size:15.5px}
+
+  /* ---------- sections ---------- */
+  section{margin-top:56px}
+  .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:22px}
+  .sec-num{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--red);font-weight:600}
+  h2{font-size:clamp(26px,4vw,34px)}
+  .sec-sub{color:var(--ink-soft);max-width:46em;margin:-8px 0 20px}
+  p{margin:0 0 14px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:820px){.two-col{grid-template-columns:1fr}}
+
+  /* evidence chips */
+  .tag{
+    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+    letter-spacing:.05em;padding:1px 7px;border-radius:99px;vertical-align:2px;white-space:nowrap;
+  }
+  .tag.a{color:var(--chip-a);border:1px solid var(--chip-a)}
+  .tag.b{color:var(--chip-b);border:1px solid var(--chip-b)}
+  .tag.c{color:var(--chip-c);border:1px solid var(--chip-c)}
+  .legend{
+    display:flex;flex-wrap:wrap;gap:8px 20px;background:var(--surface-2);
+    border:1px solid var(--line);padding:12px 16px;font-size:14px;color:var(--ink-soft);margin:18px 0 0;
+  }
+  .legend span{display:flex;align-items:center;gap:7px}
+
+  /* ---------- stat cards ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 20px}
+  @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:460px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--surface);border:1px solid var(--line);padding:16px 18px;box-shadow:var(--shadow)}
+  .stat .num{font-family:"Newsreader",serif;font-size:32px;font-weight:700;line-height:1.05}
+  .stat .num small{font-size:17px;font-weight:600;color:var(--ink-soft)}
+  .stat .lab{font-size:13.5px;color:var(--ink-faint);margin-top:5px;line-height:1.4}
+
+  /* ---------- cross-section figure ---------- */
+  figure.diagram{
+    margin:0;background:var(--surface);border:1px solid var(--line);
+    padding:22px 22px 14px;box-shadow:var(--shadow);
+  }
+  figure.diagram svg{width:100%;height:auto;display:block}
+  figcaption{font-size:14px;color:var(--ink-faint);padding-top:12px;border-top:1px dashed var(--line);margin-top:14px}
+  .fig-toggle{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+  .fig-toggle button{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;padding:7px 14px;cursor:pointer;
+    background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line-strong);border-radius:99px;
+  }
+  .fig-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  /* ---------- formula / callouts ---------- */
+  .formula{
+    background:var(--surface-2);border:1px solid var(--line);padding:16px 20px;margin:16px 0;
+    font-family:"IBM Plex Mono",monospace;font-size:15.5px;overflow-x:auto;white-space:nowrap;
+  }
+  .formula .fnote{display:block;font-family:"Source Sans 3",sans-serif;font-size:14px;color:var(--ink-soft);white-space:normal;margin-top:8px}
+  @media (max-width:560px){ .formula{white-space:normal;font-size:14px} }
+  blockquote{
+    margin:18px 0;padding:4px 0 4px 20px;border-left:3px solid var(--red);
+    font-family:"Newsreader",serif;font-size:20px;font-style:italic;line-height:1.4;
+  }
+  blockquote cite{display:block;font-family:"Source Sans 3",sans-serif;font-style:normal;font-size:14px;color:var(--ink-faint);margin-top:8px}
+  .note{
+    border:1px solid var(--line);background:var(--surface);padding:16px 18px;margin:16px 0;box-shadow:var(--shadow);
+  }
+  .note h4{margin:0 0 6px;font-size:15px;font-family:"IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+  .note p:last-child{margin-bottom:0}
+
+  /* ---------- interactive panels ---------- */
+  .lab{
+    background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);
+    padding:22px;margin:20px 0;
+  }
+  .lab h3{font-size:22px;margin-bottom:4px}
+  .lab .lab-sub{color:var(--ink-soft);font-size:15px;margin-bottom:18px;max-width:44em}
+  .lab-grid{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+  @media (max-width:760px){.lab-grid{grid-template-columns:1fr}}
+  .ctl{margin-bottom:18px}
+  .ctl label{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:6px}
+  .ctl label output{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--blue-deep)}
+  input[type="range"]{width:100%;accent-color:var(--blue);height:28px;cursor:pointer}
+  .readout{
+    background:var(--surface-2);border:1px solid var(--line);padding:14px 16px;font-size:15px;
+  }
+  .readout .big{font-family:"Newsreader",serif;font-size:30px;font-weight:700;line-height:1.1}
+  .readout p{margin:6px 0 0;color:var(--ink-soft);font-size:14.5px}
+  .stage{border:1px solid var(--line);background:var(--bg);padding:10px}
+  .stage svg{width:100%;height:auto;display:block}
+
+  /* ---------- algorithm table → cards on mobile ---------- */
+  .algo{border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);margin-bottom:14px}
+  .algo-head{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
+    padding:16px 20px 0;
+  }
+  .algo-head h3{font-size:20px}
+  .algo-head .needs{
+    margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+    padding:3px 10px;border-radius:99px;border:1px solid var(--line-strong);color:var(--ink-soft);
+  }
+  .needs.rgb-ok{border-color:var(--green);color:var(--green)}
+  .needs.no{border-color:var(--red);color:var(--red)}
+  .algo-body{padding:10px 20px 18px;display:grid;grid-template-columns:1fr 1fr;gap:6px 26px}
+  @media (max-width:700px){.algo-body{grid-template-columns:1fr}}
+  .algo-body p{font-size:15.5px;color:var(--ink-soft);margin:0 0 8px}
+  .algo-body p b{color:var(--ink)}
+  .algo .verdict-line{
+    margin:0 20px 18px;padding:10px 14px;font-size:15px;
+    background:var(--red-wash);border:1px solid var(--line);
+  }
+  .algo .verdict-line.ok{background:var(--amber-wash)}
+  .algo .verdict-line b{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--red)}
+  .algo .verdict-line.ok b{color:var(--amber)}
+
+  /* ---------- ranked steps ---------- */
+  ol.ranked{list-style:none;margin:0;padding:0;counter-reset:rk}
+  ol.ranked li{
+    counter-increment:rk;display:grid;grid-template-columns:56px 1fr;gap:18px;
+    padding:20px 0;border-bottom:1px solid var(--line);
+  }
+  ol.ranked li:last-child{border-bottom:none}
+  ol.ranked li::before{
+    content:counter(rk);font-family:"Newsreader",serif;font-size:40px;font-weight:700;
+    color:var(--blue);line-height:1;
+  }
+  ol.ranked h3{font-size:21px;margin-bottom:5px}
+  ol.ranked p{color:var(--ink-soft);margin:0;font-size:15.5px}
+
+  /* ---------- open questions / sources ---------- */
+  ul.open-q{margin:0;padding-left:20px}
+  ul.open-q li{margin-bottom:10px;color:var(--ink-soft)}
+  ul.open-q li b{color:var(--ink)}
+  .sources{columns:2;column-gap:36px;font-size:14px}
+  @media (max-width:700px){.sources{columns:1}}
+  .sources p{break-inside:avoid;margin-bottom:10px;color:var(--ink-soft)}
+  .sources .src-name{font-weight:600;color:var(--ink)}
+  footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-faint)}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 </head>
 <body>
-<header>
-  <h1>Postcard Ink-Layer Physics</h1>
-  <p>Can text blacked out on 1940s postcards be recovered from RGB photographs? Card stock, ink penetration, saturation, Kubelka-Munk hiding limits, and the published algorithms. Research date: 2026-10-13.</p>
-</header>
 <nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a></nav>
-<main>
+<div class="wrap">
 
-<p class="legend"><strong>Legend:</strong> (a) = established physics / textbook; (b) = published experimental result; (c) = inference. Context: forensic image analysis of two WWII-era (1940-41) German Reichspost POSTKARTE postcards. <strong>Case A:</strong> heavy black-ink multi-pass scribble block (~1.5 x 6 cm) obliterating ~2 lines of handwriting, applied with the writer's own pen. <strong>Case B:</strong> blue fountain-pen ink dabs placed directly over words, in the same blue ink as the surrounding handwriting. Available data: only RGB photographs (~150-300 dpi equivalent). No multispectral or infrared capture.</p>
-
-<h2>1. Postcard stock: German Reichspost postcards, ca. 1940</h2>
-<p>(a/b) The 1924 World Postal Congress set the postcard maximum at 10.5 x 15 cm; the DIN A6 "Normalformat" was introduced in Germany on 1 October 1927, so the 1940-41 cards are almost certainly A6 stock (b). International rules admit postcard grammage of <strong>150 to 500 g/m2</strong> (b; UPU rules). Modern specs corroborate the low end: PostNL requires min 170 g/m2 (b), Royal Mail Wholesale min 200 gsm (b). Typical modern postcard paper is quoted at 250-350 gsm (b, weak source). US rules require postcards 0.18-0.41 mm thick (b).</p>
-<p>(c) Inference: German Reichspost Ganzsachen of 1940 were machine-made wood-pulp board, almost surely 200-300 g/m2, i.e. <strong>~0.25-0.35 mm thick</strong> at typical board density. No published official Reichspost 1940 grammage spec was found; this is bracketed by the standards above. Wartime stock likely had higher groundwood/recycled content and less sizing (c, unverified for Reichspost specifically).</p>
-<p>(b) Comparison: onionskin/airmail paper is 25-39 g/m2 (b), a measured 35 gsm sample 46 um thick (b). Postcard stock is roughly <strong>6-10x the grammage and 5-7x the thickness</strong> of onionskin. Consequence: far more fibre mass to absorb ink, and far more scattering mass to hide what is inside.</p>
-<p>Composition (a/b/c): uncoated sized board - cellulose fibres, mineral filler, rosin/gelatin size; fibres are hydrophilic cellulose ~10 um diameter (b).</p>
-
-<div class="widget">
-  <h4>Cross-section at true scale</h4>
-  <div class="btnrow">
-    <button id="cs-full" class="on">Full card &middot; linear scale</button>
-    <button id="cs-top">Top 60 &micro;m &middot; magnified</button>
+<header>
+  <p class="kicker">Blot lab · research briefing</p>
+  <h1>How thick is the card, how deep does the ink go — and can the layers be split?</h1>
+  <p class="lede">The physics answer, from the published literature on 1940s postcard stock, ink penetration, and layered reflectance: <strong>the card is about 300&nbsp;µm thick, the ink lives in the top few tens of microns, and both inks end up mixed in the same saturated zone.</strong> That geometry — not a missing algorithm — is what decides whether anything under a blot can be recovered from a photograph.</p>
+  <div class="meta-row">
+    <span><b>Subject</b> Reichspost POSTKARTE, 1940–41</span>
+    <span><b>Evidence base</b> deep-research report, 13 Oct 2026</span>
+    <span><b>Input assumed</b> RGB photographs only, ~150–300 dpi</span>
   </div>
-  <svg class="diagram" id="cs-svg-full" viewBox="0 0 460 210" role="img" aria-label="Postcard cross-section at linear scale">
-    <text x="10" y="18" font-size="13" font-family="Georgia,serif">Postcard board ~300 &micro;m</text>
-    <rect x="10" y="28" width="120" height="150" fill="#e8dcc0" stroke="#1c1a17"/>
-    <rect x="10" y="28" width="120" height="3" fill="#111" />
-    <text x="140" y="34" font-size="11" font-family="Georgia,serif">ink film ~2.5 &micro;m (hairline at true scale)</text>
-    <rect x="10" y="28" width="120" height="25" fill="#1c1a17" opacity="0.25"/>
-    <text x="140" y="52" font-size="11" font-family="Georgia,serif">ink zone ~10&ndash;50 &micro;m (both inks intermixed)</text>
-    <text x="10" y="196" font-size="11" font-family="Georgia,serif">300 &micro;m of scattering board</text>
-    <text x="250" y="18" font-size="13" font-family="Georgia,serif">Onionskin 46 &micro;m</text>
-    <rect x="250" y="28" width="120" height="23" fill="#f2ecd9" stroke="#1c1a17"/>
-    <text x="250" y="66" font-size="11" font-family="Georgia,serif">6&ndash;10x less mass per area</text>
-  </svg>
-  <svg class="diagram" id="cs-svg-top" viewBox="0 0 460 210" role="img" aria-label="Top 60 microns magnified" style="display:none">
-    <text x="10" y="18" font-size="13" font-family="Georgia,serif">Top 60 &micro;m, magnified</text>
-    <rect x="10" y="28" width="440" height="8" fill="#111"/>
-    <text x="10" y="52" font-size="11" font-family="Georgia,serif">ink film ~2.5 &micro;m</text>
-    <rect x="10" y="60" width="440" height="100" fill="#1c1a17" opacity="0.22"/>
-    <text x="10" y="76" font-size="11" font-family="Georgia,serif">ink zone ~10&ndash;50 &micro;m: dye + vehicle intermixed at fibre scale</text>
-    <circle cx="60" cy="120" r="16" fill="none" stroke="#8a7a52" stroke-width="3"/>
-    <circle cx="150" cy="130" r="16" fill="none" stroke="#8a7a52" stroke-width="3"/>
-    <circle cx="240" cy="118" r="16" fill="none" stroke="#8a7a52" stroke-width="3"/>
-    <text x="10" y="182" font-size="11" font-family="Georgia,serif">cellulose fibres ~10 &micro;m diameter (rings, schematic)</text>
-    <rect x="10" y="190" width="440" height="12" fill="#e8dcc0" stroke="#1c1a17"/>
-  </svg>
+  <div class="legend" role="note">
+    <span><span class="tag a">a</span> established physics / textbook</span>
+    <span><span class="tag b">b</span> published experimental result</span>
+    <span><span class="tag c">c</span> inference from the above</span>
+  </div>
+</header>
+
+<!-- ============ VERDICTS ============ -->
+<div class="verdicts">
+  <div class="verdict case-a">
+    <span class="case-tag">Case A</span>
+    <h3>Heavy black multi-pass scribble</h3>
+    <p class="call">Hopeless from reflected light.</p>
+    <p>A saturated black layer reaches <em>complete hiding</em> in Kubelka–Munk terms: the reflected light is the top ink's own reflectance, independent of what lies beneath. The under-signal is physically absent from an RGB photo — not buried, gone. <span class="tag a">a</span> <span class="tag b">b</span></p>
+  </div>
+  <div class="verdict case-b">
+    <span class="case-tag">Case B</span>
+    <h3>Blue dabs over blue handwriting, same ink</h3>
+    <p class="call">Effectively hopeless for running text.</p>
+    <p>Same ink means no spectral or elemental contrast for any method to exploit. Only second-order traces survive — extra dye density and embossing — and at 150–300 dpi they sit at the noise floor. Thin dab edges might yield stroke fragments from a high-res re-scan, nothing more. <span class="tag b">b</span> <span class="tag c">c</span></p>
+  </div>
 </div>
 
-<h2>2. Ink penetration depth</h2>
-<p>(b) Fibre-scale STXM mapping of iron-gall ink (Gimat et al., 2015): paper fibres ~10 um diameter; ink does <strong>not</strong> penetrate uniformly - gallic acid stays mostly in the outer cell wall, Fe(III) gallate precipitates during migration, only small amounts of iron reach the fibre interior. Gum arabic binder "significantly jeopardizes" penetration; the ink stays at the fibre surface.</p>
-<p>(b) Printed ink film: X-ray microtomography + profilometry (Myllys et al., 2015) measured a typical ink layer <strong>~2.5 um deep</strong>, about 1/40 of a ~100 um sheet, with large spatial variation.</p>
-<p>(a) Transport law: Lucas-Washburn, penetration depth proportional to sqrt(time) x sqrt(pore radius). Water-based inks deviate via fibre swelling and capillary saturation (b).</p>
-<p>(c) Inference for fountain-pen dye inks on postcard board: a single stroke deposits a film a few um wet; dye + water wicks to <strong>order tens of microns</strong> - a few fibre diameters, not hundreds. Fountain-pen writing rarely shows through 250-300 g/m2 board, bounding single-pass penetration well below the ~300 um sheet: very roughly <strong>10-50 um</strong>. A heavy multi-pass scribble does <strong>not</strong> drill through the full 0.3 mm: penetration is rate-limited (sqrt(t)) and the board is sized. Instead it <strong>saturates the top fibre layers</strong> and pools at the surface - which is why a scribble looks black and glossy. The under-writing's dye already occupies fibre sites in the same top tens of um, so the second application largely <strong>re-dissolves and mixes with dye in the already-wetted zone</strong> rather than stacking as a clean separate stratum. The two layers are intermixed at fibre scale, not a neat sandwich.</p>
+<!-- ============ 1. THE STOCK ============ -->
+<section id="stock">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The card itself: how tall is the stack?</h2></div>
+  <p class="sec-sub">No official Reichspost grammage specification for 1940 was found — that stays an open question below. The bracket comes from postal standards of the era and since.</p>
 
-<h2>3. Absorption saturation</h2>
-<p>(a) Liquid uptake follows the Bristow/Lucas-Washburn form: V(t) = K_r + K_a*sqrt(t - t_w), with V in ml/m2 (a/b; Selim et al., 1997). On plain paper, penetration rate is at least 20x the evaporation rate - drying is penetration-dominated (b).</p>
-<p>(b) Pigment particles larger than the pore size are <strong>filtered and stay at the surface</strong> (b) - directly relevant: carbon-black pigment in black pen ink stays surficial while its vehicle penetrates.</p>
-<p>(b) A hard capacity number: Royal Mail's paper spec requires water absorbency of <strong>15-35 g of water per m2 in 1 minute</strong> (Cobb-type test). That is a genuine saturation capacity.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">~0.25–0.35 <small>mm</small></div>
+      <div class="lab">Estimated thickness of a 1940 Reichspost card <span class="tag c">c</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">200–300 <small>g/m²</small></div>
+      <div class="lab">Estimated grammage, machine-made wood-pulp board <span class="tag c">c</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">150–500 <small>g/m²</small></div>
+      <div class="lab">Grammage window admitted by international (UPU) postcard rules <span class="tag b">b</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">46 <small>µm</small></div>
+      <div class="lab">Measured thickness of a 35 g/m² onionskin sample — the thin comparison stock <span class="tag b">b</span></div>
+    </div>
+  </div>
 
-<div class="widget">
-  <h4>Saturation calculator</h4>
-  <label>Block area: <output id="sat-area-o">9.0</output> cm&sup2;</label>
-  <input type="range" id="sat-area" min="1" max="20" step="0.5" value="9">
-  <label>Uptake rate: <output id="sat-up-o">25</output> g/m&sup2;/min</label>
-  <input type="range" id="sat-up" min="15" max="35" step="1" value="25">
-  <p>Max uptake in one minute: <output id="sat-out">0.023</output> ml</p>
-  <p style="font-size:.85rem">A few pen passes deliver of order this volume; beyond it, ink cannot enter and must spread laterally or sit on the surface. Saturation is reached quickly and shallowly: there is no "deeper reservoir" that would preserve the under-layer as a separable signal.</p>
+  <div class="two-col">
+    <div>
+      <p>The cards are almost certainly DIN A6 "Normalformat" stock: the format was introduced in Germany on 1 October 1927 and had established itself through the 1930s–40s, under the 10.5 × 15 cm international maximum set by the 1924 World Postal Congress. <span class="tag b">b</span> Modern postal specs corroborate the low end of the bracket — PostNL requires a minimum of 170–200 g/m² for cards, Royal Mail Wholesale a minimum of 200 gsm — and US rules put postcard thickness at 0.18–0.41 mm. <span class="tag b">b</span></p>
+      <p>The board was uncoated and sized: cellulose fibres with mineral filler and rosin/gelatin size to make it writable. Early postcard board was yellowish-brown so soiling would show less. <span class="tag a">a</span> <span class="tag b">b</span> Wartime stock likely carried more groundwood and recycled content and less sizing than peacetime board — plausible, but not verified for Reichspost card stock specifically. <span class="tag c">c</span></p>
+    </div>
+    <div>
+      <p><strong>Against onionskin:</strong> airmail/onionskin paper runs 25–39 g/m² (tariff definitions put airmail paper under 40 g/m²). The postcard is roughly <strong>6–10× the grammage and 5–7× the thickness</strong> — about 0.3 mm against about 0.05 mm. <span class="tag b">b</span> <span class="tag c">c</span></p>
+      <p>That cuts both ways for ink work. The card has far more fibre mass per unit area to absorb ink — and far more scattering mass to hide whatever is inside it. Thin airmail stock is the forgiving case for see-through recovery; a 300 µm board is not.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. CROSS-SECTION ============ -->
+<section id="section-diagram">
+  <div class="sec-head"><span class="sec-num">02</span><h2>The stack, to scale</h2></div>
+  <p class="sec-sub">Everything that matters happens in the top sliver. The ink film, the penetration zone, and a single paper fibre, drawn against the full card thickness and against onionskin.</p>
+
+  <figure class="diagram">
+    <div class="fig-toggle" role="group" aria-label="Diagram scale">
+      <button id="btn-full" aria-pressed="true">Full card · linear scale</button>
+      <button id="btn-zoom" aria-pressed="false">Top 60 µm · magnified</button>
+    </div>
+    <div id="diagram-slot"></div>
+    <figcaption id="diagram-caption">Linear scale, 1 µm = 1 unit. At true scale the ink layers are hairlines on top of a 300 µm board — which is precisely the problem: the "layers" the algorithms would need to split are a few percent of the card's height, and they overlap.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 3. PENETRATION ============ -->
+<section id="penetration">
+  <div class="sec-head"><span class="sec-num">03</span><h2>How deep does the ink go?</h2></div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">~10 <small>µm</small></div>
+      <div class="lab">Diameter of a single paper fibre <span class="tag b">b</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">~2.5 <small>µm</small></div>
+      <div class="lab">Depth of a typical printed ink film — about 1/40 of its sheet <span class="tag b">b</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">10–50 <small>µm</small></div>
+      <div class="lab">Bounded estimate for one fountain-pen stroke's penetration into sized board <span class="tag c">c</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">√t</div>
+      <div class="lab">Penetration grows with the square root of time (Lucas–Washburn) — extra passes add little depth <span class="tag a">a</span></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <p><strong>At fibre scale</strong>, synchrotron X-ray microscopy (STXM) of iron-gall ink in paper shows penetration is not uniform: gallic acid stays mostly in the outer cell wall of the ~10 µm fibres, the iron-gallate pigment precipitates as it migrates, and only small amounts of iron reach the fibre's interior. Add gum arabic binder and the ink grows viscous and "significantly jeopardizes its ability to penetrate the fibre — the ink thus remains at the surface of the fibre." <span class="tag b">b</span></p>
+      <p><strong>Transport</strong> follows Lucas–Washburn: depth grows as √(time) × √(mean pore radius). Water-based inks deviate through fibre swelling and capillary saturation, but the square-root law is why dwell time buys so little extra depth. <span class="tag a">a</span> <span class="tag b">b</span></p>
+    </div>
+    <div>
+      <p><strong>For fountain-pen dye ink on this board</strong>, a single stroke lays down a film a few microns wet; dye and water wick into the sized board to a depth of order tens of microns — a few fibre diameters, not hundreds. Fountain-pen writing rarely shows through 250–300 g/m² board, which bounds single-pass penetration well under the ~300 µm sheet thickness: very roughly <strong>10–50 µm</strong>. No direct published measurement of dye depth on sized board was found; this is a bound, not a measurement. <span class="tag c">c</span></p>
+      <div class="note">
+        <h4>The scribble does not drill</h4>
+        <p>A heavy multi-pass scribble deposits far more liquid, but penetration is rate-limited (√t) and the board is sized — it does <strong>not</strong> punch through the full 0.3 mm. Instead it saturates the top fibre layers and pools at the surface, which is exactly why a scribble looks black and glossy. The handwriting's dye already occupies fibre sites in the same top tens of microns, so the second ink largely re-dissolves and mixes with dye in the already-wetted zone. <strong>The two inks are intermixed at fibre scale — not stacked as a clean two-layer sandwich any algorithm could peel apart.</strong> <span class="tag c">c</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. SATURATION ============ -->
+<section id="saturation">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Saturation: how much ink can a square centimetre hold?</h2></div>
+  <p class="sec-sub">Paper takes up liquid by the Bristow / Lucas–Washburn law — a fast surface-roughness term, then a square-root-of-time absorption term:</p>
+
+  <div class="formula">
+    V(t) = K<sub>r</sub> + K<sub>a</sub> · √(t − t<sub>w</sub>)
+    <span class="fnote">V = absorbed volume per unit area (ml/m²) · K<sub>r</sub> = surface-roughness uptake (ml/m²) · K<sub>a</sub> = absorption coefficient (ml/(m²·ms<sup>0.5</sup>)), measured with a Bristow tester. <span class="tag a">a</span> <span class="tag b">b</span></span>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <p>Measured on plain paper with water-based inks, the penetration rate is <strong>at least 20× the evaporation rate</strong> — drying is penetration-dominated. Uptake can run faster than the ideal law (fibre swelling, capillary expansion) or slower (capillary saturation), and surface chemistry matters. <span class="tag b">b</span></p>
+      <p>One asymmetry matters for Case A: pigment particles larger than the paper's pore size are <strong>filtered out and stay at the surface</strong> while the liquid vehicle penetrates. Carbon-black pigment in a black pen ink is exactly such a particle — the black stays surficial and optically dense while its carrier soaks in. <span class="tag b">b</span></p>
+    </div>
+    <div>
+      <p><strong>A hard capacity number:</strong> postal paper specs require water absorbency of <strong>15–35 g of water per m² in one minute</strong> (Cobb-type test, BS EN 20535). A square metre of card drinks only 15–35 ml in a full minute. Scale that to the scribble block and saturation arrives after a few pen passes; beyond it, ink cannot enter and must spread sideways or sit on the surface. <span class="tag b">b</span></p>
+      <p>So saturation is reached <strong>quickly and shallowly</strong>: the first pass wets the top fibre layers; later passes only push surface dye concentration toward its optical maximum — the dense black. There is no deeper reservoir that keeps the under-layer preserved as a separate signal. <span class="tag c">c</span></p>
+    </div>
+  </div>
+
+  <div class="lab" id="sat-lab">
+    <h3>Saturation calculator</h3>
+    <p class="lab-sub">Cobb-type uptake capacity (15–35 g/m² in 1 min) applied to a redaction block. Water ≈ 1 g/ml, so grams read as millilitres. The Case A block is about 1.5 × 6 cm = 9 cm².</p>
+    <div class="lab-grid">
+      <div>
+        <div class="ctl">
+          <label for="sat-area">Block area <output id="sat-area-out">9.0 cm²</output></label>
+          <input type="range" id="sat-area" min="1" max="40" step="0.5" value="9" />
+        </div>
+        <div class="ctl">
+          <label for="sat-rate">Uptake rate <output id="sat-rate-out">25 g/m²</output></label>
+          <input type="range" id="sat-rate" min="15" max="35" step="1" value="25" />
+        </div>
+        <div class="readout">
+          <div class="big" id="sat-result">0.023 ml</div>
+          <p>Total liquid the block can absorb in a minute — roughly <span id="sat-drops">half a drop</span> from a pen. A few pen passes deliver of order this volume; everything after that pools on the surface.</p>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <svg viewBox="0 0 320 190" id="sat-svg">
+          <rect x="30" y="20" width="260" height="120" rx="2" fill="none" stroke="var(--line-strong)" stroke-width="1.5"/>
+          <rect id="sat-fill" x="30" y="128" width="260" height="12" fill="var(--blue)" opacity="0.75"/>
+          <text x="30" y="162" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--ink-faint)">absorbed into top fibres</text>
+          <rect id="sat-pool" x="30" y="8" width="260" height="6" fill="var(--black-ink)" opacity="0"/>
+          <text x="30" y="182" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)" id="sat-pool-lab"></text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. KUBELKA-MUNK ============ -->
+<section id="kubelka">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Kubelka–Munk: when does the under-ink still show?</h2></div>
+  <p class="sec-sub">Kubelka–Munk theory (1931) models two diffuse light fluxes through layered material with just two constants per material: absorption <span class="mono">K</span> and back-scattering <span class="mono">S</span>. It was built to answer literally this question — its "hiding power" is the paint thickness needed to obscure a substrate. <span class="tag a">a</span></p>
+
+  <div class="formula">
+    R<sub>∞</sub> = 1 + K/S − √((K/S)² + 2(K/S)) &nbsp;&nbsp;·&nbsp;&nbsp; F(R<sub>∞</sub>) = (1 − R<sub>∞</sub>)² / (2R<sub>∞</sub>) = K/S
+    <span class="fnote">Reflectance of an opaque layer, and the remission function that linearises it. For mixtures, K and S add by concentration — so layered inks combine <strong>linearly in K/S space, not in RGB</strong>. Any unmixing attempt should transform R → F(R) first. <span class="tag a">a</span> <span class="tag b">b</span></span>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <p>For an ideal glaze — a pure absorber that scatters little, which a dye ink approximates — the substrate's contribution survives attenuated <em>exponentially</em> with top-layer thickness:</p>
+      <div class="formula">R = R<sub>g</sub> · exp(−2a<sub>0</sub>X)
+        <span class="fnote">R<sub>g</sub> = substrate reflectance · a<sub>0</sub> = top-layer absorption · X = top-layer thickness.</span>
+      </div>
+      <p>The under-ink still contributes to what a camera measures <strong>only while K<sub>top</sub>·X<sub>top</sub> ≲ 1</strong> in the camera's bands — a thin or weakly absorbing top layer. Past that, the under-layer's contribution decays exponentially toward zero. <span class="tag a">a</span> <span class="tag c">c</span></p>
+    </div>
+    <div>
+      <div class="note">
+        <h4>The information-theoretic limit</h4>
+        <p>When the top ink reaches <strong>complete hiding</strong> — measured reflectance equal to R<sub>∞</sub> of the top ink alone, independent of the substrate — the reflected light carries <strong>zero mutual information</strong> about what lies beneath. No algorithm on reflected light, RGB or hyperspectral, can recover the under-text. The signal is not weak; it is absent. That is a hard physical limit, not a signal-processing challenge. <span class="tag a">a</span></p>
+        <p>Two caveats, both unfavourable: K–M assumes homogeneous layers (handwriting violates this, but the hiding conclusion is robust), and K–M <em>fails in strongly absorbing materials</em> — precisely the saturated-black regime — where the failure mode is more opacity, not less. And even where some under-signal survives, 3 RGB channels must separate at least 4 unknowns per pixel (two inks × concentrations, paper, noise): severely underdetermined. <span class="tag b">b</span> <span class="tag c">c</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab" id="km-lab">
+    <h3>Hiding-power explorer</h3>
+    <p class="lab-sub">Drag the top layer's optical thickness K·X and watch the under-layer's surviving contribution, exp(−2K·X) in the glaze approximation. The marked points are the regimes the two cases live in.</p>
+    <div class="lab-grid">
+      <div>
+        <div class="ctl">
+          <label for="km-kx">Top-layer optical thickness K·X <output id="km-kx-out">0.50</output></label>
+          <input type="range" id="km-kx" min="0" max="3" step="0.05" value="0.5" />
+        </div>
+        <div class="readout">
+          <div class="big" id="km-pct">36.8%</div>
+          <p id="km-verdict">Thin wash territory: the under-layer still modulates the reflectance measurably. Unmixing is possible in principle.</p>
+        </div>
+        <div class="readout" style="margin-top:12px">
+          <p style="margin:0"><b>Reference points</b><br>
+          · K·X ≈ 0.3 — a light single-pass dye dab at its thin edge<br>
+          · K·X ≈ 1 — the ≲ 1 boundary: under-signal fading into noise<br>
+          · K·X ≥ 2–3 — saturated black scribble: complete hiding</p>
+        </div>
+      </div>
+      <div class="stage">
+        <svg viewBox="0 0 460 300" id="km-svg" role="img" aria-label="Chart of surviving under-layer signal versus top-layer optical thickness">
+          <!-- axes -->
+          <line x1="52" y1="20" x2="52" y2="252" stroke="var(--line-strong)" stroke-width="1.5"/>
+          <line x1="52" y1="252" x2="440" y2="252" stroke="var(--line-strong)" stroke-width="1.5"/>
+          <text x="46" y="24" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)">100%</text>
+          <text x="46" y="140" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)">50%</text>
+          <text x="46" y="256" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)">0</text>
+          <text x="52" y="272" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)">K·X = 0</text>
+          <text x="246" y="272" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)">1.5</text>
+          <text x="440" y="272" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-faint)">3.0</text>
+          <text x="246" y="292" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="var(--ink-faint)">top-layer optical thickness K·X →</text>
+          <!-- 1/e-ish boundary guide at KX=1 -->
+          <line x1="181.3" y1="20" x2="181.3" y2="252" stroke="var(--red)" stroke-width="1" stroke-dasharray="4 4" opacity="0.65"/>
+          <text x="187" y="34" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--red)">K·X = 1 boundary</text>
+          <path id="km-curve" fill="none" stroke="var(--blue)" stroke-width="2.5"/>
+          <circle id="km-dot" r="6" fill="var(--red)" stroke="var(--surface)" stroke-width="2"/>
+          <text id="km-dot-lab" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="var(--ink)"></text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. ALGORITHMS ============ -->
+<section id="algorithms">
+  <div class="sec-head"><span class="sec-num">06</span><h2>The algorithm survey: what exists, what it needs</h2></div>
+  <p class="sec-sub">Every published success at reading under ink exploits spectral or elemental contrast between the layers, or non-optical information. None demonstrates recovery of handwriting under a heavy pen scribble, or under same-ink dabbing, from RGB alone — that gap is a literature-search negative, not a proof of impossibility. <span class="tag b">b</span></p>
+
+  <div class="algo">
+    <div class="algo-head"><h3>Multispectral / hyperspectral imaging</h3><span class="needs no">Needs: multispectral rig — not RGB</span></div>
+    <div class="algo-body">
+      <p><b>Archimedes Palimpsest:</b> pages imaged in 6 bands (tungsten + UV 365 nm), then 11 LED bands from 365–870 nm plus raking light at 25 px/mm; PCA/classification on the registered cube; synchrotron X-ray fluorescence mapped iron in the undertext ink. <span class="tag b">b</span></p>
+      <p><b>Marie Antoinette's retouched letters:</b> macro-XRF + PCA separated superimposed iron-gall inks — because the two inks had distinct elemental compositions. Faded (not over-inked) handwriting has also been restored with hyperspectral imaging. <span class="tag b">b</span></p>
+    </div>
+    <p class="verdict-line"><b>For our cards</b>Success requires different chemistry/spectra between layers and capture gear we don't have. Case B is the same ink; Case A is saturated in every visible band. Large palimpsest areas stayed unreadable even with the full rig.</p>
+  </div>
+
+  <div class="algo">
+    <div class="algo-head"><h3>Blind source separation / ICA on RGB</h3><span class="needs rgb-ok">Needs: RGB scan (sometimes + verso)</span></div>
+    <div class="algo-body">
+      <p><b>What it does:</b> Tonazzini et al. applied ICA to RGB scans to separate recto / verso / background as three sources; later work uses nonlinear (linear-quadratic) BSS modelling show-through, pigment penetration and vehicle-oil components, plus MRF/CRF and colour-decorrelation variants. <span class="tag b">b</span></p>
+      <p><b>Documented limits:</b> Wolf showed the linear mixing assumption is unjustified for ink on paper — pixel colour doesn't combine linearly from sources. The literature targets <em>faint</em> bleed-through on thin paper; when the interference is as dark as the writing, removal is "practically impossible" with these models. Scanner blur further limits the nonlinear method. <span class="tag b">b</span></p>
+    </div>
+    <p class="verdict-line"><b>For our cards</b>The whole bleed-through literature assumes the under-signal is a weak additive ghost — the opposite of a saturated scribble. None of it addresses opaque over-inking.</p>
+  </div>
+
+  <div class="algo">
+    <div class="algo-head"><h3>Kubelka–Munk spectral unmixing</h3><span class="needs no">Needs: hyperspectral reflectance + endmembers</span></div>
+    <div class="algo-body">
+      <p><b>What it does:</b> unmixing in (K/S) space, where pigment mixtures combine linearly (Zhang et al., 2021), demonstrated for pigment identification on cultural-heritage objects from hyperspectral data, assuming diffuse illumination, high optical thickness and known endmember spectra. <span class="tag b">b</span></p>
+      <p><b>As a forward model</b> K–M is still the right frame for RGB: it says the mixture law is linear in K/S, so any attempt should work on F(R) = (1−R)²/2R, not raw RGB. <span class="tag a">a</span> <span class="tag c">c</span></p>
+    </div>
+    <p class="verdict-line"><b>For our cards</b>Not demonstrated for handwriting under over-inking, and not applicable to 3-channel RGB: the system is underdetermined, and the endmembers for "same blue ink, single vs. double pass" are nearly collinear.</p>
+  </div>
+
+  <div class="algo">
+    <div class="algo-head"><h3>Forensic questioned-document practice</h3><span class="needs no">Needs: IR / VSC / lab examination</span></div>
+    <div class="algo-body">
+      <p><b>Spectral route:</b> a Video Spectral Comparator with UV/IR reveals writing covered by a <em>different</em> ink, exploiting differing wavelength responses. IR photography works only when the two inks differ chemically — IR passes through the upper layer and is absorbed below. <span class="tag b">b</span></p>
+      <p><b>Physical routes:</b> oblique/transmitted light and microscopy for traces beneath the stroke; embossing on the verso from heavy pen pressure; ESDA recovers <em>indented</em> writing from up to 7 sheets below, on documents up to 60 years old. <span class="tag b">b</span></p>
+    </div>
+    <blockquote>"If it is done with the same ink as was used to write the original material, recovery will be difficult if not impossible."
+      <cite>— forensic questioned-document doctrine, on obliteration with the same ink <span class="tag b">b</span></cite>
+    </blockquote>
+    <p class="verdict-line"><b>For our cards</b>Case B is precisely the doctrine's impossible case. Case A's remaining forensic channel is not optical at all — it's the pressure record (see ranked steps).</p>
+  </div>
+
+  <div class="algo">
+    <div class="algo-head"><h3>Digital redaction research</h3><span class="needs rgb-ok">Needs: RGB</span></div>
+    <div class="algo-body">
+      <p>Solid black bars are the recommended redaction precisely because pixelation and blur are reversible and black bars are not. The only published "recovery" under solid bars (Lopresti &amp; Spitz, 2005) used font metrics plus language models — a print-text trick with no bearing on handwriting. <span class="tag b">b</span></p>
+      <p>Separately, RGB statistics can distinguish ink <em>types</em> — fractal + RGB analysis separated five different black iron-gall inks on scans. Useful for "which ink," not for "what's under it." <span class="tag b">b</span></p>
+    </div>
+    <p class="verdict-line ok"><b>For our cards</b>Confirms the shape of the problem from the redactor's side: an opaque block is the one redaction that works.</p>
+  </div>
+</section>
+
+<!-- ============ 7. WHAT COULD SURVIVE (CASE B) ============ -->
+<section id="caseb-traces">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Case B: the traces that could survive</h2></div>
+  <p class="sec-sub">Same ink kills every spectral lever, but four second-order traces could in principle remain. All are inference, and all sit near the noise floor of the existing scans: at 150–300 dpi a pixel spans ~85–170 µm while a pen stroke is ~300–500 µm wide — marginal sampling, with JPEG/scan noise dominating the tiny concentration differences. <span class="tag c">c</span></p>
+  <div class="stats">
+    <div class="stat"><div class="num" style="font-size:24px">Sub-opaque edges</div><div class="lab">Where a dab thins at its edges (K·X ≲ 1), the under-stroke can still modulate reflectance — recoverable in principle only where the dab didn't fully cover.</div></div>
+    <div class="stat"><div class="num" style="font-size:24px">Dye-density sum</div><div class="lab">The under-stroke adds dye where it lies, so total dye density is slightly higher along the hidden stroke than in the dab alone.</div></div>
+    <div class="stat"><div class="num" style="font-size:24px">Wicking edges</div><div class="lab">Chromatography / coffee-ring dye separation at the stroke boundary may trace the original stroke's outline.</div></div>
+    <div class="stat"><div class="num" style="font-size:24px">Embossing</div><div class="lab">Fibre disturbance and pen-pressure indentation from the original writing — a topographic, not optical, record.</div></div>
+  </div>
+  <p>Realistic yield, even if pursued: <strong>fragmentary stroke fragments at dab edges, not running text</strong> — and only from a fresh high-resolution capture. Transmitted light will not rescue Case A either: a saturated black block is opaque in transmission too. <span class="tag c">c</span></p>
+</section>
+
+<!-- ============ 8. RANKED STEPS ============ -->
+<section id="next">
+  <div class="sec-head"><span class="sec-num">08</span><h2>What is actually worth trying, ranked</h2></div>
+  <ol class="ranked">
+    <li>
+      <div>
+        <h3>Re-photograph with transmitted + oblique light</h3>
+        <p>Still an ordinary RGB camera — but backlighting turns the problem from reflectance into optical-density measurement: dye-concentration differences (hidden stroke + dab vs. dab alone) show as density differences even with identical ink chemistry. Oblique light captures embossed stroke topography at the same time. The single highest-expected-value step, especially for Case B. <span class="tag c">c</span>, from Beer–Lambert/transmission physics <span class="tag a">a</span> and forensic transmitted/oblique examination practice <span class="tag b">b</span>.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>K/S-transform + constrained unmixing on high-res RGB — Case B only</h3>
+        <p>Convert R → F(R) = (1−R)²/2R per channel (the space where K–M says inks mix linearly), sample local endmembers — bare paper, single-pass blue, dab blue — and solve the constrained linear mixture per pixel; or run ICA/PCA on the RGB cube to isolate the maximum-variance "extra dye" component. Expect at best stroke fragments at dab edges. Needs a fresh ≥600–1200 dpi, 16-bit capture; the existing scans are too coarse. No published success exists for this configuration. <span class="tag c">c</span></p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h3>Topographic capture of the embossing — Cases A and B</h3>
+        <p>Photometric stereo / RTI from an RGB camera, or lab ESDA for indented writing (documented through up to 7 sheets and 60-year-old paper <span class="tag b">b</span>). This bypasses ink optics entirely and reads the pressure record instead. For Case A it is the only non-destructive avenue with nonzero probability. <span class="tag c">c</span></p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ 9. OPEN QUESTIONS ============ -->
+<section id="open">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Open questions — what the research could not verify</h2></div>
+  <ul class="open-q">
+    <li><b>Official Reichspost 1940 grammage/thickness spec:</b> not found. The 200–300 g/m² / 0.25–0.35 mm figures are bracketed from UPU-era postal standards and marked as inference throughout.</li>
+    <li><b>Wartime paper composition:</b> the groundwood content and sizing level of 1940–41 Reichspost Ganzsachen stock is unverified. It would move the exact penetration numbers, not the verdict.</li>
+    <li><b>Quantitative dye-penetration depth on sized board:</b> no direct published measurement in microns was found. The 10–50 µm figure is bounded by fibre-scale STXM data, bleed-through behaviour, and board thickness.</li>
+    <li><b>The "no published method" claim</b> for RGB-only recovery under heavy scribble or same-ink dabbing is a literature-search negative — an absence found by searching, not a proof of impossibility.</li>
+  </ul>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="sources">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Sources</h2></div>
+  <div class="sources">
+    <p><span class="src-name">Postcard formats &amp; postal specs</span> — <a href="https://de.wikipedia.org/wiki/Postkarte">German Wikipedia, "Postkarte"</a> · <a href="https://www.postnl.nl/api/assets/blt43aa441bfc1e29f2/bltfc20f2bcb294d748/65eb1fafe12481040a898298/20230222-pir-en-general-conditions-for-designing-mail-items2023.pdf">PostNL mail-item design conditions (2023, PDF)</a> · <a href="https://www.royalmailwholesale.com/mint-project/uploads/488474652.pdf">Royal Mail Wholesale Mailmark spec (PDF)</a> · <a href="https://www.factmonster.com/us/postal-information/sizes-for-domestic-mail">USPS sizes for domestic mail</a> · <a href="http://en.wikipedia.org/wiki/Onionskin">Wikipedia, "Onionskin"</a></p>
+    <p><span class="src-name">Ink penetration</span> — <a href="https://pubs.rsc.org/en/content/articlelanding/2015/ja/c4ja00358f">Gimat et al. 2015, STXM of iron-gall ink (J. Anal. At. Spectrom.)</a> · <a href="https://www.researchgate.net/publication/378746354_Linking_historical_recipes_and_ageing_mechanisms_the_issue_of_19th_century_iron_gall_inks">Ferretti et al. 2024, iron-gall ink recipes &amp; ageing</a> · <a href="https://phys.org/news/2015-04-microscopic-topography-ink-paper.pdf">Myllys et al. 2015, microscopic topography of ink on paper (PDF)</a> · <a href="https://www.fountainpennetwork.com/forum/topic/265601-ink-rheology/">Fountain Pen Network, ink rheology</a></p>
+    <p><span class="src-name">Absorption &amp; saturation</span> — <a href="https://library.imaging.org/admin/apis/public/api/ist/website/downloadArticle/jist/41/2/art00009">Selim et al. 1997, ink absorption (J. Imaging Sci. Technol.)</a> · <a href="https://www.jstage.jst.go.jp/article/nig1987/26/5/26_5_251/_article/-char/en">The porous structure of paper and ink penetration (J-Stage)</a> · <a href="https://bioresources.cnr.ncsu.edu/wp-content/uploads/2020/02/1989.2.895.pdf">Kent &amp; Lyne 1989 (PDF)</a></p>
+    <p><span class="src-name">Kubelka–Munk</span> — <a href="https://en.wikipedia.org/wiki/Kubelka%E2%80%93Munk_theory">Wikipedia, "Kubelka–Munk theory"</a> · <a href="https://ar5iv.labs.arxiv.org/html/2104.04884">Zhang et al. 2021, hyperspectral unmixing in K/S space (arXiv:2104.04884)</a> · <a href="https://www-users.cse.umn.edu/~gmeyer/papers/haase-meyer-tog-1992.pdf">Haase &amp; Meyer 1992 (PDF)</a></p>
+    <p><span class="src-name">Multispectral recovery</span> — <a href="https://en.wikipedia.org/wiki/Archimedes_Palimpsest">Wikipedia, "Archimedes Palimpsest"</a> · <a href="http://cis.rit.edu/~rlepci/Erho/Derek/Published_Papers/SPIE_EI_08_djw.pdf">RIT/SPIE imaging paper (PDF)</a> · <a href="https://www.mdpi.com/2571-9408/7/2/34">MDPI Heritage review, incl. Michelin et al. 2021 MA-XRF</a> · <a href="https://onlinelibrary.wiley.com/doi/10.1111/arcm.70179">Wiley, hyperspectral faded-handwriting recovery</a></p>
+    <p><span class="src-name">ICA / blind source separation</span> — <a href="https://www.mdpi.com/290800">Bleed-through removal survey (MDPI)</a> · <a href="https://hal.archives-ouvertes.fr/hal-01381428/file/Liris-3718.pdf">Wolf, ICA linearity critique (PDF)</a> · <a href="https://hal.science/hal-00643471v1/document">Merrikh-Bayat et al., nonlinear BSS (PDF)</a> · <a href="https://www.nature.com/articles/s41598-023-28005-4">RGB identification of iron-gall inks (Sci. Rep. 2023)</a></p>
+    <p><span class="src-name">Forensic obliteration</span> — <a href="https://wilber-learndev.com/courses/introduction-to-forensic-science-and-criminology/">Forensic science &amp; criminology course text</a> · <a href="https://forensicsciencesimplified.org/docs/QuestionedDocuments.pdf">Questioned Documents (Forensic Science Simplified, PDF)</a> · <a href="http://shifan.keyan123.cn/http/77726476706e69737468656265737421e7e056d224236d1e720d81a59f5d6d30a0a6/~lopresti/Publications/2005/spie05a.pdf">Lopresti &amp; Spitz 2005 (PDF)</a></p>
+  </div>
+  <footer>
+    <p>Compiled from a deep-research report dated 13 October 2026. Read-status: the Selim et al. (1997) absorption paper and the Kubelka–Munk reference were read in full text by the researcher; other sources were assessed via abstracts and search-index text. Values tagged <span class="tag c">c</span> are the report's inferences and are hedged as such; nothing here adds a value the report does not carry.</p>
+  </footer>
+</section>
+
 </div>
 
-<h2>4. Kubelka-Munk layered reflectance and the information-theoretic limit</h2>
-<p>(a) Kubelka-Munk (1931): two diffuse fluxes through plane-parallel layers; each material needs only absorption <strong>K</strong> and back-scattering <strong>S</strong>. The remission function <strong>F(R) = (1-R)^2/(2R) = K/S</strong> linearises reflectance. The theory was built to answer "the thickness of paint needed to obscure the substrate" - exactly our question in reverse. For mixtures, K and S add linearly (Duncan two-constant mixing); <strong>K/S space is where layered inks combine linearly</strong> (b; Zhang et al., arXiv:2104.04884). Ideal glaze: R = R_g * exp(-2*a_0*X).</p>
-<p>(a/c) The under-ink contributes to measured reflectance <strong>iff the top layer is not optically opaque</strong>: light must make the round trip (down through top ink, scatter, back up) with non-negligible intensity. That requires <strong>K_top * X_top &lt;~ 1</strong> in the camera's bands. As K_top*X_top grows, the under-layer's contribution decays exponentially toward zero.</p>
-<p>(a) <strong>The information-theoretic limit.</strong> When the top ink reaches <strong>complete hiding</strong> - reflectance R becomes R_infinity of the top ink alone, independent of the substrate - the reflected light carries <strong>zero mutual information</strong> about what lies beneath. No algorithm on reflected light (RGB or hyperspectral) can recover the under-text then; the signal is absent, not merely weak. This is a hard physical limit, not a signal-processing challenge.</p>
-<p>Caveats (a/b): K-M assumes diffuse fluxes and homogeneous layers - handwriting violates homogeneity, but the hiding-power conclusion is robust. K-M fails in strongly absorbing materials - precisely the saturated-black regime, where the failure mode is <em>more</em> opacity, not less. And even where some under-signal survives, <strong>3 RGB channels must separate 4+ unknowns per pixel</strong> - the inverse problem is severely underdetermined from RGB alone (c).</p>
-
-<div class="widget">
-  <h4>Hiding-power explorer</h4>
-  <label>Top-layer optical thickness K&middot;X: <output id="km-kx-o">0.50</output></label>
-  <input type="range" id="km-kx" min="0" max="4" step="0.05" value="0.5">
-  <p>Surviving under-layer signal: <output id="km-out">36.8%</output> of the substrate contribution</p>
-  <p style="font-size:.85rem">Signal decays as e<sup>-2KX</sup>. K&middot;X = 1 is the boundary of the thin regime; K&middot;X &ge; 2&ndash;3 is complete hiding. A saturated black scribble sits at K&middot;X &#8811; 1.</p>
-</div>
-
-<h2>5. Existing algorithms</h2>
-
-<h3>5a. Multispectral / hyperspectral imaging</h3>
-<ul>
-<li><strong>Archimedes Palimpsest</strong> (b): 6 bands (tungsten + UV 365 nm), then 11 LED bands 365-870 nm + broadband + raking light at 25 px/mm; PCA/classification on the cube; synchrotron XRF mapped iron in the undertext; PCA on RGB of UV fluorescence recovered the Hypereides text. Input: multispectral rig and/or XRF - <strong>not RGB-only</strong>. Success needs different chemistry/spectra between layers; large areas still failed.</li>
-<li><strong>Marie Antoinette retouched correspondence</strong> (Michelin et al. 2021, b): macro-XRF + PCA separated superimposed iron-gall inks because the two inks had <strong>distinct elemental compositions</strong>. Fails for same-ink.</li>
-<li><strong>Faded handwriting</strong> (Wiley, 2026, b): hyperspectral + minimum-noise-fraction rotation restores <strong>faded</strong> (not over-inked) writing.</li>
-<li><strong>Verdict for us:</strong> every demonstrated success exploits <strong>spectral or elemental contrast between the layers</strong>. Case B (same blue dye) and Case A (saturated black over blue) offer no such contrast in the visible, and we have no multispectral capture anyway.</li>
-</ul>
-
-<h3>5b. Blind source separation / ICA on RGB scans</h3>
-<ul>
-<li><strong>Tonazzini et al.</strong> (b): ICA on RGB scans separating recto/verso/background as 3 sources. But Wolf demonstrates the <strong>linear mixing assumption is unjustified for ink on paper</strong> (b).</li>
-<li><strong>Merrikh-Bayat et al.</strong> (b): nonlinear (linear-quadratic) BSS for show-through. Results limited by scanner blur.</li>
-<li>Survey (b): ICA, dual-layer MRF, CRF, colour-decorrelation, PCA+segmentation, EM for <strong>bleed-through/show-through</strong>. Documented success: <strong>faint</strong> bleed-through on thin paper. Documented failure: when the interference is as dark as the writing, "practically impossible to remove show-through" (b). <strong>None of this literature addresses opaque over-inking</strong> - the models assume the under-signal is a weak additive ghost, the opposite of a saturated scribble.</li>
-<li>Tangentially: RGB statistics can distinguish ink <em>types</em> - fractal + RGB analysis separated five different black iron-gall inks (b; Nature Sci. Rep. 2023). Useful for <em>which ink</em>, not for <em>under what</em>.</li>
-</ul>
-
-<h3>5c. Kubelka-Munk-based spectral unmixing</h3>
-<ul>
-<li>Zhang et al., arXiv:2104.04884 (b): unmixing in <strong>(K/S) space</strong>, where pigment mixtures combine linearly; demonstrated for pigment identification on cultural-heritage artefacts <strong>from hyperspectral data</strong>. Not demonstrated for handwriting under over-inking, and not applicable to 3-channel RGB (underdetermined; endmembers for "same blue ink, single vs. double pass" nearly collinear).</li>
-<li>K-M is, however, the right <em>forward</em> model: the mixture law is linear in K/S, not in RGB - any unmixing attempt should transform R to F(R)=(1-R)^2/2R first (a/c).</li>
-</ul>
-
-<h3>5d. Correction fluid / heavy redaction / same-ink overwriting</h3>
-<ul>
-<li><strong>Same ink over same ink:</strong> forensic QD doctrine - <em>"If it is done with the same ink as was used to write the original material, recovery will be difficult if not impossible"</em> (b). IR recovery works <strong>only when the two inks differ chemically</strong> (b).</li>
-<li><strong>Obliterations generally:</strong> a Video Spectral Comparator with UV/IR "can reveal writing added with a <strong>different ink</strong>... exploiting variations in the way different inks respond to different wavelengths" (b).</li>
-<li><strong>Physical routes:</strong> oblique/transmitted light and microscopy for traces beneath overwritten strokes; <strong>embossing on the verso</strong> from heavy pen pressure (b); <strong>ESDA</strong> recovers <em>indented</em> writing from up to 7 sheets below, on documents up to 60 years old (b).</li>
-<li><strong>Digital redaction:</strong> solid black bars are the recommended redaction precisely because pixelation/blur are reversible and black bars are not (b). The only "recovery" under solid bars used font metrics + language models - irrelevant to handwriting.</li>
-<li><strong>Gap:</strong> no published method demonstrates recovery of handwriting under a heavy multi-pass pen scribble or under same-ink dabbing from RGB-only images.</li>
-</ul>
-
-<h2>6. Practical verdict (RGB photograph only)</h2>
-
-<div class="verdict"><strong>Case A - heavy black multi-pass scribble over handwriting: hopeless from RGB reflectance.</strong> A saturated black pen layer has K*X &#8811; 1 across the visible; in K-M terms it has reached <strong>complete hiding power</strong> - measured reflectance is R_infinity of the black ink, independent of the substrate. The under-signal is physically absent from reflected light, not merely hidden. The top ink's vehicle saturates the same top tens of um the under-writing occupies; the layers are fibre-scale intermixed, so no clean stratum boundary exists for any algorithm to exploit. Forensic literature offers no RGB (or any reflected-light) recovery path when the covering is opaque. The only physically plausible residual channel is <strong>3D</strong>: pen-pressure embossing of the original strokes (oblique light/RTI, or lab ESDA - documented on 60-year-old documents), which needs re-imaging or lab access. Transmitted light fails too: a saturated black block is opaque in transmission.</div>
-
-<div class="verdict"><strong>Case B - blue dye dabs over blue dye handwriting (same ink): effectively hopeless for running text from the existing scans.</strong> Same chemistry means no spectral/elemental contrast for any multispectral, XRF, or IR method; forensic doctrine calls this "difficult if not impossible". What <em>could</em> survive: (i) at dab <strong>edges and thin spots</strong> the top layer may be sub-opaque, so the under-stroke modulates reflectance; (ii) <strong>dye-concentration gradients</strong> - the under-stroke adds dye where it lies; (iii) <strong>wicking/coffee-ring edge effects</strong> tracing the original stroke boundary; (iv) <strong>fibre disturbance/embossing</strong>. From 150-300 dpi scans these are second-order effects at the noise floor (~85-170 um/px vs ~300-500 um strokes). Any "recovery" would be fragmentary stroke fragments at dab edges, not running text.</div>
-
-<h3>What is actually worth trying (ranked)</h3>
-<ol>
-<li><strong>Re-photograph (still RGB sensor): transmitted-light + oblique-light imaging.</strong> Backlighting turns the problem into optical-density measurement: dye concentration differences show as density differences even with identical chemistry. Oblique light captures embossed topography. Highest expected value, especially for Case B. (c)</li>
-<li><strong>K/S-transform + constrained unmixing (or ICA/PCA) on high-resolution RGB, Case B only.</strong> Convert R to F(R)=(1-R)^2/2R per channel (the space where K-M says inks mix linearly), sample local endmembers (bare paper / single-pass blue / dab blue), solve the constrained mixture per pixel. Expect at best stroke fragments at dab edges. Needs a fresh 600-1200 dpi 16-bit capture. (c)</li>
-<li><strong>3D/topographic capture for stroke embossing (Case A and B).</strong> Photometric stereo / RTI from an RGB camera, or lab ESDA for indented writing (b). Bypasses ink optics entirely and reads the <em>pressure</em> record. For Case A it is the only non-destructive avenue with nonzero probability. (c)</li>
-</ol>
-
-<h2>Could not verify</h2>
-<ul>
-<li><strong>Official Reichspost 1940 postcard grammage/thickness spec:</strong> not found; bracketed at ~200-300 g/m2 / ~0.25-0.35 mm from UPU-era postal standards.</li>
-<li><strong>Wartime (1940-41) paper composition</strong> of Reichspost Ganzsachen: not verified - affects exact penetration numbers but not the verdict.</li>
-<li><strong>Quantitative fountain-pen dye penetration depth on sized board:</strong> no direct published measurement found; bounded at ~10-50 um (marked (c)).</li>
-<li><strong>No published RGB-only recovery</strong> of text under heavy pen scribble or same-ink over-dabbing was found - a literature-search negative, not a proof of impossibility.</li>
-</ul>
-
-<h2>Sources</h2>
-<ul class="src">
-<li>Postcard standards: <a href="https://de.wikipedia.org/wiki/Postkarte">de.wikipedia.org/wiki/Postkarte</a>; <a href="https://www.postnl.nl/api/assets/blt43aa441bfc1e29f2/bltfc20f2bcb294d748/65eb1fafe12481040a898298/20230222-pir-en-general-conditions-for-designing-mail-items2023.pdf">PostNL 2023 conditions</a>; <a href="https://www.royalmailwholesale.com/mint-project/uploads/488474652.pdf">Royal Mail Wholesale spec</a>; <a href="https://www.factmonster.com/us/postal-information/sizes-for-domestic-mail">USPS sizes</a>; <a href="http://en.wikipedia.org/wiki/Onionskin">Onionskin</a></li>
-<li>Ink penetration: <a href="https://pubs.rsc.org/en/content/articlelanding/2015/ja/c4ja00358f">Gimat et al. 2015 (STXM)</a>; <a href="https://www.researchgate.net/publication/378746354_Linking_historical_recipes_and_ageing_mechanisms_the_issue_of_19th_century_iron_gall_inks">Ferretti et al. 2024</a>; <a href="https://phys.org/news/2015-04-microscopic-topography-ink-paper.pdf">Myllys et al. 2015</a>; <a href="https://www.fountainpennetwork.com/forum/topic/265601-ink-rheology/">FPN ink rheology</a>; <a href="https://www.fountainpennetwork.com/forum/topic/229751-what-makes-some-inks-bleed-through/">FPN bleed-through</a></li>
-<li>Absorption/saturation: <a href="https://library.imaging.org/admin/apis/public/api/ist/website/downloadArticle/jist/41/2/art00009">Selim et al. 1997</a>; <a href="https://www.jstage.jst.go.jp/article/nig1987/26/5/26_5_251/_article/-char/en">J-Stage porous structure</a>; <a href="https://bioresources.cnr.ncsu.edu/wp-content/uploads/2020/02/1989.2.895.pdf">Kent &amp; Lyne 1989</a></li>
-<li>Kubelka-Munk: <a href="https://en.wikipedia.org/wiki/Kubelka%E2%80%93Munk_theory">Kubelka-Munk theory</a>; <a href="https://ar5iv.labs.arxiv.org/html/2104.04884">Zhang et al., arXiv:2104.04884</a>; <a href="https://www-users.cse.umn.edu/~gmeyer/papers/haase-meyer-tog-1992.pdf">Haase &amp; Meyer 1992</a></li>
-<li>Multispectral recovery: <a href="https://en.wikipedia.org/wiki/Archimedes_Palimpsest">Archimedes Palimpsest</a>; <a href="http://cis.rit.edu/~rlepci/Erho/Derek/Published_Papers/SPIE_EI_08_djw.pdf">RIT/SPIE paper</a>; <a href="https://www.mdpi.com/2571-9408/7/2/34">2024 review (Michelin et al. 2021)</a>; <a href="https://onlinelibrary.wiley.com/doi/10.1111/arcm.70179">Wiley 2026</a></li>
-<li>ICA/BSS: <a href="https://www.mdpi.com/290800">bleed-through survey</a>; <a href="https://hal.archives-ouvertes.fr/hal-01381428/file/Liris-3718.pdf">Wolf (ICA linearity critique)</a>; <a href="https://hal.science/hal-00643471v1/document">Merrikh-Bayat et al.</a>; <a href="https://www.nature.com/articles/s41598-023-28005-4">Nature Sci. Rep. 2023</a></li>
-<li>Forensic obliteration: <a href="https://forensicsciencesimplified.org/docs/QuestionedDocuments.pdf">forensicsciencesimplified.org QD</a>; <a href="https://thehackernews.com/2022/02/this-new-tool-can-retrieve-pixelated.html">pixelation recovery</a></li>
-</ul>
-
-</main>
-<footer>Blot Lab &middot; letter forensics on the Bermann family letters (1940-42) &middot; October 2026. Methods, code notes, and honest negatives.</footer>
 <script>
 (function(){
-  var f=document.getElementById('cs-full'), t=document.getElementById('cs-top');
-  var sf=document.getElementById('cs-svg-full'), st=document.getElementById('cs-svg-top');
-  f.onclick=function(){ f.className='on'; t.className=''; sf.style.display='block'; st.style.display='none'; };
-  t.onclick=function(){ t.className='on'; f.className=''; st.style.display='block'; sf.style.display='none'; };
-  var area=document.getElementById('sat-area'), up=document.getElementById('sat-up');
-  function sat(){ var a=parseFloat(area.value), u=parseFloat(up.value);
-    document.getElementById('sat-area-o').textContent=a.toFixed(1);
-    document.getElementById('sat-up-o').textContent=u;
-    document.getElementById('sat-out').textContent=(a*u/10000).toFixed(3); }
-  area.oninput=sat; up.oninput=sat; sat();
-  var kx=document.getElementById('km-kx');
-  function km(){ var v=parseFloat(kx.value);
-    document.getElementById('km-kx-o').textContent=v.toFixed(2);
-    document.getElementById('km-out').textContent=(100*Math.exp(-2*v)).toFixed(1)+'%'; }
-  kx.oninput=km; km();
+  "use strict";
+
+  /* ---------- Cross-section diagrams ---------- */
+  var slot = document.getElementById('diagram-slot');
+  var caption = document.getElementById('diagram-caption');
+  var btnFull = document.getElementById('btn-full');
+  var btnZoom = document.getElementById('btn-zoom');
+
+  var INK = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#1c1a16';
+
+  function fibrePaths(x0,x1,y0,y1,n,seed){
+    // deterministic pseudo-random fibre strokes
+    var s = seed, out = '';
+    function rnd(){ s = (s*9301+49297)%233280; return s/233280; }
+    for(var i=0;i<n;i++){
+      var y = y0 + rnd()*(y1-y0);
+      var x = x0 + rnd()*(x1-x0)*0.55;
+      var len = 26 + rnd()*46;
+      var wob = (rnd()-0.5)*5;
+      out += '<path d="M'+x.toFixed(1)+' '+y.toFixed(1)+' q '+(len/2).toFixed(1)+' '+wob.toFixed(1)+' '+len.toFixed(1)+' '+(wob*0.4).toFixed(1)+'" fill="none" stroke="var(--line-strong)" stroke-width="1.4" opacity="0.55"/>';
+    }
+    return out;
+  }
+
+  function fullDiagram(){
+    // viewBox 0 0 900 430 ; bars x=150..620 (470 wide), annotation column x=632..900
+    var svg = '<svg viewBox="0 0 900 430" role="img" aria-label="Cross-section of postcard stock at linear scale">';
+    // onionskin bar (46 µm) top comparison
+    svg += '<text x="150" y="30" font-family="IBM Plex Mono, monospace" font-size="13" fill="var(--ink-faint)">ONIONSKIN / AIRMAIL — for comparison</text>';
+    svg += '<rect x="150" y="40" width="470" height="46" fill="var(--blue-wash)" stroke="var(--blue)" stroke-width="1.2"/>';
+    svg += fibrePaths(160,600,46,80,6,7);
+    svg += '<text x="632" y="68" font-family="IBM Plex Mono, monospace" font-size="13" fill="var(--blue)">46 µm thick</text>';
+    // card
+    svg += '<text x="150" y="118" font-family="IBM Plex Mono, monospace" font-size="13" fill="var(--ink-faint)">POSTCARD BOARD — ~300 µm (est. 250–350)</text>';
+    svg += '<rect x="150" y="126" width="470" height="300" fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="1.5"/>';
+    svg += fibrePaths(160,540,140,410,40,42);
+    // ink zones: penetration band 50 units deep (10–50 µm -> draw 50), ink film 2.5 -> min visible 3
+    svg += '<rect x="150" y="126" width="470" height="50" fill="var(--blue)" opacity="0.20"/>';
+    svg += '<rect x="150" y="126" width="470" height="4" fill="var(--black-ink)"/>';
+    // annotations right
+    svg += '<text x="632" y="132" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--ink)"><tspan font-weight="600">ink film ≈ 2.5 µm</tspan></text>';
+    svg += '<text x="632" y="158" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--blue)"><tspan font-weight="600">ink zone</tspan><tspan x="632" dy="15">~10–50 µm deep</tspan></text>';
+    svg += '<text x="632" y="300" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--ink-faint)"><tspan>bare board below:</tspan><tspan x="632" dy="15">no ink ever reaches</tspan></text>';
+    // single fibre callout
+    svg += '<circle cx="330" cy="152" r="5" fill="none" stroke="var(--red)" stroke-width="1.6"/>';
+    svg += '<line x1="335" y1="150" x2="470" y2="104" stroke="var(--red)" stroke-width="1.2"/>';
+    svg += '<text x="476" y="100" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--red)">one fibre ≈ 10 µm across — ink coats its outer wall</text>';
+    svg += '</svg>';
+    return svg;
+  }
+
+  function zoomDiagram(){
+    // Top 60 µm magnified: viewBox 0 0 900 400; scale 5.5 px per µm, y0=40 -> 60µm = 330px
+    var svg = '<svg viewBox="0 0 900 445" role="img" aria-label="Magnified cross-section of the top 60 microns of postcard stock">';
+    svg += '<defs><linearGradient id="penfade" x1="0" y1="0" x2="0" y2="1">'
+         + '<stop offset="0" stop-color="var(--blue)" stop-opacity="0.5"/>'
+         + '<stop offset="1" stop-color="var(--blue)" stop-opacity="0.03"/></linearGradient></defs>';
+    var X0=150, X1=560, Y0=40, PX=5.5;
+    function Y(um){ return Y0 + um*PX; }
+    // board
+    svg += '<rect x="'+X0+'" y="'+Y0+'" width="'+(X1-X0)+'" height="'+(60*PX)+'" fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="1.5"/>';
+    svg += fibrePaths(X0+8,X1-90,Y0+8,Y0+60*PX-8,34,99);
+    // penetration gradient 0..50
+    svg += '<rect x="'+X0+'" y="'+Y(0)+'" width="'+(X1-X0)+'" height="'+(50*PX)+'" fill="url(#penfade)"/>';
+    // printed film 2.5
+    svg += '<rect x="'+X0+'" y="'+Y(0)+'" width="'+(X1-X0)+'" height="'+Math.max(3,2.5*PX)+'" fill="var(--black-ink)"/>';
+    // depth ruler
+    [0,10,25,50,60].forEach(function(um){
+      svg += '<line x1="'+(X0-10)+'" y1="'+Y(um)+'" x2="'+X0+'" y2="'+Y(um)+'" stroke="var(--ink-faint)" stroke-width="1.2"/>';
+      svg += '<text x="'+(X0-16)+'" y="'+(Y(um)+4)+'" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-faint)">'+um+'</text>';
+    });
+    svg += '<text x="'+(X0-58)+'" y="'+(Y(30))+'" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-faint)" transform="rotate(-90 '+(X0-58)+' '+Y(30)+')" text-anchor="middle">depth, µm</text>';
+    // labels
+    svg += '<text x="'+(X1+14)+'" y="'+(Y(2)+4)+'" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--ink)"><tspan font-weight="600">surface film</tspan><tspan x="'+(X1+14)+'" dy="15">≈ 2.5 µm (print);</tspan><tspan x="'+(X1+14)+'" dy="15">a pen stroke: a few µm wet</tspan></text>';
+    svg += '<text x="'+(X1+14)+'" y="'+(Y(26)+4)+'" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--blue)"><tspan font-weight="600">dye penetration</tspan><tspan x="'+(X1+14)+'" dy="15">~10–50 µm: both inks</tspan><tspan x="'+(X1+14)+'" dy="15">share this zone, mixed</tspan><tspan x="'+(X1+14)+'" dy="15">at fibre scale</tspan></text>';
+    svg += '<text x="'+(X1+14)+'" y="'+(Y(55)+4)+'" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--ink-faint)"><tspan>below ~50 µm:</tspan><tspan x="'+(X1+14)+'" dy="15">clean board</tspan></text>';
+    // fibre callout
+    svg += '<circle cx="300" cy="'+Y(9)+'" r="27.5" fill="none" stroke="var(--red)" stroke-width="1.6"/>';
+    svg += '<text x="'+X0+'" y="'+(Y(60)+30)+'" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--red)"><tspan>red ring = one fibre cross-section, ~10 µm across —</tspan><tspan x="'+X0+'" dy="16">iron-gall ink coats the outer cell wall; little reaches the core</tspan></text>';
+    svg += '</svg>';
+    return svg;
+  }
+
+  function showDiagram(which){
+    if(which==='full'){
+      slot.innerHTML = fullDiagram();
+      caption.textContent = 'Linear scale. At true scale the ink layers are hairlines on top of a ~300 µm board — the "layers" an algorithm would need to split are a few percent of the card\'s height, and they overlap each other.';
+      btnFull.setAttribute('aria-pressed','true'); btnZoom.setAttribute('aria-pressed','false');
+    } else {
+      slot.innerHTML = zoomDiagram();
+      caption.textContent = 'Magnified view of the top 60 µm only (about a fifth of the card). Both the handwriting and the ink over it live in this band; the remaining ~250 µm of board below carries no ink at all.';
+      btnFull.setAttribute('aria-pressed','false'); btnZoom.setAttribute('aria-pressed','true');
+    }
+  }
+  btnFull.addEventListener('click', function(){ showDiagram('full'); });
+  btnZoom.addEventListener('click', function(){ showDiagram('zoom'); });
+  showDiagram('full');
+
+  /* ---------- Saturation calculator ---------- */
+  var satArea = document.getElementById('sat-area');
+  var satRate = document.getElementById('sat-rate');
+  var satAreaOut = document.getElementById('sat-area-out');
+  var satRateOut = document.getElementById('sat-rate-out');
+  var satResult = document.getElementById('sat-result');
+  var satDrops = document.getElementById('sat-drops');
+  var satFill = document.getElementById('sat-fill');
+  var satPool = document.getElementById('sat-pool');
+  var satPoolLab = document.getElementById('sat-pool-lab');
+
+  function updateSat(){
+    var area = parseFloat(satArea.value);       // cm²
+    var rate = parseFloat(satRate.value);       // g/m²
+    var ml = area * 1e-4 * rate;                // m² × g/m² = g ≈ ml
+    satAreaOut.textContent = area.toFixed(1) + ' cm²';
+    satRateOut.textContent = rate.toFixed(0) + ' g/m²';
+    satResult.textContent = ml.toFixed(3) + ' ml';
+    var drops = ml / 0.05;                      // ~0.05 ml per drop
+    satDrops.textContent = drops < 0.75 ? 'half a drop' :
+                           drops < 1.5  ? 'one drop' :
+                           drops.toFixed(1) + ' drops';
+    // visual: fill height proportional to uptake within the drawn sheet (cap display)
+    var frac = Math.min(1, ml / 0.14);           // 0.14 ml ≈ max in range (40cm² × 35)
+    var h = 6 + frac * 34;
+    satFill.setAttribute('y', String(140 - h));
+    satFill.setAttribute('height', String(h));
+    // pooled excess: beyond ~3 passes' worth, extra ink pools — show pool bar once area large
+    var pool = Math.max(0, (ml - 0.03) / 0.11);
+    satPool.setAttribute('opacity', String(Math.min(0.9, pool)));
+    satPoolLab.textContent = pool > 0.05 ? 'excess pools on the surface' : '';
+  }
+  satArea.addEventListener('input', updateSat);
+  satRate.addEventListener('input', updateSat);
+  updateSat();
+
+  /* ---------- Kubelka–Munk hiding explorer ---------- */
+  var kmKx = document.getElementById('km-kx');
+  var kmOut = document.getElementById('km-kx-out');
+  var kmPct = document.getElementById('km-pct');
+  var kmVerdict = document.getElementById('km-verdict');
+  var kmCurve = document.getElementById('km-curve');
+  var kmDot = document.getElementById('km-dot');
+  var kmDotLab = document.getElementById('km-dot-lab');
+
+  var GX0=52, GX1=440, GY0=20, GY1=252; // plot box; y: 100% at GY0, 0 at GY1 — curve uses exp decay mapped: value v -> y = GY1 - v*(GY1-GY0)
+  function plotX(kx){ return GX0 + (kx/3)*(GX1-GX0); }
+  function plotY(v){ return GY1 - v*(GY1-GY0); }
+
+  (function buildCurve(){
+    var d = '';
+    for(var i=0;i<=90;i++){
+      var kx = i/30; // 0..3
+      var v = Math.exp(-2*kx);
+      d += (i===0?'M':'L') + plotX(kx).toFixed(1) + ' ' + plotY(v).toFixed(1) + ' ';
+    }
+    kmCurve.setAttribute('d', d);
+  })();
+
+  function updateKM(){
+    var kx = parseFloat(kmKx.value);
+    var v = Math.exp(-2*kx);
+    var pct = v*100;
+    kmOut.textContent = kx.toFixed(2);
+    kmPct.textContent = (pct >= 0.1 ? pct.toFixed(1) : pct.toExponential(1)) + '%';
+    kmDot.setAttribute('cx', plotX(kx));
+    kmDot.setAttribute('cy', plotY(v));
+    var lx = Math.min(plotX(kx)+12, 372);
+    kmDotLab.setAttribute('x', lx);
+    kmDotLab.setAttribute('y', Math.max(plotY(v)-10, 16));
+    kmDotLab.textContent = 'e^(−2·' + kx.toFixed(2) + ')';
+    if(kx < 0.6){
+      kmVerdict.textContent = 'Thin wash territory: the under-layer still modulates the reflectance measurably. Unmixing is possible in principle.';
+    } else if(kx < 1.05){
+      kmVerdict.textContent = 'Approaching the K·X ≈ 1 boundary: the under-layer\'s contribution is fading toward the noise floor of a camera.';
+    } else if(kx < 2){
+      kmVerdict.textContent = 'Past the boundary: what survives is a few percent at most — below the noise and quantisation of a 150–300 dpi RGB scan.';
+    } else {
+      kmVerdict.textContent = 'Complete hiding: reflectance is the top ink\'s own R∞. The under-layer contributes nothing — this is the saturated scribble\'s regime.';
+    }
+  }
+  kmKx.addEventListener('input', updateKM);
+  updateKM();
 })();
 </script>
 </body>
