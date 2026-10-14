@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forensic sweep: what the blot-lab tools see — Blot Lab</title>
+<style>
+  :root{
+    --bg:#f7f5f0; --surface:#fffdf8; --surface-2:#efece3;
+    --ink:#1c1a16; --ink-soft:#4a463d; --ink-faint:#7a7466;
+    --line:#d8d2c2; --line-strong:#b9b19c;
+    --blue:#1d4e89; --blue-deep:#123a68; --blue-wash:#dbe6f2;
+    --red:#a4261f; --red-wash:#f6e3df;
+    --amber:#8a5a12; --amber-wash:#f3e8cf;
+    --green:#2f6b3a; --green-wash:#e0ecdd;
+    --shadow:0 1px 2px rgba(28,26,22,.06),0 8px 24px rgba(28,26,22,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#16140f; --surface:#201d17; --surface-2:#2a271e;
+      --ink:#ece7da; --ink-soft:#c6c0b0; --ink-faint:#948d7c;
+      --line:#3a362b; --line-strong:#57523f;
+      --blue:#7aa7dd; --blue-deep:#a9c6ec; --blue-wash:#22344e;
+      --red:#e08a80; --red-wash:#46241f;
+      --amber:#d9ab5e; --amber-wash:#42351c;
+      --green:#93c79b; --green-wash:#263a28;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;line-height:1.55;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px 72px}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em}
+  a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px}
+  .sitenav{background:var(--surface-2);border-bottom:1px solid var(--line);
+    padding:.55rem 20px;font-size:.92rem}
+  .sitenav a{color:var(--blue);text-decoration:none;margin-right:1rem}
+  .sitenav a:hover{text-decoration:underline}
+  .sitenav a.here{font-weight:700;color:var(--ink)}
+  header{padding:44px 0 8px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px}
+  h1{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.01em;max-width:18em}
+  .lede{font-size:clamp(18px,2.6vw,21px);color:var(--ink-soft);max-width:44em;margin:18px 0 0}
+  .lede strong{color:var(--ink)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 28px;margin:22px 0 0;font-size:14.5px;color:var(--ink-soft)}
+  .meta-row b{color:var(--ink)}
+  section{margin:52px 0 0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  .sec-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);
+    border:1px solid var(--line-strong);border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .sec-head h2{font-size:clamp(24px,3.6vw,32px)}
+  .sec-sub{color:var(--ink-soft);max-width:46em;margin:0 0 18px}
+  .verdicts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:30px 0 0}
+  .verdict{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:18px;box-shadow:var(--shadow)}
+  .verdict .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-bottom:10px}
+  .verdict h3{font-size:19px;margin-bottom:6px}
+  .verdict p{margin:0 0 8px;color:var(--ink-soft);font-size:15px}
+  .verdict p.call{font-weight:700;color:var(--ink)}
+  .t-neg .tag{background:var(--red-wash);color:var(--red)}
+  .t-pos .tag{background:var(--green-wash);color:var(--green)}
+  .t-mix .tag{background:var(--amber-wash);color:var(--amber)}
+  figure{margin:22px 0;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  figure a{display:block}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{padding:12px 16px;font-size:14.5px;color:var(--ink-soft);border-top:1px solid var(--line)}
+  figcaption b{color:var(--ink)}
+  .figgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .figgrid figure{margin:0}
+  table.perm{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0;
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table.perm caption{text-align:left;padding:10px 14px;font-weight:600;color:var(--ink);
+    border-bottom:1px solid var(--line);font-size:15px}
+  table.perm th,table.perm td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+  table.perm th{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);
+    text-transform:uppercase;letter-spacing:.06em}
+  table.perm tr:last-child td{border-bottom:none}
+  table.perm td.v{background:var(--surface-2);font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
+  ul.res{margin:12px 0;padding-left:22px}
+  ul.res li{margin-bottom:8px;color:var(--ink-soft)}
+  ul.res li b{color:var(--ink)}
+  .obs{background:var(--blue-wash);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;
+    padding:14px 18px;margin:20px 0;color:var(--ink-soft)}
+  .obs b{color:var(--ink)}
+  .neg{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:20px 0}
+  .neg b{color:var(--ink)}
+  footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-faint)}
+  @media (max-width:640px){.figgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a><a href="forensics-report.html" class="here">Forensics report</a></nav>
+<div class="wrap">
+
+<header>
+  <p class="kicker">Blot lab &middot; research briefing &middot; 14 Oct 2026</p>
+  <h1>Forensic sweep: what the blot-lab tools see in the letters</h1>
+  <p class="lede">Every tool on the lab bench, run against four targets: <strong>the scan-17 redaction block</strong>, <strong>the letter-39 blue blot</strong>, <strong>the letter-45 Berliner scribble</strong> (the positive control), and <strong>postcard board vs onion skin</strong>. Each permutation below was run and judged; nothing is invented, and the settings are recorded so anyone can reproduce them.</p>
+  <div class="meta-row">
+    <span><b>Images</b> lab samples, 14 Oct 2026 build</span>
+    <span><b>Permutations</b> 300+ across 5 sweeps</span>
+    <span><b>Method</b> read-only viewer runs + local replication scripts</span>
+  </div>
+</header>
+
+<div class="verdicts">
+  <div class="verdict t-neg">
+    <span class="tag">Negative</span>
+    <h3>Scan-17 redaction block</h3>
+    <p class="call">Nothing recoverable from the photographs.</p>
+    <p>The two black strokes never resolve into under-text in any view. The dotted rows visible in the chroma mask are edge pixels of the covering ink, not surviving writing.</p>
+  </div>
+  <div class="verdict t-neg">
+    <span class="tag">Negative</span>
+    <h3>Letter-39 blue blot</h3>
+    <p class="call">No hidden structure under the blue.</p>
+    <p>66 permutations, all negative. The blot is a raised, rough, cratered relief zone, distinct from the surrounding paper.</p>
+  </div>
+  <div class="verdict t-pos">
+    <span class="tag">Positive control</span>
+    <h3>Letter-45 Berliner scribble</h3>
+    <p class="call">The deblot works here, which validates the tools.</p>
+    <p>A2 gate with blue-ink mode and saturation threshold 200 peels the dark-blue scribble away and exposes the under-strokes, including at the &ldquo;er&rdquo; position and around the capital B.</p>
+  </div>
+  <div class="verdict t-mix">
+    <span class="tag">Mixed</span>
+    <h3>Postcard board vs onion skin</h3>
+    <p class="call">Onion skin isolates more cleanly; grain is reversible.</p>
+    <p>Bands Window at low positions is the cleanest isolator on both. Binary opening (r=1) on the mask removes the board's grain footprint and brings the postcard past raw onion-skin smoothness.</p>
+  </div>
+</div>
+
+<section id="scan17-dots">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Scan 17: the dotted rows in the block</h2></div>
+  <p class="sec-sub">In the chroma hue mask, two rough dotted horizontal rows cross the black block. 52 permutations tested whether they are under-strokes.</p>
+
+  <table class="perm">
+    <caption>Chroma tab, Mask view: hue center &times; width (judged invisible / faint / clear)</caption>
+    <tr><th>center \ width</th><th>4</th><th>8</th><th>16</th></tr>
+    <tr><td class="v">85</td><td>invisible</td><td>faint</td><td>faint, blobby</td></tr>
+    <tr><td class="v">90</td><td>faint</td><td>faint</td><td>faint, blobby</td></tr>
+    <tr><td class="v">95</td><td>faint</td><td>clear</td><td>faint, dense blob</td></tr>
+    <tr><td class="v">100</td><td>clear</td><td>clear</td><td>clear, blobby</td></tr>
+    <tr><td class="v">105</td><td>clear (best at w4)</td><td>clear (best overall)</td><td>clear (tied best)</td></tr>
+    <tr><td class="v">110</td><td>faint</td><td>clear</td><td>clear</td></tr>
+    <tr><td class="v">115</td><td>faint</td><td>clear</td><td>clear</td></tr>
+    <tr><td class="v">120</td><td>faint</td><td>clear</td><td>clear</td></tr>
+    <tr><td class="v">125</td><td>faint, sparse</td><td>clear, weaker</td><td>clear</td></tr>
+  </table>
+
+  <ul class="res">
+    <li><b>Best isolation:</b> hue center 105, width 8. Width 4 thins the rows; width 16 densifies but adds blob noise.</li>
+    <li><b>Chroma at 105/8:</b> Saturation view hides the rows entirely; Hue view shows them as brighter dotted bands.</li>
+    <li><b>Directional tab</b> (Rows, k 1.0&ndash;2.5 &times; window 15&ndash;61, 16 combos): no combination isolated the rows. The filter responds to all horizontal handwriting texture, which overwhelms the faint signal.</li>
+    <li><b>Gabor tab</b> (ink axis, orientation 0, &lambda; 4/6/8/12, gain 6): not isolated at any wavelength.</li>
+    <li><b>Ridge tab</b> (dark, sensitivity 0.01/0.02/0.05): not isolated at any sensitivity.</li>
+  </ul>
+
+  <div class="figgrid">
+    <figure>
+      <a href="img/report/dotted-chroma-105-8.png"><img src="img/report/thumbs/dotted-chroma-105-8.png" loading="lazy" alt="Chroma mask at hue center 105, width 8"></a>
+      <figcaption><b>Best isolation.</b> Chroma Mask, hue center 105, width 8. Two rough dotted rows cross the block.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/dotted-hueview-105-8.png"><img src="img/report/thumbs/dotted-hueview-105-8.png" loading="lazy" alt="Chroma hue view at 105/8"></a>
+      <figcaption><b>Hue view.</b> Same settings, Hue view: the rows render as brighter dotted bands.</figcaption>
+    </figure>
+  </div>
+
+  <div class="obs">
+    <b>Tracing the dots settles it.</b> Replicating the lab&rsquo;s chroma mask exactly (a pure hue gate) and extracting dot centroids: all 141 dots sit within 3&nbsp;px of the block&rsquo;s edge, median distance zero. None in the block interior, none on open paper. The &ldquo;two rows&rdquo; are the top edge of the upper stroke and the bottom edge of the lower stroke, traced in edge pixels where the black ink feathers out. Unioning nearby hue centers (95&ndash;125) adds dots but they stay edge-locked. The same result holds on a cropped re-run (126 dots, all within 3&nbsp;px).
+  </div>
+
+  <figure>
+    <a href="img/report/dots-traced.png"><img src="img/report/thumbs/dots-traced.png" loading="lazy" alt="Dot centroids overlaid on the block, with fitted row lines"></a>
+    <figcaption><b>Dot trace.</b> Red circles are hue-105/8 mask dots; red lines are the fitted rows. Every dot hugs the block&rsquo;s edges. Cropped to remove white margins; no rescaling.</figcaption>
+  </figure>
+</section>
+
+<section id="scan17-3d">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Scan 17: 3D stack and Join projections</h2></div>
+  <p class="sec-sub">14 stack permutations (7 algorithms &times; Window/Advanced, 12 layers, sheet spacing 35) and 5 Join projections.</p>
+  <ul class="res">
+    <li><b>3D stack:</b> the redaction strokes never appear as solid strokes. Emboss and Raking show dense cursive script in relief across every layer (the visible writing); Bands, A2 gate, Chroma, Gabor and Direct. show mostly blank, speckled or textured sheets.</li>
+    <li><b>Join:</b> Bands gives sparse speckles; A2 gate renders empty (no joined spans); Chroma shows short horizontal fragments plus one blotch right of center; Direct. gives sparse dots; <b>Ridge gives the only structured view</b>, a dense ridge network.</li>
+    <li>The Ridge network traces the visible writing&rsquo;s contours. It is the most detailed structural view of the block area, but it does not resolve into letterforms of covered text.</li>
+  </ul>
+  <div class="figgrid">
+    <figure>
+      <a href="img/report/stack3d-bands-advanced.png"><img src="img/report/thumbs/stack3d-bands-advanced.png" loading="lazy" alt="3D stack, Bands algorithm, Advanced pick, all 12 layers"></a>
+      <figcaption><b>3D stack, Bands / Advanced.</b> Twelve tinted sheets, mottled texture, no solid strokes.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/join-ridge.png"><img src="img/report/thumbs/join-ridge.png" loading="lazy" alt="Join projection, Ridge algorithm"></a>
+      <figcaption><b>Join, Ridge.</b> Dense ridge network over the block area; the most structured view, tracing visible contours.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/scan17-block-emboss.png"><img src="img/report/thumbs/scan17-block-emboss.png" loading="lazy" alt="Scan 17 block at Emboss, cutoff 8, angle 0"></a>
+      <figcaption><b>Emboss 8/0.</b> The block sits in relief among the visible script; its surface reads as flat and featureless.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="blot39">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Letter 39: the blue blot</h2></div>
+  <p class="sec-sub">66 permutations. The question: does anything show under or through the blue blot, and what is its topography?</p>
+  <ul class="res">
+    <li><b>Chroma</b> (Mask, 21 combos): hue 95&ndash;110 captures the blue ink strongly (denser with wider width); 115&ndash;125 misses it. Densest at 110/16.</li>
+    <li><b>Gabor</b> (luminance, gain 6): wavelength 6 gives strong metallic embossed relief at all orientations (0/45/90/135); wavelength 10 gives sparse faint dashes.</li>
+    <li><b>A2 gate</b> (Kept, 18 combos): blue mode at saturation 200 reduces the blot to small dark fragments; handwriting stays. Nothing legible underneath.</li>
+    <li><b>Directional</b> (window 31): Rows and Cols at k 1.5/2.5 give bold strokes on noise; no under-structure.</li>
+    <li><b>Emboss</b> (cutoff 8/16 &times; angle 0/90): black relief at 0&deg;, silver relief at 90&deg;. The blot reads as a rough mottled, pitted zone.</li>
+    <li><b>Raking</b> (gain 5, azimuth 0/90/180/270): bright relief strokes at all angles; 90&deg; gives the strongest 3D texture. The blot is rough, bumpy, mottled.</li>
+    <li><b>3D stack</b> (Advanced, 12 layers, 7 algorithms): ink-distribution views only; no hidden text.</li>
+  </ul>
+  <div class="neg">
+    <b>Verdict: negative.</b> No combination revealed hidden structure under the blue blot.
+    <b>Topography:</b> a raised, rough, granular, cratered/pitted relief zone, clearly distinct from the smoother surrounding paper in Emboss and Raking.
+  </div>
+  <figure>
+    <a href="img/report/blot39-emboss-8-0.png"><img src="img/report/thumbs/blot39-emboss-8-0.png" loading="lazy" alt="Letter-39 blot at Emboss, cutoff 8, angle 0"></a>
+    <figcaption><b>Letter-39 blot, Emboss 8/0.</b> The blot&rsquo;s cratered relief sits center-left among the surrounding script.</figcaption>
+  </figure>
+</section>
+
+<section id="berliner">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Letter 45: the Berliner scribble (positive control)</h2></div>
+  <p class="sec-sub">66 permutations. The scribble covers the word &ldquo;Berliner&rdquo;; the known under-text reads &ldquo;er&rdquo; at the end. This is the control that proves the tools can work.</p>
+
+  <table class="perm">
+    <caption>A2 gate, View=Kept: ink mode &times; lightness &times; saturation (judged on scribble removal)</caption>
+    <tr><th>mode \ L,S</th><th>80 / 100</th><th>80 / 150</th><th>80 / 200</th><th>100 / 200</th><th>120 / 200</th></tr>
+    <tr><td class="v">Blue</td><td>partial</td><td>more</td><td><b>heavy</b></td><td><b>clearest</b></td><td><b>clearest</b></td></tr>
+    <tr><td class="v">Black</td><td colspan="5">blue scribble kept at all 9 combos (not targeted)</td></tr>
+  </table>
+
+  <ul class="res">
+    <li><b>The deblot:</b> A2 gate, Ink=Blue, Saturation threshold 200 (at lightness 80, 100, 120) heavily removes the dark-blue scribble and exposes faint lighter-blue under-strokes in the scribble zone, including at the &ldquo;er&rdquo; position. Clearest at <span class="mono">Blue/100/200</span> and <span class="mono">Blue/120/200</span>.</li>
+    <li><b>Around the capital B:</b> the clearest deblots show white gaps where the scribble was removed, with faint original handwriting strokes visible in the gaps. The B itself was never fully covered.</li>
+    <li><b>Chroma</b> (21 combos): same hue response as the 39 blot, 95&ndash;110 strong, 115&ndash;125 weak. No under-text beyond the A2 result.</li>
+    <li><b>Gabor</b> (&lambda;6): strong metallic relief, &ldquo;der Berliner&rdquo; legible with the scribble as a dark blob. &lambda;10: sparse dashes.</li>
+    <li><b>Directional:</b> Cols at k 2.5 gives the clearest vertical stroke structures; Rows views are noisy.</li>
+    <li><b>Emboss 8/0:</b> excellent detail, &ldquo;der Berliner&rdquo; very legible. <b>Raking 270&deg;:</b> very high contrast, very legible. These two give the most readable views of the original text.</li>
+    <li><b>3D stack</b> (7 algorithms): ink distribution only; no additional hidden text.</li>
+  </ul>
+
+  <div class="obs">
+    <b>Why this matters.</b> The Berliner result is the calibration the negatives stand on: the same A2 gate that peels the scribble here finds nothing to peel on scan 17 or letter 39. The tools are not blind; the other targets are genuinely opaque.
+  </div>
+
+  <div class="figgrid">
+    <figure>
+      <a href="img/report/berliner-a2-deblot.png"><img src="img/report/thumbs/berliner-a2-deblot.png" loading="lazy" alt="Berliner at A2 gate, Blue, lightness 100, saturation 200"></a>
+      <figcaption><b>The deblot.</b> A2 gate Blue/100/200, Kept view. The dark-blue scribble is largely removed; faint under-strokes show in the gaps around &ldquo;der Berliner&rdquo;.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/berliner-raking-270.png"><img src="img/report/thumbs/berliner-raking-270.png" loading="lazy" alt="Berliner at Raking, azimuth 270, gain 5"></a>
+      <figcaption><b>Raking 270&deg;.</b> The most legible single view of the original text under raking light.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="substrates">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Postcard board vs onion skin</h2></div>
+  <p class="sec-sub">Five images, now built-in lab samples: scan-5 address and message sides, the full scan-17 postcard, and both pages of the letter-8 onion skin. 18 permutations per image.</p>
+  <table class="perm">
+    <caption>Cleanest handwriting isolation per image</caption>
+    <tr><th>image</th><th>cleanest setting</th><th>runner-up</th></tr>
+    <tr><td class="v">Scan 5 address</td><td>Bands n=12, Window, position 2</td><td>Gabor, all orientations readable</td></tr>
+    <tr><td class="v">Scan 5 message</td><td>Bands n=12, Window, position 1</td><td>Gabor, full message crisp</td></tr>
+    <tr><td class="v">Scan 17 full</td><td>Bands n=12, Window, position 5</td><td>Gabor, full card readable</td></tr>
+    <tr><td class="v">Onion skin p1</td><td>Bands n=12, Window, position 2</td><td>Gabor 45&deg;, excellent</td></tr>
+    <tr><td class="v">Onion skin p2</td><td>Bands n=12, Window, position 2</td><td>Gabor 45&deg;, excellent</td></tr>
+  </table>
+  <ul class="res">
+    <li><b>Bands in Window mode at low positions</b> is the most reliable isolator everywhere: paper texture suppressed, ink strokes solid white-on-black. Polarity flips around position 6 and gets noisy.</li>
+    <li><b>Gabor at 45&deg;</b> (luminance, &lambda;8, gain 6) is the best orientation-independent enhancer: crisp readable text on all five.</li>
+    <li><b>Chroma</b> contributes nothing for black handwriting on either substrate; it only pulls colored postal markings (stamps, postmarks).</li>
+    <li><b>Directional Rows</b> amplifies noise far more than signal on all five images.</li>
+    <li><b>Substrate comparison:</b> onion skin isolates better. Its thin, uniform, low-texture sheet renders ink as bold solid strokes with almost no paper interference. Postcard board also isolates well with Bands, but heavier texture and competing printed elements (stamps, postmarks, address rules) demand tighter band choices.</li>
+  </ul>
+  <div class="figgrid">
+    <figure>
+      <a href="img/report/scan5-address-bands-p2.png"><img src="img/report/thumbs/scan5-address-bands-p2.png" loading="lazy" alt="Scan 5 address side, Bands window position 2"></a>
+      <figcaption><b>Scan 5 address, Bands P2.</b> &ldquo;Salomon Willner&hellip; Jakob Willner 94 Sheriff Str.&hellip; Ameryka&rdquo; isolated white-on-black.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/scan5-message-bands-p1.png"><img src="img/report/thumbs/scan5-message-bands-p1.png" loading="lazy" alt="Scan 5 message side, Bands window position 1"></a>
+      <figcaption><b>Scan 5 message, Bands P1.</b> Full message crisp at the boldest setting.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/scan17-full-bands-p5.png"><img src="img/report/thumbs/scan17-full-bands-p5.png" loading="lazy" alt="Scan 17 full postcard, Bands window position 5"></a>
+      <figcaption><b>Scan 17 full, Bands P5.</b> The dense card needs position 5; message and address both solid.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/onion-p1-bands-p2.png"><img src="img/report/thumbs/onion-p1-bands-p2.png" loading="lazy" alt="Onion skin page 1, Bands window position 2"></a>
+      <figcaption><b>Onion skin p1, Bands P2.</b> Bold solid strokes, minimal background: the most forgiving substrate.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/onion-p2-bands-p2.png"><img src="img/report/thumbs/onion-p2-bands-p2.png" loading="lazy" alt="Onion skin page 2, Bands window position 2"></a>
+      <figcaption><b>Onion skin p2, Bands P2.</b> Same clean pattern as p1.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="grain">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Scale, fibers, and reversing the grain</h2></div>
+  <p class="sec-sub">How big is a pixel here, can paper fibers be resolved, and can the board&rsquo;s grain be undone?</p>
+  <ul class="res">
+    <li><b>Scale, corrected.</b> The old 90&nbsp;&micro;m/px figure was never anchored to a reference object. Two independent rulers on the scan-17 address side agree: the card width (A6, 148&nbsp;mm) gives 69&nbsp;&micro;m/px; the postmark ring gives 67&nbsp;&micro;m/px. Working scale: <b>65&ndash;75&nbsp;&micro;m/px</b>.</li>
+    <li><b>Fibers stay sub-pixel.</b> Paper cellulose fibers run 10&ndash;30&nbsp;&micro;m wide, which is 0.13&ndash;0.46&nbsp;px at this scale. Resolving them would take roughly 2500&nbsp;ppi. The conclusion is unchanged; the margin is thinner than the old numbers implied.</li>
+    <li><b>Conservative texture pass.</b> Blank paper patches on both substrates, illumination detrended: correlated 1&ndash;2&nbsp;px mottle on both at similar strength, isotropic, no directional fiber signature, no JPEG block signature. There is no separable &ldquo;fiber channel&rdquo;, only generic grain.</li>
+    <li><b>Reversing the grain.</b> Background subtraction does nothing (raggedness 78.4 &rarr; 80.0): the raggedness is baked into the ink&ndash;paper boundary, not the background field. Grayscale top-hat shatters strokes. What works is <b>binary morphological opening (r=1) on the Bands mask</b>: postcard edge raggedness 78.4 &rarr; 48.5 (38% smoother) at 89.5% ink retention, which puts the postcard <b>past raw onion-skin smoothness (71.1)</b>. The grain&rsquo;s footprint is 1&ndash;2&nbsp;px boundary protrusions where ink feathered into board fibers; opening removes exactly that.</li>
+  </ul>
+  <figure>
+    <a href="img/report/grain-reversal.png"><img src="img/report/thumbs/grain-reversal.png" loading="lazy" alt="Stroke edges before and after binary opening"></a>
+    <figcaption><b>Grain reversal.</b> Red: raw Bands-mask edges. Green: after binary opening r=1. The text stays legible; the edges tighten to below onion-skin raggedness.</figcaption>
+  </figure>
+  <div class="obs">
+    <b>Candidate lab feature.</b> A despeckle toggle (binary opening r=1) on the Bands tab would give this to every image. Not yet implemented.
+  </div>
+</section>
+
+<section id="methods">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Methods and reproducibility</h2></div>
+  <ul class="res">
+    <li><b>Sweep A (dotted rows):</b> Chroma 105/8-style matrix, 27 combos (centers 85&ndash;125 step 5 &times; widths 4/8/16, Mask) + Saturation/Hue views at best center; Directional Rows 16 combos (k 1.0/1.5/2.0/2.5 &times; window 15/31/47/61); Gabor ink-axis 4 combos (orientation 0, &lambda; 4/6/8/12, gain 6); Ridge dark 3 combos (sensitivity 0.01/0.02/0.05).</li>
+    <li><b>Sweep B (3D):</b> 3D stack &times; 7 algorithms (Bands, A2 gate, Chroma, Direct., Emboss, Raking, Gabor) &times; Window/Advanced (12 layers, sheet spacing 35); Join &times; 5 algorithms (defaults: 12 layers, sweep 60&ndash;160, ridge threshold 0.5, target ink, min span 2).</li>
+    <li><b>Sweep C (39 + Berliner):</b> per image: Chroma 21, Gabor 8 (luminance, 0/45/90/135 &times; &lambda;6/10, gain 6), A2 18 (Blue/Black &times; lt 80/100/120 &times; st 100/150/200, Kept), Directional 4 (Rows/Cols &times; k 1.5/2.5, win 31), Emboss 4 (cutoff 8/16 &times; angle 0/90), Raking 4 (azimuth 0/90/180/270, gain 5), 3D stack 7 (Advanced, 12 layers).</li>
+    <li><b>Sweep D (substrates):</b> per image: Bands n=12 Window sweep positions 0&ndash;11; Chroma 105/8 then 20/8 Mask; Gabor luminance 0/45/90 &lambda;8 gain 6; Directional Rows k 1.5 win 31.</li>
+    <li><b>Dot trace:</b> local replication of the lab&rsquo;s chroma mask (pure hue gate), connected-component dot extraction, RANSAC-style row fitting, edge-distance test vs the block boundary. Script: <span class="mono">blot-lab/scripts/dot_trace.py</span>.</li>
+    <li><b>Grain audit:</b> local scripts only; Bands replicated exactly (LAB L*, 2nd&ndash;98th percentile range, 12 bands, Window width 3). Results: <span class="mono">blot-lab/results/fiber-noise-and-scale.md</span>.</li>
+    <li><b>Viewer runs</b> were read-only; sliders driven by keyboard. Per-permutation notes: <span class="mono">blot-lab/results/</span> (3d-stack-scan17.md, dotted-line-scan17.md, berliner-39blot.md, uploads-postcards-onionskin.md).</li>
+    <li><b>Lab build:</b> blot-lab site, 14 Oct 2026. The five substrate images were added as built-in samples in this build.</li>
+  </ul>
+</section>
+
+<section id="open">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Open questions</h2></div>
+  <ul class="res">
+    <li>The physical originals remain the only route for scan 17 and letter 39: IR/VSC first, ESDA second (per the ink-layer report).</li>
+    <li>Despeckle (binary opening) as a Bands-tab toggle: implement and re-test on the dense scan-17 card.</li>
+    <li>Scan 51&rsquo;s blue dabs are still unanalyzed.</li>
+  </ul>
+</section>
+
+<footer>
+  Blot lab forensics report &middot; 14 Oct 2026 &middot; all viewer runs read-only &middot;
+  reproduction: lab samples + scripts in <span class="mono">blot-lab/scripts/</span> and notes in <span class="mono">blot-lab/results/</span>
+</footer>
+
+</div>
+</body>
+</html>
