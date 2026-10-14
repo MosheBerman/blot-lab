@@ -312,6 +312,17 @@ var FS_BANDS =
 '  gl_FragColor = vec4(vec3(show ? 1.0 : 0.0), 1.0);\n' +
 '}\n';
 
+var FS_OPEN =
+'uniform sampler2D u_src; uniform vec2 u_texel; uniform float u_op;\\n' +
+'void main(){\\n' +
+'  float v = u_op < 0.5 ? 1.0 : 0.0;\\n' +
+'  for (int i=-1; i<=1; i++) for (int j=-1; j<=1; j++){\\n' +
+'    float s = texture2D(u_src, v_uv + u_texel*vec2(float(i),float(j))).r;\\n' +
+'    v = u_op < 0.5 ? min(v,s) : max(v,s);\\n' +
+'  }\\n' +
+'  gl_FragColor = vec4(vec3(v), 1.0);\\n' +
+'}\\n';
+
 var FS_A2 =
 'uniform sampler2D u_img; uniform float u_lt; uniform float u_st;\n' +
 'uniform float u_inkmode; uniform float u_view;\n' +
@@ -684,18 +695,25 @@ var TABS = [
   }},
 { id:'bands', name:'Bands',
   desc:'<b>Shade-band slicing.</b> Splits the image\'s lightness range into N bands and shows one slice at a time, like the scrubber but computed live. Slide the position to sweep dark to light; window mode keeps only a narrow trailing slice visible.' +
-       '<span class="approx">Approximates scripts/shade_isolate.py family A. Range is the image 2nd/98th lightness percentiles (Python used the blot mask only). Full CIE LAB is computed in-shader. "Both ends" shows the darkest and lightest windows at once, so depth-persistent structure can be eyeballed in one view.</span>',
+       '<span class="approx">Approximates scripts/shade_isolate.py family A. Range is the image 2nd/98th lightness percentiles (Python used the blot mask only). Full CIE LAB is computed in-shader. "Both ends" shows the darkest and lightest windows at once, so depth-persistent structure can be eyeballed in one view. Despeckle applies a binary opening (r=1) to the mask, which removes the postcard board\'s 1&ndash;2px grain edge noise; see the forensics report &sect;06.</span>',
   controls:[
     {key:'n', label:'Band count', min:2, max:24, step:1, val:12},
     {key:'idx', label:'Band position', min:0, max:11, step:1, val:11},
     {key:'mode', label:'Mode', seg:['Accumulate','Window','Both ends'], val:0},
-    {key:'width', label:'Window width', min:1, max:12, step:1, val:3}
+    {key:'width', label:'Window width', min:1, max:12, step:1, val:3},
+    {key:'desp', label:'Despeckle', seg:['Off','On'], val:0}
   ],
   state:{},
   render:function(){
     var s=this.state;
-    draw(program(FS_BANDS), {u_img:{tex:imgTex}, u_lo:bandLo, u_hi:bandHi,
-      u_n:s.n, u_idx:s.idx, u_mode:s.mode, u_width:s.width}, renderTarget);
+    var uni={u_img:{tex:imgTex}, u_lo:bandLo, u_hi:bandHi,
+      u_n:s.n, u_idx:s.idx, u_mode:s.mode, u_width:s.width};
+    if (!s.desp){ draw(program(FS_BANDS), uni, renderTarget); return; }
+    var m=scratch(30, imgW, imgH);
+    draw(program(FS_BANDS), uni, m);
+    var e=scratch(31, imgW, imgH);
+    draw(program(FS_OPEN), {u_src:{tex:m.tex}, u_texel:[1/imgW,1/imgH], u_op:0}, e);
+    draw(program(FS_OPEN), {u_src:{tex:e.tex}, u_texel:[1/imgW,1/imgH], u_op:1}, renderTarget);
   }},
 { id:'a2', name:'A2 gate',
   desc:'<b>Parametric overwrite gate.</b> Masks the ink, then removes pixels darker than the lightness threshold AND more saturated than the saturation threshold. This is the sensitivity control: drag both and watch the covering ink peel away.' +
