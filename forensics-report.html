@@ -212,6 +212,14 @@
     <a href="img/report/dots-traced.png"><img src="img/report/thumbs/dots-traced.png" loading="lazy" alt="Dot centroids overlaid on the block, with fitted row lines"></a>
     <figcaption><b>Dot trace.</b> Red circles are hue-105/8 mask dots; red lines are the fitted rows. Every dot hugs the block&rsquo;s edges. Cropped to remove white margins; no rescaling.</figcaption>
   </figure>
+
+  <div class="obs">
+    <b>Positive control: the same gate on legible writing.</b> Running the identical hue-105/8 dot extraction on the letter-45 Berliner crop (blue handwriting) puts 324 dots on the ink, tracing the letterforms. The method does find writing when writing is there; on the block it finds only edge pixels.
+  </div>
+  <figure>
+    <a href="img/report/dots-visible-text.png"><img src="img/report/thumbs/dots-visible-text.png" loading="lazy" alt="Dot centroids overlaid on legible blue handwriting"></a>
+    <figcaption><b>Dot trace on visible text.</b> Same hue-105/8 gate, same 3&nbsp;px minimum, on the Berliner&rsquo;s blue handwriting. The dots sit on the strokes and follow the letterforms.</figcaption>
+  </figure>
 </section>
 
 <section id="scan17-3d">

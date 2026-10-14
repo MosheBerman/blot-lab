@@ -330,3 +330,14 @@ markings on the edges of our postcards.
   side (Ansichtskarte article) — ours are clean. Either unmarked stock or
   the imprint hides under handwriting / the airmail label. 300dpi edge
   crops kept in img/pc-edges-hires/.
+
+## 2026-10-14 — Pixel scale corrected (scan 17 address side)
+
+- The old 281ppi / 90um-per-px figure was never anchored; it is wrong.
+- Two reference-object rulers on 17pdf-000.jpg (2138x1494): card width
+  (~2120px for 148mm A6) -> 367ppi -> 69.3um/px; postmark ring (Hough
+  r=211px, DR Tagesstempel ~28mm) -> ~380ppi -> 66.6um/px.
+- Working scale: 65-75um/px (~350-390ppi). Stamp rulers failed (brown
+  stamp half-covered; green-stamp mask caught the design, not the rect).
+- Fibers (10-30um) are 0.13-0.46px at this scale: still sub-pixel,
+  unresolvable, no separable fiber channel (see results/fiber-noise-and-scale.md).

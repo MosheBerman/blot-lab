@@ -25,6 +25,10 @@
             border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
             padding:9px 14px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
             max-width:44vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #sel-tab { pointer-events:auto; font-size:0.82rem; border-radius:20px;
+            border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
+            padding:9px 10px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            max-width:40vw; text-overflow:ellipsis; }
   #btn-info { max-width:none; }
   #sheet { position:fixed; left:0; right:0; bottom:0; z-index:30;
            background:rgba(22,22,22,0.97); border-top:1px solid #333; border-radius:16px 16px 0 0;
@@ -39,8 +43,6 @@
   #sheet-body button { padding:13px 8px; font-size:0.82rem; border-radius:10px;
                 border:1px solid #444; background:#242424; color:#ddd; }
   #sheet-body button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
-  #sheet-nav { padding:0 16px 14px; font-size:0.8rem; color:#999; }
-  #sheet-nav a { color:#4da3ff; text-decoration:none; margin-right:14px; }
   .sitenav { position:fixed; top:0; left:0; right:0; z-index:40; display:flex;
              align-items:center; overflow-x:auto; white-space:nowrap;
              background:rgba(18,18,18,0.92); border-bottom:1px solid #333;
@@ -142,7 +144,7 @@
 <div id="stage"><canvas id="gl"></canvas></div>
 <div id="topbar">
   <button id="btn-img">&#128444; <span id="imgname"></span></button>
-  <button id="btn-tab"><span id="tabname"></span> &#9662;</button>
+  <select id="sel-tab" aria-label="Algorithm"></select>
   <button id="btn-info">&#9432;</button>
 </div>
 <div id="toolbar">
@@ -156,7 +158,6 @@
 <div id="sheet" class="hidden">
   <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
   <div id="sheet-body"></div>
-  <div id="sheet-nav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a><a href="forensics-report.html">Forensics report</a></div>
 </div>
 <div id="infocard" class="hidden"></div>
 <div id="wipebar">
@@ -679,6 +680,7 @@ function analyzeImage(img){
 
 /* ============ tabs ============ */
 var joinTex = null, joinTexW = 0, joinTexH = 0;
+var dotTex = null, dotTexW = 0, dotTexH = 0;
 var TABS = [
 { id:'tune', name:'Tune',
   desc:'<b>Simple photo tuning.</b> Hue shift, saturation, contrast and brightness, Preview-style. Sometimes the simple tools see what the fancy ones miss.',
@@ -1099,12 +1101,110 @@ var TABS = [
       gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,W,H,gl.RGBA,gl.UNSIGNED_BYTE,out);
     }
     draw(program(FS_PASS),{u_img:{tex:joinTex}},renderTarget);
+  }},
+{ id:'dots', name:'Dot trace',
+  desc:'<b>Dot tracer.</b> Applies the Chroma hue gate, then finds every connected dot in the mask on the CPU and marks its centroid with a red ring. Overlay draws the rings on the original; Mask shows the kept dots alone. The same method behind the forensics report\'s scan-17 dot trace.' +
+       '<span class="approx">CPU connected components at 512px width, 8-connectivity, pure hue gate like the Chroma tab. Dots smaller than Min dot size are dropped as noise.</span>',
+  controls:[
+    {key:'center', label:'Hue center', min:0, max:179, step:1, val:105},
+    {key:'width', label:'Hue width', min:1, max:40, step:1, val:8},
+    {key:'minpx', label:'Min dot size', min:1, max:20, step:1, val:3},
+    {key:'view', label:'View', seg:['Overlay','Mask'], val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    var bw=Math.min(512,imgW), bh=Math.max(2,Math.round(imgH*bw/imgW));
+    var W=bw, H=bh;
+    var t=scratch(90,bw,bh);
+    draw(program(FS_CHROMA),{u_img:{tex:imgTex},u_center:s.center,u_width:s.width,u_view:0},t);
+    var px=new Uint8Array(W*H*4);
+    gl.readPixels(0,0,W,H,gl.RGBA,gl.UNSIGNED_BYTE,px);
+    var mask=new Uint8Array(W*H);
+    for(var i=0;i<W*H;i++) mask[i]=px[i*4]>127?1:0;
+    var labels=new Int32Array(W*H).fill(-1);
+    var compX=[], compY=[], compN=[], ncomp=0, stack=[];
+    for(var y=0;y<H;y++)for(var x=0;x<W;x++){
+      var id0=y*W+x;
+      if(!mask[id0]||labels[id0]>=0)continue;
+      var sx=0, sy=0, nn=0;
+      stack.push(id0); labels[id0]=ncomp;
+      while(stack.length){
+        var id=stack.pop(), cx=id%W, cy=(id/W)|0;
+        sx+=cx; sy+=cy; nn++;
+        for(var dy=-1;dy<=1;dy++)for(var dx=-1;dx<=1;dx++){
+          if(!dx&&!dy)continue;
+          var nx=cx+dx, ny=cy+dy;
+          if(nx<0||ny<0||nx>=W||ny>=H)continue;
+          var nid=ny*W+nx;
+          if(mask[nid]&&labels[nid]<0){labels[nid]=ncomp;stack.push(nid);}
+        }
+      }
+      compX.push(sx/nn); compY.push(sy/nn); compN.push(nn); ncomp++;
+    }
+    var minA=Math.max(1,Math.round(s.minpx)), keep=[];
+    for(var c=0;c<ncomp;c++) if(compN[c]>=minA) keep.push(c);
+    var overlay=s.view<0.5, opx=null;
+    if(overlay){
+      var t2=scratch(91,bw,bh);
+      draw(program(FS_PASS),{u_img:{tex:imgTex}},t2);
+      opx=new Uint8Array(W*H*4);
+      gl.readPixels(0,0,W,H,gl.RGBA,gl.UNSIGNED_BYTE,opx);
+    }
+    var R=4, dot=new Uint8Array(W*H), keptPx=new Uint8Array(W*H);
+    for(var p=0;p<W*H;p++){ var l=labels[p]; if(l>=0&&compN[l]>=minA) keptPx[p]=1; }
+    for(var k=0;k<keep.length;k++){
+      var cc=keep[k], cx0=Math.round(compX[cc]), cy0=Math.round(compY[cc]);
+      for(var ry=-R;ry<=R;ry++)for(var rx=-R;rx<=R;rx++){
+        var r2=rx*rx+ry*ry;
+        if(r2<(R-1.5)*(R-1.5)||r2>R*R)continue;
+        var nx2=cx0+rx, ny2=cy0+ry;
+        if(nx2<0||ny2<0||nx2>=W||ny2>=H)continue;
+        dot[ny2*W+nx2]=1;
+      }
+    }
+    var out=new Uint8Array(W*H*4);
+    for(var i2=0;i2<W*H;i2++){
+      var o4=i2*4;
+      if(overlay){
+        out[o4]=opx[o4]; out[o4+1]=opx[o4+1]; out[o4+2]=opx[o4+2];
+        if(dot[i2]){ out[o4]=255; out[o4+1]=0; out[o4+2]=0; }
+      } else {
+        var v=keptPx[i2]?255:0;
+        out[o4]=v; out[o4+1]=v; out[o4+2]=v;
+      }
+      out[o4+3]=255;
+    }
+    if(!dotTex||dotTexW!==W||dotTexH!==H){
+      if(dotTex)gl.deleteTexture(dotTex);
+      dotTex=gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D,dotTex);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,W,H,0,gl.RGBA,gl.UNSIGNED_BYTE,out);
+      dotTexW=W; dotTexH=H;
+    } else {
+      gl.bindTexture(gl.TEXTURE_2D,dotTex);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
+      gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,W,H,gl.RGBA,gl.UNSIGNED_BYTE,out);
+    }
+    draw(program(FS_PASS),{u_img:{tex:dotTex}},renderTarget);
+    statusEl.textContent=imgnameEl.textContent+' \u2014 '+imgW+'\u00d7'+imgH+
+      ' \u00b7 '+keep.length+' dots (hue '+Math.round(s.center)+'\u00b1'+Math.round(s.width)+')';
   }}
 ];
 
 /* ============ UI wiring ============ */
 var imgnameEl = document.getElementById('imgname');
-var tabnameEl = document.getElementById('tabname');
+var selTabEl = document.getElementById('sel-tab');
+TABS.forEach(function(t, i){
+  var o = document.createElement('option');
+  o.value = String(i); o.textContent = t.name;
+  selTabEl.appendChild(o);
+});
 var panelEl = document.getElementById('panel');
 var panelTitleEl = document.getElementById('panel-title');
 var sheetEl = document.getElementById('sheet');
@@ -1143,8 +1243,8 @@ document.getElementById('btn-img').addEventListener('click', function(){
   openSheet('Image', IMAGES.map(function(im){ return im.label; }).concat(['+ Upload']),
     curImg, function(i){ if (i < IMAGES.length) loadImage(i); else fileInput.click(); });
 });
-document.getElementById('btn-tab').addEventListener('click', function(){
-  openSheet('Algorithm', TABS.map(function(t){ return t.name; }), curTab, selectTab);
+document.getElementById('sel-tab').addEventListener('change', function(){
+  selectTab(+document.getElementById('sel-tab').value);
 });
 document.getElementById('btn-info').addEventListener('click', function(){
   infoEl.classList.toggle('hidden');
@@ -1460,7 +1560,7 @@ function render(){
 function selectTab(i){
   curTab = i;
   var t = TABS[i];
-  tabnameEl.textContent = t.name;
+  selTabEl.value = String(i);
   panelTitleEl.textContent = t.name;
   infoEl.innerHTML = t.desc;
   buildControls();
