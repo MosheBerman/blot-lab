@@ -246,3 +246,42 @@ ink is too opaque for under-ink to contribute measurably to reflected
 RGB. The difference is what makes the physical methods (IR/VSC, where the
 top ink may go transparent at other wavelengths) the live route.
 → `17-hires-unmix-frac.png` (black = zero letter-ink fraction).
+
+## 2026-10-14 — Band-sensitivity extremes + two-sided coincidence filter (`scripts/twosided_filter.py`)
+
+Moshe's questions: (1) does changing band sensitivity (band count N) help?
+(2) what about a filter on BOTH front and back layers instead of the
+one-direction dark->light sweep?
+
+1. Band count N=3 and N=24 on the blot-39 crop, blot-mask shade range
+   L 128.0-201.0 (N=6/12 ran 2026-10-12). N=24: the blot fragments into
+   fine mottled bands - isotropic grain, nothing elongated. N=3: three
+   coarse blotchy regions, no structure. Verdict: no. Narrower bands dice
+   the wash noise finer; wider bands merge it. No letterforms at any of
+   N=3/6/12/24. Outputs: `img/passes/bands-extreme/n{3,24}-blotmask/`.
+
+2. Two-sided filter, two operationalizations, calibrated on the synthetic
+   wash ladder (known text at s=0.5/0.75/1.0/1.25; wash-restricted
+   mask+scoring via --washref so un-obscured text can't inflate recall):
+   - dev-mode: |z|>1.5 deviation within the 2 darkest bands AND within
+     the 2 lightest bands, spatial coincidence (3px dilate). Too strict:
+     a pixel lives in exactly one band, so it only fires at
+     thick-to-thin transitions. Recall 2% even at s=0.5 - weak positive
+     control.
+   - anom-mode: band-index anomaly (>=2 bands from the local 31px median)
+     required in BOTH the dark half and the light half of the stack.
+     Too loose: the wash's own mottling is a depth anomaly everywhere -
+     coincidence covers 33-57% of the wash at every opacity and 55% of
+     blot39. Cannot distinguish text-bearing s=0.5 wash from text-free
+     s=1.0 wash. Fails the calibration signature.
+   - Verdict: the idea is physically sound (a pooling stroke should
+     perturb multiple depths), but this blot's wash texture varies with
+     depth at every scale, so "present at both ends" does not
+     discriminate. The measured opacity floor stands: lightness-based
+     methods cannot reach the core. Script kept; do not rerun blind.
+
+3. UI: the Bands tab gained a "Both ends" mode (darkest + lightest
+   windows shown together, Window-width slider visible) so
+   depth-persistent structure can be eyeballed in one view - built for
+   Moshe's 2026-10-14 note that human eyes beat the algorithms on
+   curvature.

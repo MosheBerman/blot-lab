@@ -305,7 +305,9 @@ var FS_BANDS =
 '  float L = rgb2lab(texture2D(u_img, v_uv).rgb).x;\n' +
 '  float t = clamp((L-u_lo)/max(u_hi-u_lo, 1e-3), 0.0, 1.0);\n' +
 '  float band = min(floor(t*u_n), u_n-1.0);\n' +
-'  bool show = u_mode < 0.5 ? (band <= u_idx) : (band > u_idx-u_width && band <= u_idx);\n' +
+'  bool show = u_mode < 0.5 ? (band <= u_idx)\n' +
+'    : (u_mode < 1.5 ? (band > u_idx-u_width && band <= u_idx)\n' +
+'                    : (band < u_width || band >= u_n-u_width));\n' +
 '  gl_FragColor = vec4(vec3(show ? 1.0 : 0.0), 1.0);\n' +
 '}\n';
 
@@ -681,11 +683,11 @@ var TABS = [
   }},
 { id:'bands', name:'Bands',
   desc:'<b>Shade-band slicing.</b> Splits the image\'s lightness range into N bands and shows one slice at a time, like the scrubber but computed live. Slide the position to sweep dark to light; window mode keeps only a narrow trailing slice visible.' +
-       '<span class="approx">Approximates scripts/shade_isolate.py family A. Range is the image 2nd/98th lightness percentiles (Python used the blot mask only). Full CIE LAB is computed in-shader.</span>',
+       '<span class="approx">Approximates scripts/shade_isolate.py family A. Range is the image 2nd/98th lightness percentiles (Python used the blot mask only). Full CIE LAB is computed in-shader. "Both ends" shows the darkest and lightest windows at once, so depth-persistent structure can be eyeballed in one view.</span>',
   controls:[
     {key:'n', label:'Band count', min:2, max:24, step:1, val:12},
     {key:'idx', label:'Band position', min:0, max:11, step:1, val:11},
-    {key:'mode', label:'Mode', seg:['Accumulate','Window'], val:0},
+    {key:'mode', label:'Mode', seg:['Accumulate','Window','Both ends'], val:0},
     {key:'width', label:'Window width', min:1, max:12, step:1, val:3}
   ],
   state:{},
@@ -1282,7 +1284,7 @@ function buildControls(){
 
 function syncWidthRow(){
   var t = TABS[curTab], wr = document.getElementById('widthrow');
-  if (wr) wr.style.display = (t.id === 'bands' && t.state.mode === 1) ? 'flex' : 'none';
+  if (wr) wr.style.display = (t.id === 'bands' && t.state.mode >= 1) ? 'flex' : 'none';
 }
 
 var SWEEPS = [null,
