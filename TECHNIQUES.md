@@ -170,3 +170,79 @@ projects the survivors flat. Two views: binary Projection and a Span map
 colored by how many layers each pixel's structure persisted through. Ridge
 borrows its scale sweep from the Ridge tab. Flood-fill logic unit-tested in
 node (Moshe's example joins; lone pixels drop).
+
+## 2026-10-13 — Scan-17 black block: strict interior test + chain + template match
+
+Moshe's "shapes that look like letters" in the Bands view of the scan-17
+redaction block, and his yellow-traced candidates. Four analyses, all on
+`the-coded-letters/hidden_files/drive/sweep/pages/17-1.png`:
+
+1. **Strict inside-ink test** (`scripts/block17_strict_test.py`): block =
+   union of the two largest low-V components in the lower-left quadrant
+   (the two redaction strokes), eroded 9px so no surrounding text leaks in.
+   High-pass (L minus 15px median) inside vs a uniform dark control (the
+   MIT LUFTPOST label). 254 significant deviations, largest 47px, zero
+   elongated (aspect>2.5, length>15px). Outputs:
+   `17-block-roi.png` (red = analyzed bbox, blue = interior mask),
+   `17-block-inside-hp8x.png` (interior high-pass, 8x amplified).
+2. **Sharpen + FFT** (`scripts/block17_chain.py`): flat-field (divide by
+   101px median), CLAHE, unsharp mask → `17-block-sharp.png`. 2D FFT power
+   spectrum of the windowed interior: energy at JPEG-block frequencies
+   (1/8 cyc/px) ≈ background (ratios 0.97–1.07), so the mottling is
+   physical ink layering, not compression aliasing → `17-block-fft.png`.
+3. **Chained pipeline** (same script): flat-field → PCA on RGB inside the
+   ink mask → project onto first PC (ink-density axis) → 8-orientation
+   Gabor bank (λ8, σ2.5), max response → threshold top 3% → components.
+   Block ink: 62 components, largest 38px, 0 elongated; dark control: 67
+   components, largest 27px, 0 elongated. → `17-block-chain-gabor.png`.
+4. **Template match** (`scripts/block17_template_match.py`): the 12 most
+   stroke-like interior features (ranked by Gabor-component size×aspect)
+   as 56px normalized patches, matched with normalized cross-correlation
+   against 40 real handwriting-stroke patches from the page and 50 null
+   patches (dark-control texture + blank paper), at scales 0.5–2.0.
+   Every candidate matched null better than handwriting (mean margin
+   −0.253, max −0.134; calibration ref-vs-ref 0.496, null-vs-ref 0.475).
+   → `17-block-template-match.png` (candidate | best page-stroke match |
+   red/green overlay), `17-block-candidates-on-original.png` (c00–c11
+   locations on the original).
+
+Verdict: no letterforms inside the ink; the "stroke-like" shapes are
+amplified pen-stroke layering texture (plus the overlapping WIEN postmark
+in band views). The redaction destroyed the text.
+
+## 2026-10-13 — Gabor tab + 3D-stack source (lab.html)
+
+The chain's Gabor stage as a live shader: `FS_GABOR` (procedural 15x15
+Gabor kernel, orientation = detected stroke direction, wavelength,
+sigma, gain, Response/Overlay views). New **Gabor tab** with an Input
+toggle: luminance, or the **ink axis** — the first principal component of
+the image's RGB, computed by power iteration in `analyzeImage` and passed
+as a `u_axis` vec3 uniform (added vec3 support to `draw()`). Added
+**Gabor** to the 3D stack's Algorithm picker (index 6, sweep = orientation
+0–180°, retarget via the SWEEPS table). Heavier than the other tabs;
+layers render at ≤512px. Template matching stays a Python script: it needs
+a stroke library and candidate picking, which doesn't fit the sweep
+paradigm.
+
+## 2026-10-13 — Ink-difference unmixing (block17_unmix.py)
+
+Moshe's challenge: the block ink and letter ink are chromatically distinct,
+so digital separation should have options. Exercised three, on the hi-res
+source, in linear RGB with paper/top-ink/letter-ink endmembers:
+
+1. **PCA of interior pixel colors**: 98.2% of variance is one-dimensional
+   (the paper↔top-ink thickness axis; it aligns with the letter-ink
+   direction at |cos| 0.917 only because both point away from near-black).
+   PC2 carries 1.16% variance and aligns poorly (0.382) with the
+   letter-ink direction. No letter-ink-directed second axis exists.
+2. **Fully-constrained linear unmixing** → per-pixel letter-ink fraction:
+   mean 0.001, 32 components above 0.15 fraction, largest 4px, zero
+   elongated.
+3. **Thinnest-ink decile** (L≥36, where show-through is physically most
+   plausible): letter-ink fraction exactly 0.000.
+
+Verdict: the ink difference is real but buys nothing digitally — the top
+ink is too opaque for under-ink to contribute measurably to reflected
+RGB. The difference is what makes the physical methods (IR/VSC, where the
+top ink may go transparent at other wavelengths) the live route.
+→ `17-hires-unmix-frac.png` (black = zero letter-ink fraction).

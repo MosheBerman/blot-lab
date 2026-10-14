@@ -41,6 +41,13 @@
   #sheet-body button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   #sheet-nav { padding:0 16px 14px; font-size:0.8rem; color:#999; }
   #sheet-nav a { color:#4da3ff; text-decoration:none; margin-right:14px; }
+  .sitenav { position:fixed; top:0; left:0; right:0; z-index:40; display:flex;
+             align-items:center; overflow-x:auto; white-space:nowrap;
+             background:rgba(18,18,18,0.92); border-bottom:1px solid #333;
+             padding:calc(8px + env(safe-area-inset-top)) 12px 8px;
+             font-size:0.8rem; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+  .sitenav a { color:#4da3ff; text-decoration:none; margin-right:14px; }
+  .sitenav a:last-child { margin-right:0; }
   #infocard { position:fixed; z-index:30; left:12px; right:12px;
               top:calc(64px + env(safe-area-inset-top));
               background:rgba(22,22,22,0.97); border:1px solid #333; border-radius:12px;
@@ -130,6 +137,7 @@
 </style>
 </head>
 <body>
+<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a></nav>
 <div id="stage"><canvas id="gl"></canvas></div>
 <div id="topbar">
   <button id="btn-img">&#128444; <span id="imgname"></span></button>
@@ -147,7 +155,7 @@
 <div id="sheet" class="hidden">
   <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
   <div id="sheet-body"></div>
-  <div id="sheet-nav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="https://muse.ai/s/postcard-ink-layer-physics-xvxf5xsuxgmxntxqxx">Ink-layer report</a></div>
+  <div id="sheet-nav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a></div>
 </div>
 <div id="infocard" class="hidden"></div>
 <div id="wipebar">
@@ -164,6 +172,9 @@
 
 <script>
 "use strict";
+/* site nav sits above the topbar: push the topbar down by the nav height */
+(function(){ var nav=document.querySelector('.sitenav'), tb=document.getElementById('topbar');
+  if(nav&&tb){ tb.style.top=nav.offsetHeight+'px'; tb.style.paddingTop='10px'; } })();
 /* ============ WebGL boilerplate ============ */
 var canvas = document.getElementById('gl');
 var gl = canvas.getContext('webgl', {antialias:false, preserveDrawingBuffer:false});
@@ -240,6 +251,7 @@ function draw(prog, uniforms, target){
       gl.uniform1i(loc, unit); unit++; }
     else if (typeof u === 'number') gl.uniform1f(loc, u);
     else if (u.length === 2) gl.uniform2f(loc, u[0], u[1]);
+    else if (u.length === 3) gl.uniform3f(loc, u[0], u[1], u[2]);
   }
   gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 }
@@ -389,6 +401,38 @@ var FS_FRANGI =
 '  gl_FragColor = vec4(outc, 1.0);\n' +
 '}\n';
 
+var FS_GABOR =
+'uniform sampler2D u_img; uniform vec2 u_texel;\n' +
+'uniform float u_ang; uniform float u_lambda; uniform float u_sigma;\n' +
+'uniform vec3 u_axis; uniform float u_useAxis; uniform float u_gain; uniform float u_view;\n' +
+'void main(){\n' +
+'  float a = radians(u_ang);\n' +
+'  vec2 e1 = vec2(cos(a), sin(a));\n' +   // stroke direction the filter looks for
+'  vec2 e2 = vec2(-sin(a), cos(a));\n' +  // wave direction (perpendicular)
+'  float acc = 0.0, wsum = 0.0;\n' +
+'  float lim = 9.0*u_sigma*u_sigma;\n' +
+'  for (int i=-9; i<=9; i++){\n' +
+'    for (int j=-9; j<=9; j++){\n' +
+'      float x = float(i), y = float(j);\n' +
+'      float r2 = x*x + y*y;\n' +
+'      if (r2 > lim) continue;\n' +
+'      vec2 off = (x*e1 + y*e2)*u_texel;\n' +
+'      vec3 c = texture2D(u_img, v_uv+off).rgb;\n' +
+'      float s = u_useAxis < 0.5 ? dot(c, vec3(0.299,0.587,0.114)) : dot(c, u_axis);\n' +
+'      float xp = x*e2.x + y*e2.y;\n' +
+'      float g = exp(-r2/(2.0*u_sigma*u_sigma)) * cos(6.2831853*xp/u_lambda);\n' +
+'      acc += g*s; wsum += abs(g);\n' +
+'    }\n' +
+'  }\n' +
+'  float v = clamp(abs(acc)/max(wsum,1e-6)*u_gain, 0.0, 1.0);\n' +
+'  vec3 outc = vec3(v);\n' +
+'  if (u_view > 0.5){\n' +
+'    vec3 rgb = texture2D(u_img, v_uv).rgb;\n' +
+'    outc = mix(rgb, vec3(1.0,0.25,0.25), clamp(v*1.6, 0.0, 0.85));\n' +
+'  }\n' +
+'  gl_FragColor = vec4(outc, 1.0);\n' +
+'}\n';
+
 var FS_FLAT =
 'uniform sampler2D u_img; uniform sampler2D u_big;\n' +
 'void main(){\n' +
@@ -515,6 +559,7 @@ var IMAGES = [
 var curImg = 0, curTab = 0, cmpX = 1, zoom = 1, panX = 0, panY = 0, rot = 0, renderTarget = null;
 var imgTex = null, imgW = 0, imgH = 0, imgObj = null;
 var bandLo = 0, bandHi = 100, lightAz = 0;
+var inkAxis = [0.299, 0.587, 0.114]; // first PC of image RGB, set by analyzeImage
 var targets = []; // scratch FBOs
 
 function scratch(i, w, h){
@@ -562,6 +607,28 @@ function analyzeImage(img){
   Ls.sort(function(a,b){return a-b;});
   bandLo = Ls[Math.floor(Ls.length*0.02)];
   bandHi = Ls[Math.floor(Ls.length*0.98)];
+  // ink axis: first principal component of thumbnail RGB (paper<->ink direction)
+  var mr=0, mg=0, mb=0, nn3=0;
+  var srr=0, srg=0, srb=0, sgg=0, sgb=0, sbb=0;
+  for (var qi=0; qi<d.length; qi+=4){
+    var qr=d[qi]/255, qg=d[qi+1]/255, qb=d[qi+2]/255;
+    nn3++; mr+=qr; mg+=qg; mb+=qb;
+    srr+=qr*qr; srg+=qr*qg; srb+=qr*qb; sgg+=qg*qg; sgb+=qg*qb; sbb+=qb*qb;
+  }
+  mr/=nn3; mg/=nn3; mb/=nn3;
+  var C=[[srr/nn3-mr*mr, srg/nn3-mr*mg, srb/nn3-mr*mb],
+         [srg/nn3-mr*mg, sgg/nn3-mg*mg, sgb/nn3-mg*mb],
+         [srb/nn3-mr*mb, sgb/nn3-mg*mb, sbb/nn3-mb*mb]];
+  var pv=[1, 0.3, 0.2];
+  for (var pit=0; pit<32; pit++){
+    var pw=[C[0][0]*pv[0]+C[0][1]*pv[1]+C[0][2]*pv[2],
+            C[1][0]*pv[0]+C[1][1]*pv[1]+C[1][2]*pv[2],
+            C[2][0]*pv[0]+C[2][1]*pv[1]+C[2][2]*pv[2]];
+    var pl=Math.sqrt(pw[0]*pw[0]+pw[1]*pw[1]+pw[2]*pw[2])+1e-12;
+    pv=[pw[0]/pl, pw[1]/pl, pw[2]/pl];
+  }
+  if (pv[0]+pv[1]+pv[2] < 0) pv=[-pv[0], -pv[1], -pv[2]];
+  inkAxis = pv;
   if (n > 500){
     // proper 2-var least-squares fit: brightness = a*x + b*y + c
     n = 0; sx = 0; sy = 0; sb = 0;
@@ -686,6 +753,24 @@ var TABS = [
       u_s0:s.s0, u_s1:s.s1, u_steps:s.steps, u_beta:s.beta, u_c:s.sens,
       u_polarity:s.pol, u_view:s.view}, renderTarget);
   }},
+{ id:'gabor', name:'Gabor',
+  desc:'<b>Gabor stroke filter.</b> A directional wave-packet filter that lights up strokes running along the chosen orientation: 0&deg; finds horizontal strokes, 90&deg; vertical. Wavelength sets the stroke width it likes; the kernel is zero-mean so flat illumination cancels out. Input can be plain luminance or the ink axis, the image\'s own paper-to-ink direction from PCA, which separates ink-density variation from color noise.' +
+       '<span class="approx">Mirrors the Gabor-bank stage of scripts/block17_chain.py (Python swept 8 orientations and took the max; here you steer one orientation at a time, or sweep it in the 3D stack). 15x15 kernel; heavier than the other tabs, give it a beat on large images.</span>',
+  controls:[
+    {key:'input', label:'Input', seg:['Luminance','Ink axis'], val:0},
+    {key:'ang', label:'Orientation', min:0, max:180, step:5, val:0},
+    {key:'lambda', label:'Wavelength px', min:3, max:16, step:0.5, val:8},
+    {key:'sigma', label:'Sigma px', min:1, max:3, step:0.25, val:2.5},
+    {key:'gain', label:'Gain', min:1, max:12, step:0.5, val:3},
+    {key:'view', label:'View', seg:['Response','Overlay'], val:0}
+  ],
+  state:{},
+  render:function(){
+    var s=this.state;
+    draw(program(FS_GABOR), {u_img:{tex:imgTex}, u_texel:[1/imgW,1/imgH],
+      u_ang:s.ang, u_lambda:s.lambda, u_sigma:s.sigma, u_axis:inkAxis,
+      u_useAxis:s.input, u_gain:s.gain, u_view:s.view}, renderTarget);
+  }},
 { id:'emboss', name:'Emboss',
   desc:'<b>Paper-texture embossing.</b> Removes slow illumination variation, keeps only fine detail, then takes a directional derivative at the chosen angle to emphasize grooves and ridges left by the pen.' +
        '<span class="approx">Approximates scripts/emboss_sweep.py (high-pass cutoff, directional Sobel). Ink masking here is a simple local-darkness test; Python used background subtraction plus Otsu.</span>',
@@ -729,7 +814,7 @@ var TABS = [
 { id:'stack', name:'3D stack',
   desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window.' ,
   controls:[
-    {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking'], val:0},
+    {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking','Gabor'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
     {key:'pos', label:'Window end', min:0, max:11, step:1, val:11},
     {key:'width', label:'Window width', min:1, max:12, step:1, val:12},
@@ -757,6 +842,7 @@ var TABS = [
       if(src===3) return {kk:w0+(w1-w0)*f};
       if(src===4) return {ang:w0+(w1-w0)*f};
       if(src===5) return {view:w0+(w1-w0)*f};
+      if(src===6) return {ang:w0+(w1-w0)*f};
       return {};
     }
     // shared precomputes (once, at layer res)
@@ -770,7 +856,7 @@ var TABS = [
                  draw(program(FS_FLAT),{u_img:{tex:imgTex},u_big:{tex:g1.tex}},rakeFlat);
                  var g2=scratch(3,bw,bh); blurInto(rakeFlat.tex,bw,bh,3,1,0,0,g2);
                  rakeSmall=scratch(4,bw,bh); blurInto(g2.tex,bw,bh,3,0,1,0,rakeSmall); }
-    var a2s=tabSt('a2'), chs=tabSt('chroma'), dis=tabSt('dir'), ems=tabSt('emboss'), rks=tabSt('rake');
+    var a2s=tabSt('a2'), chs=tabSt('chroma'), dis=tabSt('dir'), ems=tabSt('emboss'), rks=tabSt('rake'), gbs=tabSt('gabor');
     if(src===0){ var w=Math.min(Math.round(s.width),n);
                  hi=Math.min(Math.round(s.pos),n-1); lo=Math.max(0,hi-w+1); }
     for(i=0;i<n;i++){
@@ -782,7 +868,8 @@ var TABS = [
       else if(src===2) draw(program(FS_CHROMA),{u_img:{tex:imgTex},u_center:lu.center,u_width:chs.width||8,u_view:0},t);
       else if(src===3) draw(program(FS_DIR),{u_img:{tex:imgTex},u_mean:{tex:dirMean.tex},u_k:lu.kk},t);
       else if(src===4) draw(program(FS_EMBOSS),{u_img:{tex:imgTex},u_blur:{tex:embBlur.tex},u_texel:[1/bw,1/bh],u_ang:lu.ang},t);
-      else draw(program(FS_RAKE),{u_flat:{tex:rakeFlat.tex},u_small:{tex:rakeSmall.tex},u_view:lu.view,u_light:lightAz,u_gain:rks.gain||5},t);
+      else if(src===5) draw(program(FS_RAKE),{u_flat:{tex:rakeFlat.tex},u_small:{tex:rakeSmall.tex},u_view:lu.view,u_light:lightAz,u_gain:rks.gain||5},t);
+      else draw(program(FS_GABOR),{u_img:{tex:imgTex},u_texel:[1/bw,1/bh],u_ang:lu.ang,u_lambda:gbs.lambda||8,u_sigma:gbs.sigma||2.5,u_axis:inkAxis,u_useAxis:gbs.input||0,u_gain:gbs.gain||4,u_view:0},t);
     }
     var tgt=renderTarget;
     gl.bindFramebuffer(gl.FRAMEBUFFER, tgt?tgt.fb:null);
@@ -1198,7 +1285,8 @@ var SWEEPS = [null,
   {lo:0, hi:180, min:0, max:180, step:1},
   {lo:1, hi:3, min:0.2, max:6, step:0.1},
   {lo:0, hi:180, min:0, max:180, step:1},
-  {lo:0, hi:360, min:0, max:360, step:1}];
+  {lo:0, hi:360, min:0, max:360, step:1},
+  {lo:0, hi:180, min:0, max:180, step:1}];
 function ensureSel(t){
   var s = t.state, n = Math.max(2, Math.round(s.n));
   if (!Array.isArray(s.sel) || s.sel.length !== n){
