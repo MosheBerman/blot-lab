@@ -838,7 +838,7 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber: the wipe\'s original side is rendered under the top layer\'s tilt, so it stays aligned with the stack as you tumble it. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking','Gabor'], val:0},
     {key:'n', label:'Layers', min:2, max:16, step:1, val:12},
@@ -928,6 +928,30 @@ var TABS = [
       order++;
     }
     gl.disable(gl.BLEND);
+    // Synced original: the original image drawn under the top layer's exact
+    // 3D transform, so the wipe comparison stays aligned with the tilted stack.
+    this._syncOrig = null;
+    if (order > 0 && imgTex){
+      var sow = tgt ? tgt.w : canvas.width, soh = tgt ? tgt.h : canvas.height;
+      var so = scratch(40, sow, soh);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, so.fb);
+      gl.viewport(0, 0, so.w, so.h);
+      gl.clearColor(0.04,0.04,0.04,1); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.disable(gl.BLEND);
+      gl.useProgram(prog);
+      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);
+      gl.enableVertexAttribArray(prog.aPos);
+      gl.vertexAttribPointer(prog.aPos, 2, gl.FLOAT, false, 0, 0);
+      gl.uniformMatrix4fv(prog.uMvp, false, new Float32Array(mvp));
+      gl.uniformMatrix4fv(prog.uRot, false, new Float32Array(rot));
+      gl.uniform1f(prog.uAspect, imgW/imgH);
+      gl.uniform1f(prog.uDz, (order-1)*s.gap*0.006);
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, imgTex);
+      gl.uniform1i(prog.uTex, 0);
+      gl.uniform3f(prog.uTint, 1, 1, 1);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      this._syncOrig = so;
+    }
   }},
 { id:'join', name:'Join',
   desc:'<b>Cross-layer stroke joining.</b> Builds the same sweep layers as the 3D stack, then joins strokes that touch across adjacent layers (26-connectivity in x, y and layer) into 3D structures. Structures spanning fewer than Min span layers are dropped as noise; the survivors are projected onto a flat surface. Like holding the letter to the light and tilting it: each layer is a tilt, and only strokes that persist across tilts survive. The automated version of the stack\'s Advanced layer-pick. Target=Holes inverts the search: it finds background regions enclosed by the ink in each layer and joins those across layers, surfacing the paper windows where the top ink is thinnest.' +
@@ -1423,7 +1447,8 @@ function render(){
   t.render();
   renderTarget = null;
   var vm = cmpX <= 0.001 ? 1 : (cmpX >= 0.999 ? 0 : 2);
-  draw(program(FS_VIEW), {u_proc:{tex:tgt.tex}, u_orig:{tex:imgTex},
+  var origTex = (t._syncOrig && t._syncOrig.tex) ? t._syncOrig.tex : imgTex;
+  draw(program(FS_VIEW), {u_proc:{tex:tgt.tex}, u_orig:{tex:origTex},
     u_mode:vm, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY], u_rot:rot}, null);
   var ge = gl.getError();
   if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
