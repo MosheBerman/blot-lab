@@ -1,0 +1,63 @@
+VALIDATION — coded-language letter report deliverables (2026-10-16)
+
+Inputs
+- coded-language-findings.md (53 letter sections, master index table)
+- crop-requests.md (97 crop entries)
+- drive-links.json (60 keys; letter 43's scan is 43-co2.pdf)
+- letter scans: goals/the-coded-letters/hidden_files/drive/allpdfs/N.pdf
+
+Outputs (all in ~/workspace/blot-lab/letter-analysis/muse/)
+1. crops/ — 138 PNGs
+   - 68 copied from existing worker crops (67 + 1 filename fix: w9-l51-enh.png),
+     renamed to clean l{N}-{k}.png / descriptive names; full mapping in crops/_mapping.json
+   - 70 rendered fresh from the letter PDFs at 170 DPI (PyMuPDF), cropped to
+     generous regions derived from each request's descriptor (see approximations)
+   - Extra worker renders with no matching crop-request entry were kept under
+     descriptive names (l35-r1..3, l49-r1..3, l50-r1/r3, l51-r1/enh/106,
+     l52-r1, l53-r1/del1/del2/top, l44-bitte/deletion/deletion2/deletion3/
+     morgen2/stuetze/topedge-hi/topnote/waldbaum, l45-margin2,
+     l46-corrections-m/scribble-flip, l44/45/46/47/48-w8-N series,
+     l35-pencil-corner)
+2. report-data.json — 53 letters, 424 technique subsections (8 per letter),
+   116 technique↔media attachments. Valid JSON; every media src resolves to a
+   file in crops/; every master-index letter appears, in the findings' order.
+   Renderer smoke-tested in node with a DOM stub: 53 sections, 424 subsections,
+   89 media blocks, 21 film strips, 566 unique ids, all tags balanced.
+3. coded-language-report.md — markdown mirror: 53 letter sections, 116 inline
+   crop thumbnails (relative crops/ paths), Drive link (private) per letter,
+   per-technique method/findings/confidence, verdicts, private-annotation
+   blockquotes, plus the full cross-letter synthesis and method limits.
+   No HTML entities or raw markdown artifacts remain.
+
+Approximations and judgment calls
+- Crop regions are GENEROUS approximations from textual descriptors
+  ("top-left corner" → top 45% × left 55%, etc.), not pixel-verified
+  coordinates, per the brief. A few crops may need tightening once reviewed.
+- Letter 43 uses 43-co2.pdf for both crops and its Drive link.
+- Letter 49 (verified duplicate of 35) has no separate section or crops.
+- Letter 3 has no scan: no crops; families ii–iv recorded as untestable
+  (confidence none).
+- Letter 28 is out of scope (post-1948 Hebrew letter): all eight families
+  carry the scope note, confidence none, privacy respected.
+- Confidence normalization: "medium-high"→"medium"; "N/A"→"none";
+  split confidences (e.g. "medium (observations); low (coded meaning)")
+  → the lower value, with the observation note kept in the text;
+  "low-medium"→"low".
+- Letters 2, 3, 9 had no explicit Verdict paragraph in the findings; explicit
+  fallback verdicts were written from each letter's technique-i finding
+  (documented in build-report-data.py).
+- Combined technique blocks (letters 16, 50) were expanded per family with
+  each family's own title.
+- Private working notes added for 8 letters (1, 2, 15, 20, 25, 32, 35, 53):
+  date/attribution discrepancies, identity flags, the two-Malis note,
+  the 49.pdf duplicate note.
+- Nothing was invented: all quotes, facts, and confidences come from
+  coded-language-findings.md; uncertain readings keep their [uncertain] marks.
+
+For the parent (page wiring)
+- The report page engine (blot-lab/coded-language-report.html) links
+  "coded-language-report.md" relative to the repo root; the markdown lives at
+  letter-analysis/muse/coded-language-report.md — update the href to
+  "letter-analysis/muse/coded-language-report.md".
+- Media srcs in report-data.json are repo-root-relative
+  ("letter-analysis/muse/crops/<file>"), matching a page at the repo root.
