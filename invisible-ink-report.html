@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invisible-ink survey: onion skin letters — Blot Lab</title>
+<style>
+  :root{
+    --bg:#f7f5f0; --surface:#fffdf8; --surface-2:#efece3;
+    --ink:#1c1a16; --ink-soft:#4a463d; --ink-faint:#7a7466;
+    --line:#d8d2c2; --line-strong:#b9b19c;
+    --blue:#1d4e89; --blue-deep:#123a68; --blue-wash:#dbe6f2;
+    --red:#a4261f; --red-wash:#f6e3df;
+    --amber:#8a5a12; --amber-wash:#f3e8cf;
+    --green:#2f6b3a; --green-wash:#e0ecdd;
+    --shadow:0 1px 2px rgba(28,26,22,.06),0 8px 24px rgba(28,26,22,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#16140f; --surface:#201d17; --surface-2:#2a271e;
+      --ink:#ece7da; --ink-soft:#c6c0b0; --ink-faint:#948d7c;
+      --line:#3a362b; --line-strong:#57523f;
+      --blue:#7aa7dd; --blue-deep:#a9c6ec; --blue-wash:#22344e;
+      --red:#e08a80; --red-wash:#46241f;
+      --amber:#d9ab5e; --amber-wash:#42351c;
+      --green:#93c79b; --green-wash:#263a28;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;line-height:1.55;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px 72px}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em}
+  a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px}
+  .sitenav{background:var(--surface-2);border-bottom:1px solid var(--line);
+    padding:.55rem 20px;font-size:.92rem}
+  .sitenav a{color:var(--blue);text-decoration:none;margin-right:1rem}
+  .sitenav a:hover{text-decoration:underline}
+  .sitenav a.here{font-weight:700;color:var(--ink)}
+  header{padding:44px 0 8px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px}
+  h1{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.01em;max-width:18em}
+  .lede{font-size:clamp(18px,2.6vw,21px);color:var(--ink-soft);max-width:44em;margin:18px 0 0}
+  .lede strong{color:var(--ink)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 28px;margin:22px 0 0;font-size:14.5px;color:var(--ink-soft)}
+  .meta-row b{color:var(--ink)}
+  section{margin:52px 0 0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  .sec-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);
+    border:1px solid var(--line-strong);border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .sec-head h2{font-size:clamp(24px,3.6vw,32px)}
+  .sec-sub{color:var(--ink-soft);max-width:46em;margin:0 0 18px}
+  .verdicts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:30px 0 0}
+  .verdict{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:18px;box-shadow:var(--shadow)}
+  .verdict .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-bottom:10px}
+  .verdict h3{font-size:19px;margin-bottom:6px}
+  .verdict p{margin:0 0 8px;color:var(--ink-soft);font-size:15px}
+  .verdict p.call{font-weight:700;color:var(--ink)}
+  .t-neg .tag{background:var(--red-wash);color:var(--red)}
+  .t-pos .tag{background:var(--green-wash);color:var(--green)}
+  .t-mix .tag{background:var(--amber-wash);color:var(--amber)}
+  figure{margin:22px 0;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  figure a{display:block}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{padding:12px 16px;font-size:14.5px;color:var(--ink-soft);border-top:1px solid var(--line)}
+  figcaption b{color:var(--ink)}
+  .figgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .figgrid figure{margin:0}
+  table.perm{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0;
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  table.perm caption{text-align:left;padding:10px 14px;font-weight:600;color:var(--ink);
+    border-bottom:1px solid var(--line);font-size:15px}
+  table.perm th,table.perm td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+  table.perm th{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);
+    text-transform:uppercase;letter-spacing:.06em}
+  table.perm tr:last-child td{border-bottom:none}
+  table.perm td.v{background:var(--surface-2);font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
+  ul.res{margin:12px 0;padding-left:22px}
+  ul.res li{margin-bottom:8px;color:var(--ink-soft)}
+  ul.res li b{color:var(--ink)}
+  .obs{background:var(--blue-wash);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;
+    padding:14px 18px;margin:20px 0;color:var(--ink-soft)}
+  .obs b{color:var(--ink)}
+  .neg{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:20px 0}
+  .neg b{color:var(--ink)}
+  footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-faint)}
+  @media (max-width:640px){.figgrid{grid-template-columns:1fr}}
+
+  /* ---------- floating table of contents ---------- */
+  .toc{position:fixed;left:18px;top:110px;width:196px;z-index:40;
+    font-size:13.5px;line-height:1.4;display:none;
+    background:color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid var(--line);border-radius:14px;padding:12px 10px;
+    box-shadow:var(--shadow);max-height:calc(100vh - 140px);overflow:auto}
+  @media (min-width:1300px){.toc{display:block}}
+  .toc-kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-faint);margin:2px 8px 8px}
+  .toc a{display:flex;gap:8px;align-items:baseline;color:var(--ink-soft);text-decoration:none;
+    padding:5px 8px;border-radius:8px;border-left:2px solid transparent}
+  .toc a:hover{background:var(--surface-2);color:var(--ink)}
+  .toc a.on{background:var(--blue-wash);color:var(--ink);border-left-color:var(--blue);font-weight:600}
+  .toc a .n{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-faint);min-width:18px}
+  .toc a.on .n{color:var(--blue)}
+  section{scroll-margin-top:18px}
+</style>
+</head>
+<body>
+<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a><a href="forensics-report.html">Forensics report</a><a href="invisible-ink-report.html" class="here">Invisible-ink survey</a></nav>
+<div class="wrap">
+<nav class="toc" aria-label="Contents">
+  <p class="toc-kicker">Contents</p>
+  <a href="#brief"><span class="n">01</span>The brief</a>
+  <a href="#method"><span class="n">02</span>Method</a>
+  <a href="#potential"><span class="n">03</span>Potential findings</a>
+  <a href="#by-letter"><span class="n">04</span>Letter by letter</a>
+  <a href="#opole"><span class="n">05</span>The Opole sheet</a>
+  <a href="#open"><span class="n">06</span>Open questions</a>
+</nav>
+
+<header>
+  <p class="kicker">Blot lab &middot; research briefing &middot; 16 Oct 2026</p>
+  <h1>Invisible-ink survey: the onion skin letters</h1>
+  <p class="lede">Every onion skin letter in the 1940&ndash;42 corpus, page by page, checked for <strong>very light writing that is not blotted over</strong>: faint pencil, faded ink, marginalia, text in other orientations or languages. Blots were not processed. <strong>22 letters, 48 pages, zero invisible-ink candidates.</strong> Two marginal continuations are recorded as potential findings; both read as ordinary visible-ink margin-filling.</p>
+  <div class="meta-row">
+    <span><b>Letters</b> 8, 9, 12, 24, 25, 27, 28, 29, 33, 34, 35, 37, 38, 40, 41, 42, 46, 47, 48, 52, 53, 54</span>
+    <span><b>Pages</b> 48</span>
+    <span><b>Method</b> local replication scripts, 150 DPI</span>
+  </div>
+</header>
+
+<div class="verdicts">
+  <div class="verdict t-neg">
+    <span class="tag">Negative</span>
+    <h3>Invisible ink</h3>
+    <p class="call">No hidden writing found on any sheet.</p>
+    <p>Every faint mark outside the main text flow resolved as reverse-side show-through, archival numbering, tape repairs, fold shadows, foxing, or the two known notes on letter 40.</p>
+  </div>
+  <div class="verdict t-mix">
+    <span class="tag">Potential</span>
+    <h3>Two marginal continuations</h3>
+    <p class="call">Recorded, judged benign.</p>
+    <p>Letter 8 p2 and letter 9 p2 each carry one line of vertical marginal text in the same hand and ink as the letter. Standard margin-filling, not hidden writing.</p>
+  </div>
+  <div class="verdict t-pos">
+    <span class="tag">Confirmed</span>
+    <h3>The Opole sheet</h3>
+    <p class="call">Nothing beyond the two known notes.</p>
+    <p>Letter 40&rsquo;s reverse carries the graphite &ldquo;Opole Kreis Pulawy distrikt Lublin&rdquo; note; the front carries the green Gerhardi note. Zoomed review found no third layer of writing.</p>
+  </div>
+</div>
+
+<section id="brief">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The brief</h2></div>
+  <p class="sec-sub">Run the lab&rsquo;s tests on the onion skin letters, including the one with the Opole address, looking for invisible ink: not blotted over, just very light. Process each onion skin letter per the HH spreadsheet; skip no letters; do not process blots. Text may run in other directions or languages. Anything unusual gets recorded as a potential finding.</p>
+  <ul class="res">
+    <li><b>Corpus:</b> all 54 letter PDFs pulled from the Drive vault. First-page triage identified 22 on thin translucent stock (show-through visible): 8, 9, 12, 24, 25, 27, 28, 29, 33, 34, 35, 37, 38, 40, 41, 42, 46, 47, 48, 52, 53, 54.</li>
+    <li><b>Blots present but not processed:</b> 25 (black blot p1), 40 (writer&rsquo;s own wet re-tracing, not a redaction), 46 (pen dots), 47 (pen-spit dots), 53 (two black blots), 54 (heavy black blots over the closing).</li>
+    <li><b>Rule for show-through:</b> onion skin always ghosts the reverse. Only marks that do <i>not</i> match the reverse side count; mirrored letterforms aligned with the opposite page were dismissed.</li>
+    <li><b>Over-report rule:</b> anything unusual that could not be dismissed was recorded as a potential finding, even at low confidence.</li>
+  </ul>
+</section>
+
+<section id="method">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Method</h2></div>
+  <p class="sec-sub">A four-panel diagnostic per page, rendered at 150 DPI: original, faint-mark overlay, Gabor ridges, faint-contrast stretch. Script: <span class="mono">blot-lab/scripts/invisible_ink.py</span>.</p>
+  <ul class="res">
+    <li><b>Faint-mark overlay:</b> local-deviation gate &mdash; pixels darker than their immediate surroundings by 3&ndash;18 lightness levels, kept only as connected stroke-like structures (area &ge; 12 px). Painted red over the original. Robust to paper shading gradients that defeat a global lightness band.</li>
+    <li><b>Gabor ridges:</b> max response over 4 orientations (&lambda;8), normalized. Finds thin stroke ridges even at very low contrast.</li>
+    <li><b>Faint-contrast stretch:</b> lightness range 190&ndash;250 stretched to full scale. The most sensitive single view for faded pencil and washed-out ink.</li>
+    <li><b>Review:</b> every strip inspected in full; suspicious margin and edge marks re-examined at 200&ndash;300 DPI crops. Per-page stats (faint-mark fraction, Gabor energy) recorded for triage.</li>
+  </ul>
+  <figure>
+    <a href="img/report/ink-method-40p1.jpg"><img src="img/report/thumbs/ink-method-40p1.jpg" loading="lazy" alt="Four-panel diagnostic strip for letter 40 page 1"></a>
+    <figcaption><b>The diagnostic battery, letter 40 p1.</b> Left to right: original; red overlay on faint marks; Gabor ridge response; faint-contrast stretch. The blue handwriting and the green Gerhardi note both light up; the task is to find anything <i>else</i>.</figcaption>
+  </figure>
+</section>
+
+<section id="potential">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Potential findings</h2></div>
+  <p class="sec-sub">Two marks survived dismissal and are recorded per the over-report rule. Both are ordinary visible-ink marginalia.</p>
+  <div class="figgrid">
+    <figure>
+      <a href="img/report/ink-margin-8p2.png"><img src="img/report/thumbs/ink-margin-8p2.png" loading="lazy" alt="Vertical marginal text on letter 8 page 2"></a>
+      <figcaption><b>Letter 8, p2, right margin.</b> One vertical line in the same black ink and hand as the letter, reading &ldquo;&hellip;zu Eurer (?) &hellip; verhelfen&rdquo;. A marginal continuation, standard practice when the page fills. Confidence: medium; benign.</figcaption>
+    </figure>
+    <figure>
+      <a href="img/report/ink-margin-9p2.png"><img src="img/report/thumbs/ink-margin-9p2.png" loading="lazy" alt="Vertical faint pencil marginalia on letter 9 page 2"></a>
+      <figcaption><b>Letter 9, p2, left margin.</b> Faint pencil postscript in the same hand as the note, partially legible. Same pencil, same hand; not hidden writing. Confidence: medium; benign.</figcaption>
+    </figure>
+  </div>
+  <div class="obs">
+    <b>Why these are not invisible ink.</b> Both sit in the main ink of their letters, in the writer&rsquo;s own hand, continuing the correspondence. They were flagged only because they run vertically in the margin &mdash; exactly the &ldquo;other directions&rdquo; the brief asked to catch.
+  </div>
+</section>
+
+<section id="by-letter">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Letter by letter</h2></div>
+  <p class="sec-sub">Every letter processed, no skips. &ldquo;Clean&rdquo; means: main text plus show-through only, no marks outside the text flow.</p>
+  <table class="perm">
+    <caption>Verdict per letter (48 pages total)</caption>
+    <tr><th>letter</th><th>pages</th><th>stock / ink</th><th>verdict</th></tr>
+    <tr><td class="v">8</td><td>2</td><td>black ink bifolium, Wien 27.I.1941</td><td>Marginal continuation p2 (benign); archival &ldquo;1206&rdquo; p1</td></tr>
+    <tr><td class="v">9</td><td>2</td><td>very faint pencil note</td><td>Marginal pencil postscript p2 (benign); archival &ldquo;505&rdquo; p2</td></tr>
+    <tr><td class="v">12</td><td>2</td><td>blue ink, crinkled; brown-ink header/closing</td><td>Clean. Brown ink is part of the letter.</td></tr>
+    <tr><td class="v">24</td><td>2</td><td>brown + blue ink, Wien 18.4.1940</td><td>Clean. Blue ghosts are show-through.</td></tr>
+    <tr><td class="v">25</td><td>2</td><td>blue ink; black blot p1 (not processed)</td><td>Clean outside blot. Archival &ldquo;120-2622&rdquo;, &ldquo;146&rdquo;.</td></tr>
+    <tr><td class="v">27</td><td>1</td><td>light blue, signed Ruchel Lea</td><td>Clean. Archival &ldquo;120-2622&rdquo;.</td></tr>
+    <tr><td class="v">28</td><td>2</td><td>p1 Yiddish letter in faint pencil; p2 Israeli aerogramme</td><td>Clean. Yiddish is the main text; aerogramme to Malka Berman, NYC.</td></tr>
+    <tr><td class="v">29</td><td>4</td><td>very faded blue/purple, thinnest stock</td><td>Clean. Heavy mirrored show-through throughout.</td></tr>
+    <tr><td class="v">33</td><td>3</td><td>black ink, Wien 11/II 1940</td><td>Clean. Margin ghosts confirmed mirrored at 2&times; zoom; foxing is staining.</td></tr>
+    <tr><td class="v">34</td><td>2</td><td>grey pencil, Tel-Aviv (?) Oct 1941</td><td>Clean. Yiddish postscript is in the letter&rsquo;s flow.</td></tr>
+    <tr><td class="v">35</td><td>3</td><td>brown/black, Wien 7/5 40</td><td>Clean. Diagonal band is a fold crease; p1/p2 are duplicate scans. Archival &ldquo;2466-1593&rdquo;.</td></tr>
+    <tr><td class="v">37</td><td>1</td><td>brown ink emigration letter</td><td>Clean. Text fills the page.</td></tr>
+    <tr><td class="v">38</td><td>3</td><td>blue ink</td><td>Clean. Tape repair p1; p2/p3 duplicate scans. Archival &ldquo;2007-2010&rdquo;.</td></tr>
+    <tr><td class="v">40</td><td>2</td><td>blue ink + green note; graphite Opole note on reverse</td><td>Clean beyond the two known notes. Re-traced words are the writer&rsquo;s own emphasis.</td></tr>
+    <tr><td class="v">41</td><td>2</td><td>green ink, signed Ethel</td><td>Clean.</td></tr>
+    <tr><td class="v">42</td><td>2</td><td>blue ink, Opole 20/X 1941</td><td>Clean. Darker word mid-p1 is pen emphasis.</td></tr>
+    <tr><td class="v">46</td><td>7</td><td>dark ink, Aug 1940, to Familie Willner</td><td>Clean. Second hand p4&ndash;p7 is visible co-writing (&ldquo;Lea Frohlich&rdquo; ?). Archive stamp &ldquo;764&rdquo; p5.</td></tr>
+    <tr><td class="v">47</td><td>1</td><td>faded ink, 13.5.1940</td><td>Clean. Pen-spit dots noted, not processed.</td></tr>
+    <tr><td class="v">48</td><td>1</td><td>faded ink, 8.IX.1941</td><td>Clean. Archival &ldquo;3834&rdquo;.</td></tr>
+    <tr><td class="v">52</td><td>1</td><td>thin blue ink, Wien 16/9 1941</td><td>Clean. Tape repair strip; archival &ldquo;1334/2&rdquo;, &ldquo;1157&rdquo;.</td></tr>
+    <tr><td class="v">53</td><td>1</td><td>grey ink, Wien 8/4</td><td>Clean outside two black blots (not processed).</td></tr>
+    <tr><td class="v">54</td><td>1</td><td>grey ink, mentions Rosa Hirsch, (Jugoslavien)</td><td>Clean outside heavy black blots (not processed).</td></tr>
+  </table>
+  <div class="obs">
+    <b>Catalog artifacts, not findings.</b> Pencil numbers (1206, 120-2622, 146, 505, 3834, 764, 1334/2, 1157, 2466-1593, 2007-2010), tape repairs (38, 52), fold creases (35), and foxing (33) are archival or physical, not writing. Duplicate scans: 35 p1/p2 and 38 p2/p3 are the same sheet scanned twice.
+  </div>
+</section>
+
+<section id="opole">
+  <div class="sec-head"><span class="sec-num">05</span><h2>The Opole sheet (letter 40)</h2></div>
+  <p class="sec-sub">The sheet with the address notes, checked at 200 DPI with 2&times; zoom on the note regions.</p>
+  <ul class="res">
+    <li><b>Front, bottom:</b> the known green pencil note &mdash; &ldquo;G. Gerhardi per Adr. Norddeutscher Lloyd Bremen&rdquo; plus &ldquo;eine bekannte von mir bekomt von die Adresse Pakete&rdquo;. No additional faint writing around it.</li>
+    <li><b>Mid-page:</b> words gone over repeatedly in heavy wet blue ink (&ldquo;Schiffskarten &hellip; Pakete an Josef schicken&rdquo;) plus a dark blue blob at left. The writer&rsquo;s own re-tracing/emphasis of visible text, not a redaction; left unprocessed per the no-blot rule.</li>
+    <li><b>Reverse, bottom:</b> the known graphite note &ldquo;Opole Kreis Pulawy distrikt Lublin Distr.(?)&rdquo;. The faint green ghosts overlapping it are the Gerhardi note showing through from the front (mirrored). Nothing else faint present.</li>
+  </ul>
+  <figure>
+    <a href="img/report/ink-opole-40p2.jpg"><img src="img/report/thumbs/ink-opole-40p2.jpg" loading="lazy" alt="The graphite Opole note on letter 40 page 2"></a>
+    <figcaption><b>Letter 40, reverse.</b> The graphite &ldquo;Opole Kreis Pulawy distrikt Lublin&rdquo; note; the green ghosts around it are the Gerhardi note showing through from the front. No third layer of writing.</figcaption>
+  </figure>
+  <div class="neg">
+    <b>Verdict: the Opole sheet carries exactly the two known notes.</b> No invisible-ink layer, no third hand, no additional addresses.
+  </div>
+</section>
+
+<section id="open">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Open questions</h2></div>
+  <ul class="res">
+    <li>The two marginal continuations (8, 9) are transcribed only approximately; a closer read at higher resolution could firm up the wording if it matters.</li>
+    <li>Letter 46&rsquo;s second hand (p4&ndash;p7, signed &ldquo;Lea Frohlich&rdquo; ?) is ordinary co-writing, but the signature reading is uncertain.</li>
+    <li>Duplicate scans (35 p1/p2, 38 p2/p3) are worth flagging to Helen&rsquo;s audit.</li>
+    <li>Physical re-photography (raking light, transmitted light) remains the only route that could beat these digital results &mdash; the survey is limited to what the existing photographs captured.</li>
+  </ul>
+</section>
+
+<footer>
+  Blot lab invisible-ink survey &middot; 16 Oct 2026 &middot; 22 letters, 48 pages, read-only analysis &middot;
+  reproduction: <span class="mono">blot-lab/scripts/invisible_ink.py</span>, findings in <span class="mono">blot-lab/img/onionskin-survey/findings-batch{1,2,3}.md</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links=Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  if(!links.length) return;
+  var map={}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)]=a; });
+  function set(id){ links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+id); }); }
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) set(e.target.id); });
+  },{rootMargin:'-25% 0px -65% 0px'});
+  Object.keys(map).forEach(function(id){ var s=document.getElementById(id); if(s) obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>
