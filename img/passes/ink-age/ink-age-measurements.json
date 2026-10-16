@@ -1,0 +1,722 @@
+[
+ {
+  "case": "33-cheder",
+  "img": "33-p0.png",
+  "paper_L": 253.0,
+  "targets": {
+   "cheder (bold)": {
+    "n": 2478,
+    "dL": 88.0,
+    "da": 3.0,
+    "db": -1.0,
+    "rawL": 165.0,
+    "stroke_w": 2.74
+   }
+  },
+  "refs": {
+   "Schule": {
+    "n": 1462,
+    "dL": 64.0,
+    "da": 2.0,
+    "db": -4.0,
+    "rawL": 189.0,
+    "stroke_w": 1.91
+   },
+   "wie auch": {
+    "n": 1851,
+    "dL": 57.0,
+    "da": 2.0,
+    "db": -2.0,
+    "rawL": 196.0,
+    "stroke_w": 1.91
+   },
+   "konnen die Kinder": {
+    "n": 4466,
+    "dL": 63.0,
+    "da": 2.0,
+    "db": -4.0,
+    "rawL": 190.0,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "cheder (bold) vs Schule": {
+    "dP": 24.21,
+    "dL_ratio": 1.38,
+    "stroke_ratio": 1.43
+   },
+   "cheder (bold) vs wie auch": {
+    "dP": 31.03,
+    "dL_ratio": 1.54,
+    "stroke_ratio": 1.43
+   },
+   "cheder (bold) vs konnen die Kinder": {
+    "dP": 25.2,
+    "dL_ratio": 1.4,
+    "stroke_ratio": 1.0
+   }
+  },
+  "ref_spread": {
+   "Schule vs wie auch": 7.28,
+   "Schule vs konnen die Kinder": 1.0,
+   "wie auch vs konnen die Kinder": 6.32
+  }
+ },
+ {
+  "case": "33-umlaut",
+  "img": "33-p0.png",
+  "paper_L": 246.0,
+  "targets": {
+   "u-diaeresis dots": {
+    "n": 149,
+    "dL": 45.0,
+    "da": 2.0,
+    "db": 1.0,
+    "rawL": 201.0,
+    "stroke_w": 1.91
+   }
+  },
+  "refs": {
+   "durchfuhren body": {
+    "n": 2901,
+    "dL": 70.0,
+    "da": 2.0,
+    "db": -2.0,
+    "rawL": 176.0,
+    "stroke_w": 2.74
+   },
+   "du es": {
+    "n": 1028,
+    "dL": 84.0,
+    "da": 2.0,
+    "db": -2.0,
+    "rawL": 162.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "u-diaeresis dots vs durchfuhren body": {
+    "dP": 25.18,
+    "dL_ratio": 0.64,
+    "stroke_ratio": 0.7
+   },
+   "u-diaeresis dots vs du es": {
+    "dP": 39.12,
+    "dL_ratio": 0.54,
+    "stroke_ratio": 1.0
+   }
+  },
+  "ref_spread": {
+   "durchfuhren body vs du es": 14.0
+  }
+ },
+ {
+  "case": "33-fuer",
+  "img": "33-p0.png",
+  "paper_L": 242.0,
+  "targets": {
+   "u-diaeresis dots": {
+    "n": 393,
+    "dL": 76.0,
+    "da": 2.0,
+    "db": -3.0,
+    "rawL": 166.0,
+    "stroke_w": 1.91
+   }
+  },
+  "refs": {
+   "fur": {
+    "n": 951,
+    "dL": 83.0,
+    "da": 2.0,
+    "db": -2.0,
+    "rawL": 159.0,
+    "stroke_w": 1.91
+   },
+   "Mali": {
+    "n": 948,
+    "dL": 89.0,
+    "da": 3.0,
+    "db": -3.0,
+    "rawL": 153.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "u-diaeresis dots vs fur": {
+    "dP": 7.07,
+    "dL_ratio": 0.92,
+    "stroke_ratio": 1.0
+   },
+   "u-diaeresis dots vs Mali": {
+    "dP": 13.04,
+    "dL_ratio": 0.85,
+    "stroke_ratio": 1.0
+   }
+  },
+  "ref_spread": {
+   "fur vs Mali": 6.16
+  }
+ },
+ {
+  "case": "33-idot",
+  "img": "33-p0.png",
+  "paper_L": 249.0,
+  "targets": {
+   "i dot (die)": {
+    "n": 34,
+    "dL": 86.5,
+    "da": 1.0,
+    "db": 2.0,
+    "rawL": 162.5,
+    "stroke_w": 1.91
+   }
+  },
+  "refs": {
+   "die body": {
+    "n": 60,
+    "dL": 92.5,
+    "da": 3.0,
+    "db": -4.0,
+    "rawL": 156.5,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "i dot (die) vs die body": {
+    "dP": 8.72,
+    "dL_ratio": 0.94,
+    "stroke_ratio": 0.7
+   }
+  },
+  "ref_spread": {}
+ },
+ {
+  "case": "33-smudge",
+  "img": "33-p0.png",
+  "paper_L": 252.0,
+  "targets": {
+   "gray smudge": {
+    "n": 3718,
+    "dL": 63.0,
+    "da": 1.0,
+    "db": -4.0,
+    "rawL": 189.0,
+    "stroke_w": 3.82
+   }
+  },
+  "refs": {
+   "durchfuhren": {
+    "n": 3311,
+    "dL": 67.0,
+    "da": 2.0,
+    "db": -3.0,
+    "rawL": 185.0,
+    "stroke_w": 2.74
+   },
+   "Wie geht": {
+    "n": 1929,
+    "dL": 73.0,
+    "da": 2.0,
+    "db": 0.0,
+    "rawL": 179.0,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "gray smudge vs durchfuhren": {
+    "dP": 4.24,
+    "dL_ratio": 0.94,
+    "stroke_ratio": 1.39
+   },
+   "gray smudge vs Wie geht": {
+    "dP": 10.82,
+    "dL_ratio": 0.86,
+    "stroke_ratio": 1.39
+   }
+  },
+  "ref_spread": {
+   "durchfuhren vs Wie geht": 6.71
+  }
+ },
+ {
+  "case": "33-joblot",
+  "img": "33-p1.png",
+  "paper_L": 251.0,
+  "targets": {
+   "Jo- blot": {
+    "n": 2937,
+    "dL": 118.0,
+    "da": 2.0,
+    "db": -6.0,
+    "rawL": 133.0,
+    "stroke_w": 4.65
+   }
+  },
+  "refs": {
+   "Ist Jo": {
+    "n": 1534,
+    "dL": 85.0,
+    "da": 3.0,
+    "db": -2.0,
+    "rawL": 166.0,
+    "stroke_w": 2.74
+   },
+   "schon in": {
+    "n": 1327,
+    "dL": 78.0,
+    "da": 3.0,
+    "db": -1.0,
+    "rawL": 173.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "Jo- blot vs Ist Jo": {
+    "dP": 33.26,
+    "dL_ratio": 1.39,
+    "stroke_ratio": 1.7
+   },
+   "Jo- blot vs schon in": {
+    "dP": 40.32,
+    "dL_ratio": 1.51,
+    "stroke_ratio": 2.43
+   }
+  },
+  "ref_spread": {
+   "Ist Jo vs schon in": 7.07
+  }
+ },
+ {
+  "case": "33-speck",
+  "img": "33-p1.png",
+  "paper_L": 251.0,
+  "targets": {
+   "small dark blot": {
+    "n": 2030,
+    "dL": 142.5,
+    "da": 3.0,
+    "db": -6.0,
+    "rawL": 108.5,
+    "stroke_w": 5.73
+   }
+  },
+  "refs": {
+   "demnaechst": {
+    "n": 1716,
+    "dL": 92.5,
+    "da": 3.0,
+    "db": -4.0,
+    "rawL": 158.5,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "small dark blot vs demnaechst": {
+    "dP": 50.04,
+    "dL_ratio": 1.54,
+    "stroke_ratio": 2.09
+   }
+  },
+  "ref_spread": {}
+ },
+ {
+  "case": "42-du",
+  "img": "42-p0.png",
+  "paper_L": 253.0,
+  "targets": {
+   "Du (darker)": {
+    "n": 1059,
+    "dL": 53.0,
+    "da": -10.0,
+    "db": -16.0,
+    "rawL": 200.0,
+    "stroke_w": 5.48
+   }
+  },
+  "refs": {
+   "mir": {
+    "n": 720,
+    "dL": 55.0,
+    "da": -9.0,
+    "db": -15.0,
+    "rawL": 198.0,
+    "stroke_w": 3.82
+   },
+   "regelmaessig": {
+    "n": 1648,
+    "dL": 64.0,
+    "da": 0.0,
+    "db": -7.0,
+    "rawL": 189.0,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "Du (darker) vs mir": {
+    "dP": 2.45,
+    "dL_ratio": 0.96,
+    "stroke_ratio": 1.43
+   },
+   "Du (darker) vs regelmaessig": {
+    "dP": 17.38,
+    "dL_ratio": 0.83,
+    "stroke_ratio": 2.0
+   }
+  },
+  "ref_spread": {
+   "mir vs regelmaessig": 15.03
+  }
+ },
+ {
+  "case": "42-der",
+  "img": "42-p0.png",
+  "paper_L": 250.0,
+  "targets": {
+   "Der (darker)": {
+    "n": 785,
+    "dL": 80.0,
+    "da": 1.0,
+    "db": -14.0,
+    "rawL": 170.0,
+    "stroke_w": 2.74
+   }
+  },
+  "refs": {
+   "ich": {
+    "n": 552,
+    "dL": 47.0,
+    "da": -1.0,
+    "db": -9.0,
+    "rawL": 203.0,
+    "stroke_w": 1.91
+   },
+   "geschrieben": {
+    "n": 1498,
+    "dL": 53.0,
+    "da": -1.0,
+    "db": -8.0,
+    "rawL": 197.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "Der (darker) vs ich": {
+    "dP": 33.44,
+    "dL_ratio": 1.7,
+    "stroke_ratio": 1.43
+   },
+   "Der (darker) vs geschrieben": {
+    "dP": 27.73,
+    "dL_ratio": 1.51,
+    "stroke_ratio": 1.43
+   }
+  },
+  "ref_spread": {
+   "ich vs geschrieben": 6.08
+  }
+ },
+ {
+  "case": "53-blackout",
+  "img": "53-p0.png",
+  "paper_L": 253.0,
+  "targets": {
+   "blackout strokes": {
+    "n": 19805,
+    "dL": 179.0,
+    "da": 2.0,
+    "db": -3.0,
+    "rawL": 74.0,
+    "stroke_w": 8.22
+   }
+  },
+  "refs": {
+   "bekommen der Jossel": {
+    "n": 3738,
+    "dL": 100.0,
+    "da": 0.0,
+    "db": 2.0,
+    "rawL": 153.0,
+    "stroke_w": 2.74
+   },
+   "mecht so gern": {
+    "n": 2745,
+    "dL": 104.0,
+    "da": 0.0,
+    "db": 2.0,
+    "rawL": 149.0,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "blackout strokes vs bekommen der Jossel": {
+    "dP": 79.18,
+    "dL_ratio": 1.79,
+    "stroke_ratio": 3.0
+   },
+   "blackout strokes vs mecht so gern": {
+    "dP": 75.19,
+    "dL_ratio": 1.72,
+    "stroke_ratio": 3.0
+   }
+  },
+  "ref_spread": {
+   "bekommen der Jossel vs mecht so gern": 4.0
+  }
+ },
+ {
+  "case": "53-dankend",
+  "img": "53-p0.png",
+  "paper_L": 253.0,
+  "targets": {
+   "Dankend overtext": {
+    "n": 1881,
+    "dL": 86.0,
+    "da": 1.0,
+    "db": 0.0,
+    "rawL": 167.0,
+    "stroke_w": 2.74
+   }
+  },
+  "refs": {
+   "von Euch": {
+    "n": 1359,
+    "dL": 81.0,
+    "da": 1.0,
+    "db": -1.0,
+    "rawL": 172.0,
+    "stroke_w": 2.74
+   },
+   "Freude": {
+    "n": 1771,
+    "dL": 93.0,
+    "da": 1.0,
+    "db": 1.0,
+    "rawL": 160.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "Dankend overtext vs von Euch": {
+    "dP": 5.1,
+    "dL_ratio": 1.06,
+    "stroke_ratio": 1.0
+   },
+   "Dankend overtext vs Freude": {
+    "dP": 7.07,
+    "dL_ratio": 0.92,
+    "stroke_ratio": 1.43
+   }
+  },
+  "ref_spread": {
+   "von Euch vs Freude": 12.17
+  }
+ },
+ {
+  "case": "54-blackout",
+  "img": "54-p0.png",
+  "paper_L": 249.0,
+  "targets": {
+   "blackout strokes": {
+    "n": 9861,
+    "dL": 131.0,
+    "da": 1.0,
+    "db": 3.0,
+    "rawL": 118.0,
+    "stroke_w": 7.64
+   }
+  },
+  "refs": {
+   "Gruesse Kusse vielmals": {
+    "n": 12451,
+    "dL": 104.0,
+    "da": 1.0,
+    "db": 3.0,
+    "rawL": 145.0,
+    "stroke_w": 4.65
+   },
+   "auch Deine Kinder": {
+    "n": 4852,
+    "dL": 79.0,
+    "da": 0.0,
+    "db": 3.0,
+    "rawL": 170.0,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "blackout strokes vs Gruesse Kusse vielmals": {
+    "dP": 27.0,
+    "dL_ratio": 1.26,
+    "stroke_ratio": 1.64
+   },
+   "blackout strokes vs auch Deine Kinder": {
+    "dP": 52.01,
+    "dL_ratio": 1.66,
+    "stroke_ratio": 2.79
+   }
+  },
+  "ref_spread": {
+   "Gruesse Kusse vielmals vs auch Deine Kinder": 25.02
+  }
+ },
+ {
+  "case": "aerogramme-dab",
+  "img": "aerogramme-blot-dabs.jpg",
+  "paper_L": 220.0,
+  "targets": {
+   "blue dab": {
+    "n": 12296,
+    "dL": 68.0,
+    "da": 1.0,
+    "db": -25.0,
+    "rawL": 152.0,
+    "stroke_w": 18.59
+   }
+  },
+  "refs": {
+   "handwriting man": {
+    "n": 5403,
+    "dL": 98.0,
+    "da": 5.0,
+    "db": -9.0,
+    "rawL": 122.0,
+    "stroke_w": 5.48
+   },
+   "handwriting Hers": {
+    "n": 6885,
+    "dL": 75.0,
+    "da": 4.0,
+    "db": -12.0,
+    "rawL": 145.0,
+    "stroke_w": 5.73
+   },
+   "printed microtext": {
+    "n": 1225,
+    "dL": 33.0,
+    "da": -1.0,
+    "db": -2.0,
+    "rawL": 187.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "blue dab vs handwriting man": {
+    "dP": 34.23,
+    "dL_ratio": 0.69,
+    "stroke_ratio": 3.39
+   },
+   "blue dab vs handwriting Hers": {
+    "dP": 15.07,
+    "dL_ratio": 0.91,
+    "stroke_ratio": 3.24
+   },
+   "blue dab vs printed microtext": {
+    "dP": 41.93,
+    "dL_ratio": 2.06,
+    "stroke_ratio": 9.73
+   }
+  },
+  "ref_spread": {
+   "handwriting man vs handwriting Hers": 23.22,
+   "handwriting man vs printed microtext": 65.65,
+   "handwriting Hers vs printed microtext": 43.46
+  }
+ },
+ {
+  "case": "33-bluemargin",
+  "img": "33-p0.png",
+  "paper_L": 255.0,
+  "targets": {
+   "3rd-author blue marginalia": {
+    "n": 283,
+    "dL": 34.0,
+    "da": 5.0,
+    "db": -8.0,
+    "rawL": 221.0,
+    "stroke_w": 1.91
+   }
+  },
+  "refs": {
+   "Wien 11/II 1940 dateline": {
+    "n": 1642,
+    "dL": 85.0,
+    "da": 2.0,
+    "db": 3.0,
+    "rawL": 170.0,
+    "stroke_w": 1.91
+   },
+   "Liebe Frau greeting": {
+    "n": 3944,
+    "dL": 91.0,
+    "da": 2.0,
+    "db": 1.0,
+    "rawL": 164.0,
+    "stroke_w": 2.74
+   }
+  },
+  "distances": {
+   "3rd-author blue marginalia vs Wien 11/II 1940 dateline": {
+    "dP": 52.26,
+    "dL_ratio": 0.4,
+    "stroke_ratio": 1.0
+   },
+   "3rd-author blue marginalia vs Liebe Frau greeting": {
+    "dP": 57.78,
+    "dL_ratio": 0.37,
+    "stroke_ratio": 0.7
+   }
+  },
+  "ref_spread": {
+   "Wien 11/II 1940 dateline vs Liebe Frau greeting": 6.32
+  }
+ },
+ {
+  "case": "44-ausgeloest",
+  "img": "l44-deletion2.png",
+  "paper_L": 126.0,
+  "targets": {
+   "Ausgeloest overwrite": {
+    "n": 1212,
+    "dL": 44.0,
+    "da": 2.0,
+    "db": -2.0,
+    "rawL": 82.0,
+    "stroke_w": 1.91
+   }
+  },
+  "refs": {
+   "Alle": {
+    "n": 438,
+    "dL": 43.0,
+    "da": 3.0,
+    "db": 0.0,
+    "rawL": 83.0,
+    "stroke_w": 1.91
+   },
+   "werden mit": {
+    "n": 826,
+    "dL": 57.0,
+    "da": 1.0,
+    "db": -10.0,
+    "rawL": 69.0,
+    "stroke_w": 1.91
+   }
+  },
+  "distances": {
+   "Ausgeloest overwrite vs Alle": {
+    "dP": 2.45,
+    "dL_ratio": 1.02,
+    "stroke_ratio": 1.0
+   },
+   "Ausgeloest overwrite vs werden mit": {
+    "dP": 15.3,
+    "dL_ratio": 0.77,
+    "stroke_ratio": 1.0
+   }
+  },
+  "ref_spread": {
+   "Alle vs werden mit": 17.32
+  }
+ }
+]

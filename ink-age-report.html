@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Ink Age: Were the Marks Added Later? — Blot Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f7f5f0; --surface:#fffdf8; --surface-2:#efece3;
+    --ink:#1c1a16; --ink-soft:#4a463d; --ink-faint:#7a7466;
+    --line:#d8d2c2; --line-strong:#b9b19c;
+    --blue:#1d4e89; --blue-deep:#123a68; --blue-wash:#dbe6f2;
+    --red:#a4261f; --red-wash:#f6e3df;
+    --amber:#8a5a12; --amber-wash:#f3e8cf;
+    --green:#2f6b3a; --green-wash:#e0ecdd;
+    --shadow:0 1px 2px rgba(28,26,22,.06),0 8px 24px rgba(28,26,22,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#16140f; --surface:#201d17; --surface-2:#2a271e;
+      --ink:#ece7da; --ink-soft:#c6c0b0; --ink-faint:#948d7c;
+      --line:#3a362b; --line-strong:#57523f;
+      --blue:#7aa7dd; --blue-deep:#a9c6ec; --blue-wash:#22344e;
+      --red:#e08a80; --red-wash:#46241f;
+      --amber:#d9ab5e; --amber-wash:#42351c;
+      --green:#93c79b; --green-wash:#263a28;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;line-height:1.55;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px 72px}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px}
+  .sitenav{background:var(--surface-2);border-bottom:1px solid var(--line);
+    padding:.55rem 20px;font-size:.92rem}
+  .sitenav a{color:var(--blue);text-decoration:none;margin-right:1rem}
+  .sitenav a:hover{text-decoration:underline}
+  .sitenav a.cur{font-weight:700;color:var(--ink)}
+  header{padding:44px 0 8px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px}
+  h1{font-size:clamp(34px,6vw,54px);letter-spacing:-.01em;max-width:16em}
+  .lede{font-size:clamp(18px,2.6vw,21px);color:var(--ink-soft);max-width:44em;margin:18px 0 0}
+  .lede strong{color:var(--ink)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;padding-top:16px;
+    border-top:1px solid var(--line);font-family:"IBM Plex Mono",monospace;
+    font-size:13px;color:var(--ink-faint)}
+  .meta-row b{color:var(--ink-soft);font-weight:500}
+  .verdicts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 8px}
+  @media (max-width:720px){.verdicts{grid-template-columns:1fr}}
+  .verdict{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--green);
+    padding:20px 22px;box-shadow:var(--shadow)}
+  .verdict.warn{border-top-color:var(--amber)}
+  .verdict h3{font-size:21px;margin-bottom:4px}
+  .verdict .case-tag{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+  .verdict .call{font-family:"Newsreader",serif;font-size:23px;font-weight:700;line-height:1.2;margin:6px 0 8px}
+  .verdict p{margin:0;color:var(--ink-soft);font-size:15.5px}
+  section{margin-top:56px}
+  .sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--ink);
+    padding-bottom:10px;margin-bottom:22px}
+  .sec-num{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--red);font-weight:600}
+  h2{font-size:clamp(26px,4vw,34px)}
+  .sec-sub{color:var(--ink-soft);max-width:46em;margin:-8px 0 20px}
+  p{margin:0 0 14px}
+  .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+    letter-spacing:.05em;padding:1px 7px;border-radius:99px;vertical-align:2px;white-space:nowrap}
+  .tag.a{color:var(--green);border:1px solid var(--green)}
+  .tag.b{color:var(--blue);border:1px solid var(--blue)}
+  .tag.c{color:var(--amber);border:1px solid var(--amber)}
+  .tag.d{color:var(--red);border:1px solid var(--red)}
+  .note{border:1px solid var(--line);background:var(--surface);padding:16px 18px;margin:16px 0;box-shadow:var(--shadow)}
+  .note h4{margin:0 0 6px;font-size:15px;font-family:"IBM Plex Mono",monospace;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--red)}
+  .note p:last-child{margin-bottom:0}
+  .case{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);
+    padding:22px;margin:0 0 26px}
+  .case h3{font-size:22px;margin-bottom:2px}
+  .case .loc{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);margin-bottom:12px}
+  .case-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:22px;align-items:start}
+  @media (max-width:820px){.case-grid{grid-template-columns:1fr}}
+  .case figure{margin:0}
+  .case figure img{width:100%;height:auto;display:block;border:1px solid var(--line-strong);background:#fff}
+  .case figcaption{font-size:13.5px;color:var(--ink-faint);margin-top:8px;line-height:1.45}
+  .swatch{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:-1px;margin-right:4px}
+  table.data{width:100%;border-collapse:collapse;font-family:"IBM Plex Mono",monospace;
+    font-size:13px;margin:6px 0 12px}
+  table.data th{text-align:left;font-weight:600;color:var(--ink-faint);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line-strong);padding:6px 8px}
+  table.data td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+  table.data tr.tgt td{background:var(--red-wash);font-weight:600}
+  .formula{background:var(--surface-2);border:1px solid var(--line);padding:16px 20px;margin:16px 0;
+    font-family:"IBM Plex Mono",monospace;font-size:15px;overflow-x:auto}
+  footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:14px;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a><a href="forensics-report.html">Forensics report</a><a href="invisible-ink-report.html">Invisible-ink survey</a><a href="coded-language-report.html">Coded-language report</a><a href="ink-age-report.html" class="cur">Ink-age report</a></nav>
+<div class="wrap">
+<header>
+  <p class="kicker">Blot lab &mdash; ink forensics, second pass</p>
+  <h1>Ink age: were the marks added later?</h1>
+  <p class="lede">Every bolding, partial spill, and blackout in the coded-letters corpus was compared <strong>ink-against-ink with its own surrounding words</strong>. Verdict: the marks are the writers&rsquo; own work &mdash; same-session emphasis, pen drips, and self-redaction. <strong>Nothing indicates a later hand.</strong></p>
+  <div class="meta-row">
+    <span><b>date</b> 2026-10-16</span>
+    <span><b>cases</b> 15 marks, 6 letters</span>
+    <span><b>method</b> paper-relative LAB comparison, intra-photo</span>
+    <span><b>script</b> <span class="mono">scripts/ink_age.py</span></span>
+  </div>
+</header>
+
+<div class="verdicts">
+  <div class="verdict">
+    <span class="case-tag">Bolding</span>
+    <h3>Letter 33&rsquo;s <q>cheder</q> is retraced &mdash; same ink</h3>
+    <p class="call">Emphasis, not a later hand.</p>
+    <p>Same hue as the line, 1.4&ndash;1.5&times; darker, 1.43&times; wider strokes: the classic double-application signature. Timing (same sitting vs. later, same pen) is not datable from ink alone.</p>
+  </div>
+  <div class="verdict">
+    <span class="case-tag">Partial spills</span>
+    <h3>The blots are the writers&rsquo; own pen drips</h3>
+    <p class="call">Accidents, same session.</p>
+    <p>The blot over <q>Jo[el?]</q>, the gray smudge, and the dark speck all match the surrounding ink&rsquo;s hue. Heavy, wide, same color: a wet pen, not a redactor.</p>
+  </div>
+  <div class="verdict">
+    <span class="case-tag">Blackouts</span>
+    <h3>Redactions match the letter ink</h3>
+    <p class="call">Self-censorship, in the same sitting.</p>
+    <p>Letters 53 and 54&rsquo;s blacked-out passages share the letters&rsquo; ink hue, laid on heavy and wide. Consistent with the authors blacking out their own words as they wrote.</p>
+  </div>
+  <div class="verdict warn">
+    <span class="case-tag">One to watch</span>
+    <h3>Letter 42&rsquo;s <q>Der</q> is darker <em>and</em> bluer</h3>
+    <p class="call">Heavy re-dip &mdash; or a different pen.</p>
+    <p>The only mark whose hue shifts with its darkness. A heavy same-pen re-dip would do exactly this to blue ink, but a different pen cannot be excluded. Inconclusive.</p>
+  </div>
+</div>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Method</h2></div>
+  <p class="sec-sub">Ink color cannot be carbon-dated from a photo. What it can do is far more useful here: tell whether a mark was made with the <strong>same pen and ink</strong> as the surrounding writing, or a different one.</p>
+  <p>For each mark, ink pixels were sampled in CIELAB and expressed <strong>relative to the local paper color</strong> from the same photo: darkness depth <span class="mono">dL = paper<sub>L</sub> &minus; ink<sub>L</sub></span>, and chromaticity <span class="mono">da, db</span> vs. paper. Distance <span class="mono">dP</span> is the Euclidean distance between two paper-relative signatures. Stroke width comes from a distance transform on the ink mask. Because every comparison is <strong>intra-photo</strong> (mark vs. neighboring words in the same image), lighting, exposure, and white balance cancel out &mdash; which matters, because the top of letter 33&rsquo;s first page is overexposed to clipping while its middle reads normally.</p>
+  <div class="formula">dP(target, ref) = &radic;( &Delta;dL&sup2; + &Delta;da&sup2; + &Delta;db&sup2; ) &nbsp;·&nbsp; paper-relative, same photo only</div>
+  <p><strong>Decision rule, stated before running:</strong> umlaut dots, i-dots, and neighboring ordinary words calibrate the <q>same ink</q> band; the third author&rsquo;s blue marginalia (a known different hand) anchors the <q>different ink</q> end. Retracing = same hue + &ge;1.35&times; darker + &ge;1.4&times; wider strokes.</p>
+  <div class="note">
+    <h4>EXIF audit</h4>
+    <p>Every working image was checked: <strong>0 EXIF tags</strong> on all letter photos and crops. The Apple Notes scan-to-PDF pipeline and the crop exports stripped all exposure and white-balance metadata; the PDF renders carry only resolution and orientation tags. There is therefore no EXIF to normalize by &mdash; and none is needed, since the paper-relative intra-photo comparison is immune to per-photo lighting differences by construction. Cross-photo absolute color comparison was not attempted and would not be valid.</p>
+  </div>
+  <div class="note">
+    <h4>Honest limits</h4>
+    <p><q>Different ink</q> means a different pen, or the same pen in a much later session &mdash; color alone cannot separate those. <q>Same ink</q> rules out a different pen but not a later touch-up with the same pen. Water damage and foxing were avoided by bounding-box placement, and every annotated figure below was visually verified box-by-box (two misplacements &mdash; a page-edge shadow caught in a <q>f&uuml;r</q> box, a wrong line in an umlaut crop &mdash; were found this way and corrected before measuring).</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>Calibration: the marks above &ldquo;u&rdquo;</h2></div>
+  <p class="sec-sub">Tiny supra-letter marks are the perfect calibrators: if the method is sound, a genuine umlaut dot must match its own word &mdash; and then the same test tells diacritics apart from stray spills, and confirms readings against m/n confusion.</p>
+  <div class="case">
+    <h3>Umlaut dots and i-dots match their words <span class="tag a">same pen</span></h3>
+    <div class="loc">Letter 33, p.1 &mdash; <q>durchf&uuml;hren</q>, <q>f&uuml;r</q>, <q>die</q></div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-33-umlaut.png" alt="Umlaut dots above durchfuhren with measurement boxes" loading="lazy" />
+        <img src="img/passes/ink-age/fig-33-idot.png" alt="i-dot above die with measurement boxes" loading="lazy" style="margin-top:10px" />
+        <figcaption><span class="swatch" style="background:#c00000"></span>target mark &nbsp; <span class="swatch" style="background:#1a8a1a"></span>reference words &nbsp; <span class="swatch" style="background:#1a1aff"></span>paper patch. The dots above <q>durchf&uuml;hren</q> and the i-dot of <q>die</q> are the writer&rsquo;s own diacritics.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>Mark vs. its word</th><th>dP</th><th>hue</th><th>reading</th></tr>
+          <tr class="tgt"><td>&uuml;-dots vs <q>f&uuml;r</q></td><td>7.07</td><td>match</td><td><span class="tag a">same ink</span></td></tr>
+          <tr class="tgt"><td>i-dot vs <q>die</q></td><td>8.72</td><td>match</td><td><span class="tag a">same ink</span></td></tr>
+          <tr class="tgt"><td>&uuml;-dots vs <q>durchf&uuml;hren</q></td><td>25.18</td><td>match (dC=3)</td><td><span class="tag a">same pen, light touch</span></td></tr>
+        </table>
+        <p>The <q>durchf&uuml;hren</q> dots are lighter than the word body (quick pen touches take less ink) but identical in hue &mdash; the calibration behaves exactly as a same-pen mark should. Consequence for readings: a mark above a <q>u</q> whose signature matches the word is a diacritic, not a spill and not part of a neighboring letter. That is how <q>f&uuml;r</q>, <q>durchf&uuml;hren</q>, and <q>die</q> are confirmed against m/n misreadings: the dots belong to the words.</p>
+        <p>Control: the third author&rsquo;s blue marginalia (reversed writing in the top margin, a known different hand) scores <span class="mono">dP = 52&ndash;58</span> against Josef&rsquo;s ink &mdash; the method cleanly separates different inks. Ordinary neighboring words vary at <span class="mono">dP = 1&ndash;25</span>, driven by pen wetness, not hue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Bolding and emphasis</h2></div>
+  <p class="sec-sub">Words that look darker than their line: retracing (going over the word twice) or a fresh pen dip?</p>
+
+  <div class="case">
+    <h3><q>cheder</q> retraced in darker ink <span class="tag c">retraced, same ink</span></h3>
+    <div class="loc">Letter 33, p.1 &mdash; <q>gehen die flei&szlig;ig in die Schule wie auch <strong>cheder</strong></q></div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-33-cheder.png" alt="cheder retraced darker with measurement boxes" loading="lazy" />
+        <figcaption>The retraced <q>cheder</q> against its line-mates <q>wie auch</q>, <q>die Schule</q>, <q>k&ouml;nnen die Kinder</q>.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>cheder vs</th><th>dP</th><th>darker &times;</th><th>wider &times;</th></tr>
+          <tr class="tgt"><td><q>Schule</q></td><td>24.21</td><td>1.38</td><td>1.43</td></tr>
+          <tr class="tgt"><td><q>wie auch</q></td><td>31.03</td><td>1.54</td><td>1.43</td></tr>
+          <tr class="tgt"><td><q>k&ouml;nnen die Kinder</q></td><td>25.20</td><td>1.40</td><td>1.00</td></tr>
+        </table>
+        <p>Hue is identical to the line (chroma distance &approx;3); the word is 1.4&ndash;1.5&times; darker with 1.43&times; wider strokes. That is the double-application signature: the writer went over <q>cheder</q> a second time with the same pen. Emphasis &mdash; deliberate, by the author. Whether it happened mid-letter or on a later re-reading with the same pen is not datable from ink alone, and the ink does not choose between those.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <h3>Letter 42&rsquo;s darker words: fresh dips <span class="tag a">same ink</span>, one exception</h3>
+    <div class="loc">Letter 42 (Opole, 20/X 1941), p.1 &mdash; blue ink throughout</div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-42-du.png" alt="Du darker word with measurement boxes" loading="lazy" />
+        <img src="img/passes/ink-age/fig-42-der.png" alt="Der darker word with measurement boxes" loading="lazy" style="margin-top:10px" />
+        <figcaption><q>Du</q> (<q>Du mir regelm&auml;&szlig;ig</q>) and <q>Der</q> (<q>ich Der geschrieben habe</q>), the two visibly darker blue words.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>Mark vs. neighbors</th><th>dP</th><th>darker &times;</th><th>verdict</th></tr>
+          <tr class="tgt"><td><q>Du</q> vs <q>mir</q></td><td>2.45</td><td>0.96</td><td><span class="tag a">same ink, fresh dip</span></td></tr>
+          <tr class="tgt"><td><q>Der</q> vs <q>geschrieben</q></td><td>27.73</td><td>1.51</td><td><span class="tag c">heavy; bluer &mdash; inconclusive</span></td></tr>
+          <tr class="tgt"><td><q>Der</q> vs <q>ich</q></td><td>33.44</td><td>1.70</td><td><span class="tag c">heavy; bluer &mdash; inconclusive</span></td></tr>
+        </table>
+        <p><q>Du</q> is indistinguishable from <q>mir</q> two words later: a line-initial fresh dip, same pen, same sitting. <q>Der</q> is the corpus&rsquo;s odd one out &mdash; 1.5&ndash;1.7&times; darker, 1.43&times; wider strokes, <em>and</em> shifted bluer (db &minus;14 vs &minus;8). A heavy same-pen re-dip deposits more blue dye and would look exactly like this, so same-pen emphasis remains plausible; but unlike <q>cheder</q>, the hue shift means a different (bluer) pen cannot be excluded. The one mark in the survey where <q>added later with another pen</q> survives as a live alternative.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Partial spills, not blots</h2></div>
+  <p class="sec-sub">Small ink accidents: pen drips and smears, tested against the words they sit in.</p>
+
+  <div class="case">
+    <h3>The blot over <q>Jo[el?]</q> is the writer&rsquo;s own drip <span class="tag a">same pen, accidental</span></h3>
+    <div class="loc">Letter 33, p.2 &mdash; <q>Ist Jo[blot] schon in Amerika</q></div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-33-joblot.png" alt="Blot obscuring the end of Jo with measurement boxes" loading="lazy" />
+        <figcaption>The vertical drip between <q>Ist Jo</q> and <q>schon</q>; the name&rsquo;s ending is lost under the writer&rsquo;s own pen.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>Blot vs</th><th>dP</th><th>darker &times;</th><th>wider &times;</th></tr>
+          <tr class="tgt"><td><q>Ist Jo</q></td><td>33.26</td><td>1.39</td><td>1.70</td></tr>
+          <tr class="tgt"><td><q>schon in</q></td><td>40.32</td><td>1.51</td><td>2.43</td></tr>
+        </table>
+        <p>Same hue as the line (chroma distance &approx;4), much heavier and wider: a drip from the same pen, mid-word, same session. The obscured name ending is an accident of writing, not a redaction &mdash; nobody came back later to hide it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <h3>Smudge and speck: same-pen smears <span class="tag a">same pen</span></h3>
+    <div class="loc">Letter 33, pp.1&ndash;2</div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-33-smudge.png" alt="Gray smudge with measurement boxes" loading="lazy" />
+        <img src="img/passes/ink-age/fig-33-speck.png" alt="Small dark blot with measurement boxes" loading="lazy" style="margin-top:10px" />
+        <figcaption>The gray smear by <q>durchf&uuml;hren</q> and the dark speck by <q>demn&auml;chst</q>.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>Mark vs. neighbor</th><th>dP</th><th>verdict</th></tr>
+          <tr class="tgt"><td>smudge vs <q>durchf&uuml;hren</q></td><td>4.24</td><td><span class="tag a">same ink &mdash; wet-pen smear</span></td></tr>
+          <tr class="tgt"><td>speck vs <q>demn&auml;chst</q></td><td>50.04</td><td><span class="tag a">same hue, heavy &mdash; pen spatter</span></td></tr>
+        </table>
+        <p>The smudge is chemically identical to <q>durchf&uuml;hren</q> beside it: the pen smeared while the ink was wet. The speck shares the line&rsquo;s hue at 1.54&times; darkness and double width &mdash; spatter from the same pen, same sitting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <h3>The aerogramme blue dab is a different blue <span class="tag b">different ink</span></h3>
+    <div class="loc">Aerogramme to Malka Berman &mdash; blue wash over printed microtext and handwriting</div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-aerogramme-dab.png" alt="Blue dab with measurement boxes" loading="lazy" />
+        <figcaption>The dab against the handwritten <q>man</q>/<q>Hers&hellip;</q> and the printed Hebrew microtext.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>Dab vs</th><th>dP</th><th>verdict</th></tr>
+          <tr class="tgt"><td>handwriting <q>Hers&hellip;</q></td><td>15.07</td><td><span class="tag b">much bluer (db &minus;25 vs &minus;12)</span></td></tr>
+          <tr class="tgt"><td>handwriting <q>man</q></td><td>34.23</td><td><span class="tag b">different</span></td></tr>
+          <tr class="tgt"><td>printed microtext</td><td>41.93</td><td><span class="tag b">different</span></td></tr>
+        </table>
+        <p>The dab is a dilute blue wash, far bluer than either the handwriting or the print &mdash; a spill of diluted ink or a different blue pen, not a writing stroke. It carries no letterforms (as established in the earlier pass): a spill, not a message, and not the author&rsquo;s writing pen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Blackouts and insertions</h2></div>
+  <p class="sec-sub">Deliberate marks: were the redactions made with the letter&rsquo;s own pen?</p>
+
+  <div class="case">
+    <h3>Letters 53 and 54: self-redaction, same pen <span class="tag a">same hue, heavy hand</span></h3>
+    <div class="loc">Letter 53 (blackout over <q>f&uuml;r Malw&hellip;</q>); letter 54 (closing-line blackout)</div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-53-blackout.png" alt="Letter 53 blackout with measurement boxes" loading="lazy" />
+        <img src="img/passes/ink-age/fig-54-blackout.png" alt="Letter 54 blackout with measurement boxes" loading="lazy" style="margin-top:10px" />
+        <figcaption>Both blackouts against their neighboring lines.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th>Blackout vs. neighbors</th><th>dP</th><th>darker &times;</th><th>wider &times;</th></tr>
+          <tr class="tgt"><td>53 vs <q>bekommen der Jossel</q></td><td>79.18</td><td>1.79</td><td>3.0</td></tr>
+          <tr class="tgt"><td>53 vs <q>mecht so gern</q></td><td>75.19</td><td>1.72</td><td>3.0</td></tr>
+          <tr class="tgt"><td>54 vs <q>Gr&uuml;&szlig;e K&uuml;sse vielmals</q></td><td>27.00</td><td>1.26</td><td>1.64</td></tr>
+        </table>
+        <p>Both blackouts share their letter&rsquo;s ink hue (53: chroma distance &approx;5; 54: hue identical), laid on 1.3&ndash;1.8&times; darker and up to 3&times; wider &mdash; multi-pass scribbling with the writing pen. The economical reading is the one the coded-language pass already reached: the authors blacked out their own words, in the same sitting. A censor&rsquo;s later pen would have no reason to match the hue; a blacker pen cannot be strictly excluded for 53, but nothing requires it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <h3><q>Dankend</q> squeezed in with the same pen <span class="tag a">same ink, same sitting</span></h3>
+    <div class="loc">Letter 53, p.1 &mdash; overtext above <q>erhalten</q></div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-53-dankend.png" alt="Dankend overtext with measurement boxes" loading="lazy" />
+        <figcaption><q>Dankend</q> inserted above the line between <q>von Euch</q> and <q>erhalten</q>.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th><q>Dankend</q> vs</th><th>dP</th><th>verdict</th></tr>
+          <tr class="tgt"><td><q>von Euch</q></td><td>5.10</td><td><span class="tag a">same ink</span></td></tr>
+          <tr class="tgt"><td><q>Freude</q></td><td>7.07</td><td><span class="tag a">same ink</span></td></tr>
+        </table>
+        <p>Indistinguishable from the line it was squeezed into: a same-session insertion while writing, not a later correction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case">
+    <h3><q>Ausgel&ouml;st</q> overwritten, same ink <span class="tag a">same ink</span></h3>
+    <div class="loc">Letter 44 &mdash; <q>sollen schon Alle Ausgel&ouml;st werden</q></div>
+    <div class="case-grid">
+      <figure>
+        <img src="img/passes/ink-age/fig-44-ausgeloest.png" alt="Ausgeloest overwrite with measurement boxes" loading="lazy" />
+        <figcaption><q>Ausgel&ouml;st</q> written over an earlier word.</figcaption>
+      </figure>
+      <div>
+        <table class="data">
+          <tr><th><q>Ausgel&ouml;st</q> vs</th><th>dP</th><th>verdict</th></tr>
+          <tr class="tgt"><td><q>Alle</q></td><td>2.45</td><td><span class="tag a">same ink</span></td></tr>
+        </table>
+        <p>The overwrite matches <q>Alle</q> beside it almost exactly: corrected with the same pen, in the same sitting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>What this means for &ldquo;added after the fact&rdquo;</h2></div>
+  <p>Fourteen of fifteen marks resolve to the writer&rsquo;s own pen: emphasis retracing (<q>cheder</q>), fresh dips (<q>Du</q>), same-session insertions (<q>Dankend</q>, <q>Ausgel&ouml;st</q>), pen drips and smears (the <q>Jo</q> blot, the smudge, the speck), and self-redaction (both blackouts). The fifteenth, the aerogramme dab, is a spill of a different blue &mdash; an accident of handling, not a later hand&rsquo;s message. The known-different control (the third author&rsquo;s marginalia) separates cleanly, so the method is not simply calling everything &ldquo;same.&rdquo;</p>
+  <p>The one genuine ambiguity is letter 42&rsquo;s <q>Der</q>: heavier <em>and</em> bluer than its line. Same-pen heavy emphasis and a different pen remain both live. Everything else the ink can say points one way: <strong>the marked-up words were marked up by the people who wrote the letters</strong>, and nothing in the ink suggests anyone came back later to add, hide, or emphasize.</p>
+  <div class="note">
+    <h4>Reproduce it</h4>
+    <p><span class="mono">scripts/ink_age.py</span> holds the case list (bounding boxes in source pixels), the paper-relative sampler, and the figure annotator. <span class="mono">img/passes/ink-age/ink-age-measurements.json</span> holds every measurement; <span class="mono">fig-*.png</span> in the same directory are the annotated figures, each visually verified. Source renders: <span class="mono">img/passes/ink-age/33-p0.png</span>, <span class="mono">42-p0.png</span>, <span class="mono">53-p0.png</span>, <span class="mono">54-p0.png</span> (2&times; renders of <span class="mono">img/onionskin-survey/&lbrace;33,42,53,54&rbrace;.pdf</span>), plus <span class="mono">img/source/aerogramme-blot-dabs.jpg</span> and the coded-language crop of letter 44.</p>
+  </div>
+</section>
+
+<footer>
+  Blot lab &mdash; ink-age pass, 2026-10-16. All comparisons intra-photo; no EXIF survives on the working images. Part of the <a href="coded-language-report.html">coded-language</a> and <a href="invisible-ink-report.html">invisible-ink</a> survey series.
+</footer>
+</div>
+</body>
+</html>
