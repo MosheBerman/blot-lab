@@ -1,0 +1,169 @@
+{
+ "letter": "9",
+ "source": "<!-- drive_id: 1SVZw7Uv58wpCzvJqTIcMdKUl2YDfEX3b | url: https://drive.google.com/file/d/1SVZw7Uv58wpCzvJqTIcMdKUl2YDfEX3b/view?usp=drivesdk | title: Transcription 9.docx -->",
+ "n_lines": 19,
+ "n_words": 63,
+ "n_letters": 318,
+ "editorial_markers": {},
+ "footnotes": [
+  "1 Word disappears at edge of page but ending ‘ben’ is almost certain."
+ ],
+ "footnotes_physical": [
+  "1 Word disappears at edge of page but ending ‘ben’ is almost certain."
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]",
+  "[Note by a second author follows, beginning in the signature line:]",
+  "[Note concludes along left-hand edge of page:]",
+  "[Note in bottom left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.33,
+   "null_sd": 0.47,
+   "z": 1.44,
+   "examples": [
+    {
+     "start": 32,
+     "skip": 17,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 1,
+   "null_mean": 0.38,
+   "null_sd": 0.58,
+   "z": 1.08,
+   "examples": [
+    {
+     "start": 21,
+     "skip": 41,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 2,
+   "null_mean": 1.35,
+   "null_sd": 1.33,
+   "z": 0.49,
+   "examples": [
+    {
+     "start": 31,
+     "skip": 76,
+     "reversed": false
+    },
+    {
+     "start": 162,
+     "skip": 19,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 1,
+   "null_mean": 2.12,
+   "null_sd": 1.0,
+   "z": -1.12,
+   "examples": [
+    {
+     "start": 102,
+     "skip": 21,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 5,
+  "null_mean": 5.6,
+  "null_sd": 2.0
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.0,
+ "acrostic": "ldzhdlfgmktalehdcl",
+ "telestich": "ennenehsnnlhnhnrrn",
+ "first_words": "Liebe die zu Hab duld lasse Famielie grüsse meinen Kalman Taube auch lasse Euer herzlich da Chaje lassen",
+ "last_words": "bitte Son geben ge schreiben ganze Herzlich besonders Sohn Kalman Ettel ich kussen Euch zuschreiben war Kinder grussen",
+ "word_initials": "lsbdkmszueghskgdzsldgfhgbmlskteailhgukejrllehgsknzdsnzhwcudlkleg",
+ "sentence_initials": "lhr",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "kalman",
+  "taube"
+ ],
+ "caps_string": "skshsejrlehke",
+ "caps_hits": [],
+ "bacon_from_caps": "?ira?qahwacs",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "kalman",
+  "russen",
+  "taube"
+ ],
+ "numbers": [
+  "505"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Chaje",
+  "Ettel",
+  "Euch",
+  "Euer",
+  "Famielie",
+  "Hab",
+  "Hause",
+  "Herzlich",
+  "Josef",
+  "Kalman",
+  "Karte",
+  "Kinder",
+  "Lea",
+  "Liebe",
+  "Rachel",
+  "Schwester",
+  "Sohn",
+  "Son",
+  "Taube"
+ ],
+ "names_not_in_family_set": [
+  "Euch",
+  "Euer",
+  "Famielie",
+  "Hab",
+  "Hause",
+  "Herzlich",
+  "Karte",
+  "Kinder",
+  "Liebe",
+  "Schwester",
+  "Sohn",
+  "Son"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

@@ -1,0 +1,489 @@
+{
+ "letter": "8",
+ "source": "<!-- drive_id: 1VPpHTU3TrpMVXFQVssjDu3cpnWos2KZ_ | url: https://drive.google.com/file/d/1VPpHTU3TrpMVXFQVssjDu3cpnWos2KZ_/view?usp=drivesdk | title: Transcription 8.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 47,
+ "n_words": 232,
+ "n_letters": 1136,
+ "editorial_markers": {
+  "unclear": 1,
+  "deletion": 2
+ },
+ "footnotes": [
+  "1 This could also possibly be 27 II. 1941 if two strokes have merged together here into one thick line.",
+  "2 There is an unclear figure before 3 which can presumably be counted as deleted – it seems most likely that 2 was written and corrected to 3 before the figure was written out again for clarity."
+ ],
+ "footnotes_physical": [
+  "2 There is an unclear figure before 3 which can presumably be counted as deleted – it seems most likely that 2 was written and corrected to 3 before the figure was written out again for clarity."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter continues overleaf:]",
+  "[Note added in lower margin of page and continued along right-hand margin:]"
+ ],
+ "els": [
+  {
+   "target": "rosa",
+   "observed": 9,
+   "null_mean": 2.62,
+   "null_sd": 1.81,
+   "z": 3.52,
+   "examples": [
+    {
+     "start": 498,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 122,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 723,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "getto",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 47,
+     "skip": 71,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mawes",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 758,
+     "skip": 26,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "joel",
+   "observed": 1,
+   "null_mean": 0.15,
+   "null_sd": 0.42,
+   "z": 2.02,
+   "examples": [
+    {
+     "start": 833,
+     "skip": 85,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 2,
+   "null_mean": 0.57,
+   "null_sd": 0.8,
+   "z": 1.78,
+   "examples": [
+    {
+     "start": 663,
+     "skip": 68,
+     "reversed": false
+    },
+    {
+     "start": 742,
+     "skip": 62,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "taube",
+   "observed": 1,
+   "null_mean": 0.28,
+   "null_sd": 0.5,
+   "z": 1.45,
+   "examples": [
+    {
+     "start": 352,
+     "skip": 44,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 13,
+   "null_mean": 8.93,
+   "null_sd": 3.29,
+   "z": 1.24,
+   "examples": [
+    {
+     "start": 694,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 507,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 694,
+     "skip": 33,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 10,
+   "null_mean": 7.83,
+   "null_sd": 2.43,
+   "z": 0.9,
+   "examples": [
+    {
+     "start": 328,
+     "skip": 13,
+     "reversed": false
+    },
+    {
+     "start": 496,
+     "skip": 27,
+     "reversed": false
+    },
+    {
+     "start": 784,
+     "skip": 74,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 1.07,
+   "null_sd": 1.06,
+   "z": 0.87,
+   "examples": [
+    {
+     "start": 489,
+     "skip": 56,
+     "reversed": true
+    },
+    {
+     "start": 68,
+     "skip": 115,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.33,
+   "null_sd": 0.79,
+   "z": 0.86,
+   "examples": [
+    {
+     "start": 182,
+     "skip": 95,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 3.45,
+   "null_sd": 1.91,
+   "z": 0.81,
+   "examples": [
+    {
+     "start": 22,
+     "skip": 46,
+     "reversed": false
+    },
+    {
+     "start": 22,
+     "skip": 66,
+     "reversed": false
+    },
+    {
+     "start": 22,
+     "skip": 106,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 0.72,
+   "null_sd": 0.77,
+   "z": 0.36,
+   "examples": [
+    {
+     "start": 858,
+     "skip": 11,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 0.75,
+   "null_sd": 1.02,
+   "z": 0.25,
+   "examples": [
+    {
+     "start": 623,
+     "skip": 47,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 5,
+   "null_mean": 4.7,
+   "null_sd": 2.43,
+   "z": 0.12,
+   "examples": [
+    {
+     "start": 472,
+     "skip": 3,
+     "reversed": false
+    },
+    {
+     "start": 721,
+     "skip": 44,
+     "reversed": false
+    },
+    {
+     "start": 539,
+     "skip": 81,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 1.12,
+   "null_sd": 0.95,
+   "z": -0.13,
+   "examples": [
+    {
+     "start": 929,
+     "skip": 58,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 13,
+   "null_mean": 15.12,
+   "null_sd": 4.2,
+   "z": -0.51,
+   "examples": [
+    {
+     "start": 428,
+     "skip": 11,
+     "reversed": false
+    },
+    {
+     "start": 496,
+     "skip": 35,
+     "reversed": false
+    },
+    {
+     "start": 573,
+     "skip": 61,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 3.9,
+   "null_sd": 2.52,
+   "z": -1.15,
+   "examples": [
+    {
+     "start": 593,
+     "skip": 78,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 68,
+  "null_mean": 54.4,
+  "null_sd": 7.4
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 1.4,
+ "acrostic": "waefbvssbgcdebvmdrnasizedkkswabsmauvgkvweimkdm",
+ "telestich": "innttttiarteeetnnttnufeernaurenstteeetrtfhnnnt",
+ "first_words": "Wien An Es fast bekomme vielleicht So schreibt ben geschrieben Consul daß eingelangt bis Verständigung momentan daß rumänische nicht aus sollst in zu einzige daß Kinder konnen sollst wenden Ausreise bei Sonst macht Adi Und Verwandte Grüß Kusse von wunscht Euch ich Mark könnte das meiner",
+ "last_words": "I Liebsten schon Nachricht besorgt Flugpost ist dazuschrei Eva Amerikanischer hat Papiere habe keine ist rechnen kommen uberhaupt dort arbeiten Du herauf meine habe oder anfordern Eva anzu meiner gerne sein Was macht Norbert alle Bekante besondere Norbert welcher mit Josef ich abwarten geben verhelfen annimmt",
+ "word_initials": "wiamlewmsdisfmveknbbsdbvsinpfsbewemisfjsdbilbhdlegddacadghdfmvpesaihbdhtkvigeimdnzrdizukrqkunibavdaddfdaswinodidlbmhznadimetdighdefemokivaknbdlestaawwmamsgbemlsswgeewmmwmaunuwmavubgukdbkamaunvepwwsbmezsjikawimhdidakbmidhzgdsjmzmavma",
+ "sentence_initials": "bidwwu",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [
+   "erna"
+  ],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.05,
+ "nth_word_hits": {
+  "9/2": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "mali",
+  "norbert",
+  "wien"
+ ],
+ "caps_string": "ilmenifefibdeadptuqbddltfmvdeelewmwnbdmanepjha",
+ "caps_hits": [],
+ "bacon_from_caps": "?rcwauieflgrealaakbarbeacaxilailsyyftyybecabac",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "arbeit",
+  "josef",
+  "norbert"
+ ],
+ "numbers": [
+  "162",
+  "1906",
+  "27",
+  "1941",
+  "3",
+  "300"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "Amerikanischer",
+  "An",
+  "Ausreise",
+  "Bekante",
+  "Betracht",
+  "Brief",
+  "Consul",
+  "Dich",
+  "Dir",
+  "Du",
+  "Es",
+  "Euch",
+  "Euer",
+  "Eva",
+  "Flugpost",
+  "Frau",
+  "Grüß",
+  "Hand",
+  "I",
+  "Ihr",
+  "In",
+  "Josef",
+  "Kinder",
+  "Kusse",
+  "Lage",
+  "Liebsten",
+  "Mali",
+  "Mann",
+  "Mark",
+  "Monate",
+  "Nachricht",
+  "Norbert",
+  "Papa",
+  "Papiere",
+  "Quote",
+  "So",
+  "Sonst",
+  "Tag",
+  "Trost",
+  "Und",
+  "Untersuchung",
+  "Vater",
+  "Verständigung",
+  "Verwandte",
+  "Was",
+  "Wien"
+ ],
+ "names_not_in_family_set": [
+  "Amerikanischer",
+  "An",
+  "Ausreise",
+  "Bekante",
+  "Betracht",
+  "Brief",
+  "Consul",
+  "Dich",
+  "Dir",
+  "Du",
+  "Es",
+  "Euch",
+  "Euer",
+  "Flugpost",
+  "Frau",
+  "Grüß",
+  "Hand",
+  "I",
+  "Ihr",
+  "In",
+  "Kinder",
+  "Kusse",
+  "Lage",
+  "Liebsten",
+  "Mann",
+  "Mark",
+  "Monate",
+  "Nachricht",
+  "Papa",
+  "Papiere",
+  "Quote",
+  "So",
+  "Sonst",
+  "Tag",
+  "Trost",
+  "Und",
+  "Untersuchung",
+  "Vater",
+  "Verständigung",
+  "Verwandte",
+  "Was",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

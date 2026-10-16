@@ -1,0 +1,303 @@
+{
+ "letter": "42",
+ "source": "<!-- drive_id: 1VcFn_wnf7gtH-G4TI_btBMCzQ9SIvNJh | url: https://drive.google.com/file/d/1VcFn_wnf7gtH-G4TI_btBMCzQ9SIvNJh/view?usp=drivesdk | title: Transcription 42.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 29,
+ "n_words": 153,
+ "n_letters": 731,
+ "editorial_markers": {
+  "text loss": 2
+ },
+ "footnotes": [
+  "1 Text loss at edge of page. The context suggests this word is likely ‘nur’.",
+  "2 Text loss – context suggests this is likely ‘mich’."
+ ],
+ "footnotes_physical": [
+  "1 Text loss at edge of page. The context suggests this word is likely ‘nur’.",
+  "2 Text loss – context suggests this is likely ‘mich’."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter continues overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "osten",
+   "observed": 2,
+   "null_mean": 0.28,
+   "null_sd": 0.5,
+   "z": 3.45,
+   "examples": [
+    {
+     "start": 280,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 518,
+     "skip": 37,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 11,
+   "null_mean": 6.78,
+   "null_sd": 2.47,
+   "z": 1.71,
+   "examples": [
+    {
+     "start": 19,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 537,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 537,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 8,
+   "null_mean": 5.28,
+   "null_sd": 2.2,
+   "z": 1.24,
+   "examples": [
+    {
+     "start": 383,
+     "skip": 33,
+     "reversed": false
+    },
+    {
+     "start": 215,
+     "skip": 35,
+     "reversed": false
+    },
+    {
+     "start": 449,
+     "skip": 67,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.47,
+   "null_sd": 0.74,
+   "z": 0.71,
+   "examples": [
+    {
+     "start": 285,
+     "skip": 65,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 4,
+   "null_mean": 2.98,
+   "null_sd": 1.65,
+   "z": 0.62,
+   "examples": [
+    {
+     "start": 9,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 46,
+     "skip": 63,
+     "reversed": false
+    },
+    {
+     "start": 53,
+     "skip": 93,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.6,
+   "null_sd": 0.73,
+   "z": 0.54,
+   "examples": [
+    {
+     "start": 163,
+     "skip": 30,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 1.57,
+   "null_sd": 1.2,
+   "z": 0.35,
+   "examples": [
+    {
+     "start": 516,
+     "skip": 57,
+     "reversed": false
+    },
+    {
+     "start": 459,
+     "skip": 57,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 1.32,
+   "null_sd": 1.27,
+   "z": -0.26,
+   "examples": [
+    {
+     "start": 354,
+     "skip": 82,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 2,
+   "null_mean": 2.42,
+   "null_sd": 1.5,
+   "z": -0.28,
+   "examples": [
+    {
+     "start": 568,
+     "skip": 44,
+     "reversed": true
+    },
+    {
+     "start": 489,
+     "skip": 68,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 32,
+  "null_mean": 25.3,
+  "null_sd": 4.6
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 2.4,
+ "acrostic": "oadwhkdbpginiibdddsgisbsdemj",
+ "telestich": "xnnteedsnananrenthlsnnihehnl",
+ "first_words": "Opole An Den welchen habe Kinder der beisammen Pakerl gesendet Ich nicht ich ich bei Dich Du da sein gebeten ich so brauchst Sonst Dich Euer mit Jossel",
+ "last_words": "X Liebsten erhalten erwartet die gebe bald das Lisabon Eva Schreiben da bin mir habe wan würdest nachdenklich oftmal bis n destwegen mi ich kusse sich sehen Jossel",
+ "word_initials": "oxamldbvvhewisslehefmsddkaewgdadwsbbskadpwdmdlghheleibmmesnslwldissnbibadksmbjszihdsodgwdmrswdminsnsihdsognslzwbidghiknsosadbnbsumsnvbaidaungukepwwsmezsj",
+ "sentence_initials": "al",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "8/0": [
+   "mali"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "opole"
+ ],
+ "caps_string": "xlbveallesksddbanpe",
+ "caps_hits": [],
+ "bacon_from_caps": "??aabirarr?eaaccecaaeacaaatodb",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "opole"
+ ],
+ "numbers": [
+  "9",
+  "20",
+  "1941",
+  "22"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "Allmachtige",
+  "An",
+  "Besonders",
+  "Brief",
+  "Den",
+  "Dich",
+  "Dir",
+  "Du",
+  "Erholung",
+  "Euch",
+  "Euer",
+  "Eva",
+  "Ich",
+  "Jossel",
+  "Kinder",
+  "Lieb",
+  "Liebsten",
+  "Lisabon",
+  "Norber",
+  "Opole",
+  "Pakerl",
+  "Papa",
+  "Schreiben",
+  "Sonst",
+  "VIII",
+  "X"
+ ],
+ "names_not_in_family_set": [
+  "Allmachtige",
+  "An",
+  "Besonders",
+  "Brief",
+  "Den",
+  "Dich",
+  "Dir",
+  "Du",
+  "Erholung",
+  "Euch",
+  "Euer",
+  "Ich",
+  "Kinder",
+  "Lieb",
+  "Liebsten",
+  "Lisabon",
+  "Norber",
+  "Opole",
+  "Pakerl",
+  "Papa",
+  "Schreiben",
+  "Sonst",
+  "VIII",
+  "X"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

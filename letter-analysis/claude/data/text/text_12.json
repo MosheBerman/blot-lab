@@ -1,0 +1,380 @@
+{
+ "letter": "12",
+ "source": "<!-- drive_id: 1SyQqzp8W6G4_7R-FXI0w3sx_OkXWassS | url: https://drive.google.com/file/d/1SyQqzp8W6G4_7R-FXI0w3sx_OkXWassS/view?usp=drivesdk | title: Transcription 12.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 44,
+ "n_words": 231,
+ "n_letters": 1071,
+ "editorial_markers": {
+  "?": 9,
+  "unclear": 4
+ },
+ "footnotes": [
+  "1 Text on this line is partially obscured by writing in ink showing through from the other side. The final two words are especially unclear, but the initial ‘A’ and final ‘d’ in ‘Avidavid [?]’ are certain.",
+  "2 Again this line is almost illegible at the end – a possible reading may be ‘sollst Du’.",
+  "3 Last two words unclear, but compare letter 26 which refers to ‘dein Bruder Schlojme’.",
+  "4 Text unclear along central fold. The final word of the line resembles ‘bestimmt’ in the following line. It may be that this text is an error or deletion and that the phrase is begun afresh below.",
+  "5 Text faint and unclear due to crumpling of page. A possible reading here may be ‘aufgehoben’.",
+  "6 From this point the letter continues in ink for a short time.",
+  "7 ‘gefahren’ is added above ‘niemand’ – it is not entirely clear where it belongs but it could fit at this point."
+ ],
+ "footnotes_physical": [
+  "1 Text on this line is partially obscured by writing in ink showing through from the other side. The final two words are especially unclear, but the initial ‘A’ and final ‘d’ in ‘Avidavid [?]’ are certain.",
+  "3 Last two words unclear, but compare letter 26 which refers to ‘dein Bruder Schlojme’.",
+  "4 Text unclear along central fold. The final word of the line resembles ‘bestimmt’ in the following line. It may be that this text is an error or deletion and that the phrase is begun afresh below.",
+  "5 Text faint and unclear due to crumpling of page. A possible reading here may be ‘aufgehoben’."
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "osten",
+   "observed": 2,
+   "null_mean": 0.33,
+   "null_sd": 0.47,
+   "z": 3.58,
+   "examples": [
+    {
+     "start": 400,
+     "skip": 97,
+     "reversed": false
+    },
+    {
+     "start": 875,
+     "skip": 33,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 4,
+   "null_mean": 0.82,
+   "null_sd": 0.92,
+   "z": 3.46,
+   "examples": [
+    {
+     "start": 456,
+     "skip": 111,
+     "reversed": false
+    },
+    {
+     "start": 1003,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 1057,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 15,
+   "null_mean": 7.88,
+   "null_sd": 2.71,
+   "z": 2.63,
+   "examples": [
+    {
+     "start": 363,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 207,
+     "skip": 23,
+     "reversed": false
+    },
+    {
+     "start": 649,
+     "skip": 31,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 5,
+   "null_mean": 3.85,
+   "null_sd": 1.85,
+   "z": 0.62,
+   "examples": [
+    {
+     "start": 770,
+     "skip": 33,
+     "reversed": false
+    },
+    {
+     "start": 388,
+     "skip": 60,
+     "reversed": false
+    },
+    {
+     "start": 408,
+     "skip": 68,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.62,
+   "null_sd": 0.7,
+   "z": 0.54,
+   "examples": [
+    {
+     "start": 387,
+     "skip": 35,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 2.23,
+   "null_sd": 1.54,
+   "z": 0.5,
+   "examples": [
+    {
+     "start": 483,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 307,
+     "skip": 53,
+     "reversed": false
+    },
+    {
+     "start": 424,
+     "skip": 13,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.78,
+   "null_sd": 0.88,
+   "z": 0.26,
+   "examples": [
+    {
+     "start": 893,
+     "skip": 54,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 4,
+   "null_mean": 3.55,
+   "null_sd": 1.96,
+   "z": 0.23,
+   "examples": [
+    {
+     "start": 991,
+     "skip": 24,
+     "reversed": true
+    },
+    {
+     "start": 933,
+     "skip": 25,
+     "reversed": true
+    },
+    {
+     "start": 777,
+     "skip": 71,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 9,
+   "null_mean": 8.5,
+   "null_sd": 2.65,
+   "z": 0.19,
+   "examples": [
+    {
+     "start": 332,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 730,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 349,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 4,
+   "null_mean": 4.5,
+   "null_sd": 1.87,
+   "z": -0.27,
+   "examples": [
+    {
+     "start": 442,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 687,
+     "skip": 48,
+     "reversed": false
+    },
+    {
+     "start": 63,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 2.02,
+   "null_sd": 1.44,
+   "z": -0.71,
+   "examples": [
+    {
+     "start": 860,
+     "skip": 19,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 49,
+  "null_mean": 39.8,
+  "null_sd": 4.8
+ },
+ "nth_word_hits_total": 3,
+ "nth_word_hits_null_mean": 2.9,
+ "acrostic": "lddweftsswbddwrowiqiggdosgkkbosdnwjsbawddgdj",
+ "telestich": "atnueestnnntrenfleretnhuntntohnortnisntunhrf",
+ "first_words": "Liebe Den daß wirst es finde teilt Schlojme so Wann bekommst Du daß werde rumanische oder was ist Quote ist Gott gebe den ohne sein geduldig kommen konnen betont oft selber deshalb nachdenklich wenig Jedenfalls schauen ben als wie die Dir Grusse die Josef",
+ "last_words": "Eva schreibst schicken u be mitge Bruders schreibst dazuschreiben Schreiben sein best Dir die auffgehoben herauf derweil rumanische hier gebe Moglichkeit konnen einfach zu man Zeit fahren oft so ich kann so mir bekommst daran schrei Besonders bin schreibt zu können auch mir Josef",
+ "word_initials": "ledbiddmsddmdaswigfdsueacaeibfmwidbmthidndbswdsskdfmdwdvmwsbbngsdsmdbdibbzdwkkiddrqaoadghwdghdinnarqguvhingngggdefmdmgdisfkdeinseofidfzsjmmgsbdzkwdiwfkwidsobhdinsoskdisnakdbnsnwdvmwsbjsdndsumosbsnbaigsdgbwgedwsdlmwszdkkgukdwadlkvmj",
+ "sentence_initials": "lwwwg",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "8/7": [
+   "erna"
+  ],
+  "9/4": [
+   "wien"
+  ],
+  "9/7": [
+   "wien"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "mali",
+  "schlojme"
+ ],
+ "caps_string": "ebddacadnbwdddsdqdgmffzddsdsbgdwmwk",
+ "caps_hits": [],
+ "bacon_from_caps": "?itabrcazsdcbabaenabaariaatacacaaaaelrbkaggkae",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "gefahr",
+  "josef",
+  "schlojme"
+ ],
+ "numbers": [],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adresse",
+  "Avidavid",
+  "Besonders",
+  "Brief",
+  "Bruders",
+  "Chajczes",
+  "Dein",
+  "Den",
+  "Dir",
+  "Du",
+  "Eva",
+  "Familie",
+  "Fremde",
+  "Gesuch",
+  "Gott",
+  "Grusse",
+  "Jedenfalls",
+  "Josef",
+  "Kinder",
+  "Liebe",
+  "Mali",
+  "Moglichkeit",
+  "Nähe",
+  "Quote",
+  "Schlojme",
+  "Schreiben",
+  "Sonst",
+  "Wann",
+  "Was",
+  "Wird",
+  "Zeit"
+ ],
+ "names_not_in_family_set": [
+  "Adresse",
+  "Avidavid",
+  "Besonders",
+  "Brief",
+  "Bruders",
+  "Chajczes",
+  "Dein",
+  "Den",
+  "Dir",
+  "Du",
+  "Familie",
+  "Fremde",
+  "Gesuch",
+  "Gott",
+  "Grusse",
+  "Jedenfalls",
+  "Kinder",
+  "Liebe",
+  "Moglichkeit",
+  "Nähe",
+  "Quote",
+  "Schreiben",
+  "Sonst",
+  "Wann",
+  "Was",
+  "Wird",
+  "Zeit"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

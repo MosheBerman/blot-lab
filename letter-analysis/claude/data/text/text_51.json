@@ -1,0 +1,323 @@
+{
+ "letter": "51",
+ "source": "<!-- drive_id: 1VrMJR-5vrHzIL3_CFGoBulekM6FZvWGG | url: https://drive.google.com/file/d/1VrMJR-5vrHzIL3_CFGoBulekM6FZvWGG/view?usp=drivesdk | title: Transcription 51.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 17,
+ "n_words": 106,
+ "n_letters": 485,
+ "editorial_markers": {
+  "?": 3,
+  "unclear": 6,
+  "Unclear": 1,
+  "text loss": 1
+ },
+ "footnotes": [
+  "1 Scan of letter is somewhat blurred, especially for the first few lines and has a large number of blots.",
+  "2 The first unclear word is largely obscured by a blot. If this is referring to financial help (cf. letter 5), this could perhaps be RM. The second unclear word is added above the line and probably begins with P – in which case ‘Pakete’ or similar is a possible reading. If that is correct, there is perhaps a chance that the preceding letters could be L.M. for ‘Lebensmittel’ (cf. letter 40).",
+  "3 Word largely obscured by blot. Possibly ‘ihm’ but this remains certain.",
+  "4 Word obscured by blot but likely two letters – perhaps ‘es’ or so’.",
+  "5 Possibly Ewa.",
+  "6 Beginning of name very blurred. Going purely by shape, the initial could easily be H, K or Z. It would be just about possible to read W or B, which would make more sense given that the following letters look likely to be either ‘erenstein’ or ‘einstein’.",
+  "7 Possibly König but initial looks more like usual style of H. Compare letter 1.",
+  "8 This looks like ‘et’, which this author sometimes seems to use for ‘&’.",
+  "9 Word largely obscured by ink blot. From the context, a possible reading may be ‘geantwortet’.",
+  "10 Text obscured by blot.",
+  "11 Ink blot with no real clues as to what is obscured – the missing word could be ‘an’ or possibly the habitual ‘küße’."
+ ],
+ "footnotes_physical": [
+  "1 Scan of letter is somewhat blurred, especially for the first few lines and has a large number of blots.",
+  "2 The first unclear word is largely obscured by a blot. If this is referring to financial help (cf. letter 5), this could perhaps be RM. The second unclear word is added above the line and probably begins with P – in which case ‘Pakete’ or similar is a possible reading. If that is correct, there is perhaps a chance that the preceding letters could be L.M. for ‘Lebensmittel’ (cf. letter 40).",
+  "3 Word largely obscured by blot. Possibly ‘ihm’ but this remains certain.",
+  "4 Word obscured by blot but likely two letters – perhaps ‘es’ or so’.",
+  "9 Word largely obscured by ink blot. From the context, a possible reading may be ‘geantwortet’.",
+  "10 Text obscured by blot.",
+  "11 Ink blot with no real clues as to what is obscured – the missing word could be ‘an’ or possibly the habitual ‘küße’."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "hilfe",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 132,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "joel",
+   "observed": 2,
+   "null_mean": 0.4,
+   "null_sd": 0.58,
+   "z": 2.74,
+   "examples": [
+    {
+     "start": 216,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 158,
+     "skip": 76,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 2,
+   "null_mean": 0.33,
+   "null_sd": 0.65,
+   "z": 2.59,
+   "examples": [
+    {
+     "start": 134,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 223,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "jakob",
+   "observed": 1,
+   "null_mean": 0,
+   "null_sd": 0.5,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 296,
+     "skip": 20,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 0.65,
+   "null_sd": 0.85,
+   "z": 1.58,
+   "examples": [
+    {
+     "start": 127,
+     "skip": 63,
+     "reversed": false
+    },
+    {
+     "start": 61,
+     "skip": 96,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 0.55,
+   "null_sd": 0.84,
+   "z": 0.54,
+   "examples": [
+    {
+     "start": 67,
+     "skip": 120,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 2,
+   "null_mean": 1.62,
+   "null_sd": 1.22,
+   "z": 0.31,
+   "examples": [
+    {
+     "start": 181,
+     "skip": 76,
+     "reversed": true
+    },
+    {
+     "start": 146,
+     "skip": 92,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 4,
+   "null_mean": 3.9,
+   "null_sd": 2.17,
+   "z": 0.05,
+   "examples": [
+    {
+     "start": 110,
+     "skip": 84,
+     "reversed": false
+    },
+    {
+     "start": 388,
+     "skip": 10,
+     "reversed": true
+    },
+    {
+     "start": 23,
+     "skip": 28,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 1.25,
+   "null_sd": 1.09,
+   "z": -0.23,
+   "examples": [
+    {
+     "start": 159,
+     "skip": 61,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 2,
+   "null_mean": 3.5,
+   "null_sd": 2.11,
+   "z": -0.71,
+   "examples": [
+    {
+     "start": 105,
+     "skip": 3,
+     "reversed": false
+    },
+    {
+     "start": 137,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 18,
+  "null_mean": 16.8,
+  "null_sd": 3.9
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 0.8,
+ "acrostic": "wllgekfsncisasvf",
+ "telestich": "nrfntnnnsrssnsyea",
+ "first_words": "Wien Liebste Leider glaubt er könnt fon Schlojme neues Chaja Ich sie auch schon von Familie",
+ "last_words": "den Schwester Josef kommen fileicht geben schicken kein vielmals Willner daß schreiben etwas Maly ganze Chaja",
+ "word_initials": "wdlslhdpnnedjgfdwsnusazkekazlbfkmzssesigfhkmnsswfjkskngkdulkvcumwihvenekdshsslksavlhsdshesgtwgdlmvljsgdgfc",
+ "sentence_initials": "lzs",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "7/4": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "chaja",
+  "erna",
+  "jakob",
+  "josef",
+  "lily",
+  "maly",
+  "schlojme",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "spjusasdkmweklhdmjgc",
+ "caps_hits": [],
+ "bacon_from_caps": "zeeb?abaaiakmtiagrakk",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "chaja",
+  "jakob",
+  "josef",
+  "schlojme",
+  "willner"
+ ],
+ "numbers": [
+  "106",
+  "7/4",
+  "1941"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "Chaja",
+  "Dich",
+  "Du",
+  "Erna",
+  "Familie",
+  "Grüße",
+  "Hönig",
+  "Ich",
+  "Jakob",
+  "Josef",
+  "Karte",
+  "Kinder",
+  "Leider",
+  "Liebste",
+  "Lily",
+  "Maly",
+  "Pakerl",
+  "S",
+  "Schlojme",
+  "Schlojmen",
+  "Schwester",
+  "U",
+  "Wien",
+  "Willner"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "Dich",
+  "Du",
+  "Familie",
+  "Grüße",
+  "Ich",
+  "Karte",
+  "Kinder",
+  "Leider",
+  "Liebste",
+  "Pakerl",
+  "S",
+  "Schwester",
+  "U",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

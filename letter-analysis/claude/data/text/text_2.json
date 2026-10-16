@@ -1,0 +1,273 @@
+{
+ "letter": "2",
+ "source": "<!-- drive_id: 1San2Ez10uhi5bUSxBOxTawm2_b7SEIoD | url: https://drive.google.com/file/d/1San2Ez10uhi5bUSxBOxTawm2_b7SEIoD/view?usp=drivesdk | title: Transcription 2.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 15,
+ "n_words": 120,
+ "n_letters": 574,
+ "editorial_markers": {},
+ "footnotes": [
+  "1 The beginning of this letter is not present on the same scan.",
+  "2 The central fold and a small hole in the paper obscure the beginning of this word. The marks above the line indicate the presence of an i and either a u or a double m/n – ‘immer’ seems to be the likeliest reading in context."
+ ],
+ "footnotes_physical": [
+  "2 The central fold and a small hole in the paper obscure the beginning of this word. The marks above the line indicate the presence of an i and either a u or a double m/n – ‘immer’ seems to be the likeliest reading in context."
+ ],
+ "editorial_notes": [
+  "[Note in upper right-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "angst",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 19,
+     "skip": 107,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haifa",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 95,
+     "skip": 24,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 2,
+   "null_mean": 0.25,
+   "null_sd": 0.43,
+   "z": 4.04,
+   "examples": [
+    {
+     "start": 167,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 152,
+     "skip": 58,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 0.68,
+   "null_sd": 0.79,
+   "z": 0.41,
+   "examples": [
+    {
+     "start": 443,
+     "skip": 34,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 1,
+   "null_mean": 1.23,
+   "null_sd": 0.99,
+   "z": -0.23,
+   "examples": [
+    {
+     "start": 39,
+     "skip": 29,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 1.43,
+   "null_sd": 1.53,
+   "z": -0.28,
+   "examples": [
+    {
+     "start": 29,
+     "skip": 80,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 6,
+   "null_mean": 7.1,
+   "null_sd": 2.62,
+   "z": -0.42,
+   "examples": [
+    {
+     "start": 146,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 83,
+     "skip": 57,
+     "reversed": false
+    },
+    {
+     "start": 251,
+     "skip": 58,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 2,
+   "null_mean": 3.15,
+   "null_sd": 1.88,
+   "z": -0.61,
+   "examples": [
+    {
+     "start": 151,
+     "skip": 80,
+     "reversed": false
+    },
+    {
+     "start": 358,
+     "skip": 58,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 3,
+   "null_mean": 4.42,
+   "null_sd": 2.19,
+   "z": -0.65,
+   "examples": [
+    {
+     "start": 35,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 323,
+     "skip": 56,
+     "reversed": false
+    },
+    {
+     "start": 91,
+     "skip": 52,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 18,
+  "null_mean": 22.1,
+  "null_sd": 4.9
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 2.9,
+ "acrostic": "seoldzgkavadgi",
+ "telestich": "ntenhttseanrnf",
+ "first_words": "sonst Eure ob liebe die zu geschrieben keine auch von auch die gestern ihr",
+ "last_words": "machen schreibt die sagen gleich Rekomandiert hat vielmals Familie Klara grüßen war grüßen Josef",
+ "word_initials": "sbsweggbewmelkuwgedlmbsossgsdgiuwgbdlfgdfgbssdrdssidfpgzsdghzirguatushkasgkevaelkugfveigkammlasgdfgbmoswgabmsldsgimfiadj",
+ "sentence_initials": "d",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "9/3": [
+   "etel"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "klara",
+  "mali",
+  "maly",
+  "rosa"
+ ],
+ "caps_string": "ekmgffgrpgrtaeekfekmafgdmj",
+ "caps_hits": [],
+ "bacon_from_caps": "aclariae?icceiitttlgaasb",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "elend",
+  "josef",
+  "klara"
+ ],
+ "numbers": [
+  "1338"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Antwort",
+  "Dich",
+  "Euch",
+  "Euere",
+  "Eure",
+  "Familie",
+  "Frau",
+  "Goldberg",
+  "Gott",
+  "Grün",
+  "Josef",
+  "Kinder",
+  "Klara",
+  "Mali",
+  "Maly",
+  "Mann",
+  "Papiere",
+  "Rekomandiert",
+  "Rosa",
+  "Telegrafiert"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Antwort",
+  "Dich",
+  "Euch",
+  "Euere",
+  "Eure",
+  "Familie",
+  "Frau",
+  "Goldberg",
+  "Gott",
+  "Grün",
+  "Kinder",
+  "Mann",
+  "Papiere",
+  "Rekomandiert",
+  "Telegrafiert"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

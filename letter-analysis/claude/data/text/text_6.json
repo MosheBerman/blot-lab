@@ -1,0 +1,619 @@
+{
+ "letter": "6",
+ "source": "<!-- drive_id: 1VVfb0lS6mh2rAqfCRPS5-1MT9no7fnJK | url: https://drive.google.com/file/d/1VVfb0lS6mh2rAqfCRPS5-1MT9no7fnJK/view?usp=drivesdk | title: Transcription 6.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 68,
+ "n_words": 464,
+ "n_letters": 2201,
+ "editorial_markers": {
+  "deletion": 2,
+  "?": 5,
+  "Hebrew/Yiddish": 3,
+  "Unclear": 2,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 The initial G is corrected – possibly this is just the beginning of the following word, ‘Gesetz’, which was then rewritten more clearly.",
+  "2 Ending could be ‘ie’ rather than ‘ce’.",
+  "3 Likely a variant of ‘während’.",
+  "4 As not much of this author’s writing is available for comparison, it is hard to determine how these names should be read. The first seems to end in ‘in’ and also contains another i, but the initial is unclear. Going purely by form, the second name looks like either ‘Ilam’ or ‘Ham’",
+  "5 Text obscured by blot/water damage – this is likely ‘Yohanan’ (or possibly a Germanized spelling with J).",
+  "6 Printed text is rendered in italics. Below this is printed ‘PAR AVION’ and the Hebrew equivalent. On the right-hand side of the envelope is a postage stamp marked ‘ISRAEL’ and a postmark on which ‘TEL AVIV’ is legible.",
+  "7 Text is slightly obscured by water damage here, but ‘die’ fits grammatically."
+ ],
+ "footnotes_physical": [
+  "1 The initial G is corrected – possibly this is just the beginning of the following word, ‘Gesetz’, which was then rewritten more clearly.",
+  "4 As not much of this author’s writing is available for comparison, it is hard to determine how these names should be read. The first seems to end in ‘in’ and also contains another i, but the initial is unclear. Going purely by form, the second name looks like either ‘Ilam’ or ‘Ham’",
+  "5 Text obscured by blot/water damage – this is likely ‘Yohanan’ (or possibly a Germanized spelling with J).",
+  "6 Printed text is rendered in italics. Below this is printed ‘PAR AVION’ and the Hebrew equivalent. On the right-hand side of the envelope is a postage stamp marked ‘ISRAEL’ and a postmark on which ‘TEL AVIV’ is legible.",
+  "7 Text is slightly obscured by water damage here, but ‘die’ fits grammatically."
+ ],
+ "editorial_notes": [
+  "[Note follows from a second author:]",
+  "[Additional letter by a third author follows below:]",
+  "[Letter continues overleaf:]",
+  "[Letter continues at opposite end of same page:]",
+  "[Note from a fourth author follows below:]",
+  "[Letter addressed overleaf:]",
+  "[Sender’s address:]",
+  "[Recipient’s address:]"
+ ],
+ "els": [
+  {
+   "target": "polen",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 1168,
+     "skip": 90,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rettet",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 38,
+     "skip": 97,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 3,
+   "null_mean": 0.8,
+   "null_sd": 0.87,
+   "z": 2.52,
+   "examples": [
+    {
+     "start": 1692,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 1629,
+     "skip": 40,
+     "reversed": false
+    },
+    {
+     "start": 1236,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 8,
+   "null_mean": 3.7,
+   "null_sd": 1.72,
+   "z": 2.5,
+   "examples": [
+    {
+     "start": 880,
+     "skip": 11,
+     "reversed": false
+    },
+    {
+     "start": 398,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 1412,
+     "skip": 41,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilfe",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.4,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 1137,
+     "skip": 106,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 4,
+   "null_mean": 1.38,
+   "null_sd": 1.34,
+   "z": 1.97,
+   "examples": [
+    {
+     "start": 1101,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 1137,
+     "skip": 106,
+     "reversed": false
+    },
+    {
+     "start": 1730,
+     "skip": 110,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 6,
+   "null_mean": 3.65,
+   "null_sd": 1.86,
+   "z": 1.26,
+   "examples": [
+    {
+     "start": 66,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 202,
+     "skip": 55,
+     "reversed": false
+    },
+    {
+     "start": 1198,
+     "skip": 58,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 16,
+   "null_mean": 12.75,
+   "null_sd": 3.38,
+   "z": 0.96,
+   "examples": [
+    {
+     "start": 310,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 782,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 448,
+     "skip": 40,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 2,
+   "null_mean": 1.15,
+   "null_sd": 0.94,
+   "z": 0.91,
+   "examples": [
+    {
+     "start": 2054,
+     "skip": 7,
+     "reversed": true
+    },
+    {
+     "start": 752,
+     "skip": 34,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 21,
+   "null_mean": 16.98,
+   "null_sd": 4.68,
+   "z": 0.86,
+   "examples": [
+    {
+     "start": 65,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 1888,
+     "skip": 38,
+     "reversed": false
+    },
+    {
+     "start": 1701,
+     "skip": 48,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 33,
+   "null_mean": 28.73,
+   "null_sd": 5.32,
+   "z": 0.8,
+   "examples": [
+    {
+     "start": 1343,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 823,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 623,
+     "skip": 14,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 6,
+   "null_mean": 4.8,
+   "null_sd": 1.65,
+   "z": 0.73,
+   "examples": [
+    {
+     "start": 591,
+     "skip": 29,
+     "reversed": false
+    },
+    {
+     "start": 552,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 1543,
+     "skip": 72,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 3,
+   "null_mean": 2.5,
+   "null_sd": 1.4,
+   "z": 0.36,
+   "examples": [
+    {
+     "start": 1720,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 160,
+     "skip": 76,
+     "reversed": false
+    },
+    {
+     "start": 1630,
+     "skip": 81,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 29,
+   "null_mean": 29.7,
+   "null_sd": 6.78,
+   "z": -0.1,
+   "examples": [
+    {
+     "start": 815,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 328,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 975,
+     "skip": 18,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 2.52,
+   "null_sd": 1.47,
+   "z": -1.04,
+   "examples": [
+    {
+     "start": 861,
+     "skip": 85,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 2.62,
+   "null_sd": 1.56,
+   "z": -1.04,
+   "examples": [
+    {
+     "start": 354,
+     "skip": 31,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 136,
+  "null_mean": 117.8,
+  "null_sd": 12.5
+ },
+ "nth_word_hits_total": 11,
+ "nth_word_hits_null_mean": 11.6,
+ "acrostic": "tlhspkidwwcsdidnksepfhnedskziggkdeaelbpdlsikpkhinudigaespaoytamesnu",
+ "telestich": "ieonomstneensstsstnennhhnnsiseeentraensmmurngngnhlltieninenrlesntya",
+ "first_words": "Tel Liebe Habe Sie Paket kann ich die wortet werde Chawze seher dir ich die noch kam senden erhalten Paket freut has nicht einen das Sonst Kinder zu Indem gesendete Grüsse Kinder Die Euch auch Euere Liebe Bei paar Dir lässt schreibt Ist klich paar Kommt Habe ist Namen unberufen Der ich gegrüsst Auch Euch Sali P alle Owadie Yo Tel AEROGRAMME Mrs Eva Sheriff New U",
+ "last_words": "I Chawze wo wegen so nachdem das geant erhalten liebe eine von das Schmonzes meglichkeit heraus was nicht ein Chawzce erhalten dieselben durch ich berichten lieben alles Mali das herzliche liebe Owadie Küssen herzlichst mir Lea Tante ein es Warum Warum zu wir schon Erwiderung zusammen goldig den auch viel weil herzlichst Susi hoffe sehen Sali grüssen alle Bermann Hasandlar Israel AEROGRAMME Mrs Bermann Stret Y A",
+ "word_initials": "tailschvdlrebgwsmtdnbwpdidndehskidmdiptsnidghdbehsddbghhdnggwwiawbidpewfwidbdtlcwibghmuesgfwwepvdetagaeemsdidnzkadsdighhindmnwzsdhegghkdmneimwskdphinnebndndepppgsllcfmsddwdehwdlgwakdnehoiietdeevhlwidpewwidsbswgenbdudlkwhbdulkazwwsnmdlmiidnhdfdgpzimdhgukadwadlkvmddodllukgukeahaigukeahvmedlltbdgmaiepzzwhdedwdlkggtwldlmnvshwssneegzieidmnwoiswksbihiispmgowekioemdfzhgddkvdlssgiwheeshudnngukiausgdlesvdlsighutswiikpzzuehsahgugsaigehuhebzsspsdliulagaobynhtaiamebssnynyusa",
+ "sentence_initials": "tibwwwiikhuddsssdoeu",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {
+  "4/1": [
+   "wien"
+  ],
+  "4/2": [
+   "mali"
+  ],
+  "5/0": [
+   "mali"
+  ],
+  "5/2": [
+   "malka"
+  ],
+  "5/3": [
+   "etel"
+  ],
+  "6/1": [
+   "mali"
+  ],
+  "6/4": [
+   "etel"
+  ],
+  "8/5": [
+   "wien"
+  ],
+  "9/2": [
+   "mali"
+  ],
+  "9/4": [
+   "wien"
+  ],
+  "9/7": [
+   "etel"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "bermann",
+  "kalman",
+  "mali",
+  "owadie"
+ ],
+ "caps_string": "aiscrbtbbpupsggmppcgktepkmpkolkkaeltgzwkwmwgmiefksudespssesdbhaibsynysa",
+ "caps_hits": [],
+ "bacon_from_caps": "??wreaacaieaacabaibaaacaaa?bbaalcaakacicaiaicadacbicdlparzwcsceiifcacadbisaakallabba?chrdz??",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "bermann",
+  "kalman",
+  "krieg",
+  "owadie"
+ ],
+ "numbers": [
+  "16",
+  "52",
+  "6",
+  "21",
+  "94",
+  "2"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "AEROGRAMME",
+  "Alle",
+  "Auch",
+  "Aviv",
+  "Bei",
+  "Bermann",
+  "Brief",
+  "Briefe",
+  "Chawzce",
+  "Chawze",
+  "Der",
+  "Die",
+  "Dir",
+  "Eltern",
+  "Erwiderung",
+  "Euch",
+  "Euere",
+  "Eva",
+  "Expeditor",
+  "Famlie",
+  "Gelegenheit",
+  "Gerson",
+  "Ges",
+  "Gesetz",
+  "Gruss",
+  "Grüsse",
+  "Habe",
+  "Hasandlar",
+  "I",
+  "Immerhin",
+  "Indem",
+  "Israel",
+  "Ist",
+  "Kalman",
+  "Kind",
+  "Kinder",
+  "Kindern",
+  "Kommt",
+  "Küsse",
+  "Küssen",
+  "Lea",
+  "Liebe",
+  "Mali",
+  "Monate",
+  "Mrs",
+  "Mühe",
+  "N",
+  "Namen",
+  "New",
+  "Owadie",
+  "P",
+  "Paket",
+  "Platz",
+  "Post",
+  "Ruchale",
+  "S",
+  "Sali",
+  "Salo",
+  "Schmonzes",
+  "Schwegerin",
+  "Seid",
+  "Sheriff",
+  "Sie",
+  "Sonst",
+  "Stret",
+  "Susi",
+  "Tag",
+  "Tage",
+  "Tante",
+  "Tel",
+  "U",
+  "Uns",
+  "Unsere",
+  "Warum",
+  "Will",
+  "Y",
+  "Yo",
+  "York",
+  "Zeilen"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "AEROGRAMME",
+  "Alle",
+  "Auch",
+  "Aviv",
+  "Bei",
+  "Brief",
+  "Briefe",
+  "Chawzce",
+  "Chawze",
+  "Der",
+  "Die",
+  "Dir",
+  "Eltern",
+  "Erwiderung",
+  "Euch",
+  "Euere",
+  "Expeditor",
+  "Famlie",
+  "Gelegenheit",
+  "Gerson",
+  "Ges",
+  "Gesetz",
+  "Gruss",
+  "Grüsse",
+  "Habe",
+  "Hasandlar",
+  "I",
+  "Immerhin",
+  "Indem",
+  "Israel",
+  "Ist",
+  "Kind",
+  "Kinder",
+  "Kindern",
+  "Kommt",
+  "Küsse",
+  "Küssen",
+  "Liebe",
+  "Monate",
+  "Mrs",
+  "Mühe",
+  "N",
+  "Namen",
+  "New",
+  "P",
+  "Paket",
+  "Platz",
+  "Post",
+  "S",
+  "Sali",
+  "Salo",
+  "Schmonzes",
+  "Schwegerin",
+  "Seid",
+  "Sheriff",
+  "Sie",
+  "Sonst",
+  "Stret",
+  "Susi",
+  "Tag",
+  "Tage",
+  "Tante",
+  "Tel",
+  "U",
+  "Uns",
+  "Unsere",
+  "Warum",
+  "Will",
+  "Y",
+  "Yo",
+  "York",
+  "Zeilen"
+ ],
+ "hebrew_yiddish_insertions": 3
+}

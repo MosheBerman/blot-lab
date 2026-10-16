@@ -1,0 +1,385 @@
+{
+ "letter": "43",
+ "source": "<!-- drive_id: 1Ug8-1UiWizpk8TEe0CAuwbQt8vA9B112 | url: https://drive.google.com/file/d/1Ug8-1UiWizpk8TEe0CAuwbQt8vA9B112/view?usp=drivesdk | title: Transcription 43.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 34,
+ "n_words": 202,
+ "n_letters": 935,
+ "editorial_markers": {
+  "?": 3,
+  "text loss": 1,
+  "deletion": 1,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 Edge of page either lost or folded over, obscuring year.",
+  "2 Brackets may indicate an intended deletion.",
+  "3 Corner folded over at bottom of page obscuring name."
+ ],
+ "footnotes_physical": [
+  "1 Edge of page either lost or folded over, obscuring year.",
+  "2 Brackets may indicate an intended deletion.",
+  "3 Corner folded over at bottom of page obscuring name."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "klara",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 477,
+     "skip": 87,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 3,
+   "null_mean": 1.4,
+   "null_sd": 1.02,
+   "z": 1.57,
+   "examples": [
+    {
+     "start": 78,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 476,
+     "skip": 96,
+     "reversed": false
+    },
+    {
+     "start": 454,
+     "skip": 49,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.28,
+   "null_sd": 0.5,
+   "z": 1.45,
+   "examples": [
+    {
+     "start": 475,
+     "skip": 43,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 1.23,
+   "null_sd": 0.94,
+   "z": 0.83,
+   "examples": [
+    {
+     "start": 619,
+     "skip": 68,
+     "reversed": false
+    },
+    {
+     "start": 469,
+     "skip": 34,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 12,
+   "null_mean": 9.82,
+   "null_sd": 2.86,
+   "z": 0.76,
+   "examples": [
+    {
+     "start": 897,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 195,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 831,
+     "skip": 23,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 5,
+   "null_mean": 4.15,
+   "null_sd": 1.71,
+   "z": 0.5,
+   "examples": [
+    {
+     "start": 130,
+     "skip": 11,
+     "reversed": false
+    },
+    {
+     "start": 189,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 309,
+     "skip": 66,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.65,
+   "null_sd": 0.76,
+   "z": 0.46,
+   "examples": [
+    {
+     "start": 114,
+     "skip": 30,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 3,
+   "null_mean": 2.95,
+   "null_sd": 1.75,
+   "z": 0.03,
+   "examples": [
+    {
+     "start": 318,
+     "skip": 23,
+     "reversed": true
+    },
+    {
+     "start": 487,
+     "skip": 44,
+     "reversed": true
+    },
+    {
+     "start": 409,
+     "skip": 99,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 4,
+   "null_mean": 7.6,
+   "null_sd": 3.11,
+   "z": -1.16,
+   "examples": [
+    {
+     "start": 572,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 275,
+     "skip": 76,
+     "reversed": false
+    },
+    {
+     "start": 63,
+     "skip": 100,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 2,
+   "null_mean": 6.53,
+   "null_sd": 2.45,
+   "z": -1.85,
+   "examples": [
+    {
+     "start": 107,
+     "skip": 74,
+     "reversed": false
+    },
+    {
+     "start": 176,
+     "skip": 13,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 34,
+  "null_mean": 39.5,
+  "null_sd": 5.8
+ },
+ "nth_word_hits_total": 3,
+ "nth_word_hits_null_mean": 2.0,
+ "acrostic": "awleswkdksbeehbbmsdidnvsmsseagvuok",
+ "telestich": "anrrtntsdrmrkdbrrretnnnhnnhansdear",
+ "first_words": "a Wien Liebste Es so wie Kinder die kein sind Bank es ein hoffentlich bekommen bestens mit schon der ich den nicht Visum sehr mit sein sonst Euere auch grüßen von und oft komt",
+ "last_words": "a den Geschwister Euer schreibt lieben schreibt uns gesund Berliner welchem mir Mark Geld Jakob sehr war aber glaubte verzweifelt men kein unberufen sich kan besuchen auch Klara schön Busis Kind sehe Erna Werner",
+ "word_initials": "awdlgetmwwaeslsbsweegwmelkwgedlmusdlkmwgeibuknndwgsdgsihvdbbebbiwesddljhmewgmhwbdgbiddljbifmasmdgdiwswgbadefnigibgwgvdnusafkmndakgkvmmiusssmagsmamgsekswwsbsgkvuaelkvekammlasgusubvdfwikukswpisodfwdfekzfw",
+ "sentence_initials": "ebfv",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "3/0": [
+   "erna"
+  ],
+  "7/3": [
+   "wien"
+  ],
+  "8/6": [
+   "wien"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "euer",
+   "eure"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "erna",
+  "geld",
+  "jakob",
+  "klara",
+  "mali",
+  "salomon",
+  "visum",
+  "wien"
+ ],
+ "caps_string": "geeemmgdbbjwmgdjgeusaakmsgkkekmabfwkkspfwfefw",
+ "caps_hits": [],
+ "bacon_from_caps": "mribcrieabahiasikeaiaiab?glaaacnl?ie??dn",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "jakob",
+  "klara",
+  "salomon",
+  "visum"
+ ],
+ "numbers": [
+  "1842",
+  "1942",
+  "7/1",
+  "194",
+  "30"
+ ],
+ "book_cipher_reading": [
+  "Kinder"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "Alle",
+  "Amerikanische",
+  "Bank",
+  "Berliner",
+  "Brief",
+  "Busis",
+  "Danke",
+  "Dresdner",
+  "Erna",
+  "Es",
+  "Euch",
+  "Euer",
+  "Euere",
+  "Eure",
+  "Ewiger",
+  "Frau",
+  "Geld",
+  "Geschenk",
+  "Geschwister",
+  "Gott",
+  "Grüße",
+  "Jakob",
+  "Karl",
+  "Kind",
+  "Kinder",
+  "Klara",
+  "Konsul",
+  "Küße",
+  "Liebste",
+  "Mali",
+  "Mark",
+  "Post",
+  "S",
+  "Salomon",
+  "Stern",
+  "U",
+  "Visum",
+  "Weinachtsgeschenk",
+  "Werner",
+  "Wien"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "Alle",
+  "Amerikanische",
+  "Bank",
+  "Berliner",
+  "Brief",
+  "Busis",
+  "Danke",
+  "Dresdner",
+  "Es",
+  "Euch",
+  "Euer",
+  "Euere",
+  "Eure",
+  "Ewiger",
+  "Frau",
+  "Geld",
+  "Geschenk",
+  "Geschwister",
+  "Gott",
+  "Grüße",
+  "Karl",
+  "Kind",
+  "Kinder",
+  "Konsul",
+  "Küße",
+  "Liebste",
+  "Mark",
+  "Post",
+  "S",
+  "U",
+  "Visum",
+  "Weinachtsgeschenk",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

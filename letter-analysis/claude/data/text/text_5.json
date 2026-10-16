@@ -1,0 +1,276 @@
+{
+ "letter": "5",
+ "source": "<!-- drive_id: 1VOWgLhCXGh8g0TZ2XtCwnBQqR8LgmpcK | url: https://drive.google.com/file/d/1VOWgLhCXGh8g0TZ2XtCwnBQqR8LgmpcK/view?usp=drivesdk | title: Transcription 5.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 30,
+ "n_words": 112,
+ "n_letters": 541,
+ "editorial_markers": {
+  "?": 1,
+  "text loss": 2
+ },
+ "footnotes": [
+  "1 This word is added between the lines. There is a possibility that it may read ‘Owiger’ or perhaps ‘Ojwiger’, in which case it would be a familiar form of the name of the author’s brother, Owadie.",
+  "2 Printed text is rendered in italics. On the left-hand side of the card the digits 11.41 are also printed at the bottom and there are some illegible markings in pencil along the lower edge of both sides. On the right-hand side is a smudged and illegible stamp with a swastika emblem, a partially legible postmark reading ‘[text loss]W a d WISLOK | [text loss] –12 | b’ and a postage stamp reading ‘GENERALGOUVERNEMENT’.",
+  "3 Abbreviation likely stands for ‘am’ or ‘an der’ Wisłok."
+ ],
+ "footnotes_physical": [
+  "2 Printed text is rendered in italics. On the left-hand side of the card the digits 11.41 are also printed at the bottom and there are some illegible markings in pencil along the lower edge of both sides. On the right-hand side is a smudged and illegible stamp with a swastika emblem, a partially legible postmark reading ‘[text loss]W a d WISLOK | [text loss] –12 | b’ and a postage stamp reading ‘GENERALGOUVERNEMENT’."
+ ],
+ "editorial_notes": [
+  "[Postcard addressed overleaf:]",
+  "[Sender’s address:]",
+  "[Recipient’s address:]"
+ ],
+ "els": [
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 0.78,
+   "null_sd": 0.72,
+   "z": 3.07,
+   "examples": [
+    {
+     "start": 405,
+     "skip": 10,
+     "reversed": true
+    },
+    {
+     "start": 374,
+     "skip": 41,
+     "reversed": true
+    },
+    {
+     "start": 156,
+     "skip": 86,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 5,
+   "null_mean": 1.8,
+   "null_sd": 1.69,
+   "z": 1.89,
+   "examples": [
+    {
+     "start": 169,
+     "skip": 83,
+     "reversed": false
+    },
+    {
+     "start": 127,
+     "skip": 97,
+     "reversed": false
+    },
+    {
+     "start": 93,
+     "skip": 19,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 4,
+   "null_mean": 3.6,
+   "null_sd": 2.2,
+   "z": 0.18,
+   "examples": [
+    {
+     "start": 32,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 287,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 506,
+     "skip": 6,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.97,
+   "null_sd": 0.85,
+   "z": 0.03,
+   "examples": [
+    {
+     "start": 93,
+     "skip": 5,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 2,
+   "null_mean": 2.2,
+   "null_sd": 1.31,
+   "z": -0.15,
+   "examples": [
+    {
+     "start": 291,
+     "skip": 40,
+     "reversed": false
+    },
+    {
+     "start": 279,
+     "skip": 76,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 2.15,
+   "null_sd": 1.62,
+   "z": -0.71,
+   "examples": [
+    {
+     "start": 380,
+     "skip": 38,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 16,
+  "null_mean": 18.9,
+  "null_sd": 5.1
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.0,
+ "acrostic": "slthbwmgaedaefbohebassbdpmjsna",
+ "telestich": "vrdnhsenssdntrnrnstrrwfuerrtya",
+ "first_words": "Strzyzow Lieber Theile hoffe bitte was macht gesund auch er die auch Euch fon bekomt Obiger habe er bitte ABSENDER Salomon Strzyzow bei Distrikt POSTKARTE Mr Jakob Sheriff New Ameryka",
+ "last_words": "IV Schwester gesund heren auch was sie schreiben das neues gesund grüssen oft Willner Etlen Obiger den S antwort ABSENDER Willner W Reichshoff Krakau POSTKARTE Mr Willner Street City Ameryka",
+ "word_initials": "sdilbstemfughfiagzhbsoifawekmwmjukssgfchosajsfldefbukndkswgawfwgeufsofmswbisfeohjgzdehffmsbaaswsawbrdkpmjwssnyca",
+ "sentence_initials": "sasfbswosbab",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "jakob",
+  "joel",
+  "josef",
+  "kalman",
+  "krakau",
+  "lublin",
+  "salomon",
+  "willner"
+ ],
+ "caps_string": "ibseiikjkcjlkfswiejswwrkwsyc",
+ "caps_hits": [],
+ "bacon_from_caps": "z?baeelcciarbiogrbhx??",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "jakob",
+  "josef",
+  "kalman",
+  "krakau",
+  "lublin",
+  "salomon",
+  "willner"
+ ],
+ "numbers": [
+  "28",
+  "941",
+  "20",
+  "94"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "ABSENDER",
+  "Ameryka",
+  "Bruder",
+  "Chaje",
+  "City",
+  "Distrikt",
+  "Etlen",
+  "Euch",
+  "Familie",
+  "IV",
+  "Ihnen",
+  "Ihr",
+  "Jakob",
+  "Joel",
+  "Josef",
+  "Josefn",
+  "Kalman",
+  "Kinder",
+  "Krakau",
+  "Lieber",
+  "Lublin",
+  "Mr",
+  "New",
+  "Obiger",
+  "POSTKARTE",
+  "Reichshoff",
+  "S",
+  "Salomon",
+  "Schwester",
+  "Sheriff",
+  "Street",
+  "Strzyzow",
+  "Theile",
+  "W",
+  "Willner",
+  "York"
+ ],
+ "names_not_in_family_set": [
+  "ABSENDER",
+  "Ameryka",
+  "Bruder",
+  "City",
+  "Distrikt",
+  "Etlen",
+  "Euch",
+  "Familie",
+  "IV",
+  "Ihnen",
+  "Ihr",
+  "Josefn",
+  "Kinder",
+  "Krakau",
+  "Lieber",
+  "Lublin",
+  "Mr",
+  "New",
+  "Obiger",
+  "POSTKARTE",
+  "Reichshoff",
+  "S",
+  "Schwester",
+  "Sheriff",
+  "Street",
+  "Strzyzow",
+  "Theile",
+  "W",
+  "York"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

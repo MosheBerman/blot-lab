@@ -1,0 +1,296 @@
+{
+ "letter": "14",
+ "source": "<!-- drive_id: 1TEqQdgQp-HsO2pWN2rYDpDWcX1Np24uS | url: https://drive.google.com/file/d/1TEqQdgQp-HsO2pWN2rYDpDWcX1Np24uS/view?usp=drivesdk | title: Transcription 14.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 22,
+ "n_words": 103,
+ "n_letters": 513,
+ "editorial_markers": {
+  "?": 3,
+  "deletion": 1
+ },
+ "footnotes": [
+  "1 Year is partially obscured by an ink blot – it is not entirely clear from this date if the letter is from 1940 or 1941.",
+  "2 Name of organization abbreviated and not entirely clear but ‘Israelitische Kultusgemeinde’ is the likeliest solution. Compare letter 36, in a similar context, where the abbreviation is written more clearly as ‘Isr. K. G.’.",
+  "3 The penultimate letter is unclear due to creasing along the right-hand edge of the page."
+ ],
+ "footnotes_physical": [
+  "1 Year is partially obscured by an ink blot – it is not entirely clear from this date if the letter is from 1940 or 1941.",
+  "3 The penultimate letter is unclear due to creasing along the right-hand edge of the page."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.1,
+   "null_sd": 0.3,
+   "z": 3.0,
+   "examples": [
+    {
+     "start": 64,
+     "skip": 62,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.28,
+   "null_sd": 0.55,
+   "z": 1.33,
+   "examples": [
+    {
+     "start": 361,
+     "skip": 48,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 4,
+   "null_mean": 2.17,
+   "null_sd": 1.55,
+   "z": 1.18,
+   "examples": [
+    {
+     "start": 1,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 215,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 302,
+     "skip": 59,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 0.45,
+   "null_sd": 0.63,
+   "z": 0.87,
+   "examples": [
+    {
+     "start": 103,
+     "skip": 111,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 5,
+   "null_mean": 3.48,
+   "null_sd": 1.96,
+   "z": 0.78,
+   "examples": [
+    {
+     "start": 286,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 354,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 155,
+     "skip": 71,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 4,
+   "null_mean": 2.62,
+   "null_sd": 1.93,
+   "z": 0.71,
+   "examples": [
+    {
+     "start": 149,
+     "skip": 104,
+     "reversed": false
+    },
+    {
+     "start": 250,
+     "skip": 7,
+     "reversed": true
+    },
+    {
+     "start": 388,
+     "skip": 15,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 0.62,
+   "null_sd": 0.86,
+   "z": 0.44,
+   "examples": [
+    {
+     "start": 277,
+     "skip": 20,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 1.25,
+   "null_sd": 1.26,
+   "z": -0.2,
+   "examples": [
+    {
+     "start": 374,
+     "skip": 7,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 2,
+   "null_mean": 5.08,
+   "null_sd": 2.55,
+   "z": -1.2,
+   "examples": [
+    {
+     "start": 135,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 247,
+     "skip": 64,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 20,
+  "null_mean": 18.2,
+  "null_sd": 4.9
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.6,
+ "acrostic": "awldgwbswshshasakagpdg",
+ "telestich": "anrtunesentertseannszt",
+ "first_words": "a Wien Liebe Deinen gegeben weisst bekomt Schiffskarten wie spürst habe sie habe auf sonst auch Klara auch grüßen P der gut",
+ "last_words": "a den Schwester Zuschrift Du man keine nichts wie Etlen Antwort Schlome immer Antwort vielmals Euere Klara schön grüßen s ganz gut",
+ "word_initials": "awdlsdlbhgdjdzgvmknwdwhszumbljvdikksuegnwgedfdwwsddigzehgukashangzshgegmiakasgkdvadlkekammlasgpsdjfegigg",
+ "sentence_initials": "dwzpd",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [
+  [
+   "geschreiben",
+   "geschrieben"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "klara",
+  "maly",
+  "wien"
+ ],
+ "caps_string": "sbjzduikddddgeaskadkemaj",
+ "caps_hits": [],
+ "bacon_from_caps": "mwlarrgrfdlcardcdtti",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "klara",
+  "schiff"
+ ],
+ "numbers": [
+  "1398",
+  "28/8",
+  "40",
+  "2"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Antwort",
+  "Brief",
+  "Deinen",
+  "Dich",
+  "Dir",
+  "Du",
+  "Etlen",
+  "Euere",
+  "Gesundheit",
+  "Israelitische",
+  "Josef",
+  "Karten",
+  "Kinder",
+  "Klara",
+  "Kultusgemeinde",
+  "Liebe",
+  "Maly",
+  "P",
+  "Schiffskarten",
+  "Schlome",
+  "Schwester",
+  "Untersuchung",
+  "Wien",
+  "Zuschrift"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Antwort",
+  "Brief",
+  "Deinen",
+  "Dich",
+  "Dir",
+  "Du",
+  "Etlen",
+  "Euere",
+  "Gesundheit",
+  "Israelitische",
+  "Karten",
+  "Kinder",
+  "Kultusgemeinde",
+  "Liebe",
+  "P",
+  "Schiffskarten",
+  "Schlome",
+  "Schwester",
+  "Untersuchung",
+  "Wien",
+  "Zuschrift"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

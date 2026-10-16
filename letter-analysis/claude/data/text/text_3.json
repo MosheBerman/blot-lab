@@ -1,0 +1,336 @@
+{
+ "letter": "3",
+ "source": "<!-- drive_id: 1V9MtQjVgYiTU4XO1btrLo4gDYE5sBnEj | url: https://drive.google.com/file/d/1V9MtQjVgYiTU4XO1btrLo4gDYE5sBnEj/view?usp=drivesdk | title: Transcription 3.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 34,
+ "n_words": 142,
+ "n_letters": 662,
+ "editorial_markers": {
+  "unclear": 3,
+  "?": 2
+ },
+ "footnotes": [
+  "1 This may be ‘fer’, ‘for’ of ‘fon’.",
+  "2 Text unclear (smudged) along crease in card. Possible readings may be ‘möcht’ or mächt’ (as written six lines below) – there is certainly an umlaut.",
+  "3 This could potentially be ‘euch’ but ‘auch’ seems more likely as the word is not capitalised.",
+  "4 Printed text is rendered in italics. On the left-hand side of the card, the numbers 11.41 are also printed in the lower left-hand corner and the numbers 12 54 are written along the lower edge.",
+  "5 Abbreviation either stands for ‘am’ or ‘an der’ Wisłok (sources vary on the gender of the river in German).",
+  "6 This may stand for ‘G[eneral]g[ouvernement]’ or the Polish equivalent, ‘Generalne Gubernatorstwo’.",
+  "7 On this side of the card there is also an official stamp with illegible (smudged) text, postmarks reading ‘STRZYZOW | [unclear]51–3 | DISTR[IKT] KRAKA[U]’ and a postage stamp reading ‘GENERALGOUVERNEMENT’. There may be a note written in pencil along the right-hand edge at right angles to the recipient’s address, but it is too faint to make out with any certainty."
+ ],
+ "footnotes_physical": [
+  "2 Text unclear (smudged) along crease in card. Possible readings may be ‘möcht’ or mächt’ (as written six lines below) – there is certainly an umlaut.",
+  "4 Printed text is rendered in italics. On the left-hand side of the card, the numbers 11.41 are also printed in the lower left-hand corner and the numbers 12 54 are written along the lower edge.",
+  "7 On this side of the card there is also an official stamp with illegible (smudged) text, postmarks reading ‘STRZYZOW | [unclear]51–3 | DISTR[IKT] KRAKA[U]’ and a postage stamp reading ‘GENERALGOUVERNEMENT’. There may be a note written in pencil along the right-hand edge at right angles to the recipient’s address, but it is too faint to make out with any certainty."
+ ],
+ "editorial_notes": [
+  "[Letter concludes overleaf:]",
+  "[Sender’s address:]",
+  "[Recipient’s address:]"
+ ],
+ "els": [
+  {
+   "target": "etel",
+   "observed": 10,
+   "null_mean": 6.25,
+   "null_sd": 2.59,
+   "z": 1.45,
+   "examples": [
+    {
+     "start": 22,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 624,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 28,
+     "skip": 58,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.42,
+   "null_sd": 0.74,
+   "z": 0.78,
+   "examples": [
+    {
+     "start": 502,
+     "skip": 21,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.42,
+   "null_sd": 0.8,
+   "z": 0.72,
+   "examples": [
+    {
+     "start": 417,
+     "skip": 34,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 3,
+   "null_mean": 2.48,
+   "null_sd": 1.43,
+   "z": 0.37,
+   "examples": [
+    {
+     "start": 344,
+     "skip": 45,
+     "reversed": true
+    },
+    {
+     "start": 199,
+     "skip": 53,
+     "reversed": true
+    },
+    {
+     "start": 276,
+     "skip": 113,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 0.8,
+   "null_sd": 0.84,
+   "z": 0.24,
+   "examples": [
+    {
+     "start": 102,
+     "skip": 9,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 0.82,
+   "null_sd": 0.95,
+   "z": 0.19,
+   "examples": [
+    {
+     "start": 224,
+     "skip": 113,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 1.12,
+   "null_sd": 1.08,
+   "z": -0.12,
+   "examples": [
+    {
+     "start": 30,
+     "skip": 55,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 6,
+   "null_mean": 6.92,
+   "null_sd": 2.23,
+   "z": -0.41,
+   "examples": [
+    {
+     "start": 274,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 278,
+     "skip": 62,
+     "reversed": false
+    },
+    {
+     "start": 99,
+     "skip": 86,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 2.45,
+   "null_sd": 1.48,
+   "z": -0.98,
+   "examples": [
+    {
+     "start": 285,
+     "skip": 107,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 25,
+  "null_mean": 27.9,
+  "null_sd": 4.7
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 0.9,
+ "acrostic": "slhsglddvwvkdoesnmgsfdbasskpmjsnaue",
+ "telestich": "xxhdsnnmnhskettndreehntrrwgerrtkan",
+ "first_words": "Strzyzow Lieber habe sehr gebe Lieber die den von warscheinlich von kein die ob es schreiben nach mit grüße schreibe ferdient die bitte ABSENDER Salomon Strzyzow kreis POSTK Mr Jakob Sheriff New Ameryka über",
+ "last_words": "X IX mich gesund gutes wegen komen arm schreiben auch Uns dank schreibe geht oft fahren gesund Willlner Familie Sie auch grüssen Antwort ABSENDER Willner W G RTE Mr Willner Street York Ameryka Lissabon",
+ "word_initials": "sdxlbdkvihhefmsddtisgggifeglbtdwdcsszekdsiseuavehwswmcsavdsfbuknwfgsddksbsokfwgecfjhosemafnabgmhgfswgadlcufsosfadmzgbgaaswsawkrggparmjwssnyauel",
+ "sentence_initials": "sflbwfbwwkpjn",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "4/2": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "elend",
+  "jakob",
+  "josef",
+  "kalman",
+  "mina",
+  "salomon",
+  "willner"
+ ],
+ "caps_string": "xbkiftgebtceeeugkbkcjaswcfsmawwrggarwsyl",
+ "caps_hits": [],
+ "bacon_from_caps": "zleeezceceaaiiwrwaidbkcd?q??",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "elend",
+  "jakob",
+  "josef",
+  "kalman",
+  "salomon",
+  "willner"
+ ],
+ "numbers": [
+  "20",
+  "941",
+  "5",
+  "14"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "ABSENDER",
+  "Ameryka",
+  "Antwort",
+  "Brawe",
+  "Bruder",
+  "Chaje",
+  "Chawe",
+  "Chawen",
+  "Elend",
+  "Etlen",
+  "Euch",
+  "Familie",
+  "Freut",
+  "G",
+  "Gott",
+  "IX",
+  "Jakob",
+  "Josef",
+  "Kalman",
+  "Karte",
+  "Kinder",
+  "Lieber",
+  "Lissabon",
+  "Mina",
+  "Mr",
+  "New",
+  "POSTK",
+  "RTE",
+  "Reichshof",
+  "S",
+  "Salomon",
+  "Sheriff",
+  "Sie",
+  "Street",
+  "Strzyzow",
+  "Tochter",
+  "Trachte",
+  "Uns",
+  "W",
+  "Willlner",
+  "Willner",
+  "X",
+  "York"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "ABSENDER",
+  "Ameryka",
+  "Antwort",
+  "Brawe",
+  "Bruder",
+  "Chawen",
+  "Elend",
+  "Etlen",
+  "Euch",
+  "Familie",
+  "Freut",
+  "G",
+  "Gott",
+  "IX",
+  "Karte",
+  "Kinder",
+  "Lieber",
+  "Lissabon",
+  "Mr",
+  "New",
+  "POSTK",
+  "RTE",
+  "Reichshof",
+  "S",
+  "Sheriff",
+  "Sie",
+  "Street",
+  "Strzyzow",
+  "Tochter",
+  "Trachte",
+  "Uns",
+  "W",
+  "Willlner",
+  "X",
+  "York"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

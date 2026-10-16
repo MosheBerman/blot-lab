@@ -1,0 +1,263 @@
+{
+ "letter": "53",
+ "source": "<!-- drive_id: 1ShKSVmJnD5pMVp9gIYzoNcQzHKAIIdKz | url: https://drive.google.com/file/d/1ShKSVmJnD5pMVp9gIYzoNcQzHKAIIdKz/view?usp=drivesdk | title: Transcription 53.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 24,
+ "n_words": 115,
+ "n_letters": 540,
+ "editorial_markers": {
+  "Hebrew/Yiddish": 2,
+  "deletion": 3,
+  "?": 1
+ },
+ "footnotes": [
+  "1 Word added above deletion. The ending is slightly unclear and could also be ‘Malwen’.",
+  "2 NB the text visible on the other side of this sheet appears to be letter 54, which is transcribed separately."
+ ],
+ "footnotes_physical": [
+  "1 Word added above deletion. The ending is slightly unclear and could also be ‘Malwen’."
+ ],
+ "editorial_notes": [],
+ "els": [
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.4,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 154,
+     "skip": 106,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 6,
+   "null_mean": 2.4,
+   "null_sd": 1.87,
+   "z": 1.93,
+   "examples": [
+    {
+     "start": 268,
+     "skip": 23,
+     "reversed": false
+    },
+    {
+     "start": 231,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 9,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 2.98,
+   "null_sd": 1.59,
+   "z": 1.27,
+   "examples": [
+    {
+     "start": 253,
+     "skip": 55,
+     "reversed": false
+    },
+    {
+     "start": 199,
+     "skip": 76,
+     "reversed": false
+    },
+    {
+     "start": 256,
+     "skip": 26,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.68,
+   "null_sd": 0.79,
+   "z": 0.41,
+   "examples": [
+    {
+     "start": 158,
+     "skip": 79,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 1.2,
+   "null_sd": 1.0,
+   "z": -0.2,
+   "examples": [
+    {
+     "start": 23,
+     "skip": 37,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 5,
+   "null_mean": 5.72,
+   "null_sd": 2.27,
+   "z": -0.32,
+   "examples": [
+    {
+     "start": 406,
+     "skip": 44,
+     "reversed": false
+    },
+    {
+     "start": 131,
+     "skip": 47,
+     "reversed": false
+    },
+    {
+     "start": 62,
+     "skip": 115,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 4,
+   "null_mean": 5.53,
+   "null_sd": 2.37,
+   "z": -0.64,
+   "examples": [
+    {
+     "start": 208,
+     "skip": 105,
+     "reversed": false
+    },
+    {
+     "start": 376,
+     "skip": 4,
+     "reversed": true
+    },
+    {
+     "start": 65,
+     "skip": 6,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 23,
+  "null_mean": 22.8,
+  "null_sd": 4.1
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 1.4,
+ "acrostic": "wlgvfnswhimfdmaswsmfehse",
+ "telestich": "nnftnrrtssenenennlnennsi",
+ "first_words": "Wien Liebste Grad von Freude neues süs warum habe Ihr macht Familie der mich Amerika Swester wir schreibens mecht fahren er hoffentlich sonst Euere",
+ "last_words": "den Kusinen Brief mit kein sehr nur registriert was was Alle in freue in meine Schwägerin niemanden Jossel Malwin möchte fahren fahren vielmals Mali",
+ "word_initials": "wdlkghhdlbvedeumfgbuknmmissssmnwissrhsbswimwgeewmdlouafkwiidnaifmddljsiaiwmmskswhnvnsbdjmsgzmfuismessfhwebfsgkavekm",
+ "sentence_initials": "wgks",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "5/0": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "joel",
+  "klara",
+  "mali",
+  "wien"
+ ],
+ "caps_string": "kbedmeoakinajksjmakm",
+ "caps_hits": [],
+ "bacon_from_caps": "zbnicaaaiimw?cipaeeaaaz",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "klara"
+ ],
+ "numbers": [
+  "8/4"
+ ],
+ "book_cipher_reading": [
+  "spet"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Amerika",
+  "Brief",
+  "Dankend",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Freude",
+  "Grad",
+  "Ihr",
+  "Joel",
+  "Jossel",
+  "Kinder",
+  "Klara",
+  "Kusinen",
+  "Liebste",
+  "Mali",
+  "Malwin",
+  "Nähe",
+  "Onkel",
+  "Schwägerin",
+  "Swester",
+  "Wien"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Amerika",
+  "Brief",
+  "Dankend",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Freude",
+  "Grad",
+  "Ihr",
+  "Kinder",
+  "Kusinen",
+  "Liebste",
+  "Malwin",
+  "Nähe",
+  "Onkel",
+  "Schwägerin",
+  "Swester",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 2
+}

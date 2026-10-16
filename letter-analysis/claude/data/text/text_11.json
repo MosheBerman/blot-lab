@@ -1,0 +1,299 @@
+{
+ "letter": "11",
+ "source": "<!-- drive_id: 1UDDPqpE0qkxYh6yWdXrQsrBtb1Ly9Gk0 | url: https://drive.google.com/file/d/1UDDPqpE0qkxYh6yWdXrQsrBtb1Ly9Gk0/view?usp=drivesdk | title: Transcription 11.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 20,
+ "n_words": 102,
+ "n_letters": 490,
+ "editorial_markers": {
+  "Text loss": 6,
+  "?": 3,
+  "unclear": 1,
+  "Unclear": 1
+ },
+ "footnotes": [
+  "1 Page is badly damaged with multiple losses. First line and date are lost or illegible.",
+  "2 The author writes “ “ below the words ‘Jom Kipur’ in the previous line.",
+  "3 No signature is visible although this looks very much like Chaja Willner’s handwriting and style.",
+  "4 This text is only legible on the scan when the image is flipped horizontally so is presumably showing through from the reverse. The first word may perhaps have been ‘Alle’."
+ ],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Note added overleaf along right-hand edge:]"
+ ],
+ "els": [
+  {
+   "target": "mina",
+   "observed": 3,
+   "null_mean": 0.82,
+   "null_sd": 1.0,
+   "z": 2.18,
+   "examples": [
+    {
+     "start": 109,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 168,
+     "skip": 33,
+     "reversed": false
+    },
+    {
+     "start": 152,
+     "skip": 89,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.4,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 381,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.38,
+   "null_sd": 0.62,
+   "z": 1.01,
+   "examples": [
+    {
+     "start": 38,
+     "skip": 45,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 5,
+   "null_mean": 2.95,
+   "null_sd": 2.16,
+   "z": 0.95,
+   "examples": [
+    {
+     "start": 173,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 52,
+     "skip": 95,
+     "reversed": false
+    },
+    {
+     "start": 27,
+     "skip": 115,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.5,
+   "null_sd": 0.67,
+   "z": 0.75,
+   "examples": [
+    {
+     "start": 40,
+     "skip": 46,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 0.75,
+   "null_sd": 0.94,
+   "z": 0.27,
+   "examples": [
+    {
+     "start": 42,
+     "skip": 75,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 5,
+   "null_mean": 4.92,
+   "null_sd": 2.23,
+   "z": 0.03,
+   "examples": [
+    {
+     "start": 341,
+     "skip": 47,
+     "reversed": false
+    },
+    {
+     "start": 226,
+     "skip": 84,
+     "reversed": false
+    },
+    {
+     "start": 146,
+     "skip": 8,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 1,
+   "null_mean": 1.12,
+   "null_sd": 1.17,
+   "z": -0.11,
+   "examples": [
+    {
+     "start": 212,
+     "skip": 72,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 2,
+   "null_mean": 2.73,
+   "null_sd": 1.53,
+   "z": -0.47,
+   "examples": [
+    {
+     "start": 240,
+     "skip": 58,
+     "reversed": false
+    },
+    {
+     "start": 11,
+     "skip": 114,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 2,
+   "null_mean": 4.3,
+   "null_sd": 2.14,
+   "z": -1.08,
+   "examples": [
+    {
+     "start": 107,
+     "skip": 11,
+     "reversed": true
+    },
+    {
+     "start": 80,
+     "skip": 70,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 22,
+  "null_mean": 21.1,
+  "null_sd": 5.0
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.1,
+ "acrostic": "sceifjdvefsesjgbjgl",
+ "telestich": "trtuntentntndrtutee",
+ "first_words": "sehr ch erew ihr ferdienen Joel der von Etel forigen Salomon er sie jetzt Gott bald Jom gehat le",
+ "last_words": "gut ihr schreibt zu Kalman macht Familie bekommen hat geboren hat haben Abend er fileicht zu Zeit küße beste",
+ "word_initials": "sgcwiebsifjkizfdskjehawmdoudffvshekbehigshfmetgsfajkhefgejkhsuegbajkiwwsegsdfjwufbbihgzjkdhekzgskngklab",
+ "sentence_initials": "kjehajj",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "erna",
+  "etel",
+  "hirsch",
+  "joel",
+  "josef",
+  "kalman",
+  "salomon"
+ ],
+ "caps_string": "wikehaofskmtjkjkaijkzg",
+ "caps_hits": [],
+ "bacon_from_caps": "caeh?skicw?gbeeianee",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "arbeit",
+  "hirsch",
+  "josef",
+  "kalman",
+  "salomon"
+ ],
+ "numbers": [
+  "9"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Abend",
+  "Abraham",
+  "Erna",
+  "Etel",
+  "Familie",
+  "Gott",
+  "Grüße",
+  "Hirsch",
+  "Ihr",
+  "Joel",
+  "Jom",
+  "Josef",
+  "Kalman",
+  "Karte",
+  "Kipur",
+  "Monat",
+  "Onkel",
+  "Salomon",
+  "Tochter",
+  "Wünsche",
+  "Zeit"
+ ],
+ "names_not_in_family_set": [
+  "Abend",
+  "Familie",
+  "Gott",
+  "Grüße",
+  "Ihr",
+  "Jom",
+  "Karte",
+  "Kipur",
+  "Monat",
+  "Onkel",
+  "Tochter",
+  "Wünsche",
+  "Zeit"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

@@ -1,0 +1,698 @@
+{
+ "letter": "44",
+ "source": "<!-- drive_id: 1T4U3-98eTuumGhxsTt8NRLkejcsdJb-c | url: https://drive.google.com/file/d/1T4U3-98eTuumGhxsTt8NRLkejcsdJb-c/view?usp=drivesdk | title: Transcription 44.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 99,
+ "n_words": 692,
+ "n_letters": 3294,
+ "editorial_markers": {
+  "?": 10,
+  "deletion": 1
+ },
+ "footnotes": [
+  "1 This could be ‘Paul’ in this instance but is written more clearly as ‘Saul’ on the following page.",
+  "2 This could perhaps be ‘mir’ written with a dash above instead of a dot.",
+  "3 NB this is the left half of the folded sheet on the first page of the scan.",
+  "4 Text written in reverse orientation in left- and right-hand corners of page. Presumably the text on the right should be read after the text on the left – compare the greetings in letter 6.",
+  "5 It is not clear if this is meant as an addition to the first or the second letter."
+ ],
+ "footnotes_physical": [
+  "3 NB this is the left half of the folded sheet on the first page of the scan.",
+  "4 Text written in reverse orientation in left- and right-hand corners of page. Presumably the text on the right should be read after the text on the left – compare the greetings in letter 6."
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]",
+  "[Letter continues on facing page:]",
+  "[Note added along upper edge of first page:]"
+ ],
+ "els": [
+  {
+   "target": "hitler",
+   "observed": 2,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 7.31,
+   "examples": [
+    {
+     "start": 722,
+     "skip": 70,
+     "reversed": true
+    },
+    {
+     "start": 281,
+     "skip": 111,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "klara",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 2133,
+     "skip": 87,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 7,
+   "null_mean": 3.48,
+   "null_sd": 2.12,
+   "z": 1.66,
+   "examples": [
+    {
+     "start": 1055,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 1275,
+     "skip": 47,
+     "reversed": false
+    },
+    {
+     "start": 2599,
+     "skip": 78,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rettet",
+   "observed": 1,
+   "null_mean": 0.23,
+   "null_sd": 0.52,
+   "z": 1.48,
+   "examples": [
+    {
+     "start": 2317,
+     "skip": 31,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 17,
+   "null_mean": 10.88,
+   "null_sd": 4.17,
+   "z": 1.47,
+   "examples": [
+    {
+     "start": 614,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 1945,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 398,
+     "skip": 4,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 11,
+   "null_mean": 8.12,
+   "null_sd": 2.5,
+   "z": 1.15,
+   "examples": [
+    {
+     "start": 1573,
+     "skip": 65,
+     "reversed": false
+    },
+    {
+     "start": 2398,
+     "skip": 9,
+     "reversed": true
+    },
+    {
+     "start": 844,
+     "skip": 23,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 4,
+   "null_mean": 2.75,
+   "null_sd": 1.61,
+   "z": 0.78,
+   "examples": [
+    {
+     "start": 1536,
+     "skip": 85,
+     "reversed": false
+    },
+    {
+     "start": 404,
+     "skip": 93,
+     "reversed": false
+    },
+    {
+     "start": 429,
+     "skip": 48,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 20,
+   "null_mean": 18.07,
+   "null_sd": 4.03,
+   "z": 0.48,
+   "examples": [
+    {
+     "start": 1992,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 808,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 737,
+     "skip": 36,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 3,
+   "null_mean": 2.95,
+   "null_sd": 1.5,
+   "z": 0.03,
+   "examples": [
+    {
+     "start": 494,
+     "skip": 99,
+     "reversed": false
+    },
+    {
+     "start": 805,
+     "skip": 100,
+     "reversed": false
+    },
+    {
+     "start": 1067,
+     "skip": 102,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 2,
+   "null_mean": 2.27,
+   "null_sd": 1.63,
+   "z": -0.17,
+   "examples": [
+    {
+     "start": 702,
+     "skip": 28,
+     "reversed": false
+    },
+    {
+     "start": 1162,
+     "skip": 87,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 1.2,
+   "null_sd": 1.03,
+   "z": -0.19,
+   "examples": [
+    {
+     "start": 468,
+     "skip": 73,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 1.32,
+   "null_sd": 1.39,
+   "z": -0.23,
+   "examples": [
+    {
+     "start": 2541,
+     "skip": 55,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 2,
+   "null_mean": 2.35,
+   "null_sd": 1.53,
+   "z": -0.23,
+   "examples": [
+    {
+     "start": 2334,
+     "skip": 81,
+     "reversed": true
+    },
+    {
+     "start": 2318,
+     "skip": 97,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 39,
+   "null_mean": 41.55,
+   "null_sd": 5.32,
+   "z": -0.48,
+   "examples": [
+    {
+     "start": 1012,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 812,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 2276,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 4,
+   "null_mean": 5.72,
+   "null_sd": 2.82,
+   "z": -0.61,
+   "examples": [
+    {
+     "start": 2468,
+     "skip": 104,
+     "reversed": false
+    },
+    {
+     "start": 1029,
+     "skip": 22,
+     "reversed": true
+    },
+    {
+     "start": 2086,
+     "skip": 72,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 5,
+   "null_mean": 6.3,
+   "null_sd": 2.04,
+   "z": -0.64,
+   "examples": [
+    {
+     "start": 1003,
+     "skip": 30,
+     "reversed": false
+    },
+    {
+     "start": 345,
+     "skip": 55,
+     "reversed": false
+    },
+    {
+     "start": 832,
+     "skip": 119,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 1.82,
+   "null_sd": 1.14,
+   "z": -0.73,
+   "examples": [
+    {
+     "start": 418,
+     "skip": 81,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 20,
+   "null_mean": 23.93,
+   "null_sd": 4.84,
+   "z": -0.81,
+   "examples": [
+    {
+     "start": 2319,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 1616,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 812,
+     "skip": 41,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 38,
+   "null_mean": 44.5,
+   "null_sd": 6.62,
+   "z": -0.98,
+   "examples": [
+    {
+     "start": 2781,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 2193,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 903,
+     "skip": 29,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 179,
+  "null_mean": 182.7,
+  "null_sd": 13.1
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 7.3,
+ "acrostic": "tlebnlvupihasmvaekkuldiiwwmmswdvstvkgkdsssmuseghzkdhramhubgudebugsslezmsmaiahmsmsehduddudidualuulgb",
+ "telestich": "ireeennrrdlthhunlrtensonetnnlrhrhonretnetmrtsrrheeneehungnnensmedefnadndetnnemeetnennriemettuereter",
+ "first_words": "Tel Liebe Es Briefe nicht liebe von Unser Parnuse ich habe auf so mich von aufindlich Er können keine und Lage da ich ich werde wann mir mechte soll Waldbaum der verlange soll tue viel können Gross keinen das Salo seher schlecht Monat und schon Englisch Gerson hoffe zwei keine Dukomente hat Rosa an mir heraus und baldige Grüssen und Die Euch Besondere und Grusse süse Second Liebe Es zu mit sein mir Arme ihre aber hoffentlich meglichkeiten schon meine sollen einer habe der Unsere Dr dringend und die ich Die Unberufen aufgehoben Letter Uns Unberufen liebe Grusse Brecher",
+ "last_words": "III Schwager meine habe die wissen von Aber schwer und einmal verdient ich auch du geschrieben soll aber gut Unsere erweichen was wo hernehmen böse kannst Belästigen brauchen Saul Einziger ich Er ich so anfangen seher die Herrgott können eine nicht im nur spricht etwas der Kinder ich bekomme meine mitgenommen liebe Bitte dich genau Gerson Erwartung besten Gerson Owadie küssen bestens Waldbaum Familie und Familie overleaf Schwegerin Rosa bald beisammen und meine mit Sorgen helffen welche ihm Alle die mit Schwegerin Sie von von seher Adi lasse Indem Owadie schaut gut zu page Kinder die herzlichst Familie Brecher",
+ "word_initials": "tailsusewmsdimambdievhghnghwhewdlkibgzwvmumlkievuwabmapielhssibshcejuhbnnvneaemabhvskievwimqtlshavhazswddaghvhagesmegsiskeazhhakabbssgusiautiulsvlesedimwkrwwiasunwwimbfdkhwblrsmnbwivddvtkmgdidnbmwiennbsnedsvsweiwdeduadnhkivnesmsesmnegsitinvwasvisezhakddaihsguuefsdkbhhzlhdiidzzkshiidlgbesgfdbihnsevsepimdhevmvnudsgidsusssgiwaeeswgedvdgwwmdlkhagadbhizodmgubkahsgmmdzsdsmhnegalribdnmbadzeabidmszaumghswedulgulketiebazimbgukadwalgulkdodllukgukebbgahswufgukadlbwusrwadgfslbsafolsefmsdbdlrzwgdhddbmdljulkbssbdwsgsumgvjebwmagdmtmiadmmgsalgkidmnhhhdjdwmhzkmisghswaamagdhdssaawmeghalshvdrzdsdbssssmdavussadbvdpdsbisdefmsddaungasildhgukiidbgzidodlmkoezmssusgauigsgaadprlkozlcaueopuegidllukugggdwdlkhgafb",
+ "sentence_initials": "twasaaibei",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [
+   "wien"
+  ],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.1,
+ "nth_word_hits": {
+  "5/0": [
+   "mali"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "also",
+   "salo"
+  ],
+  [
+   "gerson",
+   "sorgen"
+  ],
+  [
+   "geschreiben",
+   "geschrieben"
+  ],
+  [
+   "hier",
+   "ihre"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "geld",
+  "josef",
+  "mali",
+  "norbert",
+  "owadie",
+  "rosa",
+  "schlecht"
+ ],
+ "caps_string": "aissweekglewajmaesswgauermbkrbnsseeuneeghabhlfbepessiskabassabgkieakdgkolkghswfkbwrfsrhjkegasgjaahaaasrsbasbpseaniomsgprllkkf",
+ "caps_hits": [],
+ "bacon_from_caps": "?pakabcicmdaaeadaibanaeiacaanibaa?baaacbazctbccaaccebbaeecrskairi?cbcraleifaraaackwfit?so?i?brhaeebeaaencciaiaali?fclayfwecraibwfarpebayal",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "arbeit",
+  "josef",
+  "norbert",
+  "owadie",
+  "russen",
+  "schlecht"
+ ],
+ "numbers": [
+  "29",
+  "2"
+ ],
+ "book_cipher_reading": [
+  "nemlich"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Aber",
+  "Adi",
+  "Alle",
+  "Also",
+  "Amen",
+  "Angeherigen",
+  "Antwort",
+  "Arbeitslosikeit",
+  "Arme",
+  "Auch",
+  "Ausgelest",
+  "Auskommen",
+  "Auszug",
+  "Aviv",
+  "Belästigen",
+  "Berta",
+  "Beruf",
+  "Besondere",
+  "Bitte",
+  "Brecher",
+  "Brief",
+  "Briefe",
+  "Brot",
+  "Dich",
+  "Die",
+  "Dr",
+  "Dukomente",
+  "Einziger",
+  "Englisch",
+  "Er",
+  "Erwartung",
+  "Es",
+  "Euch",
+  "Extra",
+  "Familie",
+  "Friseur",
+  "Geld",
+  "Gerson",
+  "Geschwiester",
+  "Gesundheit",
+  "Gottes",
+  "Gottlob",
+  "Gross",
+  "Grusse",
+  "Grüssen",
+  "Handlen",
+  "Herr",
+  "Herrgott",
+  "III",
+  "In",
+  "Indem",
+  "Ivrit",
+  "Jahr",
+  "Josef",
+  "Kinder",
+  "Küsse",
+  "Lage",
+  "Lea",
+  "Leas",
+  "Lehre",
+  "Letter",
+  "Liebe",
+  "Mali",
+  "Monat",
+  "Morgen",
+  "Norbert",
+  "Not",
+  "Notwendig",
+  "Owadie",
+  "Parnuse",
+  "Perez",
+  "Perlrot",
+  "Pfund",
+  "Rat",
+  "Rosa",
+  "Ruchel",
+  "Ruti",
+  "Sachen",
+  "Sahra",
+  "Salo",
+  "Saul",
+  "Schester",
+  "Schul",
+  "Schwager",
+  "Schwegerin",
+  "Schwester",
+  "Second",
+  "Sie",
+  "Sonst",
+  "Sorgen",
+  "Stütze",
+  "Tel",
+  "Unberufen",
+  "Uns",
+  "Unser",
+  "Unsere",
+  "Waldbaum",
+  "Willi",
+  "Wohlbefinden",
+  "Wundert"
+ ],
+ "names_not_in_family_set": [
+  "Aber",
+  "Alle",
+  "Also",
+  "Amen",
+  "Angeherigen",
+  "Antwort",
+  "Arbeitslosikeit",
+  "Arme",
+  "Auch",
+  "Ausgelest",
+  "Auskommen",
+  "Auszug",
+  "Aviv",
+  "Belästigen",
+  "Beruf",
+  "Besondere",
+  "Bitte",
+  "Brecher",
+  "Brief",
+  "Briefe",
+  "Brot",
+  "Dich",
+  "Die",
+  "Dr",
+  "Dukomente",
+  "Einziger",
+  "Englisch",
+  "Er",
+  "Erwartung",
+  "Es",
+  "Euch",
+  "Extra",
+  "Familie",
+  "Friseur",
+  "Geld",
+  "Gerson",
+  "Geschwiester",
+  "Gesundheit",
+  "Gottes",
+  "Gottlob",
+  "Gross",
+  "Grusse",
+  "Grüssen",
+  "Handlen",
+  "Herr",
+  "Herrgott",
+  "III",
+  "In",
+  "Indem",
+  "Ivrit",
+  "Jahr",
+  "Kinder",
+  "Küsse",
+  "Lage",
+  "Leas",
+  "Lehre",
+  "Letter",
+  "Liebe",
+  "Monat",
+  "Morgen",
+  "Not",
+  "Notwendig",
+  "Parnuse",
+  "Perez",
+  "Perlrot",
+  "Pfund",
+  "Rat",
+  "Ruti",
+  "Sachen",
+  "Sahra",
+  "Salo",
+  "Saul",
+  "Schester",
+  "Schul",
+  "Schwager",
+  "Schwegerin",
+  "Schwester",
+  "Second",
+  "Sie",
+  "Sonst",
+  "Sorgen",
+  "Stütze",
+  "Tel",
+  "Unberufen",
+  "Uns",
+  "Unser",
+  "Unsere",
+  "Waldbaum",
+  "Willi",
+  "Wohlbefinden",
+  "Wundert"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

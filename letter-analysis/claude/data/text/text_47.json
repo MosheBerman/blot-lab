@@ -1,0 +1,390 @@
+{
+ "letter": "47",
+ "source": "<!-- drive_id: 1SZFCzwGU67i9l7tcLgLKAUWafWg15Ru5 | url: https://drive.google.com/file/d/1SZFCzwGU67i9l7tcLgLKAUWafWg15Ru5/view?usp=drivesdk | title: Transcription 47.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 29,
+ "n_words": 171,
+ "n_letters": 814,
+ "editorial_markers": {
+  "?": 4
+ },
+ "footnotes": [
+  "1 Likely an alternative spelling of ‘abbusseln’ – J. Bermann habitually uses the spelling ‘Pussi’ for ‘Bussi’.",
+  "2 The o is written as a raised dot in every instance of this word.",
+  "3 Z is only partially visible."
+ ],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Numbers noted at bottom of page:]"
+ ],
+ "els": [
+  {
+   "target": "etel",
+   "observed": 15,
+   "null_mean": 11.15,
+   "null_sd": 2.72,
+   "z": 1.42,
+   "examples": [
+    {
+     "start": 51,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 459,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 671,
+     "skip": 15,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.25,
+   "null_sd": 0.54,
+   "z": 1.4,
+   "examples": [
+    {
+     "start": 466,
+     "skip": 6,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 2,
+   "null_mean": 0.82,
+   "null_sd": 0.92,
+   "z": 1.28,
+   "examples": [
+    {
+     "start": 164,
+     "skip": 31,
+     "reversed": false
+    },
+    {
+     "start": 257,
+     "skip": 115,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 7,
+   "null_mean": 4.25,
+   "null_sd": 2.53,
+   "z": 1.09,
+   "examples": [
+    {
+     "start": 95,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 128,
+     "skip": 70,
+     "reversed": false
+    },
+    {
+     "start": 199,
+     "skip": 88,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 0.35,
+   "null_sd": 0.61,
+   "z": 1.06,
+   "examples": [
+    {
+     "start": 224,
+     "skip": 95,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.42,
+   "null_sd": 0.74,
+   "z": 0.78,
+   "examples": [
+    {
+     "start": 141,
+     "skip": 91,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 0.57,
+   "null_sd": 0.7,
+   "z": 0.6,
+   "examples": [
+    {
+     "start": 41,
+     "skip": 24,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.57,
+   "null_sd": 0.8,
+   "z": 0.53,
+   "examples": [
+    {
+     "start": 211,
+     "skip": 94,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 1.8,
+   "null_sd": 1.38,
+   "z": 0.14,
+   "examples": [
+    {
+     "start": 344,
+     "skip": 54,
+     "reversed": false
+    },
+    {
+     "start": 326,
+     "skip": 68,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 2,
+   "null_mean": 1.95,
+   "null_sd": 1.34,
+   "z": 0.04,
+   "examples": [
+    {
+     "start": 422,
+     "skip": 45,
+     "reversed": true
+    },
+    {
+     "start": 125,
+     "skip": 55,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 1.15,
+   "null_sd": 1.09,
+   "z": -0.14,
+   "examples": [
+    {
+     "start": 268,
+     "skip": 10,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 2.5,
+   "null_sd": 1.72,
+   "z": -0.29,
+   "examples": [
+    {
+     "start": 293,
+     "skip": 47,
+     "reversed": false
+    },
+    {
+     "start": 193,
+     "skip": 50,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 1.85,
+   "null_sd": 1.28,
+   "z": -0.67,
+   "examples": [
+    {
+     "start": 233,
+     "skip": 26,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 5,
+   "null_mean": 7.58,
+   "null_sd": 2.61,
+   "z": -0.99,
+   "examples": [
+    {
+     "start": 594,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 329,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 95,
+     "skip": 68,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 42,
+  "null_mean": 37.6,
+  "null_sd": 5.7
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 1.8,
+ "acrostic": "wleefmedadwsgislieepcdskiwesb",
+ "telestich": "vrneenhnnshrnnlnnrnnneenntrlb",
+ "first_words": "Wien Liebe Euern erhalten Freude Monate erhielt derart am daß Wort sehr Got ich so leben Ihr es Es Peretz Chawcze daß schicken kein Ihr wie Euch schreiben b",
+ "last_words": "IV Kinder gestern die beinahe Schreiben mich leben fliehen das Euch Teper schnellsten sein soll helfen erleben Kinder von wan geschrieben Papiere habe erhalten vorstellen erbarmt mir soll b",
+ "word_initials": "wilkelbsfhgeikekvdfdihdesbmdivekseudfhmdedskslalmizefdieakudwomhadesfdzvdftgshiswasiskzmesswifddksligjgshisvfadkeeswmmlkewmsdhvpknnwcrhmgdmsidpssdzhkeseikekvwnibeemsdemssb",
+ "sentence_initials": "wieiuals",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.05,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "mali",
+  "wien"
+ ],
+ "caps_string": "ikbfieesufkeomaezftefkjgfkmlknrmpzse",
+ "caps_hits": [],
+ "bacon_from_caps": "?lfcaixicaia?iuraccintihrfgreixaea",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [],
+ "numbers": [
+  "17",
+  "1940",
+  "3",
+  "2",
+  "1473",
+  "1419"
+ ],
+ "book_cipher_reading": [
+  "lieben"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Auch",
+  "Brief",
+  "Chawcze",
+  "Es",
+  "Euch",
+  "Euern",
+  "Fotografie",
+  "Fotographie",
+  "Frau",
+  "Freude",
+  "Freuden",
+  "Got",
+  "IV",
+  "Ihr",
+  "Jahre",
+  "Kind",
+  "Kinde",
+  "Kinder",
+  "Liebe",
+  "Mali",
+  "Mamma",
+  "Masel",
+  "Monate",
+  "Nachricht",
+  "O",
+  "Papiere",
+  "Peretz",
+  "Reise",
+  "Schreiben",
+  "Teper",
+  "Uberhaupt",
+  "Wien",
+  "Wort",
+  "Zeit",
+  "Zuschrift"
+ ],
+ "names_not_in_family_set": [
+  "Auch",
+  "Brief",
+  "Es",
+  "Euch",
+  "Euern",
+  "Fotografie",
+  "Fotographie",
+  "Frau",
+  "Freude",
+  "Freuden",
+  "Got",
+  "IV",
+  "Ihr",
+  "Jahre",
+  "Kind",
+  "Kinde",
+  "Kinder",
+  "Liebe",
+  "Mamma",
+  "Masel",
+  "Monate",
+  "Nachricht",
+  "O",
+  "Papiere",
+  "Reise",
+  "Schreiben",
+  "Teper",
+  "Uberhaupt",
+  "Wien",
+  "Wort",
+  "Zeit",
+  "Zuschrift"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

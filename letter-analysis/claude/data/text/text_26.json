@@ -1,0 +1,350 @@
+{
+ "letter": "26",
+ "source": "<!-- drive_id: 1W3q3WAhzZ-LHXlCSSTubfgNEu5C3K3mI | url: https://drive.google.com/file/d/1W3q3WAhzZ-LHXlCSSTubfgNEu5C3K3mI/view?usp=drivesdk | title: Transcription 26.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 43,
+ "n_words": 187,
+ "n_letters": 853,
+ "editorial_markers": {
+  "?": 4
+ },
+ "footnotes": [],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter continues overleaf:]",
+  "[Additional letter by same author follows below:]",
+  "[Letter continues up right edge of page:]"
+ ],
+ "els": [
+  {
+   "target": "nisko",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 313,
+     "skip": 42,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "zores",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 347,
+     "skip": 84,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 4,
+   "null_mean": 2.33,
+   "null_sd": 1.46,
+   "z": 1.15,
+   "examples": [
+    {
+     "start": 755,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 490,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 7,
+     "skip": 42,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.45,
+   "null_sd": 0.59,
+   "z": 0.93,
+   "examples": [
+    {
+     "start": 689,
+     "skip": 37,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 0.5,
+   "null_sd": 0.71,
+   "z": 0.71,
+   "examples": [
+    {
+     "start": 509,
+     "skip": 49,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 4,
+   "null_mean": 2.9,
+   "null_sd": 1.7,
+   "z": 0.65,
+   "examples": [
+    {
+     "start": 332,
+     "skip": 46,
+     "reversed": false
+    },
+    {
+     "start": 24,
+     "skip": 88,
+     "reversed": false
+    },
+    {
+     "start": 284,
+     "skip": 97,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.6,
+   "null_sd": 0.86,
+   "z": 0.46,
+   "examples": [
+    {
+     "start": 92,
+     "skip": 92,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 1.52,
+   "null_sd": 1.28,
+   "z": 0.37,
+   "examples": [
+    {
+     "start": 3,
+     "skip": 88,
+     "reversed": true
+    },
+    {
+     "start": 182,
+     "skip": 110,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.78,
+   "null_sd": 0.85,
+   "z": 0.26,
+   "examples": [
+    {
+     "start": 469,
+     "skip": 111,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 4,
+   "null_mean": 3.6,
+   "null_sd": 1.66,
+   "z": 0.24,
+   "examples": [
+    {
+     "start": 233,
+     "skip": 28,
+     "reversed": false
+    },
+    {
+     "start": 154,
+     "skip": 29,
+     "reversed": false
+    },
+    {
+     "start": 308,
+     "skip": 30,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 6,
+   "null_mean": 8,
+   "null_sd": 2.53,
+   "z": -0.79,
+   "examples": [
+    {
+     "start": 78,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 100,
+     "skip": 80,
+     "reversed": false
+    },
+    {
+     "start": 130,
+     "skip": 96,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 2.42,
+   "null_sd": 1.38,
+   "z": -1.04,
+   "examples": [
+    {
+     "start": 218,
+     "skip": 42,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 27,
+  "null_mean": 27.5,
+  "null_sd": 5.0
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 2.6,
+ "acrostic": "adahdieibrbnaliudkwdhgisgmmzbulehemwwbeesz",
+ "telestich": "nnnasssssrnethdssnhugtnftrrrnntefttrunntelhtn",
+ "first_words": "An Den Adi haben Du ich eine ich beantworte Ruchalen ben nimmst auf losen ich und drankomme kommen wie Du Habe geschrieben in Schlojme Gott mochte mit zu Besondes und Lieber Euer hat erfreut mir wan werde bringen Euch Euer sich zu",
+ "last_words": "Lieben welchen dazugeschrieben Eva daß das daß Dir an geschrie Zeit cronisch grund daß bin ich zu genug kommst argern Brief jetzt Bruder mir mehr freuen sein nicht grusse Josef Norbert Zuschrift sehr dazu schreiben kommen mit küsse mal wunsch baldigst sehen",
+ "word_initials": "amldbvwaundhheledmmvdidwsdekdsdijsvdbdiaregbwdgzndescaummglvngdiveswbuwwwidzezkidngwmdakdnmzahbivbgdimjidnvdbsbegmgsdganmmemfmebszksnbaidgukvmdjlaulnehzhmssesdmozswizekwwsmbgukeumepwwsbzs",
+ "sentence_initials": "dwldh",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "6/5": [
+   "wien"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "norbert",
+  "schlojme"
+ ],
+ "caps_string": "lbnlevddsdzdveebnbesddjanzep",
+ "caps_hits": [],
+ "bacon_from_caps": "zfb?eccrrfabaraiacceaubaailihuiaaiakr",
+ "bacon_hits": [],
+ "caesar_hits": {
+  "19": [
+   "angst"
+  ]
+ },
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "norbert",
+  "schlojme"
+ ],
+ "numbers": [
+  "3405",
+  "17"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "An",
+  "Besondes",
+  "Brief",
+  "Bruder",
+  "Dein",
+  "Den",
+  "Dich",
+  "Dir",
+  "Du",
+  "Euch",
+  "Euer",
+  "Eva",
+  "Gott",
+  "Habe",
+  "Josef",
+  "Liebe",
+  "Lieben",
+  "Lieber",
+  "Norbert",
+  "Nähe",
+  "Papa",
+  "Ruchalen",
+  "Schlojme",
+  "Schreiben",
+  "Sonst",
+  "Vorwurf",
+  "Vorwürfe",
+  "Zeit",
+  "Zuschrift"
+ ],
+ "names_not_in_family_set": [
+  "An",
+  "Besondes",
+  "Brief",
+  "Bruder",
+  "Dein",
+  "Den",
+  "Dich",
+  "Dir",
+  "Du",
+  "Euch",
+  "Euer",
+  "Gott",
+  "Habe",
+  "Liebe",
+  "Lieben",
+  "Lieber",
+  "Nähe",
+  "Papa",
+  "Schreiben",
+  "Sonst",
+  "Vorwurf",
+  "Vorwürfe",
+  "Zeit",
+  "Zuschrift"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

@@ -1,0 +1,435 @@
+{
+ "letter": "52",
+ "source": "<!-- drive_id: 1V4icI-FZrdBII416zJAdtzX6Ju4QWGA5 | url: https://drive.google.com/file/d/1V4icI-FZrdBII416zJAdtzX6Ju4QWGA5/view?usp=drivesdk | title: Transcription 52.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 35,
+ "n_words": 290,
+ "n_letters": 1358,
+ "editorial_markers": {
+  "text loss": 1,
+  "?": 7
+ },
+ "footnotes": [
+  "1 Edge of page appears to be missing on the right-hand side towards the top. It seems likely that this word would have been either ‘Jahreswende’ or ‘Jahreswechsel’.",
+  "2 Word partially obscured by tear in paper.",
+  "3 Text may be obscured in lower left-hand corner where page is folded over on scan."
+ ],
+ "footnotes_physical": [
+  "1 Edge of page appears to be missing on the right-hand side towards the top. It seems likely that this word would have been either ‘Jahreswende’ or ‘Jahreswechsel’.",
+  "2 Word partially obscured by tear in paper.",
+  "3 Text may be obscured in lower left-hand corner where page is folded over on scan."
+ ],
+ "editorial_notes": [
+  "[Note along upper edge:]"
+ ],
+ "els": [
+  {
+   "target": "russen",
+   "observed": 1,
+   "null_mean": 0.1,
+   "null_sd": 0.3,
+   "z": 3.0,
+   "examples": [
+    {
+     "start": 542,
+     "skip": 22,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 15,
+   "null_mean": 8.1,
+   "null_sd": 3.13,
+   "z": 2.21,
+   "examples": [
+    {
+     "start": 1255,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 730,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 85,
+     "skip": 21,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "maly",
+   "observed": 1,
+   "null_mean": 0,
+   "null_sd": 0.5,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 1165,
+     "skip": 64,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 14,
+   "null_mean": 8.43,
+   "null_sd": 3.04,
+   "z": 1.83,
+   "examples": [
+    {
+     "start": 149,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 432,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 557,
+     "skip": 62,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 1.32,
+   "null_sd": 0.96,
+   "z": 1.75,
+   "examples": [
+    {
+     "start": 574,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 616,
+     "skip": 44,
+     "reversed": false
+    },
+    {
+     "start": 824,
+     "skip": 50,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 13,
+   "null_mean": 9.47,
+   "null_sd": 2.77,
+   "z": 1.27,
+   "examples": [
+    {
+     "start": 307,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 41,
+     "skip": 38,
+     "reversed": false
+    },
+    {
+     "start": 260,
+     "skip": 63,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 4,
+   "null_mean": 2.48,
+   "null_sd": 1.2,
+   "z": 1.27,
+   "examples": [
+    {
+     "start": 88,
+     "skip": 105,
+     "reversed": false
+    },
+    {
+     "start": 88,
+     "skip": 110,
+     "reversed": false
+    },
+    {
+     "start": 164,
+     "skip": 111,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 0.75,
+   "null_sd": 1.04,
+   "z": 1.2,
+   "examples": [
+    {
+     "start": 576,
+     "skip": 86,
+     "reversed": true
+    },
+    {
+     "start": 553,
+     "skip": 109,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 3,
+   "null_mean": 1.7,
+   "null_sd": 1.6,
+   "z": 0.81,
+   "examples": [
+    {
+     "start": 665,
+     "skip": 48,
+     "reversed": false
+    },
+    {
+     "start": 164,
+     "skip": 99,
+     "reversed": false
+    },
+    {
+     "start": 868,
+     "skip": 78,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 5,
+   "null_mean": 4.25,
+   "null_sd": 2.46,
+   "z": 0.31,
+   "examples": [
+    {
+     "start": 922,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 701,
+     "skip": 103,
+     "reversed": false
+    },
+    {
+     "start": 760,
+     "skip": 13,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.75,
+   "null_sd": 0.83,
+   "z": 0.3,
+   "examples": [
+    {
+     "start": 265,
+     "skip": 23,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.85,
+   "null_sd": 0.91,
+   "z": 0.16,
+   "examples": [
+    {
+     "start": 588,
+     "skip": 60,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 16,
+   "null_mean": 22.9,
+   "null_sd": 4.05,
+   "z": -1.7,
+   "examples": [
+    {
+     "start": 544,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 36,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 1110,
+     "skip": 40,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 79,
+  "null_mean": 67.7,
+  "null_sd": 8.6
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 0.8,
+ "acrostic": "vwlvghdilfgnwewsibbupbzbdsuaddeiulb",
+ "telestich": "vnreunnrnrhatfusrnnrerssnrerdnhedny",
+ "first_words": "v Wien Liebste Vor Gebe hause das ich lieb für geergert nicht warum entschuldigen was selbst ich bitte bitte und Post besuchen zu Bei die schon uns anwenden den der es ich und lässt bitte",
+ "last_words": "v den Geschwister Jahreswe zu weren geschrieben sehr von sehr mich Ewa selbst Josef Du weiss aber schreiben machen ihr Feuertage Kleider nichts Zins gern für mögliche für wird wan wünsch Familie und grüssen Maly",
+ "word_initials": "vwdlgvaweabzjgdedlmssgzhsismabbwdcmbhhsgihmsgmibdssliihaeelbvfwebddiwwsgmeslsblmnslwaesadlewsgnzitdsedmhgsdjwsuiddknwdsnrbgdkadwidasuknhabteimwsbswdadlkmuwsdlmhdovipigdjwmzfblwdknawkzsfjsbsnbmigsddizadzdmiusssmngsbesbwewgfuwzmsiamauuhznfdgwiwuhwdlgebmagwegbwasswinaabadgfuamkwaabulasgbgacum",
+ "sentence_initials": "vibbbc",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "6/5": [
+   "wien"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "chaja",
+  "josef",
+  "maly",
+  "salomon",
+  "wien"
+ ],
+ "caps_string": "gejemiciebedededjdddadmddkmdjfdawksjgzmeiigeafkaaacm",
+ "caps_hits": [],
+ "bacon_from_caps": "mtgtarcaaiafcrcaacrcaececsaaificscek?rtalabaaeaargaabasiio",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "arbeit",
+  "chaja",
+  "josef",
+  "salomon"
+ ],
+ "numbers": [
+  "1837/2",
+  "2158",
+  "16/9",
+  "1941",
+  "26/8",
+  "194",
+  "1"
+ ],
+ "book_cipher_reading": [
+  "wird"
+ ],
+ "gematria_notable_numbers": [
+  26
+ ],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Allen",
+  "Alte",
+  "Antwort",
+  "Bei",
+  "Brief",
+  "Chaja",
+  "Chanale",
+  "Danke",
+  "Deine",
+  "Dich",
+  "Du",
+  "Euch",
+  "Euer",
+  "Eueren",
+  "Ewa",
+  "Ewiger",
+  "Familie",
+  "Feuertage",
+  "Gebe",
+  "Geschwister",
+  "Got",
+  "Gott",
+  "Ihr",
+  "Jahreswe",
+  "Josef",
+  "Kind",
+  "Kinder",
+  "Kleider",
+  "Liebste",
+  "Maly",
+  "Monat",
+  "Post",
+  "Salomon",
+  "Vor",
+  "Wien",
+  "Wäsche",
+  "Zins"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Allen",
+  "Alte",
+  "Antwort",
+  "Bei",
+  "Brief",
+  "Chanale",
+  "Danke",
+  "Deine",
+  "Dich",
+  "Du",
+  "Euch",
+  "Euer",
+  "Eueren",
+  "Ewiger",
+  "Familie",
+  "Feuertage",
+  "Gebe",
+  "Geschwister",
+  "Got",
+  "Gott",
+  "Ihr",
+  "Jahreswe",
+  "Kind",
+  "Kinder",
+  "Kleider",
+  "Liebste",
+  "Monat",
+  "Post",
+  "Vor",
+  "Wien",
+  "Wäsche",
+  "Zins"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

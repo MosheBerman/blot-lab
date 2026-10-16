@@ -1,0 +1,658 @@
+{
+ "letter": "33",
+ "source": "<!-- drive_id: 1T6_WdDuhXymbBY-1MHGblX2TW2K9METv | url: https://drive.google.com/file/d/1T6_WdDuhXymbBY-1MHGblX2TW2K9METv/view?usp=drivesdk | title: Transcription 33.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 99,
+ "n_words": 472,
+ "n_letters": 2198,
+ "editorial_markers": {
+  "unclear": 33,
+  "?": 28,
+  "Hebrew/Yiddish": 1,
+  "Unclear": 1
+ },
+ "footnotes": [
+  "1 The final letter of this line is not legible, but h seems the likeliest solution.",
+  "2 No text is visible in the first half of this line. It is unclear from the context if some words are illegible here or if the author left an intentional gap.",
+  "3 This could be Joel, especially based on the letter that follows below, but the second half of the name is obscured by an ink blot here.",
+  "4 Only the h is unclear in this name.",
+  "5 Possibly ‘ich’ but no h is visible.",
+  "6 It is possible that an e is missing at the edge of the page.",
+  "7 This final word begins with either B or R. These fragments of text are very unclear and it is not evident how they hang together.",
+  "8 There does not appear to be a scan of this side of the page. Transcription is limited to what shows through from the other side. NB this letter is in handwriting which most closely resembles that of Ruchel Lea – cf. scan of letter 25."
+ ],
+ "footnotes_physical": [
+  "2 No text is visible in the first half of this line. It is unclear from the context if some words are illegible here or if the author left an intentional gap.",
+  "3 This could be Joel, especially based on the letter that follows below, but the second half of the name is obscured by an ink blot here.",
+  "4 Only the h is unclear in this name.",
+  "6 It is possible that an e is missing at the edge of the page.",
+  "7 This final word begins with either B or R. These fragments of text are very unclear and it is not evident how they hang together."
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]",
+  "[Letter continues on a new sheet:]",
+  "[Additional letter by second author follows below:]",
+  "[Letter continues along upper and left-hand edges of page:]",
+  "[Note in bottom left-hand corner:]",
+  "[A further note, apparently by the same author, appears in the top and bottom margins of the first page of the letter in reverse orientation:]",
+  "[Signed along left-hand edge of page in same orientation:]"
+ ],
+ "els": [
+  {
+   "target": "fort",
+   "observed": 3,
+   "null_mean": 0.82,
+   "null_sd": 0.89,
+   "z": 2.44,
+   "examples": [
+    {
+     "start": 1700,
+     "skip": 27,
+     "reversed": false
+    },
+    {
+     "start": 1204,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 1254,
+     "skip": 108,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nisko",
+   "observed": 1,
+   "null_mean": 0.15,
+   "null_sd": 0.36,
+   "z": 2.38,
+   "examples": [
+    {
+     "start": 105,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "lily",
+   "observed": 1,
+   "null_mean": 0,
+   "null_sd": 0.5,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 1604,
+     "skip": 7,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 30,
+   "null_mean": 22.75,
+   "null_sd": 4.36,
+   "z": 1.66,
+   "examples": [
+    {
+     "start": 1477,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 1349,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 336,
+     "skip": 28,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 11,
+   "null_mean": 7.35,
+   "null_sd": 2.31,
+   "z": 1.58,
+   "examples": [
+    {
+     "start": 1128,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 578,
+     "skip": 28,
+     "reversed": false
+    },
+    {
+     "start": 1845,
+     "skip": 59,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "angst",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.56,
+   "z": 1.44,
+   "examples": [
+    {
+     "start": 1353,
+     "skip": 102,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 3,
+   "null_mean": 1.5,
+   "null_sd": 1.05,
+   "z": 1.43,
+   "examples": [
+    {
+     "start": 1621,
+     "skip": 57,
+     "reversed": true
+    },
+    {
+     "start": 1134,
+     "skip": 70,
+     "reversed": true
+    },
+    {
+     "start": 1128,
+     "skip": 90,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 28,
+   "null_mean": 25.23,
+   "null_sd": 5.37,
+   "z": 0.52,
+   "examples": [
+    {
+     "start": 1996,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 1136,
+     "skip": 24,
+     "reversed": false
+    },
+    {
+     "start": 1073,
+     "skip": 26,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 4,
+   "null_mean": 3.15,
+   "null_sd": 1.94,
+   "z": 0.44,
+   "examples": [
+    {
+     "start": 976,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 129,
+     "skip": 30,
+     "reversed": true
+    },
+    {
+     "start": 1366,
+     "skip": 109,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 2,
+   "null_mean": 1.73,
+   "null_sd": 1.16,
+   "z": 0.24,
+   "examples": [
+    {
+     "start": 537,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 1513,
+     "skip": 85,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 0.88,
+   "null_sd": 0.75,
+   "z": 0.17,
+   "examples": [
+    {
+     "start": 2013,
+     "skip": 11,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 5,
+   "null_mean": 4.85,
+   "null_sd": 2.33,
+   "z": 0.06,
+   "examples": [
+    {
+     "start": 268,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 1822,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 1350,
+     "skip": 86,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 2,
+   "null_mean": 2.08,
+   "null_sd": 1.46,
+   "z": -0.05,
+   "examples": [
+    {
+     "start": 442,
+     "skip": 60,
+     "reversed": false
+    },
+    {
+     "start": 1785,
+     "skip": 110,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 17,
+   "null_mean": 17.85,
+   "null_sd": 3.34,
+   "z": -0.25,
+   "examples": [
+    {
+     "start": 1361,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 553,
+     "skip": 38,
+     "reversed": false
+    },
+    {
+     "start": 258,
+     "skip": 45,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 1.32,
+   "null_sd": 1.08,
+   "z": -0.3,
+   "examples": [
+    {
+     "start": 458,
+     "skip": 70,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 2.55,
+   "null_sd": 1.7,
+   "z": -0.32,
+   "examples": [
+    {
+     "start": 1463,
+     "skip": 12,
+     "reversed": true
+    },
+    {
+     "start": 1055,
+     "skip": 37,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 1.35,
+   "null_sd": 0.99,
+   "z": -0.35,
+   "examples": [
+    {
+     "start": 1439,
+     "skip": 48,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 5.3,
+   "null_sd": 1.71,
+   "z": -1.93,
+   "examples": [
+    {
+     "start": 951,
+     "skip": 56,
+     "reversed": true
+    },
+    {
+     "start": 453,
+     "skip": 64,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 4,
+   "null_mean": 10.68,
+   "null_sd": 2.94,
+   "z": -2.27,
+   "examples": [
+    {
+     "start": 1994,
+     "skip": 44,
+     "reversed": false
+    },
+    {
+     "start": 1755,
+     "skip": 87,
+     "reversed": false
+    },
+    {
+     "start": 1958,
+     "skip": 40,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 119,
+  "null_mean": 113.3,
+  "null_sd": 10.9
+ },
+ "nth_word_hits_total": 4,
+ "nth_word_hits_null_mean": 5.5,
+ "acrostic": "wleehdschbmdkzkdmgwsdspileswlasnsgssagefmbreadfbikelewbihdadggfaleghegnhwdwhwrbnawllggeabbbmibrk",
+ "telestich": "irnntssneednletnsterddrttrmunthruinenemtnssnehuemsdefruesatrdedzirnrctheutsnlhefottrwtbeneueheunrn",
+ "first_words": "Wien Liebe Es euch habe dem selber Chawcze Habe ben mir den keine zur könntest dort machen gehen wie schon die sie Post Ich lang Einreise schnellsten Wahrhaftig lange auch schon nicht st gap seit Silbe Amerika geschriebe erhalten fahren Malin bei Ruchel Ettels America Dornhelm fahren bekomen i kusse Euer Liebe Es weder ben Ihr hat der auch der ganze gesund Familie An Liebe Es glucklich hen es gut nd hast wirst du wir habe wan reist bekomen nate auch wie liebe last gen ge es alle besonderen beste bitte mals ich bestens R Korn",
+ "last_words": "II Kinder von bekommen seit weiß nachzudenken Chawcze geschrie und verschafen derweil gerne vielleicht von Was Norbert Schule Kinder und gesund Schaffer Post nicht meiner am Frau schon erwartet auch Mutter Du ei bekommen einzige in Woche Visum demnachst von Gruß erhalten Taube nach Frau Tage Visum als und kusse Josef Schwester Du geschrie was Mina ist Kinder und die sind ganz Mali letter gerin sehr mac geht Hoffentlich ge du Sonst rs Trachten sol noch abge Brief Mo hat cht Kinder w Zeit ab bitte in ferwante Ru Familie noch libe zu sein R Korn",
+ "word_initials": "wilfclkewmsdivenkesbhessfmsddlkfswsnwnchdsivbgbdsameumeavdnafmidkaimgzmhkvkdedvdawgeewmdlaudlngdfidswackdkswecudgmsgsdgsbjwvhspibdnnlzmmedsewasedfwhaslksbseaesbhasslimngnbdswbhsegsbsdzkesijsiadhvwgdedvehuwdfbdpvmihegbdkvdmerlwbmptewsgwdnafadfdwhitfshsdvbsnnaidaungukepjlsetmwwddwkkwgbhbswimadlmhnngidljulkasiaudljwmdgfwsggkegfvekmaalbataivotrsotfpotllgefmsgawmhdlkwgedidghgwsagngeedhfswdnrdmmbtwdisjshinwdharvbebbeismnshavemcwgemlklkwlzgsgagsbeiafbgrbgdsrufbnmligdczbdksrk",
+ "sentence_initials": "wewchwwkcddbisbwew",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {
+  "3/1": [
+   "erna"
+  ],
+  "7/2": [
+   "erna"
+  ],
+  "7/3": [
+   "russen"
+  ],
+  "8/5": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "euer",
+   "eure"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "fort",
+  "jakob",
+  "joel",
+  "josef",
+  "kalman",
+  "klara",
+  "mali",
+  "mina",
+  "norbert",
+  "rosa",
+  "taube",
+  "visum",
+  "wien"
+ ],
+ "caps_string": "ifcksmkbaaamwewanskcmgwhsdfssbmdszijwvbpgkmlptgftvnanpjsdkwmjkajwfgkeekmlkghsbtjbbmlkkzgrsrfck",
+ "caps_hits": [],
+ "bacon_from_caps": "?nacarrdbaasarrakscbascrf?aib?edaiibcpirrfitmdtenieiwq?ficcakcgepzraaawaga?abagcabiiabwraddibc",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "gefahr",
+  "jakob",
+  "josef",
+  "kalman",
+  "klara",
+  "norbert",
+  "taube",
+  "visum"
+ ],
+ "numbers": [
+  "11",
+  "1940",
+  "3",
+  "14",
+  "10000000000000000",
+  "2",
+  "1463"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "America",
+  "Amerika",
+  "An",
+  "Ausreisemöglichkeit",
+  "Aussicht",
+  "Bekommst",
+  "Berta",
+  "Bertha",
+  "Brief",
+  "Chafze",
+  "Chajtsche",
+  "Chawcze",
+  "Die",
+  "Dornhelm",
+  "Du",
+  "Einreise",
+  "Es",
+  "Ettels",
+  "Euch",
+  "Euer",
+  "Eure",
+  "Familie",
+  "Frau",
+  "Gesundheit",
+  "Gott",
+  "Grus",
+  "Gruß",
+  "Grüße",
+  "Habe",
+  "Herr",
+  "Hoffentlich",
+  "II",
+  "Ich",
+  "Ihr",
+  "Ist",
+  "Jakob",
+  "Jo",
+  "Joel",
+  "Josef",
+  "Kalman",
+  "Kinder",
+  "Klara",
+  "Korn",
+  "Küße",
+  "Lea",
+  "Liebe",
+  "Lieben",
+  "Mali",
+  "Malin",
+  "Mina",
+  "Mo",
+  "Monate",
+  "Mutter",
+  "Neues",
+  "Norbert",
+  "Papa",
+  "Peretz",
+  "Post",
+  "R",
+  "Rosa",
+  "Ru",
+  "Ruchel",
+  "Schaffer",
+  "Schester",
+  "Schreiben",
+  "Schule",
+  "Schwester",
+  "Silbe",
+  "Sonst",
+  "Tage",
+  "Taube",
+  "Trachten",
+  "Visum",
+  "Wahrhaftig",
+  "Was",
+  "Wie",
+  "Wien",
+  "Woche",
+  "Wort",
+  "Zeit"
+ ],
+ "names_not_in_family_set": [
+  "America",
+  "Amerika",
+  "An",
+  "Ausreisemöglichkeit",
+  "Aussicht",
+  "Bekommst",
+  "Bertha",
+  "Brief",
+  "Chafze",
+  "Chajtsche",
+  "Die",
+  "Dornhelm",
+  "Du",
+  "Einreise",
+  "Es",
+  "Ettels",
+  "Euch",
+  "Euer",
+  "Eure",
+  "Familie",
+  "Frau",
+  "Gesundheit",
+  "Gott",
+  "Grus",
+  "Gruß",
+  "Grüße",
+  "Habe",
+  "Herr",
+  "Hoffentlich",
+  "II",
+  "Ich",
+  "Ihr",
+  "Ist",
+  "Jo",
+  "Kinder",
+  "Korn",
+  "Küße",
+  "Liebe",
+  "Lieben",
+  "Malin",
+  "Mo",
+  "Monate",
+  "Mutter",
+  "Neues",
+  "Papa",
+  "Post",
+  "R",
+  "Ru",
+  "Schaffer",
+  "Schester",
+  "Schreiben",
+  "Schule",
+  "Schwester",
+  "Silbe",
+  "Sonst",
+  "Tage",
+  "Trachten",
+  "Visum",
+  "Wahrhaftig",
+  "Was",
+  "Wie",
+  "Wien",
+  "Woche",
+  "Wort",
+  "Zeit"
+ ],
+ "hebrew_yiddish_insertions": 1
+}

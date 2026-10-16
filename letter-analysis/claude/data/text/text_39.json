@@ -1,0 +1,396 @@
+{
+ "letter": "39",
+ "source": "<!-- drive_id: 1UzzvT0qBf33lLMiFueDxkTcAi773dRqc | url: https://drive.google.com/file/d/1UzzvT0qBf33lLMiFueDxkTcAi773dRqc/view?usp=drivesdk | title: Transcription 39.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 27,
+ "n_words": 197,
+ "n_letters": 968,
+ "editorial_markers": {
+  "?": 1,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 Ending not entirely clear, but appears to be a dialect form of ‘geschrieben’.",
+  "2 It would appear that no text is lost here and that the author has written around a pre-existing blot, but this is not entirely certain.",
+  "3 One word unclear – may begin with b and end with r but this is not entirely certain."
+ ],
+ "footnotes_physical": [
+  "2 It would appear that no text is lost here and that the author has written around a pre-existing blot, but this is not entirely certain.",
+  "3 One word unclear – may begin with b and end with r but this is not entirely certain."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "moves",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 74,
+     "skip": 78,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 2,
+   "null_mean": 0.45,
+   "null_sd": 0.63,
+   "z": 2.46,
+   "examples": [
+    {
+     "start": 367,
+     "skip": 56,
+     "reversed": false
+    },
+    {
+     "start": 176,
+     "skip": 8,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "krieg",
+   "observed": 1,
+   "null_mean": 0,
+   "null_sd": 0.5,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 313,
+     "skip": 62,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.35,
+   "null_sd": 0.53,
+   "z": 1.23,
+   "examples": [
+    {
+     "start": 250,
+     "skip": 50,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 1,
+   "null_sd": 0.84,
+   "z": 1.2,
+   "examples": [
+    {
+     "start": 324,
+     "skip": 67,
+     "reversed": false
+    },
+    {
+     "start": 101,
+     "skip": 112,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 8,
+   "null_mean": 5.8,
+   "null_sd": 2.39,
+   "z": 0.92,
+   "examples": [
+    {
+     "start": 63,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 821,
+     "skip": 41,
+     "reversed": false
+    },
+    {
+     "start": 263,
+     "skip": 19,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 4,
+   "null_mean": 2.65,
+   "null_sd": 1.53,
+   "z": 0.88,
+   "examples": [
+    {
+     "start": 352,
+     "skip": 43,
+     "reversed": false
+    },
+    {
+     "start": 228,
+     "skip": 53,
+     "reversed": true
+    },
+    {
+     "start": 279,
+     "skip": 58,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.57,
+   "null_sd": 0.63,
+   "z": 0.68,
+   "examples": [
+    {
+     "start": 439,
+     "skip": 65,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 5.9,
+   "null_sd": 2.23,
+   "z": -0.4,
+   "examples": [
+    {
+     "start": 583,
+     "skip": 73,
+     "reversed": false
+    },
+    {
+     "start": 154,
+     "skip": 80,
+     "reversed": false
+    },
+    {
+     "start": 835,
+     "skip": 8,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 7,
+   "null_mean": 9.07,
+   "null_sd": 2.97,
+   "z": -0.7,
+   "examples": [
+    {
+     "start": 164,
+     "skip": 102,
+     "reversed": false
+    },
+    {
+     "start": 347,
+     "skip": 47,
+     "reversed": true
+    },
+    {
+     "start": 37,
+     "skip": 51,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 2.5,
+   "null_sd": 1.96,
+   "z": -0.76,
+   "examples": [
+    {
+     "start": 341,
+     "skip": 69,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 2.4,
+   "null_sd": 1.46,
+   "z": -0.96,
+   "examples": [
+    {
+     "start": 362,
+     "skip": 81,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 2,
+   "null_mean": 6.2,
+   "null_sd": 2.47,
+   "z": -1.7,
+   "examples": [
+    {
+     "start": 642,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 738,
+     "skip": 23,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 36,
+  "null_mean": 41.6,
+  "null_sd": 7.3
+ },
+ "nth_word_hits_total": 2,
+ "nth_word_hits_null_mean": 1.6,
+ "acrostic": "aldhwfgsadsbshsrwwgbssmsubv",
+ "telestich": "aateerueotesnnrdtsuensteeif",
+ "first_words": "a Liebe Deinen habe Wohnung fragt Gesundheit schon Antwort Du so bekommen schreiben habe Schreiben Reisegelegenheit was wird geschlossen beschleunigen schon Sonst machen schliesse und Bussi von",
+ "last_words": "a Eva hast eigene ange Deiner Du keine wieso nicht Briefe ofters schreiben einzigen meiner wird durchgefuhrt aus zu mochte sein Was gut Grusse schicke Bussi Josef",
+ "word_initials": "aledbvvddakghheefmsddseewhihdsemafwdwwddidgbwdsmodswvaadfkaikmdnvwdhvmkszsnsoaidvmobbhibddsmosdksmidshdodgubkeshsnzwmrhdswuwwdwwhdebdwdizmfimagmadbdsszbwmamsgrmezsswgedwgedkwmulvhgsmsmhgukdaunsbvmj",
+ "sentence_initials": "iiwwww",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "6/5": [
+   "russen"
+  ],
+  "9/4": [
+   "mali"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "klara",
+  "mali",
+  "norbert"
+ ],
+ "caps_string": "ebvdkdiwddddfisbiddkdwdwmaedwkwvsganj",
+ "caps_hits": [],
+ "bacon_from_caps": "qlrasiaknsamaiiacmarearxaeaeaabatggeesl",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "klara",
+  "norbert"
+ ],
+ "numbers": [
+  "145–1398",
+  "23",
+  "3",
+  "5",
+  "1000000000"
+ ],
+ "book_cipher_reading": [
+  "lieben"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "Antwort",
+  "Ausreise",
+  "Brief",
+  "Briefe",
+  "Bussi",
+  "Deinen",
+  "Deiner",
+  "Dich",
+  "Dir",
+  "Du",
+  "Euch",
+  "Eva",
+  "Fragen",
+  "Gesundheit",
+  "Grusse",
+  "Ich",
+  "Josef",
+  "Kinder",
+  "Kindern",
+  "Klara",
+  "Liebe",
+  "Mali",
+  "Norbert",
+  "Reisegelegenheit",
+  "Scheiben",
+  "Schreiben",
+  "Sonst",
+  "VII",
+  "Verwandten",
+  "Was",
+  "Wegen",
+  "Wie",
+  "Will",
+  "Wohlbefinden",
+  "Wohnung"
+ ],
+ "names_not_in_family_set": [
+  "Antwort",
+  "Ausreise",
+  "Brief",
+  "Briefe",
+  "Bussi",
+  "Deinen",
+  "Deiner",
+  "Dich",
+  "Dir",
+  "Du",
+  "Euch",
+  "Fragen",
+  "Gesundheit",
+  "Grusse",
+  "Ich",
+  "Kinder",
+  "Kindern",
+  "Liebe",
+  "Reisegelegenheit",
+  "Scheiben",
+  "Schreiben",
+  "Sonst",
+  "VII",
+  "Verwandten",
+  "Was",
+  "Wegen",
+  "Wie",
+  "Will",
+  "Wohlbefinden",
+  "Wohnung"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

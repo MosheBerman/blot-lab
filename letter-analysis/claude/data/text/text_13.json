@@ -1,0 +1,375 @@
+{
+ "letter": "13",
+ "source": "<!-- drive_id: 1TEqpNqcHZyCtulYcZ0dDCrZdytbU_CMt | url: https://drive.google.com/file/d/1TEqpNqcHZyCtulYcZ0dDCrZdytbU_CMt/view?usp=drivesdk | title: Transcription 13.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 28,
+ "n_words": 127,
+ "n_letters": 756,
+ "editorial_markers": {
+  "text loss": 1
+ },
+ "footnotes": [
+  "1 Printed text is rendered here in italics. The certificate is marked with a background logo/watermark reading ‘ISRAELITISCHE CULTUS-GEMEINDE’ and is also marked with a stamp reading ‘MATRIKELAMT | DER ISRAELITISCHEN | KULTUSGEMEINDE | IN | * WIEN. *’",
+  "2 Text is lost where central fold lines meet. The ending of the place name may be ‘ozow’, in which case this may have read ‘Brzozow’."
+ ],
+ "footnotes_physical": [
+  "1 Printed text is rendered here in italics. The certificate is marked with a background logo/watermark reading ‘ISRAELITISCHE CULTUS-GEMEINDE’ and is also marked with a stamp reading ‘MATRIKELAMT | DER ISRAELITISCHEN | KULTUSGEMEINDE | IN | * WIEN. *’",
+  "2 Text is lost where central fold lines meet. The ending of the place name may be ‘ozow’, in which case this may have read ‘Brzozow’."
+ ],
+ "editorial_notes": [],
+ "els": [
+  {
+   "target": "mawes",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 392,
+     "skip": 65,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.4,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 542,
+     "skip": 54,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 8,
+   "null_mean": 4.85,
+   "null_sd": 2.52,
+   "z": 1.25,
+   "examples": [
+    {
+     "start": 349,
+     "skip": 100,
+     "reversed": false
+    },
+    {
+     "start": 287,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 512,
+     "skip": 9,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 4,
+   "null_mean": 2.9,
+   "null_sd": 1.41,
+   "z": 0.78,
+   "examples": [
+    {
+     "start": 281,
+     "skip": 22,
+     "reversed": false
+    },
+    {
+     "start": 230,
+     "skip": 73,
+     "reversed": false
+    },
+    {
+     "start": 56,
+     "skip": 34,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 4,
+   "null_mean": 3.05,
+   "null_sd": 1.6,
+   "z": 0.6,
+   "examples": [
+    {
+     "start": 496,
+     "skip": 48,
+     "reversed": false
+    },
+    {
+     "start": 115,
+     "skip": 100,
+     "reversed": false
+    },
+    {
+     "start": 424,
+     "skip": 26,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 11,
+   "null_mean": 14.1,
+   "null_sd": 3.73,
+   "z": -0.83,
+   "examples": [
+    {
+     "start": 262,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 120,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 24,
+     "skip": 45,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 3,
+   "null_mean": 5.22,
+   "null_sd": 2.01,
+   "z": -1.11,
+   "examples": [
+    {
+     "start": 117,
+     "skip": 51,
+     "reversed": false
+    },
+    {
+     "start": 113,
+     "skip": 88,
+     "reversed": false
+    },
+    {
+     "start": 270,
+     "skip": 108,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 1,
+   "null_mean": 3.85,
+   "null_sd": 2.14,
+   "z": -1.33,
+   "examples": [
+    {
+     "start": 505,
+     "skip": 9,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 33,
+  "null_mean": 41.6,
+  "null_sd": 6.5
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 2.6,
+ "acrostic": "tvrnbbjgzwsubcgwtuduviwmiiub",
+ "telestich": "shdetmgnnetntgnezrretnrrener",
+ "first_words": "Trauungs Von Reihezahl neun Brautpaar Bräutigam Josef geboren zuständig wohnhaft Sohn und Braut Chawa geboren wohnhaft Tochter und Die und von in Wien MATRIKELAMT ISRAELITISCHEN IN unclear beeideter",
+ "last_words": "Zeugnis Sch Eintausend nachbenannte ist Bräutigam ledig Rumänien Rumänien Rueppgasse Lehrhaupt Bermann Braut ledig Polen Zirkusgasse Katz Willner Willner Schaje Fürst vorgenommen Oktober DER KULTUSGEMEINDE WIEN signature Matrikelführer",
+ "word_initials": "tzvduwbdlhtsrafmenhzidnbndgdsudrgwibjlrblgajiwrznwrwiwirsdpludsbbcewfklgamizpwiwiztdmmkudmwdtwigdzjwubsvhrsfiwigsvwaomdikiwusbm",
+ "sentence_initials": "tvijrzrirmpizgwom",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "5/3": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "bermann",
+  "jakob",
+  "josef",
+  "polen",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "zutsmeigsrlbjwrwrwirplsbewkmpwizmmkmwtgzjwbshrsfwigsodkwm",
+ "caps_hits": [],
+ "bacon_from_caps": "?a??tli?c?u?h?ck???zo??q?",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "bermann",
+  "jakob",
+  "josef",
+  "polen",
+  "schiff",
+  "willner"
+ ],
+ "numbers": [
+  "19",
+  "25",
+  "1923",
+  "15",
+  "1897",
+  "18",
+  "10",
+  "1895",
+  "11",
+  "8",
+  "26",
+  "1939"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [
+  18,
+  26
+ ],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Bermann",
+  "Bilko",
+  "Braut",
+  "Brautpaar",
+  "Bräutigam",
+  "Chawa",
+  "DER",
+  "Die",
+  "Eintausend",
+  "Eva",
+  "Fürst",
+  "Gegenwart",
+  "Gesetzen",
+  "Grosse",
+  "Herrn",
+  "II",
+  "III",
+  "IN",
+  "ISRAELITISCHEN",
+  "Jakob",
+  "Josef",
+  "Jänner",
+  "KULTUSGEMEINDE",
+  "Katz",
+  "Lehrhaupt",
+  "MATRIKELAMT",
+  "Mai",
+  "Malke",
+  "Markus",
+  "Matrikelführer",
+  "Moses",
+  "März",
+  "Oktober",
+  "Perez",
+  "Polen",
+  "Rabbiner",
+  "Reihezahl",
+  "Religion",
+  "Rueppgasse",
+  "Rumänien",
+  "Sara",
+  "Sch",
+  "Schaje",
+  "Schiffgasse",
+  "Sigmund",
+  "Sohn",
+  "Staates",
+  "Tochter",
+  "Trauung",
+  "Trauungs",
+  "Trauungsbuches",
+  "Unterzeichneten",
+  "Von",
+  "WIEN",
+  "Wien",
+  "Willner",
+  "Wiznitz",
+  "Zeugen",
+  "Zeugnis",
+  "Zirkusgasse"
+ ],
+ "names_not_in_family_set": [
+  "Bilko",
+  "Braut",
+  "Brautpaar",
+  "Bräutigam",
+  "DER",
+  "Die",
+  "Eintausend",
+  "Fürst",
+  "Gegenwart",
+  "Gesetzen",
+  "Grosse",
+  "Herrn",
+  "II",
+  "III",
+  "IN",
+  "ISRAELITISCHEN",
+  "Jänner",
+  "KULTUSGEMEINDE",
+  "Katz",
+  "Lehrhaupt",
+  "MATRIKELAMT",
+  "Mai",
+  "Malke",
+  "Markus",
+  "Matrikelführer",
+  "Moses",
+  "März",
+  "Oktober",
+  "Perez",
+  "Polen",
+  "Rabbiner",
+  "Reihezahl",
+  "Religion",
+  "Rueppgasse",
+  "Rumänien",
+  "Sara",
+  "Sch",
+  "Schaje",
+  "Schiffgasse",
+  "Sigmund",
+  "Sohn",
+  "Staates",
+  "Tochter",
+  "Trauung",
+  "Trauungs",
+  "Trauungsbuches",
+  "Unterzeichneten",
+  "Von",
+  "WIEN",
+  "Wien",
+  "Wiznitz",
+  "Zeugen",
+  "Zeugnis",
+  "Zirkusgasse"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

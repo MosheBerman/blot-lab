@@ -1,0 +1,4573 @@
+{
+ "shared_ngrams": [
+  [
+   "absender salomon",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "absender salomon willner",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "alle herzlichst",
+   [
+    "6",
+    "27"
+   ]
+  ],
+  [
+   "alle verwandte",
+   [
+    "8",
+    "25",
+    "38"
+   ]
+  ],
+  [
+   "alle verwandte und",
+   [
+    "8",
+    "25"
+   ]
+  ],
+  [
+   "alle vielmals",
+   [
+    "19",
+    "53"
+   ]
+  ],
+  [
+   "alle zusammen",
+   [
+    "10",
+    "38"
+   ]
+  ],
+  [
+   "alles beste auch",
+   [
+    "38",
+    "52"
+   ]
+  ],
+  [
+   "alles in ordnung",
+   [
+    "7",
+    "37"
+   ]
+  ],
+  [
+   "alles moegliche",
+   [
+    "33",
+    "52"
+   ]
+  ],
+  [
+   "am schnellsten",
+   [
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "am schnelsten",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "am schnelsten sonst",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "amerika strasse",
+   [
+    "17",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "amerika strasse hausnummer",
+   [
+    "17",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "amerikanische konsul",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "amerikanische konsul gibt",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "amerikanischem konsul",
+   [
+    "10",
+    "37"
+   ]
+  ],
+  [
+   "amerikanischen konsul",
+   [
+    "23",
+    "37"
+   ]
+  ],
+  [
+   "an meine liebsten",
+   [
+    "8",
+    "42",
+    "48"
+   ]
+  ],
+  [
+   "antwort absender",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "antwort absender salomon",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "antwort sonst",
+   [
+    "2",
+    "14"
+   ]
+  ],
+  [
+   "antwort sonst gruesse",
+   [
+    "2",
+    "14"
+   ]
+  ],
+  [
+   "auch den lieben",
+   [
+    "19",
+    "46"
+   ]
+  ],
+  [
+   "auch die kinder",
+   [
+    "17",
+    "42"
+   ]
+  ],
+  [
+   "auch die liebe",
+   [
+    "3",
+    "18",
+    "33"
+   ]
+  ],
+  [
+   "auch die lieben",
+   [
+    "12",
+    "14"
+   ]
+  ],
+  [
+   "auch ein brief",
+   [
+    "18",
+    "35"
+   ]
+  ],
+  [
+   "auch euere lieben",
+   [
+    "2",
+    "43",
+    "45"
+   ]
+  ],
+  [
+   "auch ferkuelt",
+   [
+    "19",
+    "36"
+   ]
+  ],
+  [
+   "auch meine mali",
+   [
+    "4",
+    "43",
+    "46"
+   ]
+  ],
+  [
+   "auch meine maly",
+   [
+    "2",
+    "14",
+    "38"
+   ]
+  ],
+  [
+   "auch zu schreiben",
+   [
+    "23",
+    "46"
+   ]
+  ],
+  [
+   "author follows",
+   [
+    "38",
+    "44",
+    "46"
+   ]
+  ],
+  [
+   "author follows on",
+   [
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "author follows overleaf",
+   [
+    "44",
+    "46"
+   ]
+  ],
+  [
+   "author is visible",
+   [
+    "33",
+    "38"
+   ]
+  ],
+  [
+   "beinahe monate",
+   [
+    "7",
+    "47"
+   ]
+  ],
+  [
+   "bekommen aber",
+   [
+    "4",
+    "24",
+    "37"
+   ]
+  ],
+  [
+   "bekommen bitte",
+   [
+    "41",
+    "44"
+   ]
+  ],
+  [
+   "bekommen habe",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "bekommen haben",
+   [
+    "29",
+    "39",
+    "41"
+   ]
+  ],
+  [
+   "bekommen seit",
+   [
+    "25",
+    "33"
+   ]
+  ],
+  [
+   "bekommst du post",
+   [
+    "33",
+    "34"
+   ]
+  ],
+  [
+   "bermann sheriff",
+   [
+    "1",
+    "6"
+   ]
+  ],
+  [
+   "berta willi und",
+   [
+    "10",
+    "24",
+    "44"
+   ]
+  ],
+  [
+   "besonders als",
+   [
+    "12",
+    "42",
+    "46"
+   ]
+  ],
+  [
+   "besonders als ich",
+   [
+    "12",
+    "42",
+    "46"
+   ]
+  ],
+  [
+   "beste grusse und",
+   [
+    "25",
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "besten gruessen",
+   [
+    "41",
+    "44"
+   ]
+  ],
+  [
+   "besten gruessen und",
+   [
+    "41",
+    "44"
+   ]
+  ],
+  [
+   "bestens gruessen",
+   [
+    "4",
+    "19"
+   ]
+  ],
+  [
+   "bestens gruessen und",
+   [
+    "4",
+    "19"
+   ]
+  ],
+  [
+   "bitte dich liebe",
+   [
+    "8",
+    "27"
+   ]
+  ],
+  [
+   "bitte dich nochmals",
+   [
+    "33",
+    "44"
+   ]
+  ],
+  [
+   "bitte gleich antwort",
+   [
+    "3",
+    "52"
+   ]
+  ],
+  [
+   "bitte gleich bei",
+   [
+    "17",
+    "54"
+   ]
+  ],
+  [
+   "bitte nochmals",
+   [
+    "1",
+    "23"
+   ]
+  ],
+  [
+   "bitte nochmals gleich",
+   [
+    "1",
+    "23"
+   ]
+  ],
+  [
+   "bitte schreibe was",
+   [
+    "2",
+    "52"
+   ]
+  ],
+  [
+   "bitte schreibet",
+   [
+    "17",
+    "33"
+   ]
+  ],
+  [
+   "bitte schreibt ob",
+   [
+    "2",
+    "5"
+   ]
+  ],
+  [
+   "bitte schreibt was",
+   [
+    "35",
+    "53"
+   ]
+  ],
+  [
+   "brauchst nicht",
+   [
+    "12",
+    "42",
+    "48"
+   ]
+  ],
+  [
+   "brief bekommen",
+   [
+    "24",
+    "43"
+   ]
+  ],
+  [
+   "brief geschrie",
+   [
+    "18",
+    "33"
+   ]
+  ],
+  [
+   "brief geschrie ben",
+   [
+    "18",
+    "33"
+   ]
+  ],
+  [
+   "brief geschrieben ich",
+   [
+    "36",
+    "41"
+   ]
+  ],
+  [
+   "brief habe dankend",
+   [
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "brief habe heute",
+   [
+    "29",
+    "36"
+   ]
+  ],
+  [
+   "brief in welchen",
+   [
+    "17",
+    "46"
+   ]
+  ],
+  [
+   "brief von habe",
+   [
+    "1",
+    "23",
+    "37"
+   ]
+  ],
+  [
+   "bruder liebe schwaegerin",
+   [
+    "18",
+    "35"
+   ]
+  ],
+  [
+   "by same author",
+   [
+    "38",
+    "44"
+   ]
+  ],
+  [
+   "by second author",
+   [
+    "27",
+    "46"
+   ]
+  ],
+  [
+   "chaja sender s",
+   [
+    "1",
+    "17"
+   ]
+  ],
+  [
+   "city amerika strasse",
+   [
+    "17",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "continues overleaf",
+   [
+    "40",
+    "41",
+    "46"
+   ]
+  ],
+  [
+   "danke dir vielmals",
+   [
+    "19",
+    "38"
+   ]
+  ],
+  [
+   "danke euch vielmals",
+   [
+    "18",
+    "45"
+   ]
+  ],
+  [
+   "darum gebeten",
+   [
+    "39",
+    "42"
+   ]
+  ],
+  [
+   "das susse kind",
+   [
+    "24",
+    "47"
+   ]
+  ],
+  [
+   "dass der liebe",
+   [
+    "4",
+    "53"
+   ]
+  ],
+  [
+   "dein stillschweigen",
+   [
+    "27",
+    "54"
+   ]
+  ],
+  [
+   "den josef uebergeben",
+   [
+    "18",
+    "23"
+   ]
+  ],
+  [
+   "den lieben jakob",
+   [
+    "1",
+    "43"
+   ]
+  ],
+  [
+   "den lieben josef",
+   [
+    "27",
+    "44"
+   ]
+  ],
+  [
+   "den liebste geschwister",
+   [
+    "40",
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "den liebster bruder",
+   [
+    "18",
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "den verwandtschaftsgrad",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "der amerikanische",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "der amerikanische konsul",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "der ewiger die",
+   [
+    "40",
+    "52"
+   ]
+  ],
+  [
+   "der gesundheit hoffentlich",
+   [
+    "33",
+    "48"
+   ]
+  ],
+  [
+   "der gesundheit ich",
+   [
+    "29",
+    "38"
+   ]
+  ],
+  [
+   "der israelitischen",
+   [
+    "13",
+    "37"
+   ]
+  ],
+  [
+   "der israelitischen kultusgemeinde",
+   [
+    "13",
+    "37"
+   ]
+  ],
+  [
+   "der josef ferdient",
+   [
+    "1",
+    "14",
+    "17"
+   ]
+  ],
+  [
+   "der liebe jakob",
+   [
+    "33",
+    "43"
+   ]
+  ],
+  [
+   "der liebe joel",
+   [
+    "4",
+    "33",
+    "53"
+   ]
+  ],
+  [
+   "der liebe kalman",
+   [
+    "27",
+    "35"
+   ]
+  ],
+  [
+   "der liebe mali",
+   [
+    "24",
+    "25"
+   ]
+  ],
+  [
+   "der lieben maly",
+   [
+    "40",
+    "45"
+   ]
+  ],
+  [
+   "dich nochmals",
+   [
+    "33",
+    "44"
+   ]
+  ],
+  [
+   "dich schoen gruessen",
+   [
+    "2",
+    "35"
+   ]
+  ],
+  [
+   "dich schon einige",
+   [
+    "39",
+    "48"
+   ]
+  ],
+  [
+   "dich vielmals auch",
+   [
+    "14",
+    "23",
+    "54"
+   ]
+  ],
+  [
+   "die frau dornhelm",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "die frau werner",
+   [
+    "43",
+    "45"
+   ]
+  ],
+  [
+   "die freude die",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "die kinder sind",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "die kinder sollen",
+   [
+    "1",
+    "39",
+    "42"
+   ]
+  ],
+  [
+   "die kinder tante",
+   [
+    "7",
+    "46"
+   ]
+  ],
+  [
+   "die kinder von",
+   [
+    "17",
+    "29"
+   ]
+  ],
+  [
+   "die kultusgemeinde",
+   [
+    "37",
+    "40"
+   ]
+  ],
+  [
+   "die kultusgemeinde doch",
+   [
+    "37",
+    "40"
+   ]
+  ],
+  [
+   "die liebe kinder",
+   [
+    "6",
+    "24",
+    "44"
+   ]
+  ],
+  [
+   "die liebe mina",
+   [
+    "1",
+    "33"
+   ]
+  ],
+  [
+   "die rosa hirsch",
+   [
+    "35",
+    "40"
+   ]
+  ],
+  [
+   "die schiffskarten",
+   [
+    "23",
+    "36",
+    "37"
+   ]
+  ],
+  [
+   "dieses briefes",
+   [
+    "25",
+    "31"
+   ]
+  ],
+  [
+   "dir geschrieben",
+   [
+    "6",
+    "8",
+    "42"
+   ]
+  ],
+  [
+   "dir geschrieben habe",
+   [
+    "6",
+    "42"
+   ]
+  ],
+  [
+   "dir kaum vorstellen",
+   [
+    "25",
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "dir vielmals fuer",
+   [
+    "19",
+    "38"
+   ]
+  ],
+  [
+   "du gemacht hast",
+   [
+    "12",
+    "38"
+   ]
+  ],
+  [
+   "du schon welche",
+   [
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "du sehr alleine",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "du weggefahren",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "du weggefahren bist",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "ein brief bekommen",
+   [
+    "24",
+    "43"
+   ]
+  ],
+  [
+   "eine karte bekommen",
+   [
+    "11",
+    "24",
+    "41"
+   ]
+  ],
+  [
+   "einen brief geschrieben",
+   [
+    "41",
+    "46"
+   ]
+  ],
+  [
+   "einziges schreiben bekommen",
+   [
+    "24",
+    "33"
+   ]
+  ],
+  [
+   "erhalt dieses",
+   [
+    "25",
+    "31"
+   ]
+  ],
+  [
+   "erhalt dieses briefes",
+   [
+    "25",
+    "31"
+   ]
+  ],
+  [
+   "erhalten du kannst",
+   [
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "erhalten es freut",
+   [
+    "39",
+    "46"
+   ]
+  ],
+  [
+   "erhalten in welchen",
+   [
+    "37",
+    "45"
+   ]
+  ],
+  [
+   "erwartet habe",
+   [
+    "29",
+    "42"
+   ]
+  ],
+  [
+   "erwartet habe es",
+   [
+    "29",
+    "42"
+   ]
+  ],
+  [
+   "euch alle herzlichst",
+   [
+    "6",
+    "27"
+   ]
+  ],
+  [
+   "euch herzlich",
+   [
+    "7",
+    "9"
+   ]
+  ],
+  [
+   "euch herzlichst",
+   [
+    "6",
+    "27"
+   ]
+  ],
+  [
+   "euch vielmals auch",
+   [
+    "2",
+    "45"
+   ]
+  ],
+  [
+   "euch was machen",
+   [
+    "2",
+    "33"
+   ]
+  ],
+  [
+   "euch was macht",
+   [
+    "8",
+    "17",
+    "53"
+   ]
+  ],
+  [
+   "euch zusammen",
+   [
+    "25",
+    "41"
+   ]
+  ],
+  [
+   "euer papa josef",
+   [
+    "29",
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "euer papa welcher",
+   [
+    "8",
+    "26",
+    "42"
+   ]
+  ],
+  [
+   "euer so langen",
+   [
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "euere klara auch",
+   [
+    "14",
+    "43"
+   ]
+  ],
+  [
+   "euere klara mali",
+   [
+    "4",
+    "53",
+    "54"
+   ]
+  ],
+  [
+   "euere lieben kinder",
+   [
+    "2",
+    "43",
+    "45"
+   ]
+  ],
+  [
+   "eure lieben kinder",
+   [
+    "2",
+    "43"
+   ]
+  ],
+  [
+   "ewa und kinder",
+   [
+    "17",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "ewiger die liebe",
+   [
+    "40",
+    "52"
+   ]
+  ],
+  [
+   "fahren konnen",
+   [
+    "12",
+    "25"
+   ]
+  ],
+  [
+   "fahren konnen wie",
+   [
+    "12",
+    "25"
+   ]
+  ],
+  [
+   "fahren sonst kein",
+   [
+    "1",
+    "4"
+   ]
+  ],
+  [
+   "familie gesund",
+   [
+    "30",
+    "41"
+   ]
+  ],
+  [
+   "familie willner",
+   [
+    "24",
+    "46"
+   ]
+  ],
+  [
+   "ferdient auch was",
+   [
+    "5",
+    "17"
+   ]
+  ],
+  [
+   "fileicht koennt",
+   [
+    "36",
+    "51"
+   ]
+  ],
+  [
+   "fileicht wird",
+   [
+    "18",
+    "37"
+   ]
+  ],
+  [
+   "follows overleaf",
+   [
+    "44",
+    "46"
+   ]
+  ],
+  [
+   "frau dornhelm",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "freud mich sehr",
+   [
+    "24",
+    "33"
+   ]
+  ],
+  [
+   "freude die ich",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "freude gelesen",
+   [
+    "4",
+    "53"
+   ]
+  ],
+  [
+   "freude gelesen bei",
+   [
+    "4",
+    "53"
+   ]
+  ],
+  [
+   "freuden dienen",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "freue mich dass",
+   [
+    "38",
+    "53"
+   ]
+  ],
+  [
+   "freut mich seher",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "fuer die schule",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "fuer die zuschrift",
+   [
+    "19",
+    "47"
+   ]
+  ],
+  [
+   "ganz verzweifelt",
+   [
+    "27",
+    "43"
+   ]
+  ],
+  [
+   "gebe gott dass",
+   [
+    "12",
+    "38"
+   ]
+  ],
+  [
+   "geht bitte wie",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "geht was machen",
+   [
+    "43",
+    "46"
+   ]
+  ],
+  [
+   "gelesen bei uns",
+   [
+    "4",
+    "53"
+   ]
+  ],
+  [
+   "gemacht hast von",
+   [
+    "38",
+    "44"
+   ]
+  ],
+  [
+   "geschickt ich",
+   [
+    "36",
+    "46"
+   ]
+  ],
+  [
+   "geschreiben und",
+   [
+    "14",
+    "44"
+   ]
+  ],
+  [
+   "geschrie ben dass",
+   [
+    "33",
+    "48"
+   ]
+  ],
+  [
+   "geschrieben das",
+   [
+    "17",
+    "41"
+   ]
+  ],
+  [
+   "geschrieben dass ich",
+   [
+    "10",
+    "26"
+   ]
+  ],
+  [
+   "geschrieben er hat",
+   [
+    "35",
+    "36"
+   ]
+  ],
+  [
+   "geschrieben er soll",
+   [
+    "23",
+    "44"
+   ]
+  ],
+  [
+   "geschrieben hat",
+   [
+    "8",
+    "36"
+   ]
+  ],
+  [
+   "geschrieben ich habe",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "geschrieben sie",
+   [
+    "11",
+    "19",
+    "24"
+   ]
+  ],
+  [
+   "geschrieben von",
+   [
+    "27",
+    "29"
+   ]
+  ],
+  [
+   "gesund zu hause",
+   [
+    "19",
+    "52"
+   ]
+  ],
+  [
+   "gesundheit hoffentlich",
+   [
+    "33",
+    "48"
+   ]
+  ],
+  [
+   "gesundheit ich",
+   [
+    "29",
+    "38"
+   ]
+  ],
+  [
+   "gesundheit zu",
+   [
+    "14",
+    "44"
+   ]
+  ],
+  [
+   "gibt kein visum",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "gleich bei erhalt",
+   [
+    "17",
+    "27",
+    "54"
+   ]
+  ],
+  [
+   "gleich den josef",
+   [
+    "14",
+    "23"
+   ]
+  ],
+  [
+   "got soll helfen",
+   [
+    "29",
+    "47"
+   ]
+  ],
+  [
+   "gruess und kuesse",
+   [
+    "8",
+    "24"
+   ]
+  ],
+  [
+   "gruesse kuesse alle",
+   [
+    "46",
+    "53"
+   ]
+  ],
+  [
+   "gruesse und kuesse",
+   [
+    "6",
+    "31",
+    "34"
+   ]
+  ],
+  [
+   "gruessen bitte",
+   [
+    "3",
+    "23",
+    "52"
+   ]
+  ],
+  [
+   "gruessen bitte gleich",
+   [
+    "3",
+    "52"
+   ]
+  ],
+  [
+   "grussen von mir",
+   [
+    "24",
+    "46"
+   ]
+  ],
+  [
+   "gut aufgehoben",
+   [
+    "24",
+    "44"
+   ]
+  ],
+  [
+   "guten zustand",
+   [
+    "35",
+    "45"
+   ]
+  ],
+  [
+   "habe dir schon",
+   [
+    "10",
+    "33",
+    "48"
+   ]
+  ],
+  [
+   "habe eine karte",
+   [
+    "11",
+    "24"
+   ]
+  ],
+  [
+   "habe erhalten du",
+   [
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "habe heute erhalten",
+   [
+    "3",
+    "36"
+   ]
+  ],
+  [
+   "habe mich sehr",
+   [
+    "35",
+    "52"
+   ]
+  ],
+  [
+   "habe oft schreiben",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "haben wir eine",
+   [
+    "30",
+    "46"
+   ]
+  ],
+  [
+   "haben wir leider",
+   [
+    "27",
+    "41"
+   ]
+  ],
+  [
+   "hast habe erhalten",
+   [
+    "39",
+    "42"
+   ]
+  ],
+  [
+   "hat geschrieben",
+   [
+    "24",
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "hat mir geschrieben",
+   [
+    "35",
+    "41"
+   ]
+  ],
+  [
+   "herrn jakob willner",
+   [
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "herzlich gruessen und",
+   [
+    "9",
+    "34",
+    "44"
+   ]
+  ],
+  [
+   "herzlich grussen",
+   [
+    "9",
+    "46"
+   ]
+  ],
+  [
+   "herzliche gruesse",
+   [
+    "3",
+    "6"
+   ]
+  ],
+  [
+   "herzlichst gruessen",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "heute erhalten",
+   [
+    "3",
+    "36"
+   ]
+  ],
+  [
+   "hoffen dass es",
+   [
+    "6",
+    "38",
+    "39"
+   ]
+  ],
+  [
+   "hoffentlich gut wir",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "ich bitte dich",
+   [
+    "33",
+    "39",
+    "44"
+   ]
+  ],
+  [
+   "ich die schiffskarten",
+   [
+    "23",
+    "37"
+   ]
+  ],
+  [
+   "ich dir geschrieben",
+   [
+    "6",
+    "42"
+   ]
+  ],
+  [
+   "ich gruesse euch",
+   [
+    "6",
+    "46"
+   ]
+  ],
+  [
+   "ich habe schon",
+   [
+    "34",
+    "45"
+   ]
+  ],
+  [
+   "ich hoffe dass",
+   [
+    "24",
+    "30"
+   ]
+  ],
+  [
+   "ich lasse alle",
+   [
+    "1",
+    "34"
+   ]
+  ],
+  [
+   "ich noch nicht",
+   [
+    "6",
+    "10"
+   ]
+  ],
+  [
+   "ich schon sehr",
+   [
+    "24",
+    "42"
+   ]
+  ],
+  [
+   "ich soll koennen",
+   [
+    "44",
+    "47"
+   ]
+  ],
+  [
+   "ich weiss nicht",
+   [
+    "17",
+    "40",
+    "46"
+   ]
+  ],
+  [
+   "ich werde fahren",
+   [
+    "12",
+    "24"
+   ]
+  ],
+  [
+   "ihr nicht besorgt",
+   [
+    "19",
+    "46"
+   ]
+  ],
+  [
+   "im kindergarten",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "im vorigen brief",
+   [
+    "10",
+    "45"
+   ]
+  ],
+  [
+   "in amerika ist",
+   [
+    "4",
+    "53"
+   ]
+  ],
+  [
+   "in guten zustand",
+   [
+    "35",
+    "45"
+   ]
+  ],
+  [
+   "israelitische kultusgemeinde",
+   [
+    "14",
+    "36"
+   ]
+  ],
+  [
+   "israelitischen kultusgemeinde",
+   [
+    "13",
+    "37"
+   ]
+  ],
+  [
+   "ist es moglich",
+   [
+    "29",
+    "46"
+   ]
+  ],
+  [
+   "ist unberufen",
+   [
+    "30",
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "ist unberufen sehr",
+   [
+    "30",
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "jetzt meine lieben",
+   [
+    "37",
+    "45"
+   ]
+  ],
+  [
+   "josef besondere",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "josef besondere grusse",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "josef ferdient",
+   [
+    "1",
+    "14",
+    "17"
+   ]
+  ],
+  [
+   "josef ferdient er",
+   [
+    "1",
+    "17"
+   ]
+  ],
+  [
+   "josef schicken",
+   [
+    "40",
+    "52"
+   ]
+  ],
+  [
+   "josef uebergeben",
+   [
+    "18",
+    "23"
+   ]
+  ],
+  [
+   "kann man nicht",
+   [
+    "18",
+    "41"
+   ]
+  ],
+  [
+   "karte bekommen",
+   [
+    "11",
+    "24",
+    "41"
+   ]
+  ],
+  [
+   "kaum vorstellen die",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "kaum vorstellen wie",
+   [
+    "25",
+    "47"
+   ]
+  ],
+  [
+   "kein einziges schreiben",
+   [
+    "24",
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "kein neues gruesse",
+   [
+    "11",
+    "51"
+   ]
+  ],
+  [
+   "keine ahnung wie",
+   [
+    "40",
+    "46"
+   ]
+  ],
+  [
+   "keine aussicht",
+   [
+    "33",
+    "37"
+   ]
+  ],
+  [
+   "keine nachricht",
+   [
+    "8",
+    "25",
+    "47"
+   ]
+  ],
+  [
+   "keine ruhe ich",
+   [
+    "29",
+    "34"
+   ]
+  ],
+  [
+   "keine schiffskarten",
+   [
+    "14",
+    "36"
+   ]
+  ],
+  [
+   "kinder es wundert",
+   [
+    "24",
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "kinder machen",
+   [
+    "5",
+    "52"
+   ]
+  ],
+  [
+   "kinder sollen mir",
+   [
+    "39",
+    "42"
+   ]
+  ],
+  [
+   "kinder und ganze",
+   [
+    "2",
+    "18"
+   ]
+  ],
+  [
+   "kinder vielmals",
+   [
+    "36",
+    "51"
+   ]
+  ],
+  [
+   "kinder von mir",
+   [
+    "6",
+    "12"
+   ]
+  ],
+  [
+   "kinder wie geht",
+   [
+    "33",
+    "43",
+    "45"
+   ]
+  ],
+  [
+   "klara auch meine",
+   [
+    "2",
+    "14",
+    "43"
+   ]
+  ],
+  [
+   "konsul gibt kein",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "kuesse an dich",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "kuesse euch alle",
+   [
+    "1",
+    "6",
+    "19"
+   ]
+  ],
+  [
+   "kultusgemeinde doch",
+   [
+    "37",
+    "40"
+   ]
+  ],
+  [
+   "kusse dich wie",
+   [
+    "29",
+    "48"
+   ]
+  ],
+  [
+   "kusse euer papa",
+   [
+    "33",
+    "42"
+   ]
+  ],
+  [
+   "laesst dich schoen",
+   [
+    "2",
+    "35"
+   ]
+  ],
+  [
+   "lea und kinder",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "letter by same",
+   [
+    "38",
+    "44"
+   ]
+  ],
+  [
+   "letter by second",
+   [
+    "27",
+    "46"
+   ]
+  ],
+  [
+   "letter continues overleaf",
+   [
+    "40",
+    "41",
+    "46"
+   ]
+  ],
+  [
+   "liebe karte von",
+   [
+    "23",
+    "35"
+   ]
+  ],
+  [
+   "liebe kinder es",
+   [
+    "24",
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "liebe mali und",
+   [
+    "17",
+    "43"
+   ]
+  ],
+  [
+   "liebe maly soll",
+   [
+    "40",
+    "52"
+   ]
+  ],
+  [
+   "liebe mina und",
+   [
+    "1",
+    "54"
+   ]
+  ],
+  [
+   "liebe schwaegerin",
+   [
+    "18",
+    "27",
+    "35"
+   ]
+  ],
+  [
+   "liebe schwegerin",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "liebe schwester bitte",
+   [
+    "9",
+    "46"
+   ]
+  ],
+  [
+   "liebe schwester es",
+   [
+    "33",
+    "54"
+   ]
+  ],
+  [
+   "lieben berta willi",
+   [
+    "24",
+    "44"
+   ]
+  ],
+  [
+   "lieben brief samt",
+   [
+    "41",
+    "47"
+   ]
+  ],
+  [
+   "lieben eltern",
+   [
+    "6",
+    "19"
+   ]
+  ],
+  [
+   "lieben josef und",
+   [
+    "27",
+    "44"
+   ]
+  ],
+  [
+   "lieben kinder liebe",
+   [
+    "33",
+    "54"
+   ]
+  ],
+  [
+   "lieben kinder warum",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "lieben kinder wie",
+   [
+    "33",
+    "43",
+    "45"
+   ]
+  ],
+  [
+   "lieben kindern habe",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "lieber gerson",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "liebesgaben paket",
+   [
+    "4",
+    "45"
+   ]
+  ],
+  [
+   "liebste mutti",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "liebste schwaegerin",
+   [
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "liebste schwaegerin eueren",
+   [
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "liebste schwester",
+   [
+    "36",
+    "51"
+   ]
+  ],
+  [
+   "liebster bruder",
+   [
+    "18",
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "machen die ganze",
+   [
+    "17",
+    "33"
+   ]
+  ],
+  [
+   "machen die lieben",
+   [
+    "25",
+    "44",
+    "54"
+   ]
+  ],
+  [
+   "machen eure lieben",
+   [
+    "2",
+    "43"
+   ]
+  ],
+  [
+   "macht der liebe",
+   [
+    "35",
+    "53"
+   ]
+  ],
+  [
+   "macht der onkel",
+   [
+    "11",
+    "24"
+   ]
+  ],
+  [
+   "macht die liebe",
+   [
+    "1",
+    "17"
+   ]
+  ],
+  [
+   "mal geschrieben",
+   [
+    "6",
+    "10",
+    "25"
+   ]
+  ],
+  [
+   "mali laesst alle",
+   [
+    "4",
+    "23",
+    "43"
+   ]
+  ],
+  [
+   "maly laesst alle",
+   [
+    "2",
+    "14"
+   ]
+  ],
+  [
+   "maly soll schon",
+   [
+    "40",
+    "52"
+   ]
+  ],
+  [
+   "man nicht fahren",
+   [
+    "18",
+    "41"
+   ]
+  ],
+  [
+   "mein schreiben mit",
+   [
+    "25",
+    "39"
+   ]
+  ],
+  [
+   "meine ausreise",
+   [
+    "25",
+    "38"
+   ]
+  ],
+  [
+   "meine liebsten",
+   [
+    "8",
+    "42",
+    "48"
+   ]
+  ],
+  [
+   "meine liebsten es",
+   [
+    "8",
+    "48"
+   ]
+  ],
+  [
+   "meine mali laesst",
+   [
+    "4",
+    "43"
+   ]
+  ],
+  [
+   "meine maly laesst",
+   [
+    "2",
+    "14"
+   ]
+  ],
+  [
+   "meinen lieben",
+   [
+    "9",
+    "46"
+   ]
+  ],
+  [
+   "meinen lieben sohn",
+   [
+    "9",
+    "46"
+   ]
+  ],
+  [
+   "meiner ausreise",
+   [
+    "8",
+    "39"
+   ]
+  ],
+  [
+   "mich seher das",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "mich sehr gefreut",
+   [
+    "31",
+    "35",
+    "52"
+   ]
+  ],
+  [
+   "mich sehr sehr",
+   [
+    "7",
+    "26"
+   ]
+  ],
+  [
+   "mir gesagt von",
+   [
+    "18",
+    "37"
+   ]
+  ],
+  [
+   "mir geschrieben",
+   [
+    "27",
+    "35",
+    "41"
+   ]
+  ],
+  [
+   "mir keine ruhe",
+   [
+    "29",
+    "34"
+   ]
+  ],
+  [
+   "mit besten gruessen",
+   [
+    "41",
+    "44"
+   ]
+  ],
+  [
+   "mit euch zusammen",
+   [
+    "25",
+    "41"
+   ]
+  ],
+  [
+   "mit freude gelesen",
+   [
+    "4",
+    "53"
+   ]
+  ],
+  [
+   "mit herzliche",
+   [
+    "3",
+    "39"
+   ]
+  ],
+  [
+   "mitteilen dass",
+   [
+    "38",
+    "45"
+   ]
+  ],
+  [
+   "moechte schon",
+   [
+    "8",
+    "41"
+   ]
+  ],
+  [
+   "moeglichkeit dass",
+   [
+    "34",
+    "46"
+   ]
+  ],
+  [
+   "mr jakob willner",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "nach erhalt dieses",
+   [
+    "25",
+    "31"
+   ]
+  ],
+  [
+   "nachricht von",
+   [
+    "7",
+    "25",
+    "38"
+   ]
+  ],
+  [
+   "nachricht von euch",
+   [
+    "7",
+    "25",
+    "38"
+   ]
+  ],
+  [
+   "neues gruesse",
+   [
+    "11",
+    "51"
+   ]
+  ],
+  [
+   "neues gruesse kuesse",
+   [
+    "11",
+    "51"
+   ]
+  ],
+  [
+   "nicht aufgeben",
+   [
+    "10",
+    "12"
+   ]
+  ],
+  [
+   "nicht erhalten",
+   [
+    "6",
+    "51"
+   ]
+  ],
+  [
+   "nicht in betracht",
+   [
+    "8",
+    "35"
+   ]
+  ],
+  [
+   "nicht schicken",
+   [
+    "19",
+    "51"
+   ]
+  ],
+  [
+   "nicht schreiben",
+   [
+    "10",
+    "17"
+   ]
+  ],
+  [
+   "nicht so lange",
+   [
+    "25",
+    "42"
+   ]
+  ],
+  [
+   "nicht so nachdenklich",
+   [
+    "12",
+    "42"
+   ]
+  ],
+  [
+   "nicht zu hause",
+   [
+    "9",
+    "41"
+   ]
+  ],
+  [
+   "nichts besonders",
+   [
+    "12",
+    "46"
+   ]
+  ],
+  [
+   "nichts besonders als",
+   [
+    "12",
+    "46"
+   ]
+  ],
+  [
+   "noch immer keine",
+   [
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "noch nicht erhalten",
+   [
+    "6",
+    "51"
+   ]
+  ],
+  [
+   "nochmals gleich",
+   [
+    "1",
+    "23"
+   ]
+  ],
+  [
+   "nochmals gleich antwort",
+   [
+    "1",
+    "23"
+   ]
+  ],
+  [
+   "norbert grusse",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "norbert grusse und",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "norbert von euer",
+   [
+    "7",
+    "8"
+   ]
+  ],
+  [
+   "owadie die liebe",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "paket erhalten",
+   [
+    "6",
+    "35",
+    "45"
+   ]
+  ],
+  [
+   "post bekommen",
+   [
+    "4",
+    "46"
+   ]
+  ],
+  [
+   "postka rte herrn",
+   [
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "postschliessfachnummer taborstrasse postka",
+   [
+    "1",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "rosa und familie",
+   [
+    "24",
+    "33"
+   ]
+  ],
+  [
+   "rte herrn jakob",
+   [
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "ruchel lea wohnt",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "salomon willner",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "salomon willner strzyzow",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "same author follows",
+   [
+    "38",
+    "44"
+   ]
+  ],
+  [
+   "schiffskarten nur",
+   [
+    "18",
+    "36"
+   ]
+  ],
+  [
+   "schiffskarten schicken",
+   [
+    "36",
+    "40"
+   ]
+  ],
+  [
+   "schliesse mein",
+   [
+    "25",
+    "29",
+    "39"
+   ]
+  ],
+  [
+   "schliesse mein schreiben",
+   [
+    "25",
+    "29",
+    "39"
+   ]
+  ],
+  [
+   "schnelsten sonst",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "schoen gruessen bitte",
+   [
+    "23",
+    "52"
+   ]
+  ],
+  [
+   "schoen gruessen und",
+   [
+    "4",
+    "43"
+   ]
+  ],
+  [
+   "schon beinahe",
+   [
+    "7",
+    "47",
+    "48"
+   ]
+  ],
+  [
+   "schon beinahe monate",
+   [
+    "7",
+    "47"
+   ]
+  ],
+  [
+   "schon einige mal",
+   [
+    "39",
+    "48"
+   ]
+  ],
+  [
+   "schon fast monate",
+   [
+    "8",
+    "25",
+    "33"
+   ]
+  ],
+  [
+   "schon gesund zu",
+   [
+    "19",
+    "52"
+   ]
+  ],
+  [
+   "schon im vorigen",
+   [
+    "10",
+    "45"
+   ]
+  ],
+  [
+   "schon in amerika",
+   [
+    "33",
+    "53"
+   ]
+  ],
+  [
+   "schon mal geschrieben",
+   [
+    "10",
+    "25"
+   ]
+  ],
+  [
+   "schon sehr lange",
+   [
+    "25",
+    "42"
+   ]
+  ],
+  [
+   "schon zu untersuchung",
+   [
+    "14",
+    "23"
+   ]
+  ],
+  [
+   "schreiben aber",
+   [
+    "25",
+    "34",
+    "42"
+   ]
+  ],
+  [
+   "schreiben auch du",
+   [
+    "1",
+    "52"
+   ]
+  ],
+  [
+   "schreiben bekommen",
+   [
+    "24",
+    "25",
+    "33"
+   ]
+  ],
+  [
+   "schreiben bekommen seit",
+   [
+    "25",
+    "33"
+   ]
+  ],
+  [
+   "schreiben bitte",
+   [
+    "1",
+    "52"
+   ]
+  ],
+  [
+   "schreiben die kinder",
+   [
+    "1",
+    "25",
+    "39"
+   ]
+  ],
+  [
+   "schreiben habe",
+   [
+    "23",
+    "39"
+   ]
+  ],
+  [
+   "schreiben kann",
+   [
+    "12",
+    "31"
+   ]
+  ],
+  [
+   "schreiben soll",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "schreiben sonst gruesse",
+   [
+    "1",
+    "17"
+   ]
+  ],
+  [
+   "schreiben weil",
+   [
+    "4",
+    "17"
+   ]
+  ],
+  [
+   "schreibst dass",
+   [
+    "12",
+    "35"
+   ]
+  ],
+  [
+   "schreibst dass du",
+   [
+    "12",
+    "35"
+   ]
+  ],
+  [
+   "schreibt dass",
+   [
+    "18",
+    "24"
+   ]
+  ],
+  [
+   "schreibt die liebe",
+   [
+    "12",
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "schwaegerin eueren",
+   [
+    "18",
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "schwaegerin eueren lieben",
+   [
+    "18",
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "schwester bitte",
+   [
+    "9",
+    "46"
+   ]
+  ],
+  [
+   "schwester deinen",
+   [
+    "14",
+    "36"
+   ]
+  ],
+  [
+   "schwester deinen lieben",
+   [
+    "14",
+    "36"
+   ]
+  ],
+  [
+   "schwester es tut",
+   [
+    "17",
+    "33",
+    "54"
+   ]
+  ],
+  [
+   "schwester und",
+   [
+    "44",
+    "45"
+   ]
+  ],
+  [
+   "second author",
+   [
+    "27",
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "sehr alleine oder",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "sehr dass habe",
+   [
+    "24",
+    "25"
+   ]
+  ],
+  [
+   "sehr gefreut mit",
+   [
+    "35",
+    "52"
+   ]
+  ],
+  [
+   "sein sonst wie",
+   [
+    "8",
+    "39"
+   ]
+  ],
+  [
+   "seit dieser zeit",
+   [
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "selber nicht was",
+   [
+    "25",
+    "33"
+   ]
+  ],
+  [
+   "sich baldigst",
+   [
+    "8",
+    "26"
+   ]
+  ],
+  [
+   "sie mir mitteilt",
+   [
+    "31",
+    "41"
+   ]
+  ],
+  [
+   "sie schon gesund",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "so lange warten",
+   [
+    "25",
+    "42"
+   ]
+  ],
+  [
+   "so nachdenklich",
+   [
+    "12",
+    "42"
+   ]
+  ],
+  [
+   "soll schon gesund",
+   [
+    "19",
+    "40",
+    "52"
+   ]
+  ],
+  [
+   "sonst nichts besonders",
+   [
+    "12",
+    "46"
+   ]
+  ],
+  [
+   "sues sie mecht",
+   [
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "taborstrasse postka",
+   [
+    "1",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "taborstrasse postka rte",
+   [
+    "1",
+    "18",
+    "19"
+   ]
+  ],
+  [
+   "ueber den verwandtschaftsgrad",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "unberufen sehr goldig",
+   [
+    "6",
+    "30"
+   ]
+  ],
+  [
+   "unberufen sehr sues",
+   [
+    "43",
+    "52"
+   ]
+  ],
+  [
+   "und deine lieben",
+   [
+    "6",
+    "19"
+   ]
+  ],
+  [
+   "und die kinder",
+   [
+    "7",
+    "46"
+   ]
+  ],
+  [
+   "und ganze familie",
+   [
+    "2",
+    "18",
+    "54"
+   ]
+  ],
+  [
+   "und keine antwort",
+   [
+    "14",
+    "40"
+   ]
+  ],
+  [
+   "und kuesse dich",
+   [
+    "8",
+    "12"
+   ]
+  ],
+  [
+   "und kuesse euch",
+   [
+    "6",
+    "26"
+   ]
+  ],
+  [
+   "und kuessen euch",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "und kusse dich",
+   [
+    "29",
+    "38"
+   ]
+  ],
+  [
+   "und kusse euer",
+   [
+    "33",
+    "42"
+   ]
+  ],
+  [
+   "und lieben kinder",
+   [
+    "6",
+    "33",
+    "44"
+   ]
+  ],
+  [
+   "und maly willner",
+   [
+    "19",
+    "51"
+   ]
+  ],
+  [
+   "und norbert grusse",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "und norbert von",
+   [
+    "7",
+    "8"
+   ]
+  ],
+  [
+   "und wunsche euch",
+   [
+    "4",
+    "24",
+    "48"
+   ]
+  ],
+  [
+   "verstaendigung ich",
+   [
+    "8",
+    "10"
+   ]
+  ],
+  [
+   "verwandte und",
+   [
+    "8",
+    "25"
+   ]
+  ],
+  [
+   "vielleicht ist",
+   [
+    "29",
+    "46"
+   ]
+  ],
+  [
+   "vielleicht ist es",
+   [
+    "29",
+    "46"
+   ]
+  ],
+  [
+   "vielmals auch deine",
+   [
+    "23",
+    "54"
+   ]
+  ],
+  [
+   "vielmals auch euere",
+   [
+    "2",
+    "45"
+   ]
+  ],
+  [
+   "vielmals chaja",
+   [
+    "19",
+    "40",
+    "51"
+   ]
+  ],
+  [
+   "vielmals chaja und",
+   [
+    "19",
+    "51"
+   ]
+  ],
+  [
+   "vielmals euere",
+   [
+    "18",
+    "53"
+   ]
+  ],
+  [
+   "vielmals fuer",
+   [
+    "19",
+    "38"
+   ]
+  ],
+  [
+   "vielmals und wuensche",
+   [
+    "4",
+    "38"
+   ]
+  ],
+  [
+   "von amerikanischem",
+   [
+    "10",
+    "37"
+   ]
+  ],
+  [
+   "von amerikanischem konsul",
+   [
+    "10",
+    "37"
+   ]
+  ],
+  [
+   "von den kindern",
+   [
+    "41",
+    "46"
+   ]
+  ],
+  [
+   "von salomon habe",
+   [
+    "11",
+    "54"
+   ]
+  ],
+  [
+   "vor allen dingen",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "vorigen brief",
+   [
+    "10",
+    "26",
+    "45"
+   ]
+  ],
+  [
+   "vorigen brief geschrieben",
+   [
+    "26",
+    "45"
+   ]
+  ],
+  [
+   "vorstellen die",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "vorstellen die freude",
+   [
+    "46",
+    "47"
+   ]
+  ],
+  [
+   "vorstellen wie",
+   [
+    "25",
+    "47"
+   ]
+  ],
+  [
+   "vorstellen wieso",
+   [
+    "39",
+    "44"
+   ]
+  ],
+  [
+   "warten lassen",
+   [
+    "7",
+    "42"
+   ]
+  ],
+  [
+   "warum schreiben",
+   [
+    "23",
+    "25"
+   ]
+  ],
+  [
+   "warum schreibst",
+   [
+    "23",
+    "52"
+   ]
+  ],
+  [
+   "was machen eure",
+   [
+    "2",
+    "43"
+   ]
+  ],
+  [
+   "was macht erich",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "was schreibt die",
+   [
+    "12",
+    "52"
+   ]
+  ],
+  [
+   "was unternommen",
+   [
+    "25",
+    "39"
+   ]
+  ],
+  [
+   "wegen meiner ausreise",
+   [
+    "8",
+    "39"
+   ]
+  ],
+  [
+   "weggefahren bist",
+   [
+    "25",
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "weiss ich nicht",
+   [
+    "8",
+    "31"
+   ]
+  ],
+  [
+   "wenig schreibe",
+   [
+    "26",
+    "48"
+   ]
+  ],
+  [
+   "wenig schreiben",
+   [
+    "3",
+    "12"
+   ]
+  ],
+  [
+   "werde fahren konnen",
+   [
+    "12",
+    "25"
+   ]
+  ],
+  [
+   "wie am schnellsten",
+   [
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "wie am schnelsten",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "wien april liebe",
+   [
+    "24",
+    "46"
+   ]
+  ],
+  [
+   "wien den lieber",
+   [
+    "4",
+    "17"
+   ]
+  ],
+  [
+   "wien den liebster",
+   [
+    "18",
+    "19",
+    "45"
+   ]
+  ],
+  [
+   "will hoffen dass",
+   [
+    "6",
+    "39"
+   ]
+  ],
+  [
+   "willner strzyzow",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "willner strzyzow a",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "wir ferdienen",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "wird die kultusgemeinde",
+   [
+    "37",
+    "40"
+   ]
+  ],
+  [
+   "wirklich moeglich",
+   [
+    "4",
+    "23"
+   ]
+  ],
+  [
+   "wirklich moeglich ist",
+   [
+    "4",
+    "23"
+   ]
+  ],
+  [
+   "wirklich wundern auf",
+   [
+    "43",
+    "54"
+   ]
+  ],
+  [
+   "wuensche euch",
+   [
+    "4",
+    "52"
+   ]
+  ],
+  [
+   "zeichne ich mit",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "zu geschrieben",
+   [
+    "24",
+    "36"
+   ]
+  ],
+  [
+   "zu schicken die",
+   [
+    "2",
+    "29"
+   ]
+  ],
+  [
+   "zum amerikanischen",
+   [
+    "23",
+    "37"
+   ]
+  ],
+  [
+   "zum amerikanischen konsul",
+   [
+    "23",
+    "37"
+   ]
+  ],
+  [
+   "zusamen sein sonst",
+   [
+    "38",
+    "39"
+   ]
+  ],
+  [
+   "zuschrift von",
+   [
+    "4",
+    "27",
+    "47"
+   ]
+  ],
+  [
+   "zuschrift von der",
+   [
+    "4",
+    "47"
+   ]
+  ]
+ ],
+ "rare_words_in_exactly_two_letters": [
+  [
+   "alleine",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "amerikanische",
+   [
+    "18",
+    "43"
+   ]
+  ],
+  [
+   "amerikanischem",
+   [
+    "10",
+    "37"
+   ]
+  ],
+  [
+   "amerikanischen",
+   [
+    "23",
+    "37"
+   ]
+  ],
+  [
+   "ameryka",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "anderen",
+   [
+    "7",
+    "10"
+   ]
+  ],
+  [
+   "anfangen",
+   [
+    "37",
+    "44"
+   ]
+  ],
+  [
+   "anfordern",
+   [
+    "8",
+    "46"
+   ]
+  ],
+  [
+   "angekomen",
+   [
+    "33",
+    "45"
+   ]
+  ],
+  [
+   "another",
+   [
+    "38",
+    "46"
+   ]
+  ],
+  [
+   "arbeitest",
+   [
+    "34",
+    "52"
+   ]
+  ],
+  [
+   "aufgehoben",
+   [
+    "24",
+    "44"
+   ]
+  ],
+  [
+   "ausserdem",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "aussicht",
+   [
+    "33",
+    "37"
+   ]
+  ],
+  [
+   "austeilen",
+   [
+    "24",
+    "46"
+   ]
+  ],
+  [
+   "befinde",
+   [
+    "26",
+    "29"
+   ]
+  ],
+  [
+   "bekomen",
+   [
+    "33",
+    "45"
+   ]
+  ],
+  [
+   "bekommt",
+   [
+    "40",
+    "41"
+   ]
+  ],
+  [
+   "berichten",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "besonderes",
+   [
+    "7",
+    "46"
+   ]
+  ],
+  [
+   "besorgen",
+   [
+    "34",
+    "37"
+   ]
+  ],
+  [
+   "besteht",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "betracht",
+   [
+    "8",
+    "35"
+   ]
+  ],
+  [
+   "bezahlen",
+   [
+    "34",
+    "45"
+   ]
+  ],
+  [
+   "bisschen",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "braeutigam",
+   [
+    "13",
+    "30"
+   ]
+  ],
+  [
+   "brauche",
+   [
+    "31",
+    "44"
+   ]
+  ],
+  [
+   "deletion",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "distrikt",
+   [
+    "5",
+    "40"
+   ]
+  ],
+  [
+   "dornhelm",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "dornhelms",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "eigentlich",
+   [
+    "6",
+    "34"
+   ]
+  ],
+  [
+   "einfach",
+   [
+    "12",
+    "46"
+   ]
+  ],
+  [
+   "einmahl",
+   [
+    "35",
+    "52"
+   ]
+  ],
+  [
+   "einreise",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "einzige",
+   [
+    "8",
+    "33"
+   ]
+  ],
+  [
+   "endlich",
+   [
+    "17",
+    "34"
+   ]
+  ],
+  [
+   "englisch",
+   [
+    "33",
+    "44"
+   ]
+  ],
+  [
+   "entschuldigen",
+   [
+    "41",
+    "52"
+   ]
+  ],
+  [
+   "erfreut",
+   [
+    "26",
+    "47"
+   ]
+  ],
+  [
+   "erhielt",
+   [
+    "7",
+    "47"
+   ]
+  ],
+  [
+   "erholung",
+   [
+    "35",
+    "42"
+   ]
+  ],
+  [
+   "ferdienst",
+   [
+    "14",
+    "23"
+   ]
+  ],
+  [
+   "ferkuelt",
+   [
+    "19",
+    "36"
+   ]
+  ],
+  [
+   "ferlangt",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "fleissig",
+   [
+    "7",
+    "33"
+   ]
+  ],
+  [
+   "freitag",
+   [
+    "7",
+    "31"
+   ]
+  ],
+  [
+   "frueher",
+   [
+    "29",
+    "36"
+   ]
+  ],
+  [
+   "geantwortet",
+   [
+    "14",
+    "44"
+   ]
+  ],
+  [
+   "geboren",
+   [
+    "11",
+    "13"
+   ]
+  ],
+  [
+   "gefragt",
+   [
+    "30",
+    "34"
+   ]
+  ],
+  [
+   "geglaubt",
+   [
+    "11",
+    "52"
+   ]
+  ],
+  [
+   "gekommen",
+   [
+    "35",
+    "41"
+   ]
+  ],
+  [
+   "gelegenheit",
+   [
+    "6",
+    "34"
+   ]
+  ],
+  [
+   "geschreiben",
+   [
+    "14",
+    "44"
+   ]
+  ],
+  [
+   "gesellschaft",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "gesendet",
+   [
+    "6",
+    "42"
+   ]
+  ],
+  [
+   "getrofen",
+   [
+    "18",
+    "23"
+   ]
+  ],
+  [
+   "glauben",
+   [
+    "34",
+    "44"
+   ]
+  ],
+  [
+   "glueckliche",
+   [
+    "4",
+    "41"
+   ]
+  ],
+  [
+   "gottlob",
+   [
+    "41",
+    "44"
+   ]
+  ],
+  [
+   "hinkomen",
+   [
+    "25",
+    "46"
+   ]
+  ],
+  [
+   "hoffnung",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "hundert",
+   [
+    "13",
+    "24"
+   ]
+  ],
+  [
+   "immerhin",
+   [
+    "6",
+    "39"
+   ]
+  ],
+  [
+   "innigst",
+   [
+    "10",
+    "38"
+   ]
+  ],
+  [
+   "israelitische",
+   [
+    "14",
+    "36"
+   ]
+  ],
+  [
+   "israelitischen",
+   [
+    "13",
+    "37"
+   ]
+  ],
+  [
+   "jedenfalls",
+   [
+    "12",
+    "35"
+   ]
+  ],
+  [
+   "jemanden",
+   [
+    "1",
+    "31"
+   ]
+  ],
+  [
+   "kleider",
+   [
+    "29",
+    "52"
+   ]
+  ],
+  [
+   "kleidung",
+   [
+    "34",
+    "48"
+   ]
+  ],
+  [
+   "konnten",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "konsulat",
+   [
+    "36",
+    "41"
+   ]
+  ],
+  [
+   "lehrerin",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "leiterin",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "letzten",
+   [
+    "8",
+    "29"
+   ]
+  ],
+  [
+   "liebesgaben",
+   [
+    "4",
+    "45"
+   ]
+  ],
+  [
+   "luftpost",
+   [
+    "27",
+    "46"
+   ]
+  ],
+  [
+   "miteilen",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "mitteilen",
+   [
+    "38",
+    "45"
+   ]
+  ],
+  [
+   "mitteilt",
+   [
+    "31",
+    "41"
+   ]
+  ],
+  [
+   "moegliche",
+   [
+    "33",
+    "52"
+   ]
+  ],
+  [
+   "moeglichkeit",
+   [
+    "34",
+    "46"
+   ]
+  ],
+  [
+   "moglichkeit",
+   [
+    "12",
+    "25"
+   ]
+  ],
+  [
+   "momentan",
+   [
+    "8",
+    "39"
+   ]
+  ],
+  [
+   "monaten",
+   [
+    "7",
+    "34"
+   ]
+  ],
+  [
+   "nachmittags",
+   [
+    "7",
+    "31"
+   ]
+  ],
+  [
+   "naechstens",
+   [
+    "31",
+    "46"
+   ]
+  ],
+  [
+   "natuerlich",
+   [
+    "30",
+    "34"
+   ]
+  ],
+  [
+   "notwendig",
+   [
+    "34",
+    "44"
+   ]
+  ],
+  [
+   "orientation",
+   [
+    "24",
+    "46"
+   ]
+  ],
+  [
+   "postkarte",
+   [
+    "5",
+    "23"
+   ]
+  ],
+  [
+   "rechnen",
+   [
+    "8",
+    "10"
+   ]
+  ],
+  [
+   "regelmaessig",
+   [
+    "31",
+    "34"
+   ]
+  ],
+  [
+   "reverse",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "ruchalen",
+   [
+    "24",
+    "26"
+   ]
+  ],
+  [
+   "rumaenische",
+   [
+    "1",
+    "8"
+   ]
+  ],
+  [
+   "samstag",
+   [
+    "30",
+    "46"
+   ]
+  ],
+  [
+   "schester",
+   [
+    "33",
+    "44"
+   ]
+  ],
+  [
+   "schicke",
+   [
+    "31",
+    "39"
+   ]
+  ],
+  [
+   "schifskarten",
+   [
+    "36",
+    "41"
+   ]
+  ],
+  [
+   "schiken",
+   [
+    "29",
+    "48"
+   ]
+  ],
+  [
+   "schildern",
+   [
+    "34",
+    "44"
+   ]
+  ],
+  [
+   "schnellsten",
+   [
+    "33",
+    "47"
+   ]
+  ],
+  [
+   "schnelsten",
+   [
+    "36",
+    "52"
+   ]
+  ],
+  [
+   "schwegerin",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "sekiert",
+   [
+    "23",
+    "53"
+   ]
+  ],
+  [
+   "sondern",
+   [
+    "10",
+    "48"
+   ]
+  ],
+  [
+   "stillschweigen",
+   [
+    "27",
+    "54"
+   ]
+  ],
+  [
+   "strzyzow",
+   [
+    "3",
+    "5"
+   ]
+  ],
+  [
+   "telegram",
+   [
+    "36",
+    "46"
+   ]
+  ],
+  [
+   "trachte",
+   [
+    "3",
+    "46"
+   ]
+  ],
+  [
+   "trachten",
+   [
+    "8",
+    "33"
+   ]
+  ],
+  [
+   "uberhaupt",
+   [
+    "8",
+    "47"
+   ]
+  ],
+  [
+   "unzahlige",
+   [
+    "26",
+    "29"
+   ]
+  ],
+  [
+   "verloren",
+   [
+    "10",
+    "41"
+   ]
+  ],
+  [
+   "verstaendigung",
+   [
+    "8",
+    "10"
+   ]
+  ],
+  [
+   "verwandtschaftsgrad",
+   [
+    "10",
+    "34"
+   ]
+  ],
+  [
+   "verzweifelt",
+   [
+    "27",
+    "43"
+   ]
+  ],
+  [
+   "vielmal",
+   [
+    "1",
+    "17"
+   ]
+  ],
+  [
+   "visible",
+   [
+    "33",
+    "38"
+   ]
+  ],
+  [
+   "vorgenommen",
+   [
+    "13",
+    "31"
+   ]
+  ],
+  [
+   "vormittags",
+   [
+    "7",
+    "10"
+   ]
+  ],
+  [
+   "wuensch",
+   [
+    "42",
+    "52"
+   ]
+  ],
+  [
+   "wuenschen",
+   [
+    "19",
+    "30"
+   ]
+  ],
+  [
+   "zeichne",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "zoegern",
+   [
+    "33",
+    "46"
+   ]
+  ],
+  [
+   "zurueckzahlen",
+   [
+    "6",
+    "44"
+   ]
+  ],
+  [
+   "zweiten",
+   [
+    "30",
+    "35"
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,545 @@
+{
+ "letter": "1",
+ "source": "<!-- drive_id: 1VDv6Hj3tiZprfpiUgyqs9ySgC1yp1QpH | url: https://drive.google.com/file/d/1VDv6Hj3tiZprfpiUgyqs9ySgC1yp1QpH/view?usp=drivesdk | title: Transcription 1.docx -->",
+ "n_lines": 59,
+ "n_words": 282,
+ "n_letters": 1447,
+ "editorial_markers": {
+  "deletion": 1,
+  "?": 7,
+  "text loss": 2,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 At least one word scribbled out with black ink.",
+  "2 The likeliest reading seems to be ‘Erna’ but note that the central letters are not entirely clear (especially the n which looks more like a h).",
+  "3 ‘Mann’ seems the likeliest reading. A horizontal line is often used by this author to indicate a double m or n, although it is technically superfluous here since both letters are written out.",
+  "4 End of name largely obscured by blot or possible deletion. The likeliest reading would seem to be ‘Edit’ or ‘Edith’.",
+  "5 Name somewhat unclear. The fact that the initial letter has a cross through it allows some possibility that an A was intended – in which case ‘Annie’ is a possible alternative reading.",
+  "6 All printed text is rendered in italic. The sender’s address is partially obscured by a stamp reading ‘Geprüft [?] | Oberkommando der Wehrmacht’.",
+  "7 Header on right-hand side of card partially obscured by stamp reading ‘Deutsches Reich’ and an Austrian postmark reading ‘WIEN [text loss] 1 7.40 – [text loss]’. On this side of the card there is also an American postmark reading ‘NEW YORK [unclear] STA.H. | JUL 20 | 12 PM | 1940 | REC’D’ and a sticker reading ‘MIT LUFTPOST | PAR AVION’.",
+  "8 Name not entirely certain due to an ink blot but the initial H and ‘ig’ ending are clear. Compare letter 51."
+ ],
+ "footnotes_physical": [
+  "1 At least one word scribbled out with black ink.",
+  "4 End of name largely obscured by blot or possible deletion. The likeliest reading would seem to be ‘Edit’ or ‘Edith’.",
+  "5 Name somewhat unclear. The fact that the initial letter has a cross through it allows some possibility that an A was intended – in which case ‘Annie’ is a possible alternative reading.",
+  "6 All printed text is rendered in italic. The sender’s address is partially obscured by a stamp reading ‘Geprüft [?] | Oberkommando der Wehrmacht’.",
+  "7 Header on right-hand side of card partially obscured by stamp reading ‘Deutsches Reich’ and an Austrian postmark reading ‘WIEN [text loss] 1 7.40 – [text loss]’. On this side of the card there is also an American postmark reading ‘NEW YORK [unclear] STA.H. | JUL 20 | 12 PM | 1940 | REC’D’ and a sticker reading ‘MIT LUFTPOST | PAR AVION’.",
+  "8 Name not entirely certain due to an ink blot but the initial H and ‘ig’ ending are clear. Compare letter 51."
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]",
+  "[Letter concludes along left-hand edge:]",
+  "[Recipient’s address:]",
+  "[Note along lower edge:]"
+ ],
+ "els": [
+  {
+   "target": "nazi",
+   "observed": 3,
+   "null_mean": 0.68,
+   "null_sd": 0.79,
+   "z": 2.95,
+   "examples": [
+    {
+     "start": 214,
+     "skip": 52,
+     "reversed": false
+    },
+    {
+     "start": 232,
+     "skip": 86,
+     "reversed": true
+    },
+    {
+     "start": 744,
+     "skip": 116,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 3,
+   "null_mean": 0.9,
+   "null_sd": 0.99,
+   "z": 2.11,
+   "examples": [
+    {
+     "start": 836,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 165,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 218,
+     "skip": 58,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "lily",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.46,
+   "z": 1.75,
+   "examples": [
+    {
+     "start": 629,
+     "skip": 26,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilfe",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.51,
+   "z": 1.57,
+   "examples": [
+    {
+     "start": 160,
+     "skip": 58,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 2,
+   "null_mean": 1.02,
+   "null_sd": 0.82,
+   "z": 1.19,
+   "examples": [
+    {
+     "start": 699,
+     "skip": 92,
+     "reversed": false
+    },
+    {
+     "start": 544,
+     "skip": 101,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 3,
+   "null_mean": 1.93,
+   "null_sd": 1.47,
+   "z": 0.73,
+   "examples": [
+    {
+     "start": 598,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 747,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 905,
+     "skip": 71,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 22,
+   "null_mean": 19.45,
+   "null_sd": 4.57,
+   "z": 0.56,
+   "examples": [
+    {
+     "start": 443,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 1188,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 1099,
+     "skip": 17,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 6,
+   "null_mean": 5.03,
+   "null_sd": 2.21,
+   "z": 0.44,
+   "examples": [
+    {
+     "start": 1027,
+     "skip": 108,
+     "reversed": false
+    },
+    {
+     "start": 929,
+     "skip": 113,
+     "reversed": false
+    },
+    {
+     "start": 1234,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 6,
+   "null_mean": 5.28,
+   "null_sd": 2.76,
+   "z": 0.26,
+   "examples": [
+    {
+     "start": 0,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 563,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 985,
+     "skip": 92,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 1.32,
+   "null_sd": 1.29,
+   "z": -0.25,
+   "examples": [
+    {
+     "start": 310,
+     "skip": 74,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 6,
+   "null_mean": 7.6,
+   "null_sd": 2.72,
+   "z": -0.59,
+   "examples": [
+    {
+     "start": 1165,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 469,
+     "skip": 97,
+     "reversed": false
+    },
+    {
+     "start": 460,
+     "skip": 8,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 15,
+   "null_mean": 18.7,
+   "null_sd": 4.57,
+   "z": -0.81,
+   "examples": [
+    {
+     "start": 294,
+     "skip": 43,
+     "reversed": false
+    },
+    {
+     "start": 432,
+     "skip": 62,
+     "reversed": false
+    },
+    {
+     "start": 486,
+     "skip": 67,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 4.88,
+   "null_sd": 2.14,
+   "z": -0.88,
+   "examples": [
+    {
+     "start": 1170,
+     "skip": 45,
+     "reversed": false
+    },
+    {
+     "start": 1346,
+     "skip": 10,
+     "reversed": true
+    },
+    {
+     "start": 657,
+     "skip": 26,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 4.15,
+   "null_sd": 2.08,
+   "z": -1.03,
+   "examples": [
+    {
+     "start": 404,
+     "skip": 32,
+     "reversed": true
+    },
+    {
+     "start": 472,
+     "skip": 48,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 74,
+  "null_mean": 77.2,
+  "null_sd": 7.9
+ },
+ "nth_word_hits_total": 2,
+ "nth_word_hits_null_mean": 1.4,
+ "acrostic": "wldejsddhwaoebskadsjnefdmrlgdjnwsanassaszlkawmipsawspfesnasn",
+ "telestich": "nrdnttnrenfzneennnnsnnaennhletnhehfrnnssnehtnlnasrieeuntyarv",
+ "first_words": "Wien Liebe Dein erhalten Jakob seine die das halten Worten auch öfterer besorgt schreib Kinder auch der Steiermarkt jezt nur er fahren die Mann Regina Lily grüßen die Jakob nichts wollen sonst Alle nochmals Antwort schreiben sollen auch solst zu lieben Kinder auch werden mir in Paar Sender Absender Wohnort Straße Postka Frau Ewa Sheriff New Ame Straße nov",
+ "last_words": "den Schwester Dankend von mit macht fergessen oder einige schreiben Josef ganz stielschweigen die bitte schreiben in kan fahren das alein machen Erna Familie grüßen schön ich Onkel sie fileicht schreiben Euch bitte gleich Josef Kinder schreiben Schwestern Gruß den liebe mich sonst von einmal ein Chaja address Willner II Taborstrasse rte Frau Bermann Street City rika Postschließfachnummer nov",
+ "word_initials": "wdlsdlbvhhdenemddvjnsiesmskiusauwmdlmhdffdsjhhohsfuewdszsadmlkajoesdegbivdssefbdkszsbajfszsdjfeaisdtekjarkfnmdbsdebfsswsafsknwmdffjfemeuosfrfilasglhamlsgmmsidtanaojasswsnssdmfwsdszessgkeavbngaajsdkszsaassdkegzsbdljulmulksmasswsavmnheimkmepwsecssaacwwazolwishgsoptprfebssnycarshgsodpn",
+ "sentence_initials": "wduassmshgshgs",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "3/0": [
+   "malka"
+  ],
+  "7/4": [
+   "schlimm"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "bermann",
+  "chaja",
+  "edit",
+  "erna",
+  "etel",
+  "jakob",
+  "joel",
+  "josef",
+  "lily",
+  "maly",
+  "mina",
+  "norbert",
+  "regina",
+  "sabina",
+  "taube",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "sbddkusamsdljfbjfjterkbbffjfeeosffhmmtanomdejkskgjmmweccwzlwihgsptbsychgsp",
+ "caps_hits": [],
+ "bacon_from_caps": "zirlamriaafctaaoa?imdbcaah??a?chnaeibrwrkietaacg??z?????",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "arbeit",
+  "bermann",
+  "chaja",
+  "jakob",
+  "josef",
+  "norbert",
+  "regina",
+  "sabina",
+  "taube",
+  "willner"
+ ],
+ "numbers": [
+  "10/8",
+  "40",
+  "24/6",
+  "40",
+  "3",
+  "67/14",
+  "94",
+  "14"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "Absender",
+  "Adi",
+  "Alle",
+  "Ame",
+  "Antwort",
+  "Bermann",
+  "Birger",
+  "Birgt",
+  "Brief",
+  "Chaja",
+  "City",
+  "Dankend",
+  "Dein",
+  "Du",
+  "Edit",
+  "Erna",
+  "Etel",
+  "Euch",
+  "Euere",
+  "Ewa",
+  "Familie",
+  "Flugpost",
+  "Frau",
+  "Gebäudeteil",
+  "Gruß",
+  "Hausnummer",
+  "Hönig",
+  "II",
+  "Jakob",
+  "Joel",
+  "Josef",
+  "Kinder",
+  "Kwote",
+  "Leitpostamt",
+  "Liebe",
+  "Lily",
+  "Maly",
+  "Mann",
+  "Mina",
+  "Minne",
+  "Monat",
+  "New",
+  "Norbert",
+  "Onkel",
+  "Paar",
+  "Postka",
+  "Postschließfachnummer",
+  "Regina",
+  "Rumänische",
+  "S",
+  "Sabina",
+  "Schwester",
+  "Schwestern",
+  "Sender",
+  "Sheriff",
+  "Steiermarkt",
+  "Stockwerk",
+  "Straße",
+  "Street",
+  "Taborstrasse",
+  "Tante",
+  "Taube",
+  "U",
+  "Wien",
+  "Willner",
+  "Wohnort",
+  "Worten",
+  "York",
+  "Zustell"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "Absender",
+  "Alle",
+  "Ame",
+  "Antwort",
+  "Birger",
+  "Birgt",
+  "Brief",
+  "City",
+  "Dankend",
+  "Dein",
+  "Du",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Flugpost",
+  "Frau",
+  "Gebäudeteil",
+  "Gruß",
+  "Hausnummer",
+  "II",
+  "Kinder",
+  "Kwote",
+  "Leitpostamt",
+  "Liebe",
+  "Mann",
+  "Monat",
+  "New",
+  "Onkel",
+  "Paar",
+  "Postka",
+  "Postschließfachnummer",
+  "Rumänische",
+  "S",
+  "Schwester",
+  "Schwestern",
+  "Sender",
+  "Sheriff",
+  "Steiermarkt",
+  "Stockwerk",
+  "Straße",
+  "Street",
+  "Taborstrasse",
+  "Tante",
+  "U",
+  "Wien",
+  "Wohnort",
+  "Worten",
+  "York",
+  "Zustell"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

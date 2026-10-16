@@ -1,0 +1,1523 @@
+{
+ "1": [
+  [
+   "page",
+   "img/L1/page-1.jpg",
+   "Page image 1 of 2 (1-000.jpg extracted from 1.pdf)"
+  ],
+  [
+   "page",
+   "img/L1/page-2.jpg",
+   "Page image 2 of 2 (1-001.jpg extracted from 1.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L1/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L1/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L1/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "10": [
+  [
+   "crop",
+   "img/L10/crop-h10.jpg",
+   "Hebrew line at the foot of p1 and heading of the reply page"
+  ],
+  [
+   "page",
+   "img/L10/page-1.jpg",
+   "Page image 1 of 2 (10-000.jpg extracted from 10.pdf)"
+  ],
+  [
+   "page",
+   "img/L10/page-2.jpg",
+   "Page image 2 of 2 (10-001.jpg extracted from 10.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L10/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L10/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L10/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "11": [
+  [
+   "page",
+   "img/L11/page-1.jpg",
+   "Page image 1 of 1 (11-000.jpg extracted from 11.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L11/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L11/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L11/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "12": [
+  [
+   "page",
+   "img/L12/page-1.jpg",
+   "Page image 1 of 2 (12-000.jpg extracted from 12.pdf)"
+  ],
+  [
+   "page",
+   "img/L12/page-2.jpg",
+   "Page image 2 of 2 (12-001.jpg extracted from 12.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L12/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L12/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L12/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "13": [
+  [
+   "page",
+   "img/L13/page-1.jpg",
+   "Page image 1 of 2 (13-000.jpg extracted from 13.pdf)"
+  ],
+  [
+   "page",
+   "img/L13/page-2.jpg",
+   "Page image 2 of 2 (13-001.jpg extracted from 13.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L13/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L13/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L13/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "14": [
+  [
+   "page",
+   "img/L14/page-1.jpg",
+   "Page image 1 of 1 (14-000.jpg extracted from 14.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L14/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L14/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L14/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "15": [
+  [
+   "crop",
+   "img/L15/crop-y15.jpg",
+   "Yiddish message side, zoomed (Claude reading in findings)"
+  ],
+  [
+   "page",
+   "img/L15/page-1.jpg",
+   "Page image 1 of 2 (15-000.jpg extracted from 15.pdf)"
+  ],
+  [
+   "page",
+   "img/L15/page-2.jpg",
+   "Page image 2 of 2 (15-001.jpg extracted from 15.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L15/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L15/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L15/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "16": [
+  [
+   "crop",
+   "img/L16/crop-y16a.jpg",
+   "Yiddish message, upper half"
+  ],
+  [
+   "crop",
+   "img/L16/crop-y16b.jpg",
+   "Yiddish message, lower half"
+  ],
+  [
+   "page",
+   "img/L16/page-1.jpg",
+   "Page image 1 of 2 (16-000.jpg extracted from 16.pdf)"
+  ],
+  [
+   "page",
+   "img/L16/page-2.jpg",
+   "Page image 2 of 2 (16-001.jpg extracted from 16.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L16/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L16/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L16/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "17": [
+  [
+   "crop",
+   "img/L17/crop-b17.jpg",
+   "Eight views of the black block: original, R, G, B, CLAHE, dark-end stretch, blue-minus-red, black-hat"
+  ],
+  [
+   "crop",
+   "img/L17/crop-b17x.jpg",
+   "Postmark ring crossing the block: original, CLAHE, blue-minus-red at 2.6x"
+  ],
+  [
+   "page",
+   "img/L17/page-1.jpg",
+   "Page image 1 of 2 (17-000.jpg extracted from 17.pdf)"
+  ],
+  [
+   "page",
+   "img/L17/page-2.jpg",
+   "Page image 2 of 2 (17-001.jpg extracted from 17.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L17/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L17/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "18": [
+  [
+   "page",
+   "img/L18/page-1.jpg",
+   "Page image 1 of 2 (18-000.jpg extracted from 18.pdf)"
+  ],
+  [
+   "page",
+   "img/L18/page-2.jpg",
+   "Page image 2 of 2 (18-001.jpg extracted from 18.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L18/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L18/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L18/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "19": [
+  [
+   "page",
+   "img/L19/page-1.jpg",
+   "Page image 1 of 2 (19-000.jpg extracted from 19.pdf)"
+  ],
+  [
+   "page",
+   "img/L19/page-2.jpg",
+   "Page image 2 of 2 (19-001.jpg extracted from 19.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L19/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L19/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L19/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "2": [
+  [
+   "page",
+   "img/L2/page-1.jpg",
+   "Page image 1 of 1 (2-000.jpg extracted from 2.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L2/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L2/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L2/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "20": [],
+ "21": [
+  [
+   "page",
+   "img/L21/page-1.jpg",
+   "Page image 1 of 2 (21-000.jpg extracted from 21.pdf)"
+  ],
+  [
+   "page",
+   "img/L21/page-2.jpg",
+   "Page image 2 of 2 (21-001.jpg extracted from 21.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L21/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L21/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L21/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "22": [
+  [
+   "crop",
+   "img/L22/crop-b22.jpg",
+   "Eight views of the round blot: it is blue (addressing-pen ink), the message is black"
+  ],
+  [
+   "page",
+   "img/L22/page-1.jpg",
+   "Page image 1 of 2 (22-000.jpg extracted from 22.pdf)"
+  ],
+  [
+   "page",
+   "img/L22/page-2.jpg",
+   "Page image 2 of 2 (22-001.jpg extracted from 22.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L22/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L22/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L22/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "23": [
+  [
+   "page",
+   "img/L23/page-1.jpg",
+   "Page image 1 of 2 (23-000.jpg extracted from 23.pdf)"
+  ],
+  [
+   "page",
+   "img/L23/page-2.jpg",
+   "Page image 2 of 2 (23-001.jpg extracted from 23.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L23/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L23/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L23/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "24": [
+  [
+   "crop",
+   "img/L24/crop-s24.jpg",
+   "Torn fold with ink fragment (rotated)"
+  ],
+  [
+   "page",
+   "img/L24/page-1.jpg",
+   "Page image 1 of 2 (24-000.jpg extracted from 24.pdf)"
+  ],
+  [
+   "page",
+   "img/L24/page-2.jpg",
+   "Page image 2 of 2 (24-001.jpg extracted from 24.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L24/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L24/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L24/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "25": [
+  [
+   "crop",
+   "img/L25/crop-b25.jpg",
+   "Eight views of the black spot: neutral black + rust halo = hole in the paper"
+  ],
+  [
+   "page",
+   "img/L25/page-1.jpg",
+   "Page image 1 of 2 (25-000.jpg extracted from 25.pdf)"
+  ],
+  [
+   "page",
+   "img/L25/page-2.jpg",
+   "Page image 2 of 2 (25-001.jpg extracted from 25.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L25/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L25/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L25/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "26": [
+  [
+   "page",
+   "img/L26/page-1.jpg",
+   "Page image 1 of 2 (26-000.jpg extracted from 26.pdf)"
+  ],
+  [
+   "page",
+   "img/L26/page-2.jpg",
+   "Page image 2 of 2 (26-001.jpg extracted from 26.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L26/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L26/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L26/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "27": [
+  [
+   "crop",
+   "img/L27/crop-z27.jpg",
+   "Fold band across lines 7\u201310 (lighter band = crease, not words)"
+  ],
+  [
+   "page",
+   "img/L27/page-1.jpg",
+   "Page image 1 of 1 (27-000.jpg extracted from 27.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L27/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L27/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L27/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "28": [],
+ "29": [
+  [
+   "page",
+   "img/L29/page-1.jpg",
+   "Page image 1 of 4 (29-000.jpg extracted from 29.pdf)"
+  ],
+  [
+   "page",
+   "img/L29/page-2.jpg",
+   "Page image 2 of 4 (29-001.jpg extracted from 29.pdf)"
+  ],
+  [
+   "page",
+   "img/L29/page-3.jpg",
+   "Page image 3 of 4 (29-002.jpg extracted from 29.pdf)"
+  ],
+  [
+   "page",
+   "img/L29/page-4.jpg",
+   "Page image 4 of 4 (29-003.jpg extracted from 29.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L29/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L29/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L29/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "3": [
+  [
+   "page",
+   "img/L3/page-1.jpg",
+   "Page image 1 of 2 (3-000.jpg extracted from 3.pdf)"
+  ],
+  [
+   "page",
+   "img/L3/page-2.jpg",
+   "Page image 2 of 2 (3-001.jpg extracted from 3.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L3/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L3/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L3/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "30": [
+  [
+   "page",
+   "img/L30/page-1.jpg",
+   "Page image 1 of 2 (30-000.jpg extracted from 30.pdf)"
+  ],
+  [
+   "page",
+   "img/L30/page-2.jpg",
+   "Page image 2 of 2 (30-001.jpg extracted from 30.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L30/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L30/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "31": [
+  [
+   "page",
+   "img/L31/page-1.jpg",
+   "Page image 1 of 2 (31-000.jpg extracted from 31.pdf)"
+  ],
+  [
+   "page",
+   "img/L31/page-2.jpg",
+   "Page image 2 of 2 (31-001.jpg extracted from 31.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L31/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L31/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "32": [
+  [
+   "page",
+   "img/L32/page-1.jpg",
+   "Page image 1 of 3 (32-000.jpg extracted from 32.pdf)"
+  ],
+  [
+   "page",
+   "img/L32/page-2.jpg",
+   "Page image 2 of 3 (32-001.jpg extracted from 32.pdf)"
+  ],
+  [
+   "page",
+   "img/L32/page-3.jpg",
+   "Page image 3 of 3 (32-002.jpg extracted from 32.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L32/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L32/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L32/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "33": [
+  [
+   "crop",
+   "img/L33/crop-b33.jpg",
+   "Eight views of the blue drips on p2: copying-pencil dye; strokes continue underneath"
+  ],
+  [
+   "crop",
+   "img/L33/crop-m33.jpg",
+   "Upside-down margin notes on p1, rotated and enhanced"
+  ],
+  [
+   "page",
+   "img/L33/page-1.jpg",
+   "Page image 1 of 3 (33-000.jpg extracted from 33.pdf)"
+  ],
+  [
+   "page",
+   "img/L33/page-2.jpg",
+   "Page image 2 of 3 (33-001.jpg extracted from 33.pdf)"
+  ],
+  [
+   "page",
+   "img/L33/page-3.jpg",
+   "Page image 3 of 3 (33-002.jpg extracted from 33.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L33/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L33/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L33/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "34": [
+  [
+   "crop",
+   "img/L34/crop-z34.jpg",
+   "\"nicht direkt zu ihm schreiben\" \u2014 single strike, word stays legible; \"Onkel Schlomo \u2026 Kleidungsst\u00fccke f\u00fcr Papa\""
+  ],
+  [
+   "page",
+   "img/L34/page-1.jpg",
+   "Page image 1 of 2 (34-000.jpg extracted from 34.pdf)"
+  ],
+  [
+   "page",
+   "img/L34/page-2.jpg",
+   "Page image 2 of 2 (34-001.jpg extracted from 34.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L34/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L34/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L34/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "35": [
+  [
+   "page",
+   "img/L35/page-1.jpg",
+   "Page image 1 of 3 (35-000.jpg extracted from 35.pdf)"
+  ],
+  [
+   "page",
+   "img/L35/page-2.jpg",
+   "Page image 2 of 3 (35-001.jpg extracted from 35.pdf)"
+  ],
+  [
+   "page",
+   "img/L35/page-3.jpg",
+   "Page image 3 of 3 (35-002.jpg extracted from 35.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L35/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L35/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L35/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "36": [
+  [
+   "page",
+   "img/L36/page-1.jpg",
+   "Page image 1 of 2 (36-000.jpg extracted from 36.pdf)"
+  ],
+  [
+   "page",
+   "img/L36/page-2.jpg",
+   "Page image 2 of 2 (36-001.jpg extracted from 36.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L36/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L36/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L36/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "37": [
+  [
+   "crop",
+   "img/L37/crop-z37.jpg",
+   "\"mein Pass abgelaufen, auch Unbede\u2026\" at the line end"
+  ],
+  [
+   "page",
+   "img/L37/page-1.jpg",
+   "Page image 1 of 1 (37-000.jpg extracted from 37.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L37/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L37/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L37/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "38": [
+  [
+   "page",
+   "img/L38/page-1.jpg",
+   "Page image 1 of 3 (38-000.jpg extracted from 38.pdf)"
+  ],
+  [
+   "page",
+   "img/L38/page-2.jpg",
+   "Page image 2 of 3 (38-001.jpg extracted from 38.pdf)"
+  ],
+  [
+   "page",
+   "img/L38/page-3.jpg",
+   "Page image 3 of 3 (38-002.jpg extracted from 38.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L38/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L38/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L38/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "39": [
+  [
+   "crop",
+   "img/L39/crop-b39.jpg",
+   "Eight views of the pale cyan blot: strokes below cross it on top"
+  ],
+  [
+   "page",
+   "img/L39/page-1.jpg",
+   "Page image 1 of 1 (39-000.jpg extracted from 39.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L39/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L39/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L39/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "4": [
+  [
+   "crop",
+   "img/L4/crop-h4.jpg",
+   "Heading and lines with the Hebrew abbreviations (p1)"
+  ],
+  [
+   "crop",
+   "img/L4/crop-h4c.jpg",
+   "Hebrew insertions on p3"
+  ],
+  [
+   "page",
+   "img/L4/page-1.jpg",
+   "Page image 1 of 3 (4-000.jpg extracted from 4.pdf)"
+  ],
+  [
+   "page",
+   "img/L4/page-2.jpg",
+   "Page image 2 of 3 (4-001.jpg extracted from 4.pdf)"
+  ],
+  [
+   "page",
+   "img/L4/page-3.jpg",
+   "Page image 3 of 3 (4-002.jpg extracted from 4.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L4/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L4/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L4/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "40": [
+  [
+   "crop",
+   "img/L40/crop-d40.jpg",
+   "Date line: blue drop over the month"
+  ],
+  [
+   "crop",
+   "img/L40/crop-g40.jpg",
+   "Reverse lower half: original, green-channel excess (green crayon only), CLAHE"
+  ],
+  [
+   "page",
+   "img/L40/page-1.jpg",
+   "Page image 1 of 2 (40-000.jpg extracted from 40.pdf)"
+  ],
+  [
+   "page",
+   "img/L40/page-2.jpg",
+   "Page image 2 of 2 (40-001.jpg extracted from 40.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L40/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L40/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L40/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "41": [
+  [
+   "page",
+   "img/L41/page-1.jpg",
+   "Page image 1 of 2 (41-000.jpg extracted from 41.pdf)"
+  ],
+  [
+   "page",
+   "img/L41/page-2.jpg",
+   "Page image 2 of 2 (41-001.jpg extracted from 41.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L41/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L41/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L41/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "42": [
+  [
+   "page",
+   "img/L42/page-1.jpg",
+   "Page image 1 of 2 (42-000.jpg extracted from 42.pdf)"
+  ],
+  [
+   "page",
+   "img/L42/page-2.jpg",
+   "Page image 2 of 2 (42-001.jpg extracted from 42.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L42/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L42/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "43": [
+  [
+   "page",
+   "img/L43/page-1.jpg",
+   "Page image 1 of 1 (43-co2-000.jpg extracted from 43-co2.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L43/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L43/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L43/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "44": [
+  [
+   "page",
+   "img/L44/page-1.jpg",
+   "Page image 1 of 2 (44-000.jpg extracted from 44.pdf)"
+  ],
+  [
+   "page",
+   "img/L44/page-2.jpg",
+   "Page image 2 of 2 (44-001.jpg extracted from 44.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L44/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L44/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L44/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "45": [
+  [
+   "crop",
+   "img/L45/crop-b45.jpg",
+   "Eight views of \"der Berlin[blot] Hamburg\": same-pen blue drop"
+  ],
+  [
+   "page",
+   "img/L45/page-1.jpg",
+   "Page image 1 of 1 (45-000.jpg extracted from 45.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L45/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L45/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "46": [
+  [
+   "crop",
+   "img/L46/crop-z46.jpg",
+   "Closing lines of the last sheet: \"\u2026Spesen \u2026 mit dem Transport nicht mehr daran kommen \u2026 Lea Fr\u00f6hlich\""
+  ],
+  [
+   "page",
+   "img/L46/page-1.jpg",
+   "Page image 1 of 7 (46-000.jpg extracted from 46.pdf)"
+  ],
+  [
+   "page",
+   "img/L46/page-2.jpg",
+   "Page image 2 of 7 (46-001.jpg extracted from 46.pdf)"
+  ],
+  [
+   "page",
+   "img/L46/page-3.jpg",
+   "Page image 3 of 7 (46-002.jpg extracted from 46.pdf)"
+  ],
+  [
+   "page",
+   "img/L46/page-4.jpg",
+   "Page image 4 of 7 (46-003.jpg extracted from 46.pdf)"
+  ],
+  [
+   "page",
+   "img/L46/page-5.jpg",
+   "Page image 5 of 7 (46-004.jpg extracted from 46.pdf)"
+  ],
+  [
+   "page",
+   "img/L46/page-6.jpg",
+   "Page image 6 of 7 (46-005.jpg extracted from 46.pdf)"
+  ],
+  [
+   "page",
+   "img/L46/page-7.jpg",
+   "Page image 7 of 7 (46-006.jpg extracted from 46.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L46/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L46/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L46/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "47": [
+  [
+   "page",
+   "img/L47/page-1.jpg",
+   "Page image 1 of 1 (47-000.jpg extracted from 47.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L47/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L47/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L47/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "48": [
+  [
+   "page",
+   "img/L48/page-1.jpg",
+   "Page image 1 of 1 (48-000.jpg extracted from 48.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L48/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L48/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "49": [
+  [
+   "page",
+   "img/L49/page-1.jpg",
+   "Page image 1 of 3 (49-000.jpg extracted from 49.pdf)"
+  ],
+  [
+   "page",
+   "img/L49/page-2.jpg",
+   "Page image 2 of 3 (49-001.jpg extracted from 49.pdf)"
+  ],
+  [
+   "page",
+   "img/L49/page-3.jpg",
+   "Page image 3 of 3 (49-002.jpg extracted from 49.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L49/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L49/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L49/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "5": [
+  [
+   "page",
+   "img/L5/page-1.jpg",
+   "Page image 1 of 2 (5-000.jpg extracted from 5.pdf)"
+  ],
+  [
+   "page",
+   "img/L5/page-2.jpg",
+   "Page image 2 of 2 (5-001.jpg extracted from 5.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L5/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L5/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L5/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "50": [
+  [
+   "page",
+   "img/L50/page-1.jpg",
+   "Page image 1 of 1 (50-000.jpg extracted from 50.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L50/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L50/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "51": [
+  [
+   "crop",
+   "img/L51/crop-z51b.jpg",
+   "Dabbed lines: \"er k\u00f6nnt a paar M[ark] zum Leben brauchen \u2026\""
+  ],
+  [
+   "crop",
+   "img/L51/crop-z51.jpg",
+   "Red specks lying on top of the blue ink over \"Lily H[\u00f6]nig\""
+  ],
+  [
+   "page",
+   "img/L51/page-1.jpg",
+   "Page image 1 of 1 (51-000.jpg extracted from 51.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L51/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L51/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L51/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "52": [
+  [
+   "page",
+   "img/L52/page-1.jpg",
+   "Page image 1 of 1 (52-000.jpg extracted from 52.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L52/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L52/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ]
+ ],
+ "53": [
+  [
+   "crop",
+   "img/L53/crop-b53.jpg",
+   "Eight views of the two struck words under \"zur Malwin\""
+  ],
+  [
+   "crop",
+   "img/L53/crop-b53x.jpg",
+   "Dark-range stretch, CLAHE and blue-minus-red at 2.2x: fragments of the struck words"
+  ],
+  [
+   "crop",
+   "img/L53/crop-b53y.jpg",
+   "\"so gern\" for stroke-width reference"
+  ],
+  [
+   "page",
+   "img/L53/page-1.jpg",
+   "Page image 1 of 1 (53-000.jpg extracted from 53.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L53/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L53/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L53/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "54": [
+  [
+   "crop",
+   "img/L54/crop-b54.jpg",
+   "Eight views of the dark mass on L54: this side\u2019s strokes are crisp on top"
+  ],
+  [
+   "crop",
+   "img/L54/crop-b54m.jpg",
+   "Top: the L53 deletion. Below: L54 crop mirrored (raw, dark stretch, CLAHE) \u2014 same shape, i.e. show-through"
+  ],
+  [
+   "page",
+   "img/L54/page-1.jpg",
+   "Page image 1 of 1 (54-000.jpg extracted from 54.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L54/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L54/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L54/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "6": [
+  [
+   "page",
+   "img/L6/page-1.jpg",
+   "Page image 1 of 6 (6-000.jpg extracted from 6.pdf)"
+  ],
+  [
+   "page",
+   "img/L6/page-2.jpg",
+   "Page image 2 of 6 (6-001.jpg extracted from 6.pdf)"
+  ],
+  [
+   "page",
+   "img/L6/page-3.jpg",
+   "Page image 3 of 6 (6-002.jpg extracted from 6.pdf)"
+  ],
+  [
+   "page",
+   "img/L6/page-4.jpg",
+   "Page image 4 of 6 (6-003.jpg extracted from 6.pdf)"
+  ],
+  [
+   "page",
+   "img/L6/page-5.jpg",
+   "Page image 5 of 6 (6-004.jpg extracted from 6.pdf)"
+  ],
+  [
+   "page",
+   "img/L6/page-6.jpg",
+   "Page image 6 of 6 (6-005.jpg extracted from 6.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L6/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L6/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L6/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "7": [
+  [
+   "crop",
+   "img/L7/crop-t7.jpg",
+   "Struck-out words after \"Tel-Aviv,\" in the heading"
+  ],
+  [
+   "page",
+   "img/L7/page-1.jpg",
+   "Page image 1 of 2 (7-000.jpg extracted from 7.pdf)"
+  ],
+  [
+   "page",
+   "img/L7/page-2.jpg",
+   "Page image 2 of 2 (7-001.jpg extracted from 7.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L7/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L7/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L7/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "8": [
+  [
+   "page",
+   "img/L8/page-1.jpg",
+   "Page image 1 of 2 (8-000.jpg extracted from 8.pdf)"
+  ],
+  [
+   "page",
+   "img/L8/page-2.jpg",
+   "Page image 2 of 2 (8-001.jpg extracted from 8.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L8/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L8/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L8/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ],
+ "9": [
+  [
+   "page",
+   "img/L9/page-1.jpg",
+   "Page image 1 of 2 (9-000.jpg extracted from 9.pdf)"
+  ],
+  [
+   "page",
+   "img/L9/page-2.jpg",
+   "Page image 2 of 2 (9-001.jpg extracted from 9.pdf)"
+  ],
+  [
+   "sweep",
+   "img/L9/sweep.jpg",
+   "Image sweep overlay: yellow = lighter-ink cell, magenta = different-ink cell, red/orange = isolated mark, cyan = pinhole-like bright speck"
+  ],
+  [
+   "ink",
+   "img/L9/inkmaps.jpg",
+   "Ink maps per page: left = darkness heat map (blue light \u2192 red dark), right = ink hue (one colour = one ink)"
+  ],
+  [
+   "marks",
+   "img/L9/marks.jpg",
+   "Zoomed crops of every isolated mark the sweep found (circled)"
+  ]
+ ]
+}

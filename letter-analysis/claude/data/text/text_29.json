@@ -1,0 +1,422 @@
+{
+ "letter": "29",
+ "source": "<!-- drive_id: 1TFGmXkpMPSGZ68kxd0Ua9ooz3z9n0ju4 | url: https://drive.google.com/file/d/1TFGmXkpMPSGZ68kxd0Ua9ooz3z9n0ju4/view?usp=drivesdk | title: Transcription 29.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 67,
+ "n_words": 267,
+ "n_letters": 1234,
+ "editorial_markers": {
+  "?": 3,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 2-3 letters are unclear. The first is almost certainly a vowel, likely e but possibly i.",
+  "2 The o in G[o]t is presumably deliberately omitted here.",
+  "3 End of word lost at edge of page."
+ ],
+ "footnotes_physical": [
+  "1 2-3 letters are unclear. The first is almost certainly a vowel, likely e but possibly i.",
+  "3 End of word lost at edge of page."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter continues overleaf:]",
+  "[Letter continues on a new sheet:]",
+  "[Letter continues overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "zores",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 1012,
+     "skip": 8,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haman",
+   "observed": 1,
+   "null_mean": 0.12,
+   "null_sd": 0.33,
+   "z": 2.65,
+   "examples": [
+    {
+     "start": 423,
+     "skip": 86,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "taube",
+   "observed": 1,
+   "null_mean": 0.17,
+   "null_sd": 0.38,
+   "z": 2.17,
+   "examples": [
+    {
+     "start": 604,
+     "skip": 68,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 16,
+   "null_mean": 10.6,
+   "null_sd": 3.38,
+   "z": 1.6,
+   "examples": [
+    {
+     "start": 332,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 25,
+     "skip": 47,
+     "reversed": false
+    },
+    {
+     "start": 569,
+     "skip": 49,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 16,
+   "null_mean": 10.75,
+   "null_sd": 3.48,
+   "z": 1.51,
+   "examples": [
+    {
+     "start": 967,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 807,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 388,
+     "skip": 72,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.57,
+   "null_sd": 0.7,
+   "z": 0.6,
+   "examples": [
+    {
+     "start": 478,
+     "skip": 92,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 17,
+   "null_mean": 14.85,
+   "null_sd": 4.12,
+   "z": 0.52,
+   "examples": [
+    {
+     "start": 77,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 35,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 496,
+     "skip": 34,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 4,
+   "null_mean": 3.02,
+   "null_sd": 1.88,
+   "z": 0.52,
+   "examples": [
+    {
+     "start": 316,
+     "skip": 13,
+     "reversed": false
+    },
+    {
+     "start": 778,
+     "skip": 7,
+     "reversed": true
+    },
+    {
+     "start": 611,
+     "skip": 68,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 1,
+   "null_sd": 1.0,
+   "z": 0.0,
+   "examples": [
+    {
+     "start": 654,
+     "skip": 17,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 5.55,
+   "null_sd": 2.39,
+   "z": -0.23,
+   "examples": [
+    {
+     "start": 888,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 343,
+     "skip": 104,
+     "reversed": false
+    },
+    {
+     "start": 367,
+     "skip": 106,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 2.52,
+   "null_sd": 1.79,
+   "z": -0.29,
+   "examples": [
+    {
+     "start": 242,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 483,
+     "skip": 119,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 1.35,
+   "null_sd": 1.04,
+   "z": -0.34,
+   "examples": [
+    {
+     "start": 86,
+     "skip": 18,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 2.3,
+   "null_sd": 1.42,
+   "z": -0.92,
+   "examples": [
+    {
+     "start": 832,
+     "skip": 117,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 67,
+  "null_mean": 58.1,
+  "null_sd": 8.7
+ },
+ "nth_word_hits_total": 3,
+ "nth_word_hits_null_mean": 4.0,
+ "acrostic": "dadtsdghmhgkblxsaowbugkiwgmoedhwmssimnilmvvkgsseinlsuwsigiskakmgve",
+ "telestich": "inlntennjtnnnhurttnetrehreednrntuhaerehtrsirttuehehrnittindhetteef",
+ "first_words": "Dienstag An Den ten sucht daß guten haben Masel Hersch Got Kinder beisamen Lieb x schreiben Art ob was brauch Unterstützung glaube keine immer Wie Gesundheit mich Ortschaft es der Habe wenn mir schicken sehr ich mir nachzuschafen ich lechten mehr vielleicht von ken Geld schiken schwer etwas ich nicht lastigen Sonst und was schreibt In geschrieben Ich Schreiben kusse Adi Kusse meiner geben Verwandt Euer",
+ "last_words": "VII Lieben erhal Sehn freut Schule bekommen einen J hat unseren erleben sein Dich zu welcher fortbringst verdienst Leben welche bekomst mir denke nach der befinde derselbe und in besser geschrieben ist zu ich da Lage Kleider die sch nicht oder etwas schi dankbar nicht mußt Du denke Dich be ich Dir Kindern Mali oft nicht Mali mein und auch unzahlige statt nicht alle Bekannte Josef",
+ "word_initials": "dvamldbhhetwimssehefddkvdsgabhawemtddjhghgshbukwsebzsleihdxmgmzsawaddfodsvwmzlbodwubgmegmkrididnwgedidgibmiadowfuegmgsdidgbhlgwemimakzsdkisgbdinidlmevknudihssislzsdnmztsoviemevlzskwdsdgbdmnsddmspbdevdimimdnembllmiswgdudlkwmdmssoilhngvmismsgukdwaanukgdsmdisngkgavubepj",
+ "sentence_initials": "vdliii",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "2/1": [
+   "erna"
+  ],
+  "3/0": [
+   "wien"
+  ],
+  "6/1": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "geld",
+  "josef",
+  "mali",
+  "norbert"
+ ],
+ "caps_string": "vlbsksatjeiddddldrdiggklkzlddddddkmmdnbpj",
+ "caps_hits": [],
+ "bacon_from_caps": "??baewdgiidwapiewarkgbailaeaairaiaaikiiibaciscbte?aam",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "norbert",
+  "schlecht"
+ ],
+ "numbers": [
+  "3/30",
+  "29",
+  "1941"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "An",
+  "Art",
+  "Ausweis",
+  "Bekannte",
+  "Brief",
+  "Den",
+  "Dich",
+  "Dienstag",
+  "Dir",
+  "Du",
+  "Euer",
+  "Ewa",
+  "Geld",
+  "Gesundheit",
+  "Got",
+  "Gott",
+  "Habe",
+  "Hersch",
+  "Ich",
+  "In",
+  "J",
+  "Josef",
+  "Kinder",
+  "Kindern",
+  "Kleider",
+  "Kusse",
+  "Lage",
+  "Leben",
+  "Lebensmittel",
+  "Lieb",
+  "Lieben",
+  "Mali",
+  "Masel",
+  "Norbert",
+  "Ortschaft",
+  "Papa",
+  "Ruhe",
+  "Schreiben",
+  "Schule",
+  "Sehn",
+  "Sonst",
+  "Tow",
+  "Unterstützung",
+  "VII",
+  "Verwandt",
+  "Wie",
+  "Zustand"
+ ],
+ "names_not_in_family_set": [
+  "An",
+  "Art",
+  "Ausweis",
+  "Bekannte",
+  "Brief",
+  "Den",
+  "Dich",
+  "Dienstag",
+  "Dir",
+  "Du",
+  "Euer",
+  "Geld",
+  "Gesundheit",
+  "Got",
+  "Gott",
+  "Habe",
+  "Ich",
+  "In",
+  "J",
+  "Kinder",
+  "Kindern",
+  "Kleider",
+  "Kusse",
+  "Lage",
+  "Leben",
+  "Lebensmittel",
+  "Lieb",
+  "Lieben",
+  "Masel",
+  "Ortschaft",
+  "Papa",
+  "Ruhe",
+  "Schreiben",
+  "Schule",
+  "Sehn",
+  "Sonst",
+  "Tow",
+  "Unterstützung",
+  "VII",
+  "Verwandt",
+  "Wie",
+  "Zustand"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

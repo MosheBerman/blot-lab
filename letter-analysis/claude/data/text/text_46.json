@@ -1,0 +1,821 @@
+{
+ "letter": "46",
+ "source": "<!-- drive_id: 1W3h0PLEHRROmrP-HrpjCTHAwa5h6BiU2 | url: https://drive.google.com/file/d/1W3h0PLEHRROmrP-HrpjCTHAwa5h6BiU2/view?usp=drivesdk | title: Transcription 46.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 180,
+ "n_words": 932,
+ "n_letters": 4403,
+ "editorial_markers": {
+  "Hebrew/Yiddish": 7,
+  "unclear": 24,
+  "?": 43
+ },
+ "footnotes": [
+  "1 It looks like the digits 146 have been written here – possibly 14 could have been corrected to 16 but this remains uncertain.",
+  "2 This word appears to be corrected. Possibly a d was initially written as the first letter and then crossed out. The reading ‘unser’ is not absolutely certain.",
+  "3 The first letter of this word seems like it must be b, h, l, or possibly the upper loop of a partially visible f.",
+  "4 These lines, which are written on the reverse side of the previous page, are again partially obscured by writing showing through from the front. After four lines, the letter continues on the facing page.",
+  "5 The last letter could possibly also be l.",
+  "6 Text is obscured here where the corner of the page is crumpled. A possible reading may be ‘eingefunden’ but the marking above the line may indicate an umlaut.",
+  "7 The final s is not entirely clear due to the crumpled edge, but is strongly suggested by the context.",
+  "8 This name appears to be either Riwke or Ruvke.",
+  "9 This letter is written between the lines of text showing through from the reverse and is extremely faint.",
+  "10 Name is unclear. It is possible that the first letter is C.",
+  "11 The end of this letter is on the final page of the PDF. It appears the beginning is missing. The text of this page suffers from blots and occasional damage.",
+  "12 Word is unclear, but ‘musst’ or similar would be expected at this point.",
+  "13 This could possibly be ‘imer’ but is partially obscured by a blot.",
+  "14 This is somewhat unclear, but ‘Beschaffer’ does seem to have been used, at least historically, as a synonym for ‘Schöpfer’.",
+  "15 Small hole in paper obscures first letter of word.",
+  "16 Otherwise possibly ‘Willy’.",
+  "17 One character unclear due to blot in line below. This could possibly be ‘&’.",
+  "18 Possibly ‘mein’ but unclear and may instead have an r following the e.",
+  "19 Here the script largely changes from Latin cursive to Kurrent, possibly suggesting another author.",
+  "20 Word likely begins with m and may end with e but otherwise remains unclear.",
+  "21 Word partially obscured by blot.",
+  "22 This may stand for ‘dankend’ or similar.",
+  "23 Final word of line mostly obscured – ‘würde’ would be to be expected at this point.",
+  "24 Again, the legibility of this page is somewhat compromised by text showing through from the reverse. Some text at the right edge is missing from the scan which shows this page in the correct orientation but is visible in reverse orientation on the scan showing the other side of the sheet.",
+  "25 It is possible that the unclear letters here are ‘ek’ or ‘ck’.",
+  "26 Possibly ‘amal’ (=‘einmal’) but meaning is this context would not be entirely clear.",
+  "27 Text cramped at edge of page.",
+  "28 A few lines are written at the top of the page between the lines of text showing through from the reverse. The letter then continues below where there is a clearer gap in the text.",
+  "29 This scan contains at least two letters and the one with the earliest date begins on the fifth page of the PDF. The legibility of this page is somewhat compromised by text showing through from the reverse.",
+  "30 This letter, which has a later date than the first, begins on the second page of the PDF on the right-hand side of the sheet. The first five lines are somewhat unclear due to text showing through from the reverse.",
+  "31 There is some chance that this word is ‘Gott’, at least the ‘o’, which is visible, is unusually small."
+ ],
+ "footnotes_physical": [
+  "1 It looks like the digits 146 have been written here – possibly 14 could have been corrected to 16 but this remains uncertain.",
+  "2 This word appears to be corrected. Possibly a d was initially written as the first letter and then crossed out. The reading ‘unser’ is not absolutely certain.",
+  "4 These lines, which are written on the reverse side of the previous page, are again partially obscured by writing showing through from the front. After four lines, the letter continues on the facing page.",
+  "6 Text is obscured here where the corner of the page is crumpled. A possible reading may be ‘eingefunden’ but the marking above the line may indicate an umlaut.",
+  "7 The final s is not entirely clear due to the crumpled edge, but is strongly suggested by the context.",
+  "9 This letter is written between the lines of text showing through from the reverse and is extremely faint.",
+  "10 Name is unclear. It is possible that the first letter is C.",
+  "11 The end of this letter is on the final page of the PDF. It appears the beginning is missing. The text of this page suffers from blots and occasional damage.",
+  "12 Word is unclear, but ‘musst’ or similar would be expected at this point.",
+  "13 This could possibly be ‘imer’ but is partially obscured by a blot.",
+  "14 This is somewhat unclear, but ‘Beschaffer’ does seem to have been used, at least historically, as a synonym for ‘Schöpfer’.",
+  "15 Small hole in paper obscures first letter of word.",
+  "17 One character unclear due to blot in line below. This could possibly be ‘&’.",
+  "18 Possibly ‘mein’ but unclear and may instead have an r following the e.",
+  "20 Word likely begins with m and may end with e but otherwise remains unclear.",
+  "21 Word partially obscured by blot.",
+  "23 Final word of line mostly obscured – ‘würde’ would be to be expected at this point.",
+  "24 Again, the legibility of this page is somewhat compromised by text showing through from the reverse. Some text at the right edge is missing from the scan which shows this page in the correct orientation but is visible in reverse orientation on the scan showing the other side of the sheet.",
+  "25 It is possible that the unclear letters here are ‘ek’ or ‘ck’.",
+  "27 Text cramped at edge of page.",
+  "30 This letter, which has a later date than the first, begins on the second page of the PDF on the right-hand side of the sheet. The first five lines are somewhat unclear due to text showing through from the reverse."
+ ],
+ "editorial_notes": [
+  "[Stamps in lower left-hand corner:]",
+  "[Letter continues on new sheet:]",
+  "[Additional letter from another author follows below:]",
+  "[Note in lower left-hand corner:]",
+  "[Letter continues on facing page of folded sheet:]"
+ ],
+ "els": [
+  {
+   "target": "krank",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 4023,
+     "skip": 11,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "polen",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 1119,
+     "skip": 77,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "klara",
+   "observed": 1,
+   "null_mean": 0.15,
+   "null_sd": 0.36,
+   "z": 2.38,
+   "examples": [
+    {
+     "start": 541,
+     "skip": 84,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "zores",
+   "observed": 1,
+   "null_mean": 0.17,
+   "null_sd": 0.44,
+   "z": 1.87,
+   "examples": [
+    {
+     "start": 609,
+     "skip": 68,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 5,
+   "null_mean": 2.77,
+   "null_sd": 1.44,
+   "z": 1.54,
+   "examples": [
+    {
+     "start": 3060,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 2887,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 1580,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 43,
+   "null_mean": 34.9,
+   "null_sd": 5.46,
+   "z": 1.48,
+   "examples": [
+    {
+     "start": 2947,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 1891,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 377,
+     "skip": 5,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "krieg",
+   "observed": 1,
+   "null_mean": 0.47,
+   "null_sd": 0.71,
+   "z": 0.74,
+   "examples": [
+    {
+     "start": 2868,
+     "skip": 42,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 19,
+   "null_mean": 16.02,
+   "null_sd": 4.31,
+   "z": 0.69,
+   "examples": [
+    {
+     "start": 1169,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 499,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 90,
+     "skip": 13,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 2,
+   "null_mean": 1.9,
+   "null_sd": 1.34,
+   "z": 0.07,
+   "examples": [
+    {
+     "start": 1374,
+     "skip": 55,
+     "reversed": false
+    },
+    {
+     "start": 1706,
+     "skip": 67,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 5,
+   "null_mean": 5.12,
+   "null_sd": 2.72,
+   "z": -0.05,
+   "examples": [
+    {
+     "start": 1745,
+     "skip": 41,
+     "reversed": false
+    },
+    {
+     "start": 1598,
+     "skip": 75,
+     "reversed": false
+    },
+    {
+     "start": 3081,
+     "skip": 83,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 9,
+   "null_mean": 9.3,
+   "null_sd": 2.36,
+   "z": -0.13,
+   "examples": [
+    {
+     "start": 1492,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 1960,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 831,
+     "skip": 88,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 4,
+   "null_mean": 4.7,
+   "null_sd": 2.12,
+   "z": -0.33,
+   "examples": [
+    {
+     "start": 531,
+     "skip": 22,
+     "reversed": false
+    },
+    {
+     "start": 2049,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 1797,
+     "skip": 44,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 60,
+   "null_mean": 64.7,
+   "null_sd": 7.42,
+   "z": -0.63,
+   "examples": [
+    {
+     "start": 692,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 3662,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 3792,
+     "skip": 10,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 3.23,
+   "null_sd": 1.94,
+   "z": -0.63,
+   "examples": [
+    {
+     "start": 657,
+     "skip": 112,
+     "reversed": false
+    },
+    {
+     "start": 334,
+     "skip": 99,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 18,
+   "null_mean": 22.35,
+   "null_sd": 4.09,
+   "z": -1.06,
+   "examples": [
+    {
+     "start": 643,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 1320,
+     "skip": 24,
+     "reversed": false
+    },
+    {
+     "start": 2700,
+     "skip": 49,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 3.05,
+   "null_sd": 1.84,
+   "z": -1.11,
+   "examples": [
+    {
+     "start": 410,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 50,
+   "null_mean": 58.92,
+   "null_sd": 6.42,
+   "z": -1.39,
+   "examples": [
+    {
+     "start": 2402,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 810,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 3488,
+     "skip": 29,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 4.92,
+   "null_sd": 2.28,
+   "z": -1.72,
+   "examples": [
+    {
+     "start": 2395,
+     "skip": 110,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 5,
+   "null_mean": 9.6,
+   "null_sd": 2.33,
+   "z": -1.97,
+   "examples": [
+    {
+     "start": 1422,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 2609,
+     "skip": 95,
+     "reversed": false
+    },
+    {
+     "start": 526,
+     "skip": 44,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 7.28,
+   "null_sd": 2.45,
+   "z": -2.56,
+   "examples": [
+    {
+     "start": 1602,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 230,
+  "null_mean": 259.1,
+  "null_sd": 14.6
+ },
+ "nth_word_hits_total": 15,
+ "nth_word_hits_null_mean": 15.1,
+ "acrostic": "wadelilsbwlljekseidzddkblvsezmzdaekqhhsdsgdbksiddbuksbdwipfohjlbddiwkndkldhddvsawldddbsaaglaewwlsshgedmasaedlulivshwhfwhihbhsvwdswvsdgmblaaligsdteeaisswdnaefseasgtbddzsilmnsmda",
+ "telestich": "nndetnnhsstnrtrnhnntnsthwfsetrertnremghmuiseeeenngnnteireeenhrnrsnmtradelfetrtnntlrneeeeenressttnhutnunmsezsslhflldnhetssdfnnlrrntsssnnhtefrlnnrurnhenetstsnttnbinesnrrsenennnsssnrhh",
+ "first_words": "Wien An Den erhalten liebe ich lieben soll bald wir liebe Leuten jahrige eine können so entfallt in das zu dort du keine bei Letter vielleicht so Einreise zögern Möglichkeit zu daß aber elend komt Quote hat hoffentlich sie dich sollst gehen dir bissel Kinder schon Ist da durch bitte und Kindern sonst besonders die wan ich Pussi Familie Onkel herzlich Josef Liebe Bitte Dir Deine Ihr wir kalt nicht die küße Letter Die hat der das von schreiben Additional Wien Liebe Den du die Brief seitdem auch auch Gott lieben auch es werden werden Liebe schreiben schon Has getroffen Euch Das men abwarten sage aufsuchen er denn Letter uber Lea ie vielleicht Sonst Hast Wie hoffentlich für wir Habe in hat Brief hat sie Von wir die sie werden von Sonst dich gruße mal Besondere lieben an Additional Liebe Ich gegenüber soll dienen tens euern Euer Additional ihr schlisen spet wegen drum noch an es fom ster eich a soll grusse Tante Beste dein dich zei soll ihr Liebe meinen nicht Spesen mit daran alle",
+ "last_words": "Wien Lieben d meine bist den sein auch daß Jetzt vielen minder besteht Kinder anfordern einfach man wan nicht schon was hast ich w overleaf es eine nicht aller Ausreise zwar leicht allein jeder andere Dornhelm Untersuchung auch um du Fli es eine die die Schule dortigen aufgenommen Herzog schreiben den Post kusse Pussi meiner werde die ganze den ich mir Berman Schwester es machen warum schreibt Furchtbar ja sind grüße all overleaf Felde gesagt sehr bist ein schreiben sheet April Kinder erhalten Freude te habe wie habe schreiben unser wie daß gerechnet behüt schlechten ausfuhrlich du hast Aussichten zu kann kom mus komme Perez daß soll nachdenklich overleaf Ruchel Ettel wird aufgeben Euch einge verbracht alles das sind Brief zugeschrieben einen Ettel darüber dafür haben angefragt daß Nächstens legen Kindern ich Norbert küsse Josef der Ehrenthal Bekanten orientation Schwager du er Freuden Euch Kusse Kindern se sheet mus ist mus Schreiben erhalt nicht Segnen hab Geschwi von grusse es sehn Kinder Kinder bestens bitte kein sie Schreiben Leben sagen weiß das kan mehr Euch Frohlich",
+ "word_initials": "wamldthnsddeefmsddmlcgabismdfvdlksgsshdisabbeskdwabsjlcihvvlgwmmjiahbemddkkieasddqeeokmiebqwddfibenzudwsdihwdzmhdhkawgibeswlcoviemifesndiwaeeksjnzutnammeazviwezdeinslaibdaeofjkdweaqhdfdhazuhfsasfmoeudshgdszffgjwgedhddebesdkggdsidsiwmdddwaaddevhbmazsuzldhvdknikpsnbgukbanupdgdsmwihwipadpgadgfbdomlihgvmjblsbsbwedgwmdlkwignswhfklihjnwaasdfgsgkaammkalcodffhgdhffssddsdbvhkpwesalfoanswalculkdbvfhedkdkvdfdihddwdtbdivdbhsdwbwavdlkhapbdsgsdsgidulfddsdwadlkashdesdggwfdtsbwvjslcbmaswedgodsewhhdswagwmdizebkkdidzmkmsegvnmabiadrksdmssdpauiededrlssdsisnlcousslsrlwbmateizmhswviwaswhmbehddsewhidfvhgwhaafdfgbadwnbshandbiwdkzhahesebgdltehssgdsdaddvdsrhwekaradssndsnsnwwdkblvdrulksnbaidwaaungukmepjbgadlfweaavubalbsafoirolsdsidsddgdkaesdlofdkgetbgukelkesalbaafoansimnbsimsmsajeisdohdbgemwihkgzsdtinbsienbswivnamdbseisegmerwhfpkswgssagaveignigaukeumesnwsmezsgtruoudktcbgudkbgrgbdelwebdfmwdbkzzssdusspwazsihmzbllbibzsmlsdiwnwehdshgikmdtnmdkigeavmlf",
+ "sentence_initials": "wedjibfkawilohdwhvneg",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {
+  "2/1": [
+   "erna"
+  ],
+  "3/2": [
+   "erna",
+   "etel"
+  ],
+  "4/1": [
+   "erna"
+  ],
+  "5/0": [
+   "erna"
+  ],
+  "5/3": [
+   "russen"
+  ],
+  "6/5": [
+   "erna"
+  ],
+  "7/2": [
+   "erna"
+  ],
+  "8/1": [
+   "erna"
+  ],
+  "8/7": [
+   "erna"
+  ],
+  "9/1": [
+   "erna"
+  ],
+  "9/5": [
+   "erna"
+  ],
+  "9/6": [
+   "erna"
+  ],
+  "9/8": [
+   "erna",
+   "russen"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "froeste",
+   "oefters"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "elend",
+  "josef",
+  "kalman",
+  "mali",
+  "norbert",
+  "taube",
+  "transport",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "ltsdcfkejcwamkeqqfiaefafdfduffjsaehlpanpmbskffmffhfhkpackbffkpifktcowamrmprlsrtewedifwfbktesrkrnkrkanpjgfwevbsskfgebgkksjobssspsgtrokcgkrelwbsslbstgelf",
+ "caps_hits": [],
+ "bacon_from_caps": "?taerceabafbiitiiasaarartaiarataaacazcaaa?aaidaiwarsagrabbga?bcwcaarck??apeb??acaeaacirsacaaidacfcascaaeirdaeb?naldslecaeircgabnlacee?bihs?nag?cauograabikabaaraealraaaabw?gs?bcacb?caeba?",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "elend",
+  "gefahr",
+  "josef",
+  "kalman",
+  "krieg",
+  "norbert",
+  "russen",
+  "schlecht",
+  "taube",
+  "transport",
+  "willner"
+ ],
+ "numbers": [
+  "12/2",
+  "1940",
+  "10",
+  "1654",
+  "764",
+  "25",
+  "1940",
+  "6",
+  "1",
+  "326",
+  "1000000000000"
+ ],
+ "book_cipher_reading": [
+  "gehört",
+  "ich"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Additional",
+  "Adi",
+  "Ahnung",
+  "America",
+  "An",
+  "April",
+  "Ausreise",
+  "Aussichten",
+  "Bekanten",
+  "Berman",
+  "Berta",
+  "Besondere",
+  "Besonders",
+  "Beste",
+  "Bitte",
+  "Brief",
+  "Brif",
+  "Chawcze",
+  "Chawtsche",
+  "Das",
+  "Deine",
+  "Den",
+  "Die",
+  "Dir",
+  "Dornhelm",
+  "Du",
+  "Ehrenthal",
+  "Einreise",
+  "Eltern",
+  "Empfehlung",
+  "Ettel",
+  "Euch",
+  "Euer",
+  "Fall",
+  "Falle",
+  "Familie",
+  "Feber",
+  "Feiertage",
+  "Felde",
+  "Fink",
+  "Fli",
+  "Frau",
+  "Freude",
+  "Freuden",
+  "Frohlich",
+  "Fröste",
+  "Furchtbar",
+  "Geschwi",
+  "Gott",
+  "Grusse",
+  "Grüße",
+  "H",
+  "Habe",
+  "Has",
+  "Hast",
+  "Herzog",
+  "Ich",
+  "Ihr",
+  "Informationen",
+  "Ist",
+  "Jetzt",
+  "Jontew",
+  "Josef",
+  "Kalman",
+  "Karte",
+  "Kessel",
+  "Kinder",
+  "Kindern",
+  "Kusse",
+  "Lea",
+  "Leben",
+  "Letter",
+  "Leuten",
+  "Liebe",
+  "Lieben",
+  "Lieber",
+  "Luftpost",
+  "Mali",
+  "Mordehe",
+  "Möglichkeit",
+  "Norbert",
+  "Nächstens",
+  "Ob",
+  "Onkel",
+  "Papa",
+  "Peretz",
+  "Perez",
+  "Post",
+  "Pussi",
+  "Quote",
+  "Reihe",
+  "Riwke",
+  "Rose",
+  "Ruchale",
+  "Ruchel",
+  "Samstag",
+  "Schreiben",
+  "Schule",
+  "Schwager",
+  "Schweigen",
+  "Schwester",
+  "Schwägerin",
+  "Segnen",
+  "Sehen",
+  "Sohn",
+  "Sonst",
+  "Spesen",
+  "Tante",
+  "Tat",
+  "Taube",
+  "Telegram",
+  "Transport",
+  "Untersuchung",
+  "Verwandten",
+  "Von",
+  "Wann",
+  "Wie",
+  "Wiely",
+  "Wien",
+  "Willner",
+  "Wir",
+  "Wohnung"
+ ],
+ "names_not_in_family_set": [
+  "Additional",
+  "Ahnung",
+  "America",
+  "An",
+  "April",
+  "Ausreise",
+  "Aussichten",
+  "Bekanten",
+  "Besondere",
+  "Besonders",
+  "Beste",
+  "Bitte",
+  "Brief",
+  "Brif",
+  "Chawtsche",
+  "Das",
+  "Deine",
+  "Den",
+  "Die",
+  "Dir",
+  "Dornhelm",
+  "Du",
+  "Ehrenthal",
+  "Einreise",
+  "Eltern",
+  "Empfehlung",
+  "Euch",
+  "Euer",
+  "Fall",
+  "Falle",
+  "Familie",
+  "Feber",
+  "Feiertage",
+  "Felde",
+  "Fli",
+  "Frau",
+  "Freude",
+  "Freuden",
+  "Frohlich",
+  "Fröste",
+  "Furchtbar",
+  "Geschwi",
+  "Gott",
+  "Grusse",
+  "Grüße",
+  "H",
+  "Habe",
+  "Has",
+  "Hast",
+  "Herzog",
+  "Ich",
+  "Ihr",
+  "Informationen",
+  "Ist",
+  "Jetzt",
+  "Jontew",
+  "Karte",
+  "Kessel",
+  "Kinder",
+  "Kindern",
+  "Kusse",
+  "Leben",
+  "Letter",
+  "Leuten",
+  "Liebe",
+  "Lieben",
+  "Lieber",
+  "Luftpost",
+  "Mordehe",
+  "Möglichkeit",
+  "Nächstens",
+  "Ob",
+  "Onkel",
+  "Papa",
+  "Perez",
+  "Post",
+  "Pussi",
+  "Quote",
+  "Reihe",
+  "Riwke",
+  "Samstag",
+  "Schreiben",
+  "Schule",
+  "Schwager",
+  "Schweigen",
+  "Schwester",
+  "Schwägerin",
+  "Segnen",
+  "Sehen",
+  "Sohn",
+  "Sonst",
+  "Spesen",
+  "Tante",
+  "Tat",
+  "Telegram",
+  "Transport",
+  "Untersuchung",
+  "Verwandten",
+  "Von",
+  "Wann",
+  "Wie",
+  "Wien",
+  "Wir",
+  "Wohnung"
+ ],
+ "hebrew_yiddish_insertions": 7
+}

@@ -1,0 +1,290 @@
+{
+ "letter": "48",
+ "source": "<!-- drive_id: 1UTpSA-9Ib1DoZXiqZq9aBOHbl8o5kHfC | url: https://drive.google.com/file/d/1UTpSA-9Ib1DoZXiqZq9aBOHbl8o5kHfC/view?usp=drivesdk | title: Transcription 48.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 23,
+ "n_words": 121,
+ "n_letters": 569,
+ "editorial_markers": {
+  "?": 3,
+  "unclear": 1
+ },
+ "footnotes": [],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 124,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mawes",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 243,
+     "skip": 18,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.12,
+   "null_sd": 0.33,
+   "z": 2.65,
+   "examples": [
+    {
+     "start": 99,
+     "skip": 62,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.23,
+   "null_sd": 0.61,
+   "z": 1.27,
+   "examples": [
+    {
+     "start": 315,
+     "skip": 11,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 5,
+   "null_mean": 2.62,
+   "null_sd": 1.95,
+   "z": 1.22,
+   "examples": [
+    {
+     "start": 145,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 55,
+     "skip": 64,
+     "reversed": false
+    },
+    {
+     "start": 452,
+     "skip": 4,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 1.2,
+   "null_sd": 0.93,
+   "z": 0.86,
+   "examples": [
+    {
+     "start": 0,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 155,
+     "skip": 63,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 3,
+   "null_mean": 2.17,
+   "null_sd": 1.56,
+   "z": 0.53,
+   "examples": [
+    {
+     "start": 179,
+     "skip": 88,
+     "reversed": false
+    },
+    {
+     "start": 32,
+     "skip": 49,
+     "reversed": true
+    },
+    {
+     "start": 73,
+     "skip": 104,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 4,
+   "null_mean": 3.73,
+   "null_sd": 1.94,
+   "z": 0.14,
+   "examples": [
+    {
+     "start": 17,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 134,
+     "skip": 27,
+     "reversed": true
+    },
+    {
+     "start": 37,
+     "skip": 36,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 1,
+   "null_mean": 2.48,
+   "null_sd": 1.64,
+   "z": -0.9,
+   "examples": [
+    {
+     "start": 285,
+     "skip": 29,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 19,
+  "null_mean": 15.9,
+  "null_sd": 3.7
+ },
+ "nth_word_hits_total": 3,
+ "nth_word_hits_null_mean": 2.5,
+ "acrostic": "maeubhbsssswsdsfmeibaz",
+ "telestich": "xnrnrefgleehsgranrnhhf",
+ "first_words": "Montag An Es uber bekam habe ben schauen schreibe sondern schreiben weiter schon Dir stucke fallt mochst erhalten in besser an zum",
+ "last_words": "IX Liebsten vor Schreiben darüber geschrie darauf wenig Schreibfaul e befördete Dich es Kleidung schwer da Leben Dir schon auch Euch Josef",
+ "word_initials": "miamleisbmsvudivdksbbsndhdsemgbddbndswidswseinwssimeacesusbwleihdsemgwedmimeksswedsfdufdmdmbleswgedidghsbkdwaadkuwezjdbej",
+ "sentence_initials": "imli",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "2/0": [
+   "etel"
+  ],
+  "4/0": [
+   "erna"
+  ],
+  "6/1": [
+   "mali"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef"
+ ],
+ "caps_string": "ilmdsddscleidkdfdldgdkejbej",
+ "caps_hits": [],
+ "bacon_from_caps": "?salareaaeca?aiiikeciikm",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef"
+ ],
+ "numbers": [
+  "1834",
+  "8",
+  "1941",
+  "2"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "An",
+  "Beste",
+  "Cha",
+  "Dich",
+  "Dir",
+  "Du",
+  "Es",
+  "Euch",
+  "Euer",
+  "Eva",
+  "Familie",
+  "Gesundheit",
+  "IX",
+  "Ich",
+  "Jahreswechsel",
+  "Josef",
+  "Kinder",
+  "Kleidung",
+  "Leben",
+  "Liebe",
+  "Liebsten",
+  "Monat",
+  "Montag",
+  "Schreiben",
+  "Schreibfaul"
+ ],
+ "names_not_in_family_set": [
+  "An",
+  "Beste",
+  "Cha",
+  "Dich",
+  "Dir",
+  "Du",
+  "Es",
+  "Euch",
+  "Euer",
+  "Familie",
+  "Gesundheit",
+  "IX",
+  "Ich",
+  "Jahreswechsel",
+  "Kinder",
+  "Kleidung",
+  "Leben",
+  "Liebe",
+  "Liebsten",
+  "Monat",
+  "Montag",
+  "Schreiben",
+  "Schreibfaul"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

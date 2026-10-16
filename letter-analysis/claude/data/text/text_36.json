@@ -1,0 +1,407 @@
+{
+ "letter": "36",
+ "source": "<!-- drive_id: 1SV-3X4cNczjGRN69R-kYFeHYkXCsn3JH | url: https://drive.google.com/file/d/1SV-3X4cNczjGRN69R-kYFeHYkXCsn3JH/view?usp=drivesdk | title: Transcription 36.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 50,
+ "n_words": 281,
+ "n_letters": 1373,
+ "editorial_markers": {
+  "unclear": 1,
+  "?": 2
+ },
+ "footnotes": [
+  "1 This looks like ‘arina’ but makes no obvious sense.",
+  "2 Word squeezed in at end of line and could be either ‘Schiffskarten’ or ‘Schiffskarte’."
+ ],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter continues overleaf:]",
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "tote",
+   "observed": 8,
+   "null_mean": 3,
+   "null_sd": 1.52,
+   "z": 3.3,
+   "examples": [
+    {
+     "start": 752,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 110,
+     "skip": 6,
+     "reversed": false
+    },
+    {
+     "start": 997,
+     "skip": 40,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "angst",
+   "observed": 1,
+   "null_mean": 0.15,
+   "null_sd": 0.36,
+   "z": 2.38,
+   "examples": [
+    {
+     "start": 401,
+     "skip": 104,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 9,
+   "null_mean": 5.22,
+   "null_sd": 1.98,
+   "z": 1.91,
+   "examples": [
+    {
+     "start": 18,
+     "skip": 13,
+     "reversed": false
+    },
+    {
+     "start": 653,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 738,
+     "skip": 32,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 2,
+   "null_mean": 1.23,
+   "null_sd": 1.23,
+   "z": 0.63,
+   "examples": [
+    {
+     "start": 1219,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 864,
+     "skip": 103,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 1.48,
+   "null_sd": 0.97,
+   "z": 0.54,
+   "examples": [
+    {
+     "start": 347,
+     "skip": 60,
+     "reversed": false
+    },
+    {
+     "start": 578,
+     "skip": 108,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 13,
+   "null_mean": 11.47,
+   "null_sd": 3.26,
+   "z": 0.47,
+   "examples": [
+    {
+     "start": 910,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 158,
+     "skip": 28,
+     "reversed": false
+    },
+    {
+     "start": 1252,
+     "skip": 32,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 2,
+   "null_mean": 1.5,
+   "null_sd": 1.18,
+   "z": 0.42,
+   "examples": [
+    {
+     "start": 933,
+     "skip": 58,
+     "reversed": false
+    },
+    {
+     "start": 296,
+     "skip": 52,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 1.65,
+   "null_sd": 1.06,
+   "z": 0.33,
+   "examples": [
+    {
+     "start": 423,
+     "skip": 72,
+     "reversed": true
+    },
+    {
+     "start": 499,
+     "skip": 75,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 7,
+   "null_mean": 6.55,
+   "null_sd": 2.58,
+   "z": 0.17,
+   "examples": [
+    {
+     "start": 191,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 728,
+     "skip": 67,
+     "reversed": false
+    },
+    {
+     "start": 529,
+     "skip": 20,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 6,
+   "null_mean": 13.3,
+   "null_sd": 4.12,
+   "z": -1.77,
+   "examples": [
+    {
+     "start": 429,
+     "skip": 55,
+     "reversed": false
+    },
+    {
+     "start": 512,
+     "skip": 59,
+     "reversed": false
+    },
+    {
+     "start": 368,
+     "skip": 83,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 52,
+  "null_mean": 52.1,
+  "null_sd": 8.1
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 2.5,
+ "acrostic": "wlddwiglsrehawbdgdgsohndewieawmszkiisdazsiisbgkv",
+ "telestich": "irntfteeurrrtndgsnnnnbnttnkmnrdntntnidhsmtettnsy",
+ "first_words": "Wien Liebste Deinen Den werde ist geschrieben Leute sagt Ruchaly ein haben auch weggeschickt Brief dem geschickt Deine geschrieben sein ob hat nur der er wan ich es Afidawid wird mus sogar zu keinen Ich ich schicken der auch zwar schicken ich Ihr Schiffskarten bitte grüße Kinder von",
+ "last_words": "I Schwester erhalten beigelegt Josef hat nette Liebe zu Dir Geschwister sogar Flugpost den und weg was haben kann ankommen geschrieben hab geschrieben ferkült gehustet geschrieben dank dem man leider und men gibt Schifskarten geschickt Schiffskarten bei und Euch nichts nachdem könnt die geht sonst lieben vielmals Maly",
+ "word_initials": "wdilsdlbhhedbwdzjbwiuehdjiipoblehgehbsnlqjwdmlsdjhgzrudnehzdebgaghzguisauishifwetbhdbvkgudzrhiawgnhngwdsajhgihngeksdbwfaodjhzghtegjihnmagdjwafeiagnagwehdbgiswafgsdeimabiwdafimdmwnanlmmhsusgdsskmzudikgkglzsihetzjgiwdikkssnfkmbdhunkuaedfihezegisnsiueninhbfkimdfdsnwegbwassgkdadlkvvecum",
+ "sentence_initials": "lddoaiiwiv",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "chaja",
+  "etel",
+  "jakob",
+  "josef",
+  "lublin",
+  "maly",
+  "opole",
+  "polen",
+  "schiff",
+  "taube",
+  "wien"
+ ],
+ "caps_string": "isbbdjdjpolqdljddbagftkrsjbjteajbgiwssuikgstjishkfeisddecm",
+ "caps_hits": [],
+ "bacon_from_caps": "zwoigoadfelcyaakcrraoaarinbeaaebagrabbbnufbeatciraccaixg",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "chaja",
+  "jakob",
+  "josef",
+  "lublin",
+  "opole",
+  "polen",
+  "schiff",
+  "taube"
+ ],
+ "numbers": [
+  "509",
+  "11/3",
+  "1941",
+  "17/2",
+  "1941",
+  "509"
+ ],
+ "book_cipher_reading": [
+  "nur"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Absender",
+  "Afidawid",
+  "Alle",
+  "Brief",
+  "Chaja",
+  "Deine",
+  "Deinen",
+  "Den",
+  "Der",
+  "Dich",
+  "Dir",
+  "Du",
+  "Etel",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Flugpost",
+  "Geschwister",
+  "Gott",
+  "Groschen",
+  "Hias",
+  "I",
+  "II",
+  "Ich",
+  "Ihr",
+  "Israelitische",
+  "Jakob",
+  "Josef",
+  "Kinder",
+  "Komites",
+  "Konsulat",
+  "Kultusgemeinde",
+  "Leute",
+  "Liebe",
+  "Liebste",
+  "Lublin",
+  "Maly",
+  "Opole",
+  "Polen",
+  "Quartier",
+  "Ruchaly",
+  "Schiff",
+  "Schiffskarten",
+  "Schifskarten",
+  "Schnelsten",
+  "Schwester",
+  "Schwägerinen",
+  "Tag",
+  "Taube",
+  "Telegram",
+  "Untersuchung",
+  "Wegen",
+  "Wien"
+ ],
+ "names_not_in_family_set": [
+  "Absender",
+  "Afidawid",
+  "Alle",
+  "Brief",
+  "Deine",
+  "Deinen",
+  "Den",
+  "Der",
+  "Dich",
+  "Dir",
+  "Du",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Flugpost",
+  "Geschwister",
+  "Gott",
+  "Groschen",
+  "Hias",
+  "I",
+  "II",
+  "Ich",
+  "Ihr",
+  "Israelitische",
+  "Kinder",
+  "Komites",
+  "Konsulat",
+  "Kultusgemeinde",
+  "Leute",
+  "Liebe",
+  "Liebste",
+  "Lublin",
+  "Opole",
+  "Polen",
+  "Quartier",
+  "Ruchaly",
+  "Schiff",
+  "Schiffskarten",
+  "Schifskarten",
+  "Schnelsten",
+  "Schwester",
+  "Schwägerinen",
+  "Tag",
+  "Telegram",
+  "Untersuchung",
+  "Wegen",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

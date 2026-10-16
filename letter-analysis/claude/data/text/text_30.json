@@ -1,0 +1,453 @@
+{
+ "letter": "30",
+ "source": "<!-- drive_id: 1V_X7e60qNVGQn0aJpThKU2I7v22KXyWx | url: https://drive.google.com/file/d/1V_X7e60qNVGQn0aJpThKU2I7v22KXyWx/view?usp=drivesdk | title: Transcription 30.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 43,
+ "n_words": 233,
+ "n_letters": 1066,
+ "editorial_markers": {
+  "?": 1
+ },
+ "footnotes": [],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Letter continues overleaf:]",
+  "[Additional letter by same author follows below:]"
+ ],
+ "els": [
+  {
+   "target": "mord",
+   "observed": 3,
+   "null_mean": 0.55,
+   "null_sd": 0.8,
+   "z": 3.04,
+   "examples": [
+    {
+     "start": 699,
+     "skip": 66,
+     "reversed": false
+    },
+    {
+     "start": 49,
+     "skip": 100,
+     "reversed": false
+    },
+    {
+     "start": 59,
+     "skip": 89,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 5,
+   "null_mean": 2.12,
+   "null_sd": 1.05,
+   "z": 2.73,
+   "examples": [
+    {
+     "start": 326,
+     "skip": 28,
+     "reversed": false
+    },
+    {
+     "start": 540,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 648,
+     "skip": 7,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 2,
+   "null_mean": 0.68,
+   "null_sd": 0.75,
+   "z": 1.76,
+   "examples": [
+    {
+     "start": 975,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 478,
+     "skip": 102,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 5,
+   "null_mean": 3.3,
+   "null_sd": 1.76,
+   "z": 0.96,
+   "examples": [
+    {
+     "start": 255,
+     "skip": 38,
+     "reversed": false
+    },
+    {
+     "start": 478,
+     "skip": 74,
+     "reversed": false
+    },
+    {
+     "start": 325,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 7,
+   "null_mean": 5.22,
+   "null_sd": 1.96,
+   "z": 0.91,
+   "examples": [
+    {
+     "start": 99,
+     "skip": 52,
+     "reversed": false
+    },
+    {
+     "start": 476,
+     "skip": 85,
+     "reversed": false
+    },
+    {
+     "start": 355,
+     "skip": 118,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.55,
+   "null_sd": 0.8,
+   "z": 0.56,
+   "examples": [
+    {
+     "start": 471,
+     "skip": 42,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.7,
+   "null_sd": 0.68,
+   "z": 0.44,
+   "examples": [
+    {
+     "start": 378,
+     "skip": 27,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 1.1,
+   "null_sd": 0.94,
+   "z": -0.11,
+   "examples": [
+    {
+     "start": 403,
+     "skip": 110,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 5.7,
+   "null_sd": 2.46,
+   "z": -0.28,
+   "examples": [
+    {
+     "start": 431,
+     "skip": 56,
+     "reversed": true
+    },
+    {
+     "start": 628,
+     "skip": 57,
+     "reversed": true
+    },
+    {
+     "start": 204,
+     "skip": 66,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 3.2,
+   "null_sd": 2.14,
+   "z": -0.56,
+   "examples": [
+    {
+     "start": 384,
+     "skip": 34,
+     "reversed": true
+    },
+    {
+     "start": 636,
+     "skip": 98,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 9,
+   "null_mean": 11.82,
+   "null_sd": 3.63,
+   "z": -0.78,
+   "examples": [
+    {
+     "start": 533,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 387,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 785,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 7,
+   "null_mean": 9.72,
+   "null_sd": 2.59,
+   "z": -1.05,
+   "examples": [
+    {
+     "start": 640,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 842,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 884,
+     "skip": 32,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 48,
+  "null_mean": 49.6,
+  "null_sd": 6.8
+ },
+ "nth_word_hits_total": 5,
+ "nth_word_hits_null_mean": 3.6,
+ "acrostic": "clsstiigbllhetjjmngsnmsgdsvnwkmkrdwryeolfal",
+ "telestich": "lnhresghntfnmenurhndnedemnrgynnwhisysieogsh",
+ "first_words": "Chicago Liebste Schule so tet Ihre in Gestern bei lieber lob haben einen Trost jedem Jahre marry nicht glaube Sie natürlich Morgen Sederfeier gehe dem Samstag vermeidlich nicht Wie kommen Mit koscheren Rosi Dear When really you every only luck for as Love",
+ "last_words": "April Berman mich geantwor sowie alles Ordnung ich mein Gott Brief schon Ihrem sie von you wir ich auffressen und Amerikanerin eine abend nahe am un immer Samstag Y sehen einen Jontew Hirsch Adi was correctly has I the hello darling was Hirsch",
+ "word_initials": "calfbsuahmsbdibngthihdssifgsuaibogshibrevssmlsugrsglgiilbhsmgoeserbhzitkiisdsjbwstvjafwymmzsdwnidcwigsweasiusguneeamahwesihdzagizvwndhwoiasawbnuviifninaswgwinnykuswsmdbwuekjrhdawiryliwrshnacywitymhertbpoyiowywhatlyrdshfmtnihsadahwlrh",
+ "sentence_initials": "caigsizsmdowykmwiiisil",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {
+  "2/0": [
+   "fort"
+  ],
+  "4/1": [
+   "wien"
+  ],
+  "5/3": [
+   "wien"
+  ],
+  "7/3": [
+   "edit"
+  ],
+  "8/5": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "dear",
+   "read"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "arbeit",
+  "hirsch",
+  "norbert"
+ ],
+ "caps_string": "afbaisfosrssggiibebziiwzcseahdvhonsnywjhaiiiisnirh",
+ "caps_hits": [],
+ "bacon_from_caps": "?wabfrhciwuiemtacirelrbrybcteagdath?eaeabaaina",
+ "bacon_hits": [],
+ "caesar_hits": {
+  "22": [
+   "krank"
+  ]
+ },
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "arbeit",
+  "hirsch",
+  "norbert"
+ ],
+ "numbers": [
+  "18",
+  "1943",
+  "5–30"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [
+  18
+ ],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "Amerikanerin",
+  "April",
+  "Arbeit",
+  "Berman",
+  "Brief",
+  "Bräutigam",
+  "Chicago",
+  "City",
+  "Dear",
+  "Den",
+  "Esterl",
+  "Familie",
+  "Frau",
+  "Gest",
+  "Gestern",
+  "Gott",
+  "Hirsch",
+  "Hospital",
+  "I",
+  "Ich",
+  "Ihnen",
+  "Ihre",
+  "Ihrem",
+  "In",
+  "Is",
+  "Jahre",
+  "Jontew",
+  "Liebste",
+  "Love",
+  "Mit",
+  "Morgen",
+  "N",
+  "Norbert",
+  "Nursing",
+  "Obwohl",
+  "Ordnung",
+  "Ren",
+  "Rosi",
+  "Samstag",
+  "Say",
+  "Schule",
+  "Schwager",
+  "Sederfeier",
+  "Sie",
+  "Sonntag",
+  "Trost",
+  "Verwandten",
+  "When",
+  "Wie",
+  "Will",
+  "Wünschen",
+  "Y",
+  "Zu"
+ ],
+ "names_not_in_family_set": [
+  "Amerikanerin",
+  "April",
+  "Arbeit",
+  "Brief",
+  "Bräutigam",
+  "Chicago",
+  "City",
+  "Dear",
+  "Den",
+  "Esterl",
+  "Familie",
+  "Frau",
+  "Gest",
+  "Gestern",
+  "Gott",
+  "Hospital",
+  "I",
+  "Ich",
+  "Ihnen",
+  "Ihre",
+  "Ihrem",
+  "In",
+  "Is",
+  "Jahre",
+  "Jontew",
+  "Liebste",
+  "Love",
+  "Mit",
+  "Morgen",
+  "N",
+  "Nursing",
+  "Obwohl",
+  "Ordnung",
+  "Ren",
+  "Samstag",
+  "Say",
+  "Schule",
+  "Schwager",
+  "Sederfeier",
+  "Sie",
+  "Sonntag",
+  "Trost",
+  "Verwandten",
+  "When",
+  "Wie",
+  "Will",
+  "Wünschen",
+  "Y",
+  "Zu"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

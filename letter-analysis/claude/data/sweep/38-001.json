@@ -1,0 +1,1 @@
+{"page": "38-001", "n_bright_total": 1, "paper_frac": 0.917, "size": [1313, 2081], "xheight": 34.0, "n_words": 38, "flags": [{"kind": "different_ink", "box": [918, 40, 102, 40], "score": 5.04, "cells": 1, "detail": "ink a*/b* 1/17 vs page -4/-8"}, {"kind": "bright_speck", "box": [462, 2009, 6, 2], "score": 1.18, "detail": "area 8px"}], "n_cells": 460}

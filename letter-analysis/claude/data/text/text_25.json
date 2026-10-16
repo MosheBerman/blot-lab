@@ -1,0 +1,394 @@
+{
+ "letter": "25",
+ "source": "<!-- drive_id: 1VzDxxVwngLuA2GFj6R-uak72X7QEHPBS | url: https://drive.google.com/file/d/1VzDxxVwngLuA2GFj6R-uak72X7QEHPBS/view?usp=drivesdk | title: Transcription 25.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 50,
+ "n_words": 227,
+ "n_letters": 1091,
+ "editorial_markers": {
+  "?": 2,
+  "text loss": 1
+ },
+ "footnotes": [
+  "1 Ending lost at edge of page.",
+  "2 Ink blot, dirt or hole obscures text.",
+  "3 Word is corrected. It seems the corrected version is ‘warten’."
+ ],
+ "footnotes_physical": [
+  "1 Ending lost at edge of page.",
+  "2 Ink blot, dirt or hole obscures text.",
+  "3 Word is corrected. It seems the corrected version is ‘warten’."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter continues overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "etel",
+   "observed": 14,
+   "null_mean": 8.53,
+   "null_sd": 2.66,
+   "z": 2.05,
+   "examples": [
+    {
+     "start": 765,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 489,
+     "skip": 27,
+     "reversed": false
+    },
+    {
+     "start": 550,
+     "skip": 36,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 1.25,
+   "null_sd": 0.97,
+   "z": 1.81,
+   "examples": [
+    {
+     "start": 97,
+     "skip": 30,
+     "reversed": false
+    },
+    {
+     "start": 929,
+     "skip": 8,
+     "reversed": true
+    },
+    {
+     "start": 397,
+     "skip": 86,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 7,
+   "null_mean": 4.83,
+   "null_sd": 1.96,
+   "z": 1.11,
+   "examples": [
+    {
+     "start": 9,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 786,
+     "skip": 33,
+     "reversed": false
+    },
+    {
+     "start": 644,
+     "skip": 47,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 6,
+   "null_mean": 3.77,
+   "null_sd": 2.03,
+   "z": 1.1,
+   "examples": [
+    {
+     "start": 122,
+     "skip": 23,
+     "reversed": false
+    },
+    {
+     "start": 990,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 656,
+     "skip": 67,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.33,
+   "null_sd": 0.65,
+   "z": 1.04,
+   "examples": [
+    {
+     "start": 465,
+     "skip": 44,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.4,
+   "null_sd": 0.58,
+   "z": 1.03,
+   "examples": [
+    {
+     "start": 418,
+     "skip": 72,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 1.2,
+   "null_sd": 1.23,
+   "z": 0.65,
+   "examples": [
+    {
+     "start": 233,
+     "skip": 100,
+     "reversed": false
+    },
+    {
+     "start": 256,
+     "skip": 24,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.65,
+   "null_sd": 0.96,
+   "z": 0.36,
+   "examples": [
+    {
+     "start": 543,
+     "skip": 66,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 1.98,
+   "null_sd": 1.52,
+   "z": 0.02,
+   "examples": [
+    {
+     "start": 430,
+     "skip": 78,
+     "reversed": false
+    },
+    {
+     "start": 341,
+     "skip": 114,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 5.08,
+   "null_sd": 2.09,
+   "z": -0.04,
+   "examples": [
+    {
+     "start": 544,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 660,
+     "skip": 29,
+     "reversed": false
+    },
+    {
+     "start": 660,
+     "skip": 83,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 9,
+   "null_mean": 11.43,
+   "null_sd": 3.43,
+   "z": -0.71,
+   "examples": [
+    {
+     "start": 920,
+     "skip": 3,
+     "reversed": false
+    },
+    {
+     "start": 1048,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 134,
+     "skip": 42,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 51,
+  "null_mean": 44.3,
+  "null_sd": 6.6
+ },
+ "nth_word_hits_total": 4,
+ "nth_word_hits_null_mean": 3.5,
+ "acrostic": "atageaezdesnihmbwdvbnglwzbvokddsdsskkefiwssmakbab",
+ "telestich": "nfrustnrnnelnennumtdruenntnnnnmernnrnrtenenenfnde",
+ "first_words": "An Teile Arbeit Gott essen Auskommen es zu daß Euch seit Nachricht ich habe Mali bist weis denken vorstellen bin nach gleich liebe was zur besteht vielleicht ob konnen der die schreiben dazu schon Schreiben Kindern keine es Flugpost ich warten sonst Schliesse mit an Kinder Besondere alle Bekannte",
+ "last_words": "Lieben auf mir zu ganzes möcht zusammen sehr von bekommen keine obwohl geschrieben liebe weggefahren Schreiben nachzu kaum besorgt bald mir Du Ausreise unternommen hinkomen Moglichkeit ergeben fahren in machen warum nie Dir kein lieben langer wann per damit lange machen Verwandte Schreiben Kusse lieben Josef an und Bekannte",
+ "word_initials": "amltemdbaaioegmgsdsghgzevafganfmemmezzsewmsdhsslveksbsdtjhknveoismghbavdlmhsdwbkeeswsnwnddkdkvwibbbejbnedbmgzahdlefmawuzmishbvfkmvwsseoizmwfkwgedidgwmdlkwsdkndzhvdsfmksavdlkhnlknbwedmipfzsdisnslwbwmsulvsmsmbgukaduadlkvejbgaavub",
+ "sentence_initials": "hbhwwbw",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.05,
+ "nth_word_hits": {
+  "2/1": [
+   "erna"
+  ],
+  "3/0": [
+   "erna"
+  ],
+  "8/6": [
+   "wien"
+  ],
+  "9/6": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "arbeit",
+  "josef",
+  "mali"
+ ],
+ "caps_string": "leoesjeasddbeebhdeammmwdgwkkdmnbdwvsgkdjgv",
+ "caps_hits": [],
+ "bacon_from_caps": "zbiracarabikibcaebidcr?ircaekgeiewegiraiofik?",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "arbeit",
+  "gefahr",
+  "josef"
+ ],
+ "numbers": [
+  "1820–2622",
+  "1",
+  "2",
+  "3"
+ ],
+ "book_cipher_reading": [
+  "meine"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "An",
+  "Arbeit",
+  "Auch",
+  "Auskommen",
+  "Ausreise",
+  "Bekannte",
+  "Besondere",
+  "Bitte",
+  "Briefes",
+  "Dich",
+  "Dir",
+  "Du",
+  "Erhalt",
+  "Euch",
+  "Eva",
+  "Flugpost",
+  "Gesundheit",
+  "Gott",
+  "Grusse",
+  "Hast",
+  "Josef",
+  "Juni",
+  "Kinder",
+  "Kindern",
+  "Kusse",
+  "Lieben",
+  "Mali",
+  "Moglichkeit",
+  "Monate",
+  "Nachricht",
+  "Oberdonau",
+  "Schliesse",
+  "Schreiben",
+  "Teile",
+  "Verwandte",
+  "Was",
+  "Wie"
+ ],
+ "names_not_in_family_set": [
+  "An",
+  "Arbeit",
+  "Auch",
+  "Auskommen",
+  "Ausreise",
+  "Bekannte",
+  "Besondere",
+  "Bitte",
+  "Briefes",
+  "Dich",
+  "Dir",
+  "Du",
+  "Erhalt",
+  "Euch",
+  "Flugpost",
+  "Gesundheit",
+  "Gott",
+  "Grusse",
+  "Hast",
+  "Juni",
+  "Kinder",
+  "Kindern",
+  "Kusse",
+  "Lieben",
+  "Moglichkeit",
+  "Monate",
+  "Nachricht",
+  "Oberdonau",
+  "Schliesse",
+  "Schreiben",
+  "Teile",
+  "Verwandte",
+  "Was",
+  "Wie"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

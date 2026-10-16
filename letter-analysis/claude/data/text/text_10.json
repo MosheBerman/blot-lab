@@ -1,0 +1,660 @@
+{
+ "letter": "10",
+ "source": "<!-- drive_id: 1T57KzXnB1WkkzNpjNuNdFnyOddVqSNqY | url: https://drive.google.com/file/d/1T57KzXnB1WkkzNpjNuNdFnyOddVqSNqY/view?usp=drivesdk | title: Transcription 10.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 46,
+ "n_words": 538,
+ "n_letters": 2734,
+ "editorial_markers": {
+  "Hebrew/Yiddish": 3,
+  "?": 1
+ },
+ "footnotes": [
+  "1 This addition is written at the bottom of the page and repositioned here via an asterisk.",
+  "2 Possibly corrected to ‘um’?"
+ ],
+ "footnotes_physical": [
+  "2 Possibly corrected to ‘um’?"
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "geld",
+   "observed": 13,
+   "null_mean": 4.28,
+   "null_sd": 2.11,
+   "z": 4.14,
+   "examples": [
+    {
+     "start": 186,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 227,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 369,
+     "skip": 26,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haifa",
+   "observed": 1,
+   "null_mean": 0.1,
+   "null_sd": 0.37,
+   "z": 2.41,
+   "examples": [
+    {
+     "start": 2231,
+     "skip": 48,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "lager",
+   "observed": 1,
+   "null_mean": 0.25,
+   "null_sd": 0.43,
+   "z": 1.73,
+   "examples": [
+    {
+     "start": 71,
+     "skip": 54,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 2,
+   "null_mean": 0.88,
+   "null_sd": 0.87,
+   "z": 1.29,
+   "examples": [
+    {
+     "start": 2376,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 1751,
+     "skip": 10,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haman",
+   "observed": 1,
+   "null_mean": 0.4,
+   "null_sd": 0.49,
+   "z": 1.22,
+   "examples": [
+    {
+     "start": 2286,
+     "skip": 89,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 6,
+   "null_mean": 4.28,
+   "null_sd": 1.75,
+   "z": 0.99,
+   "examples": [
+    {
+     "start": 438,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 1058,
+     "skip": 30,
+     "reversed": true
+    },
+    {
+     "start": 345,
+     "skip": 54,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 8,
+   "null_mean": 5.5,
+   "null_sd": 3.11,
+   "z": 0.8,
+   "examples": [
+    {
+     "start": 550,
+     "skip": 30,
+     "reversed": false
+    },
+    {
+     "start": 897,
+     "skip": 51,
+     "reversed": false
+    },
+    {
+     "start": 158,
+     "skip": 61,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "joel",
+   "observed": 1,
+   "null_mean": 0.55,
+   "null_sd": 0.63,
+   "z": 0.71,
+   "examples": [
+    {
+     "start": 176,
+     "skip": 24,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 4,
+   "null_mean": 3.12,
+   "null_sd": 2.0,
+   "z": 0.44,
+   "examples": [
+    {
+     "start": 2376,
+     "skip": 31,
+     "reversed": false
+    },
+    {
+     "start": 141,
+     "skip": 117,
+     "reversed": false
+    },
+    {
+     "start": 1511,
+     "skip": 39,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 2,
+   "null_mean": 1.7,
+   "null_sd": 1.21,
+   "z": 0.25,
+   "examples": [
+    {
+     "start": 1800,
+     "skip": 34,
+     "reversed": false
+    },
+    {
+     "start": 266,
+     "skip": 6,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 22,
+   "null_mean": 22.57,
+   "null_sd": 5.49,
+   "z": -0.1,
+   "examples": [
+    {
+     "start": 2420,
+     "skip": 11,
+     "reversed": false
+    },
+    {
+     "start": 886,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 334,
+     "skip": 32,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 34,
+   "null_mean": 35.15,
+   "null_sd": 5.39,
+   "z": -0.21,
+   "examples": [
+    {
+     "start": 1215,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 730,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 1319,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 8,
+   "null_mean": 8.68,
+   "null_sd": 2.91,
+   "z": -0.23,
+   "examples": [
+    {
+     "start": 2114,
+     "skip": 13,
+     "reversed": false
+    },
+    {
+     "start": 1285,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 1281,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 1.5,
+   "null_sd": 1.16,
+   "z": -0.43,
+   "examples": [
+    {
+     "start": 912,
+     "skip": 97,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 2,
+   "null_mean": 3.38,
+   "null_sd": 1.93,
+   "z": -0.71,
+   "examples": [
+    {
+     "start": 1654,
+     "skip": 18,
+     "reversed": true
+    },
+    {
+     "start": 238,
+     "skip": 24,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 4.28,
+   "null_sd": 1.94,
+   "z": -1.17,
+   "examples": [
+    {
+     "start": 1491,
+     "skip": 113,
+     "reversed": false
+    },
+    {
+     "start": 1570,
+     "skip": 16,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 21,
+   "null_mean": 30.23,
+   "null_sd": 5.51,
+   "z": -1.67,
+   "examples": [
+    {
+     "start": 709,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 886,
+     "skip": 43,
+     "reversed": false
+    },
+    {
+     "start": 938,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 11.88,
+   "null_sd": 3.34,
+   "z": -2.06,
+   "examples": [
+    {
+     "start": 1146,
+     "skip": 33,
+     "reversed": false
+    },
+    {
+     "start": 2399,
+     "skip": 85,
+     "reversed": false
+    },
+    {
+     "start": 2027,
+     "skip": 25,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 134,
+  "null_mean": 143.0,
+  "null_sd": 13.7
+ },
+ "nth_word_hits_total": 7,
+ "nth_word_hits_null_mean": 7.3,
+ "acrostic": "mdlmdhewanupuhmwskwlsszgiuenznkavikmanhganiddb",
+ "telestich": "inehuesttnennhnnetsetelnnsenhsnnnsedngehinien",
+ "first_words": "Meine Deinen leider mand Dir hast Es Weiter anders nur und psychologisch und hatte mittags Wort Schreiben Klasse wo Lehrerin setze schritte Zwar geld ich überall nicht zu Nachtstunden keinerlei Affidavit Verwandtschaftsgrad Ich konnte man Adresse nicht Hoffentlich Grüße anderen nicht Ich deiner Diesen Briefe",
+ "last_words": "Mutti erhalten nie ich Du böse Lebens jetzt befriedigt Kindergarten wäre studieren Arbeiten Nach kein Lesen eine jetzt als heimkomme Fort schritte Schul kann von abends Musikstunde wenigen ich das den unternehmen schreiben als seine sind haben Erlösung alle mich Nobbi von Mali beide umgeschrieben",
+ "word_initials": "migmdlbvvhifelahmdinbdsbkdnmefptwidslngheidsivbddijsehihdhmvdwssetubmnmbewddsuzlzmblwwindssbgdddsjaiihjabdmsbnisnsgbvaiikussedlbmsemiwpupsbusmpzsulzwjnamdktahiaswiwesuhhhdajuenmuikdevkilkukwikimsfdsvalsruvadsbksjiekhkaugwasigjwisebeheazlumalanwiavdahsimzdbummdbfszhinnanbdinkghsgzzadijdnrghkinadgfdsgzswinvueeakiehzwimanlhimihudamzndhiaanzngdwndotivevakhikviwadudsemddazswafdeauedvoddkihnuigihdsmgdialnskdiadaanitawuammdpieakngsabvjkwenjuwsnazwwevjgughhabudjaeeegojtmmedbwuaadikussbnstaosmnkumstkapaniwaaegjtkanadvdmdhilgkianwdnbbzzsgwhidaku",
+ "sentence_initials": "mlkwiueivdmnibanwzwwidvoijhgdbttd",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [
+   "etel"
+  ],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.1,
+ "nth_word_hits": {
+  "2/0": [
+   "mina"
+  ],
+  "3/0": [
+   "erna"
+  ],
+  "5/0": [
+   "mali"
+  ],
+  "7/0": [
+   "mali"
+  ],
+  "8/2": [
+   "erna"
+  ],
+  "8/5": [
+   "erna"
+  ],
+  "9/4": [
+   "etel"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "affidavit",
+  "arbeit",
+  "fort",
+  "geld",
+  "jakob",
+  "mali",
+  "mina"
+ ],
+ "caps_string": "mbviskpwdbdidzlgsibvkdlmplmashnkliislrdsbkaenwabfbgsrsgwwmiamzgdevkvaoddlatapkjjjjeojtmmedbwtkpanjtkmd",
+ "caps_hits": [],
+ "bacon_from_caps": "ulacfaxaelbiaaeauaeisaair?iaeieirebcbdik??cararbnebawbbiaiagiacannamigsaaibgrireasreitcabbbd??aaaao?drgacia",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "affidavit",
+  "amerika",
+  "arbeit",
+  "jakob",
+  "krieg",
+  "schlimm"
+ ],
+ "numbers": [
+  "28",
+  "2"
+ ],
+ "book_cipher_reading": [
+  "nehmen"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Absicht",
+  "Adi",
+  "Adresse",
+  "Affidavit",
+  "Also",
+  "Arbeit",
+  "Arbeiten",
+  "Aussage",
+  "Aviv",
+  "Beide",
+  "Berta",
+  "Beschäftigung",
+  "Brief",
+  "Briefe",
+  "Bücher",
+  "Büchern",
+  "Da",
+  "Deinen",
+  "Die",
+  "Diesen",
+  "Dinge",
+  "Dingen",
+  "Dir",
+  "Dornhelms",
+  "Du",
+  "Erfolg",
+  "Erich",
+  "Erlösung",
+  "Es",
+  "Euch",
+  "Fort",
+  "Geld",
+  "Gott",
+  "Grüße",
+  "Hausarbeiten",
+  "Hoffentlich",
+  "Ich",
+  "Inhalt",
+  "Ivrith",
+  "Jahr",
+  "Jakob",
+  "Jetzt",
+  "Kann",
+  "Kinder",
+  "Kindergarten",
+  "Klasse",
+  "Konsul",
+  "Kouvert",
+  "Küsse",
+  "Land",
+  "Lebens",
+  "Lehrerin",
+  "Leiser",
+  "Leiterin",
+  "Lesen",
+  "Male",
+  "Mali",
+  "Meine",
+  "Mina",
+  "Mit",
+  "Musik",
+  "Musikstunde",
+  "Mutti",
+  "Nach",
+  "Nachtstunden",
+  "Niemals",
+  "Nobbi",
+  "Ohne",
+  "Onkel",
+  "Papa",
+  "Papiere",
+  "Plan",
+  "Rechnen",
+  "Rückstände",
+  "Sache",
+  "Schreiben",
+  "Schul",
+  "Schule",
+  "Schwierigkeiten",
+  "Sprechen",
+  "Stimmung",
+  "Tante",
+  "Tausende",
+  "Tel",
+  "VIII",
+  "Verständigung",
+  "Verwandtschaftsgrad",
+  "Von",
+  "Vormittags",
+  "Weiter",
+  "Wenn",
+  "Weshalb",
+  "Willi",
+  "Wort",
+  "Zeit",
+  "Zwar"
+ ],
+ "names_not_in_family_set": [
+  "Absicht",
+  "Adresse",
+  "Affidavit",
+  "Also",
+  "Arbeit",
+  "Arbeiten",
+  "Aussage",
+  "Aviv",
+  "Beide",
+  "Beschäftigung",
+  "Brief",
+  "Briefe",
+  "Bücher",
+  "Büchern",
+  "Da",
+  "Deinen",
+  "Die",
+  "Diesen",
+  "Dinge",
+  "Dingen",
+  "Dir",
+  "Dornhelms",
+  "Du",
+  "Erfolg",
+  "Erich",
+  "Erlösung",
+  "Es",
+  "Euch",
+  "Fort",
+  "Geld",
+  "Gott",
+  "Grüße",
+  "Hausarbeiten",
+  "Hoffentlich",
+  "Ich",
+  "Inhalt",
+  "Ivrith",
+  "Jahr",
+  "Jetzt",
+  "Kann",
+  "Kinder",
+  "Kindergarten",
+  "Klasse",
+  "Konsul",
+  "Kouvert",
+  "Küsse",
+  "Land",
+  "Lebens",
+  "Lehrerin",
+  "Leiser",
+  "Leiterin",
+  "Lesen",
+  "Male",
+  "Meine",
+  "Mit",
+  "Musik",
+  "Musikstunde",
+  "Mutti",
+  "Nach",
+  "Nachtstunden",
+  "Niemals",
+  "Nobbi",
+  "Ohne",
+  "Onkel",
+  "Papa",
+  "Papiere",
+  "Plan",
+  "Rechnen",
+  "Rückstände",
+  "Sache",
+  "Schreiben",
+  "Schul",
+  "Schule",
+  "Schwierigkeiten",
+  "Sprechen",
+  "Stimmung",
+  "Tante",
+  "Tausende",
+  "Tel",
+  "VIII",
+  "Verständigung",
+  "Verwandtschaftsgrad",
+  "Von",
+  "Vormittags",
+  "Weiter",
+  "Wenn",
+  "Weshalb",
+  "Willi",
+  "Wort",
+  "Zeit",
+  "Zwar"
+ ],
+ "hebrew_yiddish_insertions": 3
+}

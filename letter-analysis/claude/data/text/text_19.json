@@ -1,0 +1,561 @@
+{
+ "letter": "19",
+ "source": "<!-- drive_id: 1TDogSSWhygm79mPFH03KBPwkJQg4uxCT | url: https://drive.google.com/file/d/1TDogSSWhygm79mPFH03KBPwkJQg4uxCT/view?usp=drivesdk | title: Transcription 19.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 53,
+ "n_words": 271,
+ "n_letters": 1370,
+ "editorial_markers": {
+  "?": 2
+ },
+ "footnotes": [
+  "1 Author writes ‘et’, which equates to &.",
+  "2 Presumably equivalent to ‘ich glaub’.",
+  "3 Printed text is rendered in italics. The number 1866 is stamped to the right below the sender’s address.",
+  "4 Printed heading partially obscured by sticker reading ‘MIT LUFTPOST | PAR AVION’. This side of the card also has a postage stamp affixed reading ‘Deutsches Reich’ , a postmark reading ‘[W]IEN 20 | 2. 2. 41-16 | f’ and a stamp reading ‘Geprüft [?] | Oberkommando der Wehrmacht’."
+ ],
+ "footnotes_physical": [
+  "3 Printed text is rendered in italics. The number 1866 is stamped to the right below the sender’s address.",
+  "4 Printed heading partially obscured by sticker reading ‘MIT LUFTPOST | PAR AVION’. This side of the card also has a postage stamp affixed reading ‘Deutsches Reich’ , a postmark reading ‘[W]IEN 20 | 2. 2. 41-16 | f’ and a stamp reading ‘Geprüft [?] | Oberkommando der Wehrmacht’."
+ ],
+ "editorial_notes": [
+  "[Additional letter by same author follows below:]",
+  "[Letter continues overleaf:]",
+  "[Note along lower edge:]",
+  "[Recipient’s address:]"
+ ],
+ "els": [
+  {
+   "target": "josef",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 459,
+     "skip": 61,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "russen",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 187,
+     "skip": 66,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nisko",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 273,
+     "skip": 87,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 2,
+   "null_mean": 0.5,
+   "null_sd": 0.63,
+   "z": 2.37,
+   "examples": [
+    {
+     "start": 859,
+     "skip": 75,
+     "reversed": true
+    },
+    {
+     "start": 1016,
+     "skip": 117,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 3,
+   "null_mean": 0.97,
+   "null_sd": 0.99,
+   "z": 2.05,
+   "examples": [
+    {
+     "start": 565,
+     "skip": 62,
+     "reversed": false
+    },
+    {
+     "start": 540,
+     "skip": 75,
+     "reversed": false
+    },
+    {
+     "start": 459,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 7,
+   "null_mean": 3.17,
+   "null_sd": 2.18,
+   "z": 1.76,
+   "examples": [
+    {
+     "start": 648,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 524,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 571,
+     "skip": 40,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 9,
+   "null_mean": 5.2,
+   "null_sd": 2.25,
+   "z": 1.69,
+   "examples": [
+    {
+     "start": 940,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 414,
+     "skip": 46,
+     "reversed": false
+    },
+    {
+     "start": 553,
+     "skip": 93,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 0.38,
+   "null_sd": 0.53,
+   "z": 1.17,
+   "examples": [
+    {
+     "start": 1170,
+     "skip": 24,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 10,
+   "null_mean": 8.15,
+   "null_sd": 2.42,
+   "z": 0.76,
+   "examples": [
+    {
+     "start": 745,
+     "skip": 37,
+     "reversed": false
+    },
+    {
+     "start": 680,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 127,
+     "skip": 50,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 3,
+   "null_mean": 1.9,
+   "null_sd": 1.46,
+   "z": 0.75,
+   "examples": [
+    {
+     "start": 671,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 617,
+     "skip": 66,
+     "reversed": false
+    },
+    {
+     "start": 177,
+     "skip": 18,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 4,
+   "null_mean": 3.08,
+   "null_sd": 1.72,
+   "z": 0.54,
+   "examples": [
+    {
+     "start": 521,
+     "skip": 61,
+     "reversed": false
+    },
+    {
+     "start": 657,
+     "skip": 5,
+     "reversed": true
+    },
+    {
+     "start": 1164,
+     "skip": 38,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 1.65,
+   "null_sd": 1.04,
+   "z": 0.34,
+   "examples": [
+    {
+     "start": 1026,
+     "skip": 69,
+     "reversed": true
+    },
+    {
+     "start": 615,
+     "skip": 99,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.72,
+   "null_sd": 0.87,
+   "z": 0.32,
+   "examples": [
+    {
+     "start": 791,
+     "skip": 80,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.9,
+   "null_sd": 0.89,
+   "z": 0.11,
+   "examples": [
+    {
+     "start": 1045,
+     "skip": 28,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 12,
+   "null_mean": 12.57,
+   "null_sd": 3.11,
+   "z": -0.18,
+   "examples": [
+    {
+     "start": 1111,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 92,
+     "skip": 26,
+     "reversed": false
+    },
+    {
+     "start": 1023,
+     "skip": 28,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 15,
+   "null_mean": 16.4,
+   "null_sd": 3.53,
+   "z": -0.4,
+   "examples": [
+    {
+     "start": 913,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 81,
+     "skip": 58,
+     "reversed": false
+    },
+    {
+     "start": 451,
+     "skip": 90,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 2.08,
+   "null_sd": 1.52,
+   "z": -0.71,
+   "examples": [
+    {
+     "start": 1036,
+     "skip": 66,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 74,
+  "null_mean": 61.1,
+  "null_sd": 6.5
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.7,
+ "acrostic": "wleigghdzgssiueagawssdgcgiegufkadwlussubgcsawsphjsnas",
+ "telestich": "nnditatnnnbthsrnnndstsrhtttdtstsesleahdersrieenrtyar",
+ "first_words": "Wien Liebster Eueren ich Gebe Gesund habe die zwar gut sie sie Ihr übersidel Adresse geben aber was sonst soll der grüße Chaja Goldiger Ich es geht und freude Küße auch Dir Wir liebe und schon sein und bestens ganze Chaja Sender Absender Wohnort Straße Postka Herrn Jakob Sheriff New Amerika Straße",
+ "last_words": "den Schwägerin und Mali mit Ewa hat bin schon geschrieben chglaub braucht ich Chawes über geschrieben sein schreiben Kind süs sonst vielmals Willner Erich Zuschrift gut bist und sonst vielmals schickt Pusis Euere Pusis soll hause Ewa ich und Famlie Willner address Willner II Taborstrasse rte Herrn Willner Street City Amerika Postschließfachnummer",
+ "word_initials": "wdlblselbhdeuiemsmelmgdesssmgzhsvlehadlbewhdlemisgibzafaewmsgwihdegssdjgscsbnsmbianmsdiuewisatcaswmfdbuegbjhjwgajbinbswcwnsossgemsgmksmgsissdjigsdgsgkeavcumwgeiddvfdzefmsddgsdggsddwbbudlefufifskdvvammsdpwsaelmupuwisssgzhsadteuklibgugfcwssaacwwazolwishgsoptprhjwssnycashgsop",
+ "sentence_initials": "weisiswashgshgs",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "chaja",
+  "geld",
+  "jakob",
+  "josef",
+  "mali",
+  "maly",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "blsbdemeebesejgitcbwikjgeamweddzdgddeidmpempwiatekgfwcwzlwihgsptwsychgsp",
+ "caps_hits": [],
+ "bacon_from_caps": "z?rc?cbbataaar?arbhareeaaarbidm?cbrefcnf?l?bocqhx?zq??",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "chaja",
+  "jakob",
+  "josef",
+  "willner"
+ ],
+ "numbers": [
+  "11/2",
+  "1941",
+  "10000000000000",
+  "67",
+  "14",
+  "962–29",
+  "94"
+ ],
+ "book_cipher_reading": [
+  "soll"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Absender",
+  "Adresse",
+  "Alle",
+  "Amerika",
+  "Auch",
+  "Brief",
+  "Briefe",
+  "Bruder",
+  "Chaja",
+  "Chawes",
+  "City",
+  "Danke",
+  "Dankend",
+  "Deine",
+  "Dich",
+  "Dir",
+  "Du",
+  "Eltern",
+  "Erich",
+  "Euch",
+  "Euere",
+  "Eueren",
+  "Ewa",
+  "Ewiger",
+  "Famlie",
+  "Gebe",
+  "Gebäudeteil",
+  "Geld",
+  "Gesund",
+  "Goldiger",
+  "Gott",
+  "Grüßen",
+  "Hausnummer",
+  "Herrn",
+  "II",
+  "Ich",
+  "Ihnen",
+  "Ihr",
+  "Jakob",
+  "Josef",
+  "Kind",
+  "Kinder",
+  "Küße",
+  "Leitpostamt",
+  "Liebste",
+  "Liebster",
+  "Mali",
+  "Maltschi",
+  "Maly",
+  "New",
+  "Postka",
+  "Postschließfachnummer",
+  "Pusis",
+  "Schwägerin",
+  "Sender",
+  "Sheriff",
+  "Spital",
+  "Stockwerk",
+  "Straße",
+  "Street",
+  "Taborstrasse",
+  "Tante",
+  "Wien",
+  "Willner",
+  "Wir",
+  "Woche",
+  "Wohnort",
+  "Wünschen",
+  "York",
+  "Zuschrift",
+  "Zustell"
+ ],
+ "names_not_in_family_set": [
+  "Absender",
+  "Adresse",
+  "Alle",
+  "Amerika",
+  "Auch",
+  "Brief",
+  "Briefe",
+  "Bruder",
+  "Chawes",
+  "City",
+  "Danke",
+  "Dankend",
+  "Deine",
+  "Dich",
+  "Dir",
+  "Du",
+  "Eltern",
+  "Erich",
+  "Euch",
+  "Euere",
+  "Eueren",
+  "Ewiger",
+  "Famlie",
+  "Gebe",
+  "Gebäudeteil",
+  "Geld",
+  "Gesund",
+  "Goldiger",
+  "Gott",
+  "Grüßen",
+  "Hausnummer",
+  "Herrn",
+  "II",
+  "Ich",
+  "Ihnen",
+  "Ihr",
+  "Kind",
+  "Kinder",
+  "Küße",
+  "Leitpostamt",
+  "Liebste",
+  "Liebster",
+  "Maltschi",
+  "New",
+  "Postka",
+  "Postschließfachnummer",
+  "Pusis",
+  "Schwägerin",
+  "Sender",
+  "Sheriff",
+  "Spital",
+  "Stockwerk",
+  "Straße",
+  "Street",
+  "Taborstrasse",
+  "Tante",
+  "Wien",
+  "Wir",
+  "Woche",
+  "Wohnort",
+  "Wünschen",
+  "York",
+  "Zuschrift",
+  "Zustell"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

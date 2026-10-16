@@ -1,0 +1,416 @@
+{
+ "letter": "45",
+ "source": "<!-- drive_id: 1V4fDf9Rw9NY0ohYqUXUiGl8tIyWsSHhK | url: https://drive.google.com/file/d/1V4fDf9Rw9NY0ohYqUXUiGl8tIyWsSHhK/view?usp=drivesdk | title: Transcription 45.docx -->",
+ "n_lines": 32,
+ "n_words": 207,
+ "n_letters": 968,
+ "editorial_markers": {
+  "ink blot": 1
+ },
+ "footnotes": [
+  "1 The ending of this word is obscured as the upper right-hand corner of the page is folded over slightly, but the feminine ending ‘-in’ is to be expected here.",
+  "2 This is likely a reference is to HIAS, the Hebrew Immigrant Aid Society.",
+  "3 It is not entirely clear what the P stands for here – the only possibility that immediately springs to mind is ‘Paniermehl’ but that is not obviously a staple food.",
+  "4 Due to the ink blot, it is unclear if any further ending or punctuation follows ‘Berlin’."
+ ],
+ "footnotes_physical": [
+  "1 The ending of this word is obscured as the upper right-hand corner of the page is folded over slightly, but the feminine ending ‘-in’ is to be expected here.",
+  "2 This is likely a reference is to HIAS, the Hebrew Immigrant Aid Society.",
+  "4 Due to the ink blot, it is unclear if any further ending or punctuation follows ‘Berlin’."
+ ],
+ "editorial_notes": [
+  "[Letter signed along left-hand edge:]"
+ ],
+ "els": [
+  {
+   "target": "angst",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 347,
+     "skip": 78,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 26,
+   "null_mean": 16.48,
+   "null_sd": 4.1,
+   "z": 2.32,
+   "examples": [
+    {
+     "start": 286,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 698,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 300,
+     "skip": 14,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 1.27,
+   "null_sd": 1.1,
+   "z": 1.58,
+   "examples": [
+    {
+     "start": 45,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 507,
+     "skip": 60,
+     "reversed": false
+    },
+    {
+     "start": 84,
+     "skip": 94,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 2,
+   "null_mean": 0.62,
+   "null_sd": 0.89,
+   "z": 1.55,
+   "examples": [
+    {
+     "start": 608,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 77,
+     "skip": 36,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 2,
+   "null_mean": 1.18,
+   "null_sd": 1.24,
+   "z": 0.66,
+   "examples": [
+    {
+     "start": 646,
+     "skip": 12,
+     "reversed": true
+    },
+    {
+     "start": 23,
+     "skip": 30,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 1.8,
+   "null_sd": 1.12,
+   "z": 0.18,
+   "examples": [
+    {
+     "start": 547,
+     "skip": 84,
+     "reversed": false
+    },
+    {
+     "start": 412,
+     "skip": 45,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 13,
+   "null_mean": 12.6,
+   "null_sd": 3.67,
+   "z": 0.11,
+   "examples": [
+    {
+     "start": 143,
+     "skip": 61,
+     "reversed": false
+    },
+    {
+     "start": 179,
+     "skip": 64,
+     "reversed": false
+    },
+    {
+     "start": 162,
+     "skip": 98,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 5,
+   "null_mean": 5.03,
+   "null_sd": 1.86,
+   "z": -0.01,
+   "examples": [
+    {
+     "start": 571,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 563,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 472,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 2,
+   "null_mean": 2.12,
+   "null_sd": 1.14,
+   "z": -0.11,
+   "examples": [
+    {
+     "start": 642,
+     "skip": 68,
+     "reversed": true
+    },
+    {
+     "start": 620,
+     "skip": 69,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 1.3,
+   "null_sd": 1.12,
+   "z": -0.27,
+   "examples": [
+    {
+     "start": 292,
+     "skip": 57,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 3,
+   "null_mean": 4.88,
+   "null_sd": 2.14,
+   "z": -0.88,
+   "examples": [
+    {
+     "start": 258,
+     "skip": 55,
+     "reversed": false
+    },
+    {
+     "start": 142,
+     "skip": 72,
+     "reversed": false
+    },
+    {
+     "start": 617,
+     "skip": 79,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 60,
+  "null_mean": 51.2,
+  "null_sd": 7.6
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.5,
+ "acrostic": "wlewdwasfjheebzvbdbrlhbdseegggev",
+ "telestich": "nnnettnersslnrnhnnerrrennanyerery",
+ "first_words": "Wien Liebster Eueren welchen Dankend wegen auch schon Frau Jetzt habe ein es Bohnen Zustand vielmals Brief der bekomen RM Liebste helfen bezahlen die sie es Euere gebe gesund gutes Euch von",
+ "last_words": "den Schwägerin von habe schreibst gehört wissen die leider daß Portugal welchen Zucker guten Euch vorigen von Linie mir Dir mir Alle Lieben eingeladen Berta machen Maly Alle nur küße Kinder Maly",
+ "word_initials": "wdlbulselbuvwizfsbhhdelmwdswdshlggadsufwwsisodewadfwudwialjmlkemdhvdhalpelpeiwewrktkzbupmaiigzaidevihsivbguhavdbhalbebddlmmrghiddlmvddsmhtdeseabfegmldjhdtlesisegswdbegisgwmelkwgedlmgdeisagsmsnghsgkevaelkvcum",
+ "sentence_initials": "wljktkzm",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "chaja",
+  "maly",
+  "mina",
+  "wien"
+ ],
+ "caps_string": "blsbifslmddsdsfwewwlehlplprktkzpmadebhalbdmddmdeeaegljtlbkmeiaekcm",
+ "caps_hits": [],
+ "bacon_from_caps": "y?c?yua?an?cwc?a?zcnbaqflhtbn?uabafauiaex",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "chaja",
+  "josef"
+ ],
+ "numbers": [
+  "2/6/1941",
+  "16/4",
+  "1941",
+  "6/5",
+  "1941",
+  "40"
+ ],
+ "book_cipher_reading": [
+  "leider"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Alles",
+  "Amerika",
+  "Berlin",
+  "Berta",
+  "Bohnen",
+  "Brief",
+  "Bruder",
+  "Chaja",
+  "Danke",
+  "Dankend",
+  "Dein",
+  "Deine",
+  "Dir",
+  "Du",
+  "Etka",
+  "Euch",
+  "Euer",
+  "Euere",
+  "Eueren",
+  "Ewiger",
+  "Frau",
+  "Gutes",
+  "Hamburg",
+  "Hias",
+  "Ihr",
+  "Jetzt",
+  "Josefine",
+  "Kaffe",
+  "Kakau",
+  "Kinder",
+  "Lea",
+  "Lieben",
+  "Liebesgaben",
+  "Liebste",
+  "Liebster",
+  "Linie",
+  "Lisboa",
+  "Maly",
+  "Mehl",
+  "Mina",
+  "P",
+  "Paket",
+  "Portugal",
+  "RM",
+  "Reis",
+  "Schwager",
+  "Schwester",
+  "Schwägerin",
+  "Stern",
+  "Tante",
+  "Tee",
+  "Werner",
+  "Wien",
+  "Zucker",
+  "Zustand"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Alles",
+  "Amerika",
+  "Berlin",
+  "Bohnen",
+  "Brief",
+  "Bruder",
+  "Danke",
+  "Dankend",
+  "Dein",
+  "Deine",
+  "Dir",
+  "Du",
+  "Euch",
+  "Euer",
+  "Euere",
+  "Eueren",
+  "Ewiger",
+  "Frau",
+  "Gutes",
+  "Hamburg",
+  "Hias",
+  "Ihr",
+  "Jetzt",
+  "Kaffe",
+  "Kakau",
+  "Kinder",
+  "Lieben",
+  "Liebesgaben",
+  "Liebste",
+  "Liebster",
+  "Linie",
+  "Lisboa",
+  "Mehl",
+  "P",
+  "Paket",
+  "Portugal",
+  "RM",
+  "Reis",
+  "Schwager",
+  "Schwester",
+  "Schwägerin",
+  "Tante",
+  "Tee",
+  "Wien",
+  "Zucker",
+  "Zustand"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

@@ -1,0 +1,455 @@
+{
+ "letter": "35",
+ "source": "<!-- drive_id: 1SNJwwUNg0zX92RHCHt3JC368zNgFmb19 | url: https://drive.google.com/file/d/1SNJwwUNg0zX92RHCHt3JC368zNgFmb19/view?usp=drivesdk | title: Transcription 35.docx -->",
+ "n_lines": 46,
+ "n_words": 265,
+ "n_letters": 1243,
+ "editorial_markers": {
+  "?": 2,
+  "deletion": 2,
+  "Hebrew/Yiddish": 1
+ },
+ "footnotes": [
+  "1 Author writes ‘et’ which is equivalent to &.",
+  "2 The last letter only is somewhat unclear.",
+  "3 End of word disappears over edge of page – the ending ‘s’ is to be expected.",
+  "4 Letter is unsigned - the end may be missing."
+ ],
+ "footnotes_physical": [
+  "2 The last letter only is somewhat unclear.",
+  "3 End of word disappears over edge of page – the ending ‘s’ is to be expected."
+ ],
+ "editorial_notes": [
+  "[Note in lower left-hand corner:]",
+  "[Letter continues overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "haft",
+   "observed": 4,
+   "null_mean": 1.23,
+   "null_sd": 0.99,
+   "z": 2.81,
+   "examples": [
+    {
+     "start": 160,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 626,
+     "skip": 43,
+     "reversed": false
+    },
+    {
+     "start": 1092,
+     "skip": 45,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 0.15,
+   "null_sd": 0.42,
+   "z": 2.02,
+   "examples": [
+    {
+     "start": 386,
+     "skip": 40,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 0.9,
+   "null_sd": 0.94,
+   "z": 1.17,
+   "examples": [
+    {
+     "start": 547,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 397,
+     "skip": 46,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 3,
+   "null_mean": 1.73,
+   "null_sd": 1.3,
+   "z": 0.98,
+   "examples": [
+    {
+     "start": 512,
+     "skip": 103,
+     "reversed": false
+    },
+    {
+     "start": 1118,
+     "skip": 14,
+     "reversed": true
+    },
+    {
+     "start": 236,
+     "skip": 55,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 2,
+   "null_mean": 1.23,
+   "null_sd": 1.56,
+   "z": 0.5,
+   "examples": [
+    {
+     "start": 867,
+     "skip": 95,
+     "reversed": false
+    },
+    {
+     "start": 294,
+     "skip": 21,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 5,
+   "null_mean": 4.25,
+   "null_sd": 2.19,
+   "z": 0.34,
+   "examples": [
+    {
+     "start": 373,
+     "skip": 38,
+     "reversed": false
+    },
+    {
+     "start": 512,
+     "skip": 112,
+     "reversed": false
+    },
+    {
+     "start": 907,
+     "skip": 3,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.8,
+   "null_sd": 0.87,
+   "z": 0.23,
+   "examples": [
+    {
+     "start": 45,
+     "skip": 27,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 1.93,
+   "null_sd": 1.23,
+   "z": 0.06,
+   "examples": [
+    {
+     "start": 523,
+     "skip": 72,
+     "reversed": false
+    },
+    {
+     "start": 521,
+     "skip": 106,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 7,
+   "null_mean": 7.6,
+   "null_sd": 2.19,
+   "z": -0.27,
+   "examples": [
+    {
+     "start": 120,
+     "skip": 24,
+     "reversed": false
+    },
+    {
+     "start": 632,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 123,
+     "skip": 109,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 5,
+   "null_mean": 6.28,
+   "null_sd": 2.45,
+   "z": -0.52,
+   "examples": [
+    {
+     "start": 184,
+     "skip": 22,
+     "reversed": false
+    },
+    {
+     "start": 746,
+     "skip": 83,
+     "reversed": false
+    },
+    {
+     "start": 707,
+     "skip": 57,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 2.17,
+   "null_sd": 1.5,
+   "z": -0.78,
+   "examples": [
+    {
+     "start": 447,
+     "skip": 55,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 14,
+   "null_mean": 20.35,
+   "null_sd": 3.91,
+   "z": -1.62,
+   "examples": [
+    {
+     "start": 247,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 481,
+     "skip": 42,
+     "reversed": false
+    },
+    {
+     "start": 990,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 6,
+   "null_mean": 11.53,
+   "null_sd": 3.06,
+   "z": -1.81,
+   "examples": [
+    {
+     "start": 846,
+     "skip": 13,
+     "reversed": false
+    },
+    {
+     "start": 301,
+     "skip": 90,
+     "reversed": false
+    },
+    {
+     "start": 16,
+     "skip": 106,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 53,
+  "null_mean": 63.9,
+  "null_sd": 7.6
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 0.1,
+ "acrostic": "wlgedsaewudfhzmgtwvihohpeaeaiizugmdhfdfmmwnwa",
+ "telestich": "nnnnunrrnhnnrtrnrnsnnsmdefrehlehnedrtusnthree",
+ "first_words": "Wien Liebe Grad Euch Dir schreibst auf erhalten Was und die Familie hat zu mit gefreut Tag war von ich hat oder habe Pakerl erhalten auch erholung Antwort ihm ist zu unsere Glück Meine Dir Haifa Fink Dich Feld man mus wan nicht wan alles",
+ "last_words": "den Schwägerin an von Du schon wir sehr Schwägerin auch Kalman Kalman mir geschickt sehr zweiten nur Antwerpen Abrahams Kindergarten schicken jedenfalls dem zustand heute auf nur rede Hirsch einmahl Cwote ich daran schreibe Feld Herr lässt Frau was man lachhaft noch aber schreibe küße",
+ "word_initials": "wdlslblsgjimeaezsdlkvdlsiwdsddfsadahweuefmswmdlblsukadkadgfdlkfljsfdlkhmgehmzpepgmwimsghuhdztpepenweaaavaaaibnovkhmvzsoievlkjhmsgmdpiheigzedjshaebewuaefewnavstirinddrhihaswnezikfdcugsgwighkwbdmmissisddgamfhpjdhfigeldsgadffwiwsgsbswmbkwdmmmzilwiadiknnibzfawdsbsasknk",
+ "sentence_initials": "wgdduadmw",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [
+   "geld"
+  ],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [
+  [
+   "hier",
+   "ihre"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "haifa",
+  "hirsch",
+  "joel",
+  "kalman",
+  "mali",
+  "rosa",
+  "wien"
+ ],
+ "caps_string": "sbsksdddbskdkfkjfkppppaaaakkdjbtrhkcmamfpjhfidd",
+ "caps_hits": [],
+ "bacon_from_caps": "yybblkcacfmcokafaagrf?eacaibrrata?akaigbh?rr?aaraaaia",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "haifa",
+  "hirsch",
+  "kalman"
+ ],
+ "numbers": [
+  "7/5",
+  "40",
+  "2466–1533",
+  "1073"
+ ],
+ "book_cipher_reading": [
+  "wir"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Abrahams",
+  "Absender",
+  "Adresse",
+  "Amsterdam",
+  "Antwerpen",
+  "Antwort",
+  "Brief",
+  "Bruder",
+  "Cwote",
+  "Dein",
+  "Deine",
+  "Der",
+  "Dich",
+  "Dir",
+  "Dringends",
+  "Du",
+  "Euch",
+  "Familie",
+  "Feld",
+  "Fink",
+  "Frau",
+  "Glück",
+  "Grad",
+  "Haifa",
+  "Herr",
+  "Hirsch",
+  "Ihr",
+  "Jagur",
+  "Joel",
+  "Josel",
+  "Kalman",
+  "Karte",
+  "Kinder",
+  "Kindergarten",
+  "Kusine",
+  "Liebe",
+  "Mali",
+  "Max",
+  "Meine",
+  "POB",
+  "Pakerl",
+  "Paket",
+  "Pesach",
+  "Rosa",
+  "Schwester",
+  "Schwägerin",
+  "Tag",
+  "Tante",
+  "Was",
+  "Wien"
+ ],
+ "names_not_in_family_set": [
+  "Absender",
+  "Adresse",
+  "Amsterdam",
+  "Antwerpen",
+  "Antwort",
+  "Brief",
+  "Bruder",
+  "Cwote",
+  "Dein",
+  "Deine",
+  "Der",
+  "Dich",
+  "Dir",
+  "Dringends",
+  "Du",
+  "Euch",
+  "Familie",
+  "Frau",
+  "Glück",
+  "Grad",
+  "Haifa",
+  "Herr",
+  "Ihr",
+  "Jagur",
+  "Karte",
+  "Kinder",
+  "Kindergarten",
+  "Kusine",
+  "Liebe",
+  "Meine",
+  "POB",
+  "Pakerl",
+  "Paket",
+  "Pesach",
+  "Schwester",
+  "Schwägerin",
+  "Tag",
+  "Tante",
+  "Was",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 1
+}

@@ -1,0 +1,476 @@
+{
+ "letter": "31",
+ "source": "<!-- drive_id: 1TmztxSFylmyp3IchM8VF_HG_x8rmUTdX | url: https://drive.google.com/file/d/1TmztxSFylmyp3IchM8VF_HG_x8rmUTdX/view?usp=drivesdk | title: Transcription 31.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 43,
+ "n_words": 273,
+ "n_letters": 1247,
+ "editorial_markers": {
+  "Hebrew/Yiddish": 5,
+  "?": 3,
+  "text loss": 1
+ },
+ "footnotes": [
+  "1 A small section of the right-hand edge is torn away resulting in text loss at the end of this and the following two lines. A highly probable reading here would be n[ur].",
+  "2 Again, text is lost but Schi[ffs-]karte is the most likely reading (compare, for example, letter 23).",
+  "3 From the context, ‘ne[hme]n’ is the most likely reading.",
+  "4 This could possibly be ‘Ewa’.",
+  "5 Cf. https://www.yiddishwit.com/gallery/cupping.html.",
+  "6 Text is lost along the left-hand edge of this sheet. This would almost certainly have read ‘[a]lle’.",
+  "7 From the context, this may have read ‘[gefre]ut’ or similar.",
+  "8 Text lost but this would almost definitely have read ‘[sa]gen’."
+ ],
+ "footnotes_physical": [
+  "1 A small section of the right-hand edge is torn away resulting in text loss at the end of this and the following two lines. A highly probable reading here would be n[ur].",
+  "5 Cf. https://www.yiddishwit.com/gallery/cupping.html.",
+  "6 Text is lost along the left-hand edge of this sheet. This would almost certainly have read ‘[a]lle’."
+ ],
+ "editorial_notes": [
+  "[Letter concludes overleaf:]",
+  "[Additional letter by same author follows below:]"
+ ],
+ "els": [
+  {
+   "target": "hilfe",
+   "observed": 1,
+   "null_mean": 0.2,
+   "null_sd": 0.56,
+   "z": 1.44,
+   "examples": [
+    {
+     "start": 727,
+     "skip": 65,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 0.3,
+   "null_sd": 0.51,
+   "z": 1.37,
+   "examples": [
+    {
+     "start": 366,
+     "skip": 85,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 10,
+   "null_mean": 7.35,
+   "null_sd": 2.91,
+   "z": 0.91,
+   "examples": [
+    {
+     "start": 334,
+     "skip": 41,
+     "reversed": false
+    },
+    {
+     "start": 5,
+     "skip": 62,
+     "reversed": false
+    },
+    {
+     "start": 450,
+     "skip": 67,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 4,
+   "null_mean": 2.33,
+   "null_sd": 1.84,
+   "z": 0.91,
+   "examples": [
+    {
+     "start": 709,
+     "skip": 12,
+     "reversed": false
+    },
+    {
+     "start": 413,
+     "skip": 80,
+     "reversed": false
+    },
+    {
+     "start": 697,
+     "skip": 12,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.47,
+   "null_sd": 0.74,
+   "z": 0.71,
+   "examples": [
+    {
+     "start": 621,
+     "skip": 116,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 8,
+   "null_mean": 6.75,
+   "null_sd": 2.73,
+   "z": 0.46,
+   "examples": [
+    {
+     "start": 520,
+     "skip": 68,
+     "reversed": false
+    },
+    {
+     "start": 525,
+     "skip": 101,
+     "reversed": false
+    },
+    {
+     "start": 223,
+     "skip": 118,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 0.68,
+   "null_sd": 0.85,
+   "z": 0.38,
+   "examples": [
+    {
+     "start": 967,
+     "skip": 27,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 6,
+   "null_mean": 5.38,
+   "null_sd": 2.41,
+   "z": 0.26,
+   "examples": [
+    {
+     "start": 46,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 625,
+     "skip": 47,
+     "reversed": false
+    },
+    {
+     "start": 930,
+     "skip": 70,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 1.7,
+   "null_sd": 1.19,
+   "z": 0.25,
+   "examples": [
+    {
+     "start": 700,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 122,
+     "skip": 18,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.97,
+   "null_sd": 1.01,
+   "z": 0.02,
+   "examples": [
+    {
+     "start": 792,
+     "skip": 65,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 1.23,
+   "null_sd": 1.15,
+   "z": -0.2,
+   "examples": [
+    {
+     "start": 636,
+     "skip": 19,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 1.48,
+   "null_sd": 1.22,
+   "z": -0.39,
+   "examples": [
+    {
+     "start": 335,
+     "skip": 101,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 12,
+   "null_mean": 13.7,
+   "null_sd": 3.59,
+   "z": -0.47,
+   "examples": [
+    {
+     "start": 139,
+     "skip": 8,
+     "reversed": false
+    },
+    {
+     "start": 331,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 735,
+     "skip": 77,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 4,
+   "null_mean": 5.42,
+   "null_sd": 2.55,
+   "z": -0.56,
+   "examples": [
+    {
+     "start": 542,
+     "skip": 109,
+     "reversed": false
+    },
+    {
+     "start": 540,
+     "skip": 110,
+     "reversed": false
+    },
+    {
+     "start": 557,
+     "skip": 25,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 53,
+  "null_mean": 51.9,
+  "null_sd": 9.1
+ },
+ "nth_word_hits_total": 4,
+ "nth_word_hits_null_mean": 5.0,
+ "acrostic": "iluehxjridzvkiiveavstmklfmdgziuatsbeinsigmpw",
+ "telestich": "ibfrhhetgrsnsahhntntrnlntaessthfunnhdsereiht",
+ "first_words": "I Lieber Über habe x jetzt regelmäßig ich die zu vorgenommen karte Ich ich von Erhalt Amerika Verwandten sehe Toten meinen kann Lieber Freitag Mutti daß gefahren zu ich und alle t sagen Begriff Entschuldige ihm nämlich schreibe ich Grüße Mali P weiß",
+ "last_words": "I Jakob Brief Dir auch ich habe schreibt Vorladung nur Schiffs nehmen was ja nach nach den jetzt einen mit Hier helfen Onkel von mitteilt Amerika Tage weiß gut noch Brief zu keinen machen ich wird Nächstens schicke Dir Küsse Mali ich aufhält",
+ "word_initials": "ilojuedlbhimsguiddxdibgajnjzhdirskvzhhivwcpgdsdmshzsdvzuajwmnvwmsdskhuvwsssnizmsdkwidmkaikjvhntihgnedbztenagdsdbdviebajsiedehwwetbibsgfmmnwmkrhknghlofnhiebvmbwsmmddkadnagsahsdtzfwmpswwinmghwnaguwwuifnatwimmdbthbidnezsdkdjokbdmembediidnsswndbzsnsiisfdsiiuadgukmpsfkibiwanwssa",
+ "sentence_initials": "iueivuiihldawmwdenf",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {
+  "3/2": [
+   "erna",
+   "mali"
+  ],
+  "4/2": [
+   "erna"
+  ],
+  "8/5": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "erna",
+  "hilfe",
+  "jakob",
+  "mali"
+ ],
+ "caps_string": "ojdbdivhwpmvusukibtebinrhgobkdaatwpmghfwbdddebndksfk",
+ "caps_hits": [],
+ "bacon_from_caps": "?wakaacsiifaatarrabcyreaahai?pcrcwsfa?aeiiiletabeabz?a",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "gefahr",
+  "hilfe",
+  "jakob",
+  "schiff"
+ ],
+ "numbers": [
+  "1000000",
+  "1000",
+  "6",
+  "1",
+  "100000000000000000000000"
+ ],
+ "book_cipher_reading": [
+  "jetzt"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Amerika",
+  "Auch",
+  "Bankes",
+  "Begriff",
+  "Brief",
+  "Briefes",
+  "December",
+  "Deinen",
+  "Dir",
+  "Du",
+  "Entschuldige",
+  "Erhalt",
+  "Erich",
+  "Erna",
+  "Fini",
+  "Freitag",
+  "Freuden",
+  "Gott",
+  "Gottes",
+  "Grüße",
+  "Hause",
+  "Hier",
+  "Hilfe",
+  "I",
+  "Ich",
+  "Jakob",
+  "Kaufmann",
+  "Kinder",
+  "Kopf",
+  "Küsse",
+  "Lieber",
+  "Mali",
+  "Mit",
+  "Mutti",
+  "Nerven",
+  "Nächstens",
+  "Onkel",
+  "P",
+  "Papa",
+  "Post",
+  "Rat",
+  "S",
+  "Schiffs",
+  "Tage",
+  "Tante",
+  "Toten",
+  "Und",
+  "Untersuchung",
+  "Verwandten",
+  "Von",
+  "Vorladung",
+  "Was",
+  "Wie",
+  "Wochen",
+  "Über"
+ ],
+ "names_not_in_family_set": [
+  "Amerika",
+  "Auch",
+  "Bankes",
+  "Begriff",
+  "Brief",
+  "Briefes",
+  "December",
+  "Deinen",
+  "Dir",
+  "Du",
+  "Entschuldige",
+  "Erhalt",
+  "Erich",
+  "Fini",
+  "Freitag",
+  "Freuden",
+  "Gott",
+  "Gottes",
+  "Grüße",
+  "Hause",
+  "Hier",
+  "Hilfe",
+  "I",
+  "Ich",
+  "Kaufmann",
+  "Kinder",
+  "Kopf",
+  "Küsse",
+  "Lieber",
+  "Mit",
+  "Mutti",
+  "Nerven",
+  "Nächstens",
+  "Onkel",
+  "P",
+  "Papa",
+  "Post",
+  "Rat",
+  "S",
+  "Schiffs",
+  "Tage",
+  "Tante",
+  "Toten",
+  "Und",
+  "Untersuchung",
+  "Verwandten",
+  "Von",
+  "Vorladung",
+  "Was",
+  "Wie",
+  "Wochen",
+  "Über"
+ ],
+ "hebrew_yiddish_insertions": 5
+}

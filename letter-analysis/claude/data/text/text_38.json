@@ -1,0 +1,467 @@
+{
+ "letter": "38",
+ "source": "<!-- drive_id: 1SZi9m_4dIE2_P_CU1y3QigRTCZ9HxzL4 | url: https://drive.google.com/file/d/1SZi9m_4dIE2_P_CU1y3QigRTCZ9HxzL4/view?usp=drivesdk | title: Transcription 38.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 65,
+ "n_words": 346,
+ "n_letters": 1633,
+ "editorial_markers": {
+  "?": 4,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 The text visible between the lines of this letter is a separate letter, apparently showing through from the reverse side of the same sheet.",
+  "2 End of word crowded at the edge of the page. Possibly ‘Gymnasium’.",
+  "3 The following is legible when the final page of the scan is viewed in mirror image."
+ ],
+ "footnotes_physical": [
+  "2 End of word crowded at the edge of the page. Possibly ‘Gymnasium’."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]",
+  "[Letter concludes overleaf:]"
+ ],
+ "els": [
+  {
+   "target": "getto",
+   "observed": 1,
+   "null_mean": 0.05,
+   "null_sd": 0.22,
+   "z": 4.36,
+   "examples": [
+    {
+     "start": 1278,
+     "skip": 14,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 9,
+   "null_mean": 3.55,
+   "null_sd": 2.1,
+   "z": 2.6,
+   "examples": [
+    {
+     "start": 266,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 31,
+     "skip": 65,
+     "reversed": false
+    },
+    {
+     "start": 1387,
+     "skip": 79,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 0.6,
+   "null_sd": 0.73,
+   "z": 1.91,
+   "examples": [
+    {
+     "start": 4,
+     "skip": 31,
+     "reversed": true
+    },
+    {
+     "start": 974,
+     "skip": 54,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 18,
+   "null_mean": 13.25,
+   "null_sd": 3.2,
+   "z": 1.48,
+   "examples": [
+    {
+     "start": 1386,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 1583,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 1183,
+     "skip": 19,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.38,
+   "null_sd": 0.53,
+   "z": 1.17,
+   "examples": [
+    {
+     "start": 554,
+     "skip": 71,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 18,
+   "null_mean": 16.77,
+   "null_sd": 4.02,
+   "z": 0.31,
+   "examples": [
+    {
+     "start": 1576,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 1491,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 1419,
+     "skip": 41,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.8,
+   "null_sd": 0.84,
+   "z": 0.24,
+   "examples": [
+    {
+     "start": 1145,
+     "skip": 12,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 1.7,
+   "null_sd": 1.42,
+   "z": 0.21,
+   "examples": [
+    {
+     "start": 893,
+     "skip": 74,
+     "reversed": false
+    },
+    {
+     "start": 1112,
+     "skip": 81,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 0.85,
+   "null_sd": 0.79,
+   "z": 0.19,
+   "examples": [
+    {
+     "start": 688,
+     "skip": 8,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.85,
+   "null_sd": 0.88,
+   "z": 0.17,
+   "examples": [
+    {
+     "start": 41,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 7,
+   "null_mean": 8.38,
+   "null_sd": 2.94,
+   "z": -0.47,
+   "examples": [
+    {
+     "start": 476,
+     "skip": 11,
+     "reversed": false
+    },
+    {
+     "start": 715,
+     "skip": 58,
+     "reversed": false
+    },
+    {
+     "start": 457,
+     "skip": 3,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 3,
+   "null_mean": 4.15,
+   "null_sd": 1.81,
+   "z": -0.64,
+   "examples": [
+    {
+     "start": 736,
+     "skip": 18,
+     "reversed": false
+    },
+    {
+     "start": 1074,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 1206,
+     "skip": 74,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 2.27,
+   "null_sd": 1.52,
+   "z": -0.84,
+   "examples": [
+    {
+     "start": 1152,
+     "skip": 66,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 1,
+   "null_mean": 2.9,
+   "null_sd": 2.0,
+   "z": -0.95,
+   "examples": [
+    {
+     "start": 784,
+     "skip": 72,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 14,
+   "null_mean": 18.62,
+   "null_sd": 4.09,
+   "z": -1.13,
+   "examples": [
+    {
+     "start": 365,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 240,
+     "skip": 28,
+     "reversed": false
+    },
+    {
+     "start": 1104,
+     "skip": 47,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 80,
+  "null_mean": 79.5,
+  "null_sd": 10.6
+ },
+ "nth_word_hits_total": 2,
+ "nth_word_hits_null_mean": 5.2,
+ "acrostic": "adzdwbdvhwanwieohwsgikealdelsidghduwsdhdwaswwhwbdjalihdddusddmud",
+ "telestich": "ninnentathtgelnturetneaeirnmrthtnsnrrtnssntnddntdafwinhsstnneehhna",
+ "first_words": "An Den zugeschreiben Du was bitt denn von Hast wegen America noch wann ich ersucht ob hast was sehr geht Ich Kinder Euch Additional Liebe D eine lieben so Ich Deine gut herausgeschrieben der und wenn schreibst dest hast daß wir Alle sind wird weiß haben wird bleibe Dein Josef Another Liebe Ich herzigen daß Du Du und sonst Dich Dir meine und Deine",
+ "last_words": "Lieben Mali erhalten vorstellen hatte schreiben Nachricht Eva Nachrict nach jetzt Ahnung werde eingemal schreiben Verdienst Du daruber wie Gesundheit den kusse Papa page Mali fur Deinen nachdem war bist hoffentlich nicht von Gymnas freuen wieder wür gemacht mitteilen daß sein fragst dauern sind Geduld sein innigst gesund Papa Josef below Mali den mich daß solst Eltern sein Küße wünsche auch Dich von Klara",
+ "word_initials": "amldbdadmzhhedkdkvwfefihbamwzsdibsfwnvehlehdswnwmanaihbjnikawidkwihdseesmsodswvhanedwdibdsnswgedidgiwdwadkabgukeeupalbsafoanplgmdukddwferighdlbzenslonvdwifmddgbdphdhgudhanhwfeovdsovguwmsfwdmrbwsummwdwpdghvmkdmdiguhdwbazsavnddfsgsdgwledwbwwabswilawmghuhdebswigukdibwbugddpjalbasaivblgmiddvfdhbifmddgsdggggddigssdsbmdeubzsskggkdvuwdabammkduwdabvdtk",
+ "sentence_initials": "dvdiid",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.07,
+ "nth_word_hits": {
+  "5/4": [
+   "erna"
+  ],
+  "9/0": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "klara",
+  "mali",
+  "maly"
+ ],
+ "caps_string": "lbmdfnelednaaddvdsdgdbepmrdbndpdsgdpdvdvdgwgiddpmddbdgggdebgkmddtk",
+ "caps_hits": [],
+ "bacon_from_caps": "zccriaal?kibaeatcaiuiworayaiwbce?aacicaa?eaa?eiaacaeid?am?ingrswdsbkd",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "klara"
+ ],
+ "numbers": [
+  "2004–2010"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Additional",
+  "Ahnung",
+  "Alle",
+  "America",
+  "An",
+  "Another",
+  "Ausreise",
+  "Beste",
+  "Brief",
+  "Brüderchen",
+  "D",
+  "Danke",
+  "Dein",
+  "Deine",
+  "Deinen",
+  "Den",
+  "Dich",
+  "Dichliebender",
+  "Dir",
+  "Du",
+  "Eltern",
+  "Euch",
+  "Euer",
+  "Eva",
+  "Freude",
+  "Gebe",
+  "Geduld",
+  "Gesundheit",
+  "Gott",
+  "Grüße",
+  "Gymnas",
+  "Hast",
+  "Ich",
+  "Josef",
+  "Kinder",
+  "Klara",
+  "Küße",
+  "Liebe",
+  "Lieben",
+  "Mali",
+  "Maly",
+  "Nachricht",
+  "Nachrict",
+  "Papa",
+  "Prüfung",
+  "Riesenfreude",
+  "Schneiderei",
+  "Sonst",
+  "Tante",
+  "Verdienst",
+  "Verwandte",
+  "Von",
+  "Wie"
+ ],
+ "names_not_in_family_set": [
+  "Additional",
+  "Ahnung",
+  "Alle",
+  "America",
+  "An",
+  "Another",
+  "Ausreise",
+  "Beste",
+  "Brief",
+  "Brüderchen",
+  "D",
+  "Danke",
+  "Dein",
+  "Deine",
+  "Deinen",
+  "Den",
+  "Dich",
+  "Dichliebender",
+  "Dir",
+  "Du",
+  "Eltern",
+  "Euch",
+  "Euer",
+  "Freude",
+  "Gebe",
+  "Geduld",
+  "Gesundheit",
+  "Gott",
+  "Grüße",
+  "Gymnas",
+  "Hast",
+  "Ich",
+  "Kinder",
+  "Küße",
+  "Liebe",
+  "Lieben",
+  "Nachricht",
+  "Nachrict",
+  "Papa",
+  "Prüfung",
+  "Riesenfreude",
+  "Schneiderei",
+  "Sonst",
+  "Tante",
+  "Verdienst",
+  "Verwandte",
+  "Von",
+  "Wie"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

@@ -1,0 +1,406 @@
+{
+ "letter": "40",
+ "source": "<!-- drive_id: 1Sb7WQyFhj1rucEMK-BAoS5DvyEOa64bj | url: https://drive.google.com/file/d/1Sb7WQyFhj1rucEMK-BAoS5DvyEOa64bj/view?usp=drivesdk | title: Transcription 40.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 39,
+ "n_words": 193,
+ "n_letters": 957,
+ "editorial_markers": {
+  "Unclear": 1,
+  "?": 1,
+  "unclear": 5,
+  "Text loss": 3,
+  "text loss": 1
+ },
+ "footnotes": [
+  "1 Upper left-hand corner of page is folded over obscuring some text.",
+  "2 Month obscured by blot.",
+  "3 From this point the letter continues in pencil crayon rather than ink. The brackets around this name are also added in pencil crayon.",
+  "4 Not all of this text is visible on the partial scan of the reverse side of the page. The letter appears to continue in pencil crayon across the lower edge of the sheet.",
+  "5 This note is written over the partially legible text transcribed above. Note that this is written close to the right-hand edge and the line breaks do not necessarily correspond with the logic of the address which is presumably Opole, Kreis Pulawy, Distrikt Lublin.",
+  "6 End of last word of address obscured by folded corner of page."
+ ],
+ "footnotes_physical": [
+  "1 Upper left-hand corner of page is folded over obscuring some text.",
+  "2 Month obscured by blot.",
+  "3 From this point the letter continues in pencil crayon rather than ink. The brackets around this name are also added in pencil crayon.",
+  "4 Not all of this text is visible on the partial scan of the reverse side of the page. The letter appears to continue in pencil crayon across the lower edge of the sheet.",
+  "5 This note is written over the partially legible text transcribed above. Note that this is written close to the right-hand edge and the line breaks do not necessarily correspond with the logic of the address which is presumably Opole, Kreis Pulawy, Distrikt Lublin.",
+  "6 End of last word of address obscured by folded corner of page."
+ ],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "erna",
+   "observed": 13,
+   "null_mean": 7.67,
+   "null_sd": 2.61,
+   "z": 2.04,
+   "examples": [
+    {
+     "start": 106,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 819,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 711,
+     "skip": 32,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 7,
+   "null_mean": 3.92,
+   "null_sd": 2.0,
+   "z": 1.53,
+   "examples": [
+    {
+     "start": 19,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 451,
+     "skip": 19,
+     "reversed": false
+    },
+    {
+     "start": 224,
+     "skip": 50,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 1,
+   "null_mean": 0.55,
+   "null_sd": 0.67,
+   "z": 0.67,
+   "examples": [
+    {
+     "start": 761,
+     "skip": 19,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.6,
+   "null_sd": 0.77,
+   "z": 0.52,
+   "examples": [
+    {
+     "start": 521,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 0.57,
+   "null_sd": 0.92,
+   "z": 0.46,
+   "examples": [
+    {
+     "start": 692,
+     "skip": 26,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 0.78,
+   "null_sd": 0.69,
+   "z": 0.33,
+   "examples": [
+    {
+     "start": 704,
+     "skip": 26,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 0.95,
+   "null_sd": 0.97,
+   "z": 0.05,
+   "examples": [
+    {
+     "start": 348,
+     "skip": 57,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 1.65,
+   "null_sd": 1.48,
+   "z": -0.44,
+   "examples": [
+    {
+     "start": 353,
+     "skip": 85,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 11,
+   "null_mean": 12.8,
+   "null_sd": 3.75,
+   "z": -0.48,
+   "examples": [
+    {
+     "start": 548,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 837,
+     "skip": 21,
+     "reversed": false
+    },
+    {
+     "start": 821,
+     "skip": 41,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 1.73,
+   "null_sd": 1.38,
+   "z": -0.53,
+   "examples": [
+    {
+     "start": 815,
+     "skip": 16,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 3.62,
+   "null_sd": 1.98,
+   "z": -0.82,
+   "examples": [
+    {
+     "start": 858,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 71,
+     "skip": 37,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 4,
+   "null_mean": 6.78,
+   "null_sd": 2.76,
+   "z": -1.0,
+   "examples": [
+    {
+     "start": 548,
+     "skip": 84,
+     "reversed": false
+    },
+    {
+     "start": 663,
+     "skip": 92,
+     "reversed": false
+    },
+    {
+     "start": 117,
+     "skip": 5,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 44,
+  "null_mean": 44.5,
+  "null_sd": 7.2
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 2.0,
+ "acrostic": "wliuhrawemhmgwduewswgmgegpbeolcmanopl",
+ "telestich": "nrnheerrdrentsttthdesheyidnteftedrsth",
+ "first_words": "Wie Liebste Ich und habe Regina Antwort wie Ewiger mit hat mit grosses was den und Euch wan Schiffskarten wird geben mitel G Euch G per Bremen eine oft Letter chreibt men Alle Note Opole Pulawy Lublin",
+ "last_words": "den Geschwister geschrieben Hersch die keine mir der gesund Ihr freue ein nicht nervös könt erkundigt fileicht mich Kind Schiffskarte Lebens durch küße Maly Gerhardi Loyd Bremen bekommt Pakete overleaf Antwort ge gesund corner Kreis distrikt Deutsch",
+ "word_initials": "wndlgihebaegukaaahhefrbudrbubkazbsmwedlmggdedlmssgmgzhsmlihkawimfmdrhigsheggueiwnwezsibhndhfkawikuwbgzheewuusaffwmksmfmssufkwdkddsgdkslmpajsdggsgkevcmggpanlbebvmbovdaplcocgamhpgagnipilrhcokpdld",
+ "sentence_initials": "igmifdgg",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [
+   "rettet"
+  ],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "chaja",
+  "hirsch",
+  "josef",
+  "lublin",
+  "maly",
+  "opole",
+  "regina",
+  "rosa"
+ ],
+ "caps_string": "gbeahfrbmgmgliarhggeaihusakksdlpjgcmganlapapkd",
+ "caps_hits": [],
+ "bacon_from_caps": "utse?rrbliinrgrreacrfhabckklnm??a?exah",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "chaja",
+  "deutsche",
+  "hirsch",
+  "josef",
+  "lublin",
+  "opole",
+  "regina",
+  "schiff"
+ ],
+ "numbers": [
+  "76",
+  "5",
+  "1941"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "Adresse",
+  "Ahnung",
+  "Alle",
+  "Antwort",
+  "Bremen",
+  "Brief",
+  "Briefe",
+  "Chaja",
+  "Deutsch",
+  "Du",
+  "Euch",
+  "Ewiger",
+  "Flugpost",
+  "G",
+  "Gebe",
+  "Gerhardi",
+  "Geschwister",
+  "Glück",
+  "Hersch",
+  "Hias",
+  "Hirsch",
+  "Ich",
+  "Ihr",
+  "Josef",
+  "Kind",
+  "Kreis",
+  "Kultusgemeinde",
+  "Lebens",
+  "Letter",
+  "Lieben",
+  "Liebste",
+  "Loyd",
+  "Lublin",
+  "Maly",
+  "Norddeutsche",
+  "Note",
+  "Opole",
+  "Pakete",
+  "Post",
+  "Pulawy",
+  "Regina",
+  "Rekommandierten",
+  "Rosa",
+  "S",
+  "Schiffskarte",
+  "Schiffskarten",
+  "U",
+  "Wie"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "Adresse",
+  "Ahnung",
+  "Alle",
+  "Antwort",
+  "Bremen",
+  "Brief",
+  "Briefe",
+  "Deutsch",
+  "Du",
+  "Euch",
+  "Ewiger",
+  "Flugpost",
+  "G",
+  "Gebe",
+  "Geschwister",
+  "Glück",
+  "Hias",
+  "Ich",
+  "Ihr",
+  "Kind",
+  "Kreis",
+  "Kultusgemeinde",
+  "Lebens",
+  "Letter",
+  "Lieben",
+  "Liebste",
+  "Loyd",
+  "Lublin",
+  "Norddeutsche",
+  "Note",
+  "Opole",
+  "Pakete",
+  "Post",
+  "Pulawy",
+  "Rekommandierten",
+  "S",
+  "Schiffskarte",
+  "Schiffskarten",
+  "U",
+  "Wie"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

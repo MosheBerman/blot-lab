@@ -1,0 +1,586 @@
+{
+ "letter": "41",
+ "source": "<!-- drive_id: 1TPskr_XTxOP3xJyPqhV5kianLAl7aHA_ | url: https://drive.google.com/file/d/1TPskr_XTxOP3xJyPqhV5kianLAl7aHA_/view?usp=drivesdk | title: Transcription 41.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 57,
+ "n_words": 486,
+ "n_letters": 2364,
+ "editorial_markers": {
+  "?": 3,
+  "Hebrew/Yiddish": 1
+ },
+ "footnotes": [
+  "1 Name not entirely clear between initial G and ‘berg’ but dot above line definitely indicates an i near the start of the name.",
+  "2 There is a note at the top of this page in small writing – this could be a number (possibly 16?) or perhaps [Hebrew/Yiddish]?",
+  "3 The t is followed by either h or l."
+ ],
+ "footnotes_physical": [
+  "2 There is a note at the top of this page in small writing – this could be a number (possibly 16?) or perhaps [Hebrew/Yiddish]?"
+ ],
+ "editorial_notes": [],
+ "els": [
+  {
+   "target": "zores",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 1122,
+     "skip": 33,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nisko",
+   "observed": 1,
+   "null_mean": 0.17,
+   "null_sd": 0.44,
+   "z": 1.87,
+   "examples": [
+    {
+     "start": 1662,
+     "skip": 10,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "angst",
+   "observed": 1,
+   "null_mean": 0.28,
+   "null_sd": 0.5,
+   "z": 1.45,
+   "examples": [
+    {
+     "start": 1816,
+     "skip": 86,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 3,
+   "null_mean": 1.82,
+   "null_sd": 1.32,
+   "z": 0.89,
+   "examples": [
+    {
+     "start": 15,
+     "skip": 30,
+     "reversed": false
+    },
+    {
+     "start": 831,
+     "skip": 68,
+     "reversed": true
+    },
+    {
+     "start": 1650,
+     "skip": 71,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 2,
+   "null_mean": 1.23,
+   "null_sd": 1.31,
+   "z": 0.59,
+   "examples": [
+    {
+     "start": 858,
+     "skip": 90,
+     "reversed": true
+    },
+    {
+     "start": 316,
+     "skip": 111,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 32,
+   "null_mean": 30.3,
+   "null_sd": 5.12,
+   "z": 0.33,
+   "examples": [
+    {
+     "start": 1428,
+     "skip": 3,
+     "reversed": false
+    },
+    {
+     "start": 240,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 1471,
+     "skip": 9,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 4,
+   "null_mean": 3.9,
+   "null_sd": 1.92,
+   "z": 0.05,
+   "examples": [
+    {
+     "start": 1507,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 1709,
+     "skip": 28,
+     "reversed": true
+    },
+    {
+     "start": 1467,
+     "skip": 59,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 2,
+   "null_mean": 2.05,
+   "null_sd": 1.45,
+   "z": -0.03,
+   "examples": [
+    {
+     "start": 832,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 1646,
+     "skip": 79,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 8,
+   "null_mean": 8.43,
+   "null_sd": 3.23,
+   "z": -0.13,
+   "examples": [
+    {
+     "start": 2059,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 962,
+     "skip": 88,
+     "reversed": false
+    },
+    {
+     "start": 1117,
+     "skip": 26,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 8,
+   "null_mean": 8.97,
+   "null_sd": 3.16,
+   "z": -0.31,
+   "examples": [
+    {
+     "start": 853,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 24,
+     "skip": 23,
+     "reversed": false
+    },
+    {
+     "start": 487,
+     "skip": 28,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 9,
+   "null_mean": 10.32,
+   "null_sd": 4.05,
+   "z": -0.33,
+   "examples": [
+    {
+     "start": 1477,
+     "skip": 2,
+     "reversed": false
+    },
+    {
+     "start": 356,
+     "skip": 88,
+     "reversed": false
+    },
+    {
+     "start": 1065,
+     "skip": 90,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 1.48,
+   "null_sd": 1.24,
+   "z": -0.38,
+   "examples": [
+    {
+     "start": 2135,
+     "skip": 36,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 24,
+   "null_mean": 26.32,
+   "null_sd": 4.56,
+   "z": -0.51,
+   "examples": [
+    {
+     "start": 828,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 420,
+     "skip": 16,
+     "reversed": false
+    },
+    {
+     "start": 287,
+     "skip": 23,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 1.73,
+   "null_sd": 1.26,
+   "z": -0.57,
+   "examples": [
+    {
+     "start": 391,
+     "skip": 82,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 3.25,
+   "null_sd": 1.88,
+   "z": -0.66,
+   "examples": [
+    {
+     "start": 1548,
+     "skip": 113,
+     "reversed": false
+    },
+    {
+     "start": 429,
+     "skip": 19,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 3,
+   "null_mean": 4.35,
+   "null_sd": 1.97,
+   "z": -0.69,
+   "examples": [
+    {
+     "start": 304,
+     "skip": 20,
+     "reversed": true
+    },
+    {
+     "start": 1300,
+     "skip": 23,
+     "reversed": true
+    },
+    {
+     "start": 923,
+     "skip": 96,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 2.23,
+   "null_sd": 1.65,
+   "z": -0.74,
+   "examples": [
+    {
+     "start": 1691,
+     "skip": 91,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 20,
+   "null_mean": 31.77,
+   "null_sd": 6.12,
+   "z": -1.92,
+   "examples": [
+    {
+     "start": 908,
+     "skip": 32,
+     "reversed": false
+    },
+    {
+     "start": 925,
+     "skip": 62,
+     "reversed": false
+    },
+    {
+     "start": 1810,
+     "skip": 84,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 123,
+  "null_mean": 142.6,
+  "null_sd": 11.4
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 3.2,
+ "acrostic": "ldlubbvdhvbsugiuasigmgfelndggwmlhdkkshbgimzzgshdglsbgzfdu",
+ "telestich": "rnethtndsetdtnetdnehnetnfsettdmtnrrgtnnrkrnfnfrertetrrnnl",
+ "first_words": "Liebste Du lieben und Briefe bestätigt verloren der heute von bekommen Sie und Gott Ich und alles seine Ihm glücklich möchte Gina fahren es Letter nicht die gibt Gina werden mann Liebste habe das kann keine sind Hast Bitte gelenheit ihre mit zu zu geschrieben schicken heute diese Grüsse leider seidank bekommen gehungert zufrieden für das und",
+ "last_words": "Schwester deinen bestätige Recomandiert auch nicht sein und unterwegs Karte Konsulat sind ist amen Papiere geht wird von alle Ich erleben alle ist Schifskarten overleaf Hias Komitee halt überprüft wird Visum gehört geschrieben darüber er trauig kommt bekommen An Kinder Gottseidank hier arbeiten Brief Mann Brief Ihr die wir Gott Komittee nicht wir Schwester hoffen Grüssen Ettel",
+ "word_initials": "ltsdmmediehdlbsivddbuhddibvarbddbhghidabherbgnvubadnbsdhbvdidvauhimalemuvghihesgkbidsmmddksvhddpgsuimsdkwgsigsdhbhzkaihdbibvdkipuavmfhgagudhgnbwsgdwianvigsusnhwsagbsmezimsdgmegmimhzsdafueinmdsielssdwmdslcondhsszojbdhdheskmnfdkgakgsaswhgnndpmeuewuwdgasswmezuvubdvlrdfmoiwdlrghlisnzhghmgddviekbhdkmldonadekagkdsastsggdsgnhkhddavdkbbmdzabgiagneikiadkiandibgmmfgusghzsungiauazdhhajfmebgisinwzimsbwdsssiddbhaeidsdiidgmuidifdgueddphwlbketvagsdmhwvkbuaagdngihevsdwzwiddtsfawdumuwhdagibmbgukvuaee",
+ "sentence_initials": "ldamvgiigghbihie",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "6/1": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "hier",
+   "ihre"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "rosa",
+  "visum",
+  "wien"
+ ],
+ "caps_string": "sebiddbrddrbbdammgkskpdbkipfhggageimimisshkspvrrhgikoagshdakagiakigfahjfbwmbigiptgmkgidsdgkee",
+ "caps_hits": [],
+ "bacon_from_caps": "yicwcuiegaaleitasbrracafe?ebrsgaalcyaira?ababbbcaaab?ardalaieakfwwmrbbkaaiktbeacafbeebesbaafiracs",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "arbeit",
+  "hunger",
+  "visum"
+ ],
+ "numbers": [
+  "2",
+  "1",
+  "1",
+  "1"
+ ],
+ "book_cipher_reading": [
+  "Du",
+  "Liebste"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Affidavids",
+  "America",
+  "An",
+  "Anspruch",
+  "Antwort",
+  "Antworten",
+  "April",
+  "Besitze",
+  "Bitte",
+  "Brief",
+  "Briefe",
+  "Dir",
+  "Dollar",
+  "Du",
+  "Entschuldigen",
+  "Ettel",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Flugpostbrief",
+  "Frau",
+  "Gefäligkeit",
+  "Gina",
+  "Ginsberg",
+  "Gott",
+  "Gottlob",
+  "Gottseidank",
+  "Grüsse",
+  "Grüssen",
+  "Güte",
+  "Hast",
+  "Hause",
+  "Herr",
+  "Heute",
+  "Hias",
+  "Ich",
+  "Ihm",
+  "Ihr",
+  "Ihre",
+  "Ihren",
+  "Inhalt",
+  "Italien",
+  "Josels",
+  "Karte",
+  "Kinder",
+  "Kindern",
+  "Komitee",
+  "Komittee",
+  "Konsulat",
+  "Küssen",
+  "Letter",
+  "Liebste",
+  "Mai",
+  "Mann",
+  "Mazzes",
+  "Moment",
+  "Monat",
+  "Onkel",
+  "Papiere",
+  "Pesach",
+  "Recomandiert",
+  "Recomandierter",
+  "Rosa",
+  "Ruthi",
+  "Schifskarten",
+  "Schwester",
+  "Sie",
+  "Tisch",
+  "Visum",
+  "Wien"
+ ],
+ "names_not_in_family_set": [
+  "Affidavids",
+  "America",
+  "An",
+  "Anspruch",
+  "Antwort",
+  "Antworten",
+  "April",
+  "Besitze",
+  "Bitte",
+  "Brief",
+  "Briefe",
+  "Dir",
+  "Dollar",
+  "Du",
+  "Entschuldigen",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Flugpostbrief",
+  "Frau",
+  "Gefäligkeit",
+  "Gina",
+  "Ginsberg",
+  "Gott",
+  "Gottlob",
+  "Gottseidank",
+  "Grüsse",
+  "Grüssen",
+  "Güte",
+  "Hast",
+  "Hause",
+  "Herr",
+  "Heute",
+  "Hias",
+  "Ich",
+  "Ihm",
+  "Ihr",
+  "Ihre",
+  "Ihren",
+  "Inhalt",
+  "Italien",
+  "Josels",
+  "Karte",
+  "Kinder",
+  "Kindern",
+  "Komitee",
+  "Komittee",
+  "Konsulat",
+  "Küssen",
+  "Letter",
+  "Liebste",
+  "Mai",
+  "Mann",
+  "Mazzes",
+  "Moment",
+  "Monat",
+  "Onkel",
+  "Papiere",
+  "Pesach",
+  "Recomandiert",
+  "Recomandierter",
+  "Ruthi",
+  "Schifskarten",
+  "Schwester",
+  "Sie",
+  "Tisch",
+  "Visum",
+  "Wien"
+ ],
+ "hebrew_yiddish_insertions": 1
+}

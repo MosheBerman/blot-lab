@@ -1,0 +1,460 @@
+{
+ "letter": "37",
+ "source": "<!-- drive_id: 1VJaAsHuZxHBfYM9Nf_0mfR0IcykPFOxu | url: https://drive.google.com/file/d/1VJaAsHuZxHBfYM9Nf_0mfR0IcykPFOxu/view?usp=drivesdk | title: Transcription 37.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 34,
+ "n_words": 249,
+ "n_letters": 1224,
+ "editorial_markers": {
+  "deletion": 1,
+  "?": 2
+ },
+ "footnotes": [
+  "1 Word looks fairly clear but sense is not obvious.",
+  "2 End of letter is not present on scan. Although there is no signature, this looks very much like the handwriting and style of Chaja Willner."
+ ],
+ "footnotes_physical": [],
+ "editorial_notes": [],
+ "els": [
+  {
+   "target": "getto",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 594,
+     "skip": 40,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haifa",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 719,
+     "skip": 28,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mawes",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 659,
+     "skip": 32,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 3,
+   "null_mean": 0.7,
+   "null_sd": 0.93,
+   "z": 2.48,
+   "examples": [
+    {
+     "start": 100,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 1054,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 1160,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "chaim",
+   "observed": 1,
+   "null_mean": 0,
+   "null_sd": 0.5,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 821,
+     "skip": 82,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 15,
+   "null_mean": 9.65,
+   "null_sd": 3.02,
+   "z": 1.77,
+   "examples": [
+    {
+     "start": 840,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 117,
+     "skip": 4,
+     "reversed": false
+    },
+    {
+     "start": 1018,
+     "skip": 11,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "haft",
+   "observed": 3,
+   "null_mean": 1,
+   "null_sd": 1.2,
+   "z": 1.66,
+   "examples": [
+    {
+     "start": 692,
+     "skip": 56,
+     "reversed": false
+    },
+    {
+     "start": 106,
+     "skip": 66,
+     "reversed": false
+    },
+    {
+     "start": 940,
+     "skip": 83,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 3,
+   "null_mean": 1.52,
+   "null_sd": 1.1,
+   "z": 1.35,
+   "examples": [
+    {
+     "start": 686,
+     "skip": 11,
+     "reversed": false
+    },
+    {
+     "start": 676,
+     "skip": 39,
+     "reversed": true
+    },
+    {
+     "start": 78,
+     "skip": 111,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 9,
+   "null_mean": 6,
+   "null_sd": 2.59,
+   "z": 1.16,
+   "examples": [
+    {
+     "start": 63,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 586,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 366,
+     "skip": 34,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "fort",
+   "observed": 1,
+   "null_mean": 0.28,
+   "null_sd": 0.67,
+   "z": 1.08,
+   "examples": [
+    {
+     "start": 714,
+     "skip": 11,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "osten",
+   "observed": 1,
+   "null_mean": 0.38,
+   "null_sd": 0.58,
+   "z": 1.08,
+   "examples": [
+    {
+     "start": 975,
+     "skip": 43,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 0.97,
+   "null_sd": 1.04,
+   "z": 0.99,
+   "examples": [
+    {
+     "start": 778,
+     "skip": 88,
+     "reversed": false
+    },
+    {
+     "start": 107,
+     "skip": 22,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 13,
+   "null_mean": 9.88,
+   "null_sd": 3.47,
+   "z": 0.9,
+   "examples": [
+    {
+     "start": 403,
+     "skip": 31,
+     "reversed": false
+    },
+    {
+     "start": 1006,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 738,
+     "skip": 51,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 1.65,
+   "null_sd": 1.26,
+   "z": -0.52,
+   "examples": [
+    {
+     "start": 233,
+     "skip": 102,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 9,
+   "null_mean": 10.9,
+   "null_sd": 3.46,
+   "z": -0.55,
+   "examples": [
+    {
+     "start": 795,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 734,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 698,
+     "skip": 27,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 3.62,
+   "null_sd": 1.67,
+   "z": -1.57,
+   "examples": [
+    {
+     "start": 897,
+     "skip": 60,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 65,
+  "null_mean": 53.6,
+  "null_sd": 8.4
+ },
+ "nth_word_hits_total": 3,
+ "nth_word_hits_null_mean": 3.4,
+ "acrostic": "wleeifeosdoueczwmswfwkdwluszsbdsnu",
+ "telestich": "irdhnltaennduhnntnnmnnaeneshueghnn",
+ "first_words": "Wien Liebste Eueren erhalten im fahren ein ob soll Dokomente Ordnung und er chung zu war mir Schiffskarten weist fahren wird können daß wan Lieben und Schiffskarten zu sehr besorgen doch so nur und",
+ "last_words": "I Geschwister Dankend gleich mein Konsul steht ja semtliche in ausfülen wird Untersu gleich Bögen men Aussicht momentahn werden am fahren machen A meine Unbeden die was Euch zu Kultusgemeinde Untersuchung durch endern haben",
+ "word_initials": "wdilgeelbvhdeuhadzzjgiuejmlwmfnusaisihvakebeiwesoisshuwjsiegpuasdhuwiaiohmidbauezakdwembiwtizucksdjwngzuznbwijwidikhmmgvdkikaszbamwmnnoswfkaehsawmwowwfkdwssmdswtnusawiwusjmlimpaauuidnabidsnhiwsnwzsdiwggdesskmdszbidsfwdkdhjwiabusswhgkdnfbidkwseuiwdegh",
+ "sentence_initials": "weiwssw",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "2/1": [
+   "etel"
+  ],
+  "6/3": [
+   "etel"
+  ],
+  "6/4": [
+   "elend"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "wien"
+ ],
+ "caps_string": "igebdzjusaakbspbaktuubikkasstusaspueskug",
+ "caps_hits": [],
+ "bacon_from_caps": "z?ifaa?diarbcarr?beaergauabaiaabpckeaiaaecaearaaa",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "josef",
+  "schiff"
+ ],
+ "numbers": [
+  "18/9",
+  "40",
+  "23/8",
+  "40",
+  "14",
+  "14",
+  "22/9",
+  "20",
+  "2"
+ ],
+ "book_cipher_reading": [
+  "können"
+ ],
+ "gematria_notable_numbers": [
+  18
+ ],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "Amerikanischem",
+  "Amerikanischen",
+  "Aussicht",
+  "Bogen",
+  "Brief",
+  "Bögen",
+  "Dankend",
+  "Dokomente",
+  "Euch",
+  "Eueren",
+  "Geschwister",
+  "Glück",
+  "I",
+  "Israelitischen",
+  "Josef",
+  "Konsul",
+  "Kultusgemeinde",
+  "Lieben",
+  "Liebste",
+  "Ordnung",
+  "Pass",
+  "S",
+  "Schiffskarten",
+  "Sontag",
+  "Staatenlose",
+  "Tag",
+  "Telegrafieren",
+  "U",
+  "Unbeden",
+  "Untersu",
+  "Untersuchung",
+  "Wien",
+  "Zuschrift"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "Amerikanischem",
+  "Amerikanischen",
+  "Aussicht",
+  "Bogen",
+  "Brief",
+  "Bögen",
+  "Dankend",
+  "Dokomente",
+  "Euch",
+  "Eueren",
+  "Geschwister",
+  "Glück",
+  "I",
+  "Israelitischen",
+  "Konsul",
+  "Kultusgemeinde",
+  "Lieben",
+  "Liebste",
+  "Ordnung",
+  "Pass",
+  "S",
+  "Schiffskarten",
+  "Sontag",
+  "Staatenlose",
+  "Tag",
+  "Telegrafieren",
+  "U",
+  "Unbeden",
+  "Untersu",
+  "Untersuchung",
+  "Wien",
+  "Zuschrift"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

@@ -1,0 +1,503 @@
+{
+ "letter": "24",
+ "source": "<!-- drive_id: 1UilGbZnNG-ATgsJH0Fo4uPFE7Wa0lJ7L | url: https://drive.google.com/file/d/1UilGbZnNG-ATgsJH0Fo4uPFE7Wa0lJ7L/view?usp=drivesdk | title: Transcription 24.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 72,
+ "n_words": 358,
+ "n_letters": 1656,
+ "editorial_markers": {
+  "unclear": 5,
+  "?": 8,
+  "deletion": 1,
+  "Hebrew/Yiddish": 1
+ },
+ "footnotes": [
+  "1 Text on this line is damaged by the central fold meaning the first two words are mostly illegible. The second word likely begins with b or h.",
+  "2 Text on this line is damaged by the central fold and almost entirely illegible.",
+  "3 Text is written in both corners of the sheet – presumably the text on the left should be read before the text on the right."
+ ],
+ "footnotes_physical": [
+  "1 Text on this line is damaged by the central fold meaning the first two words are mostly illegible. The second word likely begins with b or h.",
+  "2 Text on this line is damaged by the central fold and almost entirely illegible.",
+  "3 Text is written in both corners of the sheet – presumably the text on the left should be read before the text on the right."
+ ],
+ "editorial_notes": [
+  "[Letter continues on facing page of folded sheet:]",
+  "[Note added across central fold at bottom edge of both previous pages:]",
+  "[Letter by second author added on lower half of sheet:]",
+  "[Letter signed at bottom of first page:]"
+ ],
+ "els": [
+  {
+   "target": "nisko",
+   "observed": 1,
+   "null_mean": 0.07,
+   "null_sd": 0.26,
+   "z": 3.51,
+   "examples": [
+    {
+     "start": 1111,
+     "skip": 54,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 3,
+   "null_mean": 1.32,
+   "null_sd": 1.01,
+   "z": 1.66,
+   "examples": [
+    {
+     "start": 827,
+     "skip": 108,
+     "reversed": false
+    },
+    {
+     "start": 780,
+     "skip": 43,
+     "reversed": true
+    },
+    {
+     "start": 344,
+     "skip": 80,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 7,
+   "null_mean": 4.17,
+   "null_sd": 2.37,
+   "z": 1.19,
+   "examples": [
+    {
+     "start": 1540,
+     "skip": 24,
+     "reversed": false
+    },
+    {
+     "start": 412,
+     "skip": 31,
+     "reversed": false
+    },
+    {
+     "start": 111,
+     "skip": 105,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 1.45,
+   "null_sd": 1.02,
+   "z": 0.54,
+   "examples": [
+    {
+     "start": 455,
+     "skip": 25,
+     "reversed": true
+    },
+    {
+     "start": 978,
+     "skip": 35,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 2,
+   "null_mean": 1.43,
+   "null_sd": 1.09,
+   "z": 0.53,
+   "examples": [
+    {
+     "start": 1305,
+     "skip": 103,
+     "reversed": false
+    },
+    {
+     "start": 646,
+     "skip": 76,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 2,
+   "null_mean": 2.02,
+   "null_sd": 1.44,
+   "z": -0.02,
+   "examples": [
+    {
+     "start": 131,
+     "skip": 82,
+     "reversed": false
+    },
+    {
+     "start": 322,
+     "skip": 67,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 1.15,
+   "null_sd": 0.96,
+   "z": -0.16,
+   "examples": [
+    {
+     "start": 668,
+     "skip": 68,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 19,
+   "null_mean": 19.82,
+   "null_sd": 4.58,
+   "z": -0.18,
+   "examples": [
+    {
+     "start": 1150,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 1366,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 878,
+     "skip": 18,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 13,
+   "null_mean": 15.2,
+   "null_sd": 4.28,
+   "z": -0.51,
+   "examples": [
+    {
+     "start": 774,
+     "skip": 36,
+     "reversed": false
+    },
+    {
+     "start": 1061,
+     "skip": 60,
+     "reversed": false
+    },
+    {
+     "start": 206,
+     "skip": 67,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 3.25,
+   "null_sd": 2.21,
+   "z": -0.57,
+   "examples": [
+    {
+     "start": 1476,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 1428,
+     "skip": 63,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 7,
+   "null_mean": 8.57,
+   "null_sd": 2.57,
+   "z": -0.61,
+   "examples": [
+    {
+     "start": 1250,
+     "skip": 40,
+     "reversed": false
+    },
+    {
+     "start": 559,
+     "skip": 75,
+     "reversed": false
+    },
+    {
+     "start": 1170,
+     "skip": 83,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 1,
+   "null_mean": 2.85,
+   "null_sd": 1.68,
+   "z": -1.1,
+   "examples": [
+    {
+     "start": 927,
+     "skip": 92,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 4,
+   "null_mean": 11.57,
+   "null_sd": 3.21,
+   "z": -2.36,
+   "examples": [
+    {
+     "start": 126,
+     "skip": 49,
+     "reversed": false
+    },
+    {
+     "start": 280,
+     "skip": 64,
+     "reversed": false
+    },
+    {
+     "start": 900,
+     "skip": 68,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 64,
+  "null_mean": 77.9,
+  "null_sd": 8.6
+ },
+ "nth_word_hits_total": 3,
+ "nth_word_hits_null_mean": 4.5,
+ "acrostic": "wledevbddkwwbddflsdauekidbdwasdhpdaulgfgrdkvslelabsdhznfgwiksfdjlbftlmfb",
+ "telestich": "lrnnressdehstntersrngssunnntehnhteinrneeereefmnnetrrtmssetannnhtthessdernrn",
+ "first_words": "Wien Liebe Es dir einziges von bekommen die danke Karte war wie Bist der der Familie liebe schreibt Die April und es kommen ich der Brief daß waren auch Sonst den herzlich Pussi du austeilen und lustigen Gruße Familie Grusse Rosa die Kind Vom Schon Liebe Es lieben aufgehoben bitte senen du hat zu noch fahren geschrieben wid Ich Kinder sensucht Fategrafie den Jahr Letter beste fom tifsten liben mit Familie beste",
+ "last_words": "April Kinder von kein aber Karte daß und diese nachdenklich alles geht in macht ganze der Was ihr ten Untersuchung daß zu kommen Von ein schreibt Rojse dich hingehen dich recht küsse Pussi Kindern meiner einen Beste ganze Besondere Schwester lasse susse Josef Vom geschrieben Leben die gut dir wir warst warum grus weis werde hat Afida erhalten meinen großen auch mit Hundert Euch page Gruß Kind die Schwester Man Kinder Ruchalen",
+ "word_initials": "walfulkewmsdhvdnvdlkkesbavdlrhekbefmsddlkggudvdlrfdkdissnwbdssnawedgbdgwdidnvdmwmdouedgfbdvdlmswssdwgeidjlhatazuurlihdemgzmzkimnavdbhrlebbwssdulkbdlrwzbbdadszihskwaiddaunrhgukpdkdkasmuweelpbgadgfwbgamlsrufaldlbwudskgvmjvsfdzwhzdzglclefmswdlkksgawgedbuzswssnwdbmbwhdbkgzgiwnsnwiwfkdbhgssmawbhkeihefmkebmgsnmafvwmdskbhjmgcigelciooateopbgfmkthmfgdlkasmmflignkbgr",
+ "sentence_initials": "webbwwbwwdivbbb",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {
+  "2/0": [
+   "elend"
+  ],
+  "6/3": [
+   "erna"
+  ],
+  "7/0": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [
+  [
+   "gruess",
+   "grusse"
+  ]
+ ],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "mali",
+  "mina",
+  "norbert",
+  "regina",
+  "rosa",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "afkksrkkrbwnmwobmswdwjlurlimvbrlkrbbwankepbwbsfbwjzclfkksbbbabmwkhegkhgksmkgr",
+ "caps_hits": [],
+ "bacon_from_caps": "?nabeciarcicaciuenhghczaicyrce?bilbcbhd??dcheb?braiasaaariefblfrnaclkmb",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "norbert",
+  "regina",
+  "russen",
+  "willner"
+ ],
+ "numbers": [
+  "10",
+  "1940",
+  "20",
+  "100000000000000",
+  "3"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Adi",
+  "Afida",
+  "April",
+  "Bekomms",
+  "Berta",
+  "Bertha",
+  "Besondere",
+  "Beste",
+  "Besuch",
+  "Bist",
+  "Bitte",
+  "Brief",
+  "Chawze",
+  "Die",
+  "Dir",
+  "Es",
+  "Euch",
+  "Familie",
+  "Fategrafie",
+  "Frau",
+  "Freud",
+  "Grusse",
+  "Gruß",
+  "Gruße",
+  "Grüsse",
+  "Herzen",
+  "Hundert",
+  "Ich",
+  "Jahr",
+  "Jetti",
+  "Josef",
+  "Karte",
+  "Kind",
+  "Kinder",
+  "Kindern",
+  "Lachs",
+  "Lea",
+  "Leben",
+  "Letter",
+  "Liebe",
+  "Mali",
+  "Man",
+  "Mina",
+  "Monat",
+  "Norbert",
+  "Nähe",
+  "Onkel",
+  "Pesach",
+  "Pussi",
+  "Regina",
+  "Rojse",
+  "Rosa",
+  "Ruchalen",
+  "Ruche",
+  "Ruchel",
+  "Schon",
+  "Schreiben",
+  "Schwester",
+  "Sonst",
+  "Untersuchung",
+  "Vom",
+  "Von",
+  "Was",
+  "Wichtiges",
+  "Wie",
+  "Wielen",
+  "Wien",
+  "Willi",
+  "Willner",
+  "Wohnst",
+  "Zeit"
+ ],
+ "names_not_in_family_set": [
+  "Afida",
+  "April",
+  "Bekomms",
+  "Bertha",
+  "Besondere",
+  "Beste",
+  "Besuch",
+  "Bist",
+  "Bitte",
+  "Brief",
+  "Chawze",
+  "Die",
+  "Dir",
+  "Es",
+  "Euch",
+  "Familie",
+  "Fategrafie",
+  "Frau",
+  "Freud",
+  "Grusse",
+  "Gruß",
+  "Gruße",
+  "Grüsse",
+  "Herzen",
+  "Hundert",
+  "Ich",
+  "Jahr",
+  "Jetti",
+  "Karte",
+  "Kind",
+  "Kinder",
+  "Kindern",
+  "Lachs",
+  "Leben",
+  "Letter",
+  "Liebe",
+  "Man",
+  "Monat",
+  "Nähe",
+  "Onkel",
+  "Pesach",
+  "Pussi",
+  "Rojse",
+  "Ruche",
+  "Schon",
+  "Schreiben",
+  "Schwester",
+  "Sonst",
+  "Untersuchung",
+  "Vom",
+  "Von",
+  "Was",
+  "Wichtiges",
+  "Wie",
+  "Wielen",
+  "Wien",
+  "Willi",
+  "Wohnst",
+  "Zeit"
+ ],
+ "hebrew_yiddish_insertions": 1
+}

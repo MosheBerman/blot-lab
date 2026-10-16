@@ -1,0 +1,299 @@
+{
+ "letter": "54",
+ "source": "<!-- drive_id: 1SqbS4PL6Q-7aSPCiGJrPbrrNrAZJs8s4 | url: https://drive.google.com/file/d/1SqbS4PL6Q-7aSPCiGJrPbrrNrAZJs8s4/view?usp=drivesdk | title: Transcription 54.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 23,
+ "n_words": 106,
+ "n_letters": 503,
+ "editorial_markers": {
+  "Hebrew/Yiddish": 1,
+  "?": 1
+ },
+ "footnotes": [
+  "1 Often word brackets enclosing words seem to be a sign that they are meant to be read as deleted but in this case the sentence does not seem to make sense without the location being named.",
+  "2 NB the text visible on the other side of this sheet appears to be letter 53, which is transcribed separately."
+ ],
+ "footnotes_physical": [
+  "1 Often word brackets enclosing words seem to be a sign that they are meant to be read as deleted but in this case the sentence does not seem to make sense without the location being named."
+ ],
+ "editorial_notes": [
+  "[Note in lower right-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 0.82,
+   "null_sd": 0.8,
+   "z": 1.46,
+   "examples": [
+    {
+     "start": 236,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 145,
+     "skip": 86,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 0.95,
+   "null_sd": 0.77,
+   "z": 1.36,
+   "examples": [
+    {
+     "start": 97,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 135,
+     "skip": 106,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.5,
+   "null_sd": 0.71,
+   "z": 0.71,
+   "examples": [
+    {
+     "start": 205,
+     "skip": 46,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 2,
+   "null_mean": 1.32,
+   "null_sd": 0.98,
+   "z": 0.69,
+   "examples": [
+    {
+     "start": 333,
+     "skip": 33,
+     "reversed": true
+    },
+    {
+     "start": 305,
+     "skip": 47,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 3,
+   "null_mean": 2.58,
+   "null_sd": 1.67,
+   "z": 0.25,
+   "examples": [
+    {
+     "start": 290,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 380,
+     "skip": 15,
+     "reversed": true
+    },
+    {
+     "start": 11,
+     "skip": 36,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 3,
+   "null_mean": 3.08,
+   "null_sd": 1.57,
+   "z": -0.05,
+   "examples": [
+    {
+     "start": 59,
+     "skip": 25,
+     "reversed": false
+    },
+    {
+     "start": 88,
+     "skip": 21,
+     "reversed": true
+    },
+    {
+     "start": 33,
+     "skip": 98,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 4,
+   "null_mean": 4.4,
+   "null_sd": 2.45,
+   "z": -0.16,
+   "examples": [
+    {
+     "start": 153,
+     "skip": 30,
+     "reversed": false
+    },
+    {
+     "start": 346,
+     "skip": 34,
+     "reversed": false
+    },
+    {
+     "start": 123,
+     "skip": 30,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 3,
+   "null_mean": 4.28,
+   "null_sd": 2.09,
+   "z": -0.61,
+   "examples": [
+    {
+     "start": 165,
+     "skip": 61,
+     "reversed": false
+    },
+    {
+     "start": 38,
+     "skip": 20,
+     "reversed": true
+    },
+    {
+     "start": 233,
+     "skip": 21,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 20,
+  "null_mean": 20.9,
+  "null_sd": 4.9
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 1.7,
+ "acrostic": "leadsbzfwkwihdrjgaukvh",
+ "telestich": "rnrahthenhnnthhtsaeied",
+ "first_words": "Liebe es auf Du schreibt bei zu ferdient Wohnung Kinder wollte ihre hat daß ren Jugoslawien grüße auch und Klara von heute",
+ "last_words": "Schwester wundern weder Mina gleich antwort Euch eine lieben Hirsch von schreiben gesagt weggefah nach sonst vielmals Mina Euere Mali habe gesund",
+ "word_initials": "lsetmwwadswdndkndmsewbgbedbazswgeefishdewwmdlkiwbrhwsfosviseshmdzfgdsamwrizitnjgssgkdvadlklmugfekmvshhekag",
+ "sentence_initials": "leie",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "hirsch",
+  "klara",
+  "mali",
+  "mina",
+  "rosa",
+  "salomon"
+ ],
+ "caps_string": "sdkmwbeidirhszfmtddkmfemska",
+ "caps_hits": [],
+ "bacon_from_caps": "?ckerictr?rcbrrlbfk?d",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "gefahr",
+  "hirsch",
+  "klara",
+  "salomon"
+ ],
+ "numbers": [
+  "10",
+  "2026"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Brief",
+  "Dein",
+  "Deine",
+  "Dich",
+  "Du",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Frau",
+  "Hirsch",
+  "Ich",
+  "Ihr",
+  "Jugoslawien",
+  "Karte",
+  "Kinder",
+  "Klara",
+  "Liebe",
+  "Mali",
+  "Mina",
+  "März",
+  "Rosa",
+  "Salomon",
+  "Schwester",
+  "Tante",
+  "Wohnung",
+  "Wort",
+  "Zimmer"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Brief",
+  "Dein",
+  "Deine",
+  "Dich",
+  "Du",
+  "Euch",
+  "Euere",
+  "Familie",
+  "Frau",
+  "Ich",
+  "Ihr",
+  "Jugoslawien",
+  "Karte",
+  "Kinder",
+  "Liebe",
+  "März",
+  "Schwester",
+  "Tante",
+  "Wohnung",
+  "Wort",
+  "Zimmer"
+ ],
+ "hebrew_yiddish_insertions": 1
+}

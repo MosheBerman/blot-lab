@@ -1,0 +1,442 @@
+{
+ "letter": "17",
+ "source": "<!-- drive_id: 1TlZnOIUGl95sMqGY69ECPrs_9uPSZYqq | url: https://drive.google.com/file/d/1TlZnOIUGl95sMqGY69ECPrs_9uPSZYqq/view?usp=drivesdk | title: Transcription 17.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 56,
+ "n_words": 222,
+ "n_letters": 1098,
+ "editorial_markers": {
+  "?": 4,
+  "deletion": 3,
+  "unclear": 1
+ },
+ "footnotes": [
+  "1 The author writes ‘et’, which would seem to stand for the ‘et-Zeichen’, i.e. ampersand.",
+  "2 This word is corrected and it seems the most likely reading is ‘for’ (which equates to ‘vor’ in this author’s spelling), although there are at least the remains of another letter visible before the f.",
+  "3 All printed text is rendered in italic. The number 1517 is stamped below the sender’s name.",
+  "4 End of address obscured by postage stamp – 67/14 is to be expected based on other postcards.",
+  "5 This side of the card is stamped with a postmark reading ‘WIEN 20 | 19.7.40.-12 | d’ and has stamps attached reading ‘Deutsches Reich’ and ‘MIT LUFTP[OST] | PAR AVIO[N]’. The stamp on the left-hand side is somewhat blurred but likely reads ‘Geprüft [?] | Oberkommando der Wehrmacht’.",
+  "6 This could possibly be ‘im’ for ‘im[mer] noch’.",
+  "7 Several words blotted out with black ink over three lines.",
+  "8 End of line obscured by postage stamp – this would most likely have read ‘Grüße’.",
+  "9 Possibly just a deletion – the author may have started to write ‘auch’ before continuing along the top edge of the card instead."
+ ],
+ "footnotes_physical": [
+  "2 This word is corrected and it seems the most likely reading is ‘for’ (which equates to ‘vor’ in this author’s spelling), although there are at least the remains of another letter visible before the f.",
+  "3 All printed text is rendered in italic. The number 1517 is stamped below the sender’s name.",
+  "4 End of address obscured by postage stamp – 67/14 is to be expected based on other postcards.",
+  "5 This side of the card is stamped with a postmark reading ‘WIEN 20 | 19.7.40.-12 | d’ and has stamps attached reading ‘Deutsches Reich’ and ‘MIT LUFTP[OST] | PAR AVIO[N]’. The stamp on the left-hand side is somewhat blurred but likely reads ‘Geprüft [?] | Oberkommando der Wehrmacht’.",
+  "7 Several words blotted out with black ink over three lines.",
+  "8 End of line obscured by postage stamp – this would most likely have read ‘Grüße’.",
+  "9 Possibly just a deletion – the author may have started to write ‘auch’ before continuing along the top edge of the card instead."
+ ],
+ "editorial_notes": [
+  "[Letter continues overleaf:]",
+  "[Letter continues along left-hand edge and top edge of card:]",
+  "[Note along lower edge:]"
+ ],
+ "els": [
+  {
+   "target": "nazi",
+   "observed": 2,
+   "null_mean": 0.85,
+   "null_sd": 0.91,
+   "z": 1.26,
+   "examples": [
+    {
+     "start": 589,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 247,
+     "skip": 95,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 10,
+   "null_mean": 7.1,
+   "null_sd": 2.65,
+   "z": 1.09,
+   "examples": [
+    {
+     "start": 515,
+     "skip": 96,
+     "reversed": false
+    },
+    {
+     "start": 704,
+     "skip": 120,
+     "reversed": false
+    },
+    {
+     "start": 224,
+     "skip": 2,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 14,
+   "null_mean": 12.82,
+   "null_sd": 3.41,
+   "z": 0.35,
+   "examples": [
+    {
+     "start": 287,
+     "skip": 7,
+     "reversed": false
+    },
+    {
+     "start": 832,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 218,
+     "skip": 30,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.75,
+   "null_sd": 0.94,
+   "z": 0.27,
+   "examples": [
+    {
+     "start": 184,
+     "skip": 48,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 6,
+   "null_mean": 5.55,
+   "null_sd": 2.41,
+   "z": 0.19,
+   "examples": [
+    {
+     "start": 182,
+     "skip": 9,
+     "reversed": false
+    },
+    {
+     "start": 33,
+     "skip": 74,
+     "reversed": false
+    },
+    {
+     "start": 369,
+     "skip": 120,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 1.07,
+   "null_sd": 0.93,
+   "z": -0.08,
+   "examples": [
+    {
+     "start": 621,
+     "skip": 27,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "mord",
+   "observed": 1,
+   "null_mean": 1.1,
+   "null_sd": 0.97,
+   "z": -0.1,
+   "examples": [
+    {
+     "start": 907,
+     "skip": 25,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 1.23,
+   "null_sd": 1.15,
+   "z": -0.2,
+   "examples": [
+    {
+     "start": 669,
+     "skip": 104,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 3,
+   "null_mean": 3.42,
+   "null_sd": 2.16,
+   "z": -0.2,
+   "examples": [
+    {
+     "start": 150,
+     "skip": 10,
+     "reversed": false
+    },
+    {
+     "start": 878,
+     "skip": 2,
+     "reversed": true
+    },
+    {
+     "start": 524,
+     "skip": 9,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 9,
+   "null_mean": 9.85,
+   "null_sd": 3.09,
+   "z": -0.28,
+   "examples": [
+    {
+     "start": 909,
+     "skip": 30,
+     "reversed": false
+    },
+    {
+     "start": 915,
+     "skip": 49,
+     "reversed": false
+    },
+    {
+     "start": 872,
+     "skip": 6,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 1,
+   "null_mean": 1.7,
+   "null_sd": 1.17,
+   "z": -0.6,
+   "examples": [
+    {
+     "start": 44,
+     "skip": 88,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 3.58,
+   "null_sd": 2.38,
+   "z": -0.66,
+   "examples": [
+    {
+     "start": 736,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 814,
+     "skip": 45,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 51,
+  "null_mean": 53.6,
+  "null_sd": 8.3
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 2.8,
+ "acrostic": "wledsmvblgnsnwzwznibgaeldfdohagwddlsfdmskaasawsrhjsnas",
+ "telestich": "nrntttnennunnnhrntmeetehfhtttehhantrlrneltasriesnrtyar",
+ "first_words": "Wien Lieber Es das schreibt mir von Brief liebe geschrieben nimt sich noch welchen zu war zum noch ich Brief gleich Antwort es liebe die ferdient dort ob hat auch ganze weiß daran der leider schreiben Finger die mir sonst küße auch auch Sender Absender Wohnort Straße Recipient He Jakob Sheriff New Amerika Straße",
+ "last_words": "den Schwester wundern Wort hat geschickt ein die Ostern Ostern zu warten in werden endlich weder zugeschrieben Wort dem bitte Karte geht die auch Josef noch schreibet Arbeit ferdient die ich ich A kan nicht er soll Kinder schreiben grüße vielmal Küßt Chaja address Willner II Taborstrasse address rn Willner Street City Amerika Postschließfachnummer",
+ "word_initials": "wdlbssetmwwdikewsdshmdagvdlbehebvdedlehfdogdzonsdkzsuwwnadbiwawzsewfwebwzjznveewihdjfdbngbgbedkazgwgeewmdlmuleadkvedjfeiindbsoisahusfawmdgfiwnwidknusadsklanswefwhsdeukmssgkevagfmkaaecssaacwwazolwishgsoptrsahrjwssnycashgsop",
+ "sentence_initials": "weddamshgsgs",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [
+   "erna"
+  ],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.0,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "arbeit",
+  "chaja",
+  "jakob",
+  "josef",
+  "mali",
+  "salomon",
+  "wien",
+  "willner"
+ ],
+ "caps_string": "bssiwsadbdeookbwbjewjkemekejiafusasekefmkeccwzlwihgsptwsychgsp",
+ "caps_hits": [],
+ "bacon_from_caps": "z?etewleisacactfcibrikfialacahibbieppqm?pm??",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "arbeit",
+  "chaja",
+  "jakob",
+  "josef",
+  "salomon",
+  "willner"
+ ],
+ "numbers": [
+  "18/7",
+  "40",
+  "67",
+  "14",
+  "94",
+  "1268",
+  "1345"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [
+  18
+ ],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "A",
+  "Absender",
+  "Adresse",
+  "Amerika",
+  "Antwort",
+  "Arbeit",
+  "Brief",
+  "Bruder",
+  "Chaja",
+  "City",
+  "Dir",
+  "Erich",
+  "Es",
+  "Euch",
+  "Eure",
+  "Ewa",
+  "Familie",
+  "Finger",
+  "Gebäudeteil",
+  "Hausnummer",
+  "He",
+  "II",
+  "Ihr",
+  "Jakob",
+  "Josef",
+  "Karte",
+  "Kinder",
+  "Küßt",
+  "Leitpostamt",
+  "Lieber",
+  "Mali",
+  "New",
+  "Ostern",
+  "Postschließfachnummer",
+  "Recipient",
+  "S",
+  "Salomon",
+  "Schwager",
+  "Schwester",
+  "Schwägerin",
+  "Sender",
+  "Sheriff",
+  "Stockwerk",
+  "Straße",
+  "Street",
+  "Taborstrasse",
+  "U",
+  "Wien",
+  "Willner",
+  "Woche",
+  "Wohnort",
+  "Wort",
+  "York",
+  "Zustell"
+ ],
+ "names_not_in_family_set": [
+  "A",
+  "Absender",
+  "Adresse",
+  "Amerika",
+  "Antwort",
+  "Arbeit",
+  "Brief",
+  "Bruder",
+  "City",
+  "Dir",
+  "Erich",
+  "Es",
+  "Euch",
+  "Eure",
+  "Familie",
+  "Finger",
+  "Gebäudeteil",
+  "Hausnummer",
+  "He",
+  "II",
+  "Ihr",
+  "Karte",
+  "Kinder",
+  "Küßt",
+  "Leitpostamt",
+  "Lieber",
+  "New",
+  "Ostern",
+  "Postschließfachnummer",
+  "Recipient",
+  "S",
+  "Schwager",
+  "Schwester",
+  "Schwägerin",
+  "Sender",
+  "Sheriff",
+  "Stockwerk",
+  "Straße",
+  "Street",
+  "Taborstrasse",
+  "U",
+  "Wien",
+  "Woche",
+  "Wohnort",
+  "Wort",
+  "York",
+  "Zustell"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

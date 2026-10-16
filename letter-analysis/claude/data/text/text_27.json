@@ -1,0 +1,383 @@
+{
+ "letter": "27",
+ "source": "<!-- drive_id: 1UdpRWaBj7OkIoFmjh6dxerx3szcD2XzB | url: https://drive.google.com/file/d/1UdpRWaBj7OkIoFmjh6dxerx3szcD2XzB/view?usp=drivesdk | title: Transcription 27.docx | modified: 1991-01-11T11:11:00Z -->",
+ "n_lines": 32,
+ "n_words": 198,
+ "n_letters": 998,
+ "editorial_markers": {
+  "?": 2
+ },
+ "footnotes": [
+  "1 It seems likely that Taube Ettel’s letter above is dictated to her co-author."
+ ],
+ "footnotes_physical": [],
+ "editorial_notes": [
+  "[Note in upper left-hand corner:]"
+ ],
+ "els": [
+  {
+   "target": "mowes",
+   "observed": 1,
+   "null_mean": 0.03,
+   "null_sd": 0.16,
+   "z": 6.24,
+   "examples": [
+    {
+     "start": 749,
+     "skip": 16,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 17,
+   "null_mean": 8.07,
+   "null_sd": 3.17,
+   "z": 2.82,
+   "examples": [
+    {
+     "start": 222,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 33,
+     "skip": 51,
+     "reversed": false
+    },
+    {
+     "start": 181,
+     "skip": 52,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "kalman",
+   "observed": 1,
+   "null_mean": 0,
+   "null_sd": 0.5,
+   "z": 2.0,
+   "examples": [
+    {
+     "start": 638,
+     "skip": 60,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 31,
+   "null_mean": 22.38,
+   "null_sd": 5.75,
+   "z": 1.5,
+   "examples": [
+    {
+     "start": 384,
+     "skip": 3,
+     "reversed": false
+    },
+    {
+     "start": 128,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 313,
+     "skip": 7,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "rosa",
+   "observed": 2,
+   "null_mean": 1.3,
+   "null_sd": 1.25,
+   "z": 0.56,
+   "examples": [
+    {
+     "start": 397,
+     "skip": 105,
+     "reversed": false
+    },
+    {
+     "start": 514,
+     "skip": 113,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 4,
+   "null_mean": 3.48,
+   "null_sd": 1.76,
+   "z": 0.3,
+   "examples": [
+    {
+     "start": 157,
+     "skip": 86,
+     "reversed": false
+    },
+    {
+     "start": 127,
+     "skip": 93,
+     "reversed": false
+    },
+    {
+     "start": 261,
+     "skip": 10,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.9,
+   "null_sd": 0.77,
+   "z": 0.13,
+   "examples": [
+    {
+     "start": 705,
+     "skip": 75,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 3,
+   "null_mean": 2.9,
+   "null_sd": 1.66,
+   "z": 0.06,
+   "examples": [
+    {
+     "start": 148,
+     "skip": 68,
+     "reversed": false
+    },
+    {
+     "start": 299,
+     "skip": 93,
+     "reversed": false
+    },
+    {
+     "start": 687,
+     "skip": 85,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mali",
+   "observed": 1,
+   "null_mean": 1.12,
+   "null_sd": 0.81,
+   "z": -0.15,
+   "examples": [
+    {
+     "start": 231,
+     "skip": 76,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "elend",
+   "observed": 1,
+   "null_mean": 1.25,
+   "null_sd": 0.92,
+   "z": -0.27,
+   "examples": [
+    {
+     "start": 54,
+     "skip": 42,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "geld",
+   "observed": 1,
+   "null_mean": 2.1,
+   "null_sd": 1.45,
+   "z": -0.76,
+   "examples": [
+    {
+     "start": 671,
+     "skip": 50,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 5,
+   "null_mean": 9.6,
+   "null_sd": 3.53,
+   "z": -1.3,
+   "examples": [
+    {
+     "start": 605,
+     "skip": 5,
+     "reversed": false
+    },
+    {
+     "start": 506,
+     "skip": 20,
+     "reversed": false
+    },
+    {
+     "start": 703,
+     "skip": 73,
+     "reversed": false
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 68,
+  "null_mean": 58.1,
+  "null_sd": 9.1
+ },
+ "nth_word_hits_total": 0,
+ "nth_word_hits_null_mean": 1.4,
+ "acrostic": "mdwdbusduebddudeksndgvkaligssefh",
+ "telestich": "nsntnddthntnnhnuettlhewnrzznbea",
+ "first_words": "Meine Der wöchentlich Dir Bitte und schreibe der über bei den Der und Du erquickt Kalman schreiben Nächte dem Grüße Von keine Additional Liebe Ich geschrieben sorge soll ein faul herzlichst",
+ "last_words": "Schwägerin uns von verzweifelt Erbarmen und und verzweifelt gleich antworten besorgt Mann geben mich lieben zu schlaflose mit vernachlässigt Ettel auch Silbe below leben mir Perez Perez ihnen schreib Alle Lea",
+ "word_initials": "mtlsdljiijbdeuwsufoevdnieidvbdltcheummdljusivdwudlkeigvuedsbdgbedbpladawssbdasdudlmulkaggdkdkdwdmehmdzvlksdesmzsdivsnwdlkmmdsvgkehtevdlmhwlaksalbsabishfbltcliddhwhmgvdlmupstdlmupsszgieassnssfsgkeahrl",
+ "sentence_initials": "db",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {},
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "josef",
+  "kalman",
+  "taube"
+ ],
+ "caps_string": "sjbndcemjdwkdsbdebladmkgdzksetemscdmptmpgagearl",
+ "caps_hits": [],
+ "bacon_from_caps": "uirandfir?rqfibwklrataascx?a?aflafkitam",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "josef",
+  "kalman",
+  "taube"
+ ],
+ "numbers": [
+  "1820–2622"
+ ],
+ "book_cipher_reading": [],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Additional",
+  "Alle",
+  "Allmächtige",
+  "Ausputz",
+  "Bitte",
+  "Brief",
+  "Briefes",
+  "Chawcze",
+  "Chawczu",
+  "Dein",
+  "Deinem",
+  "Der",
+  "Dich",
+  "Dir",
+  "Du",
+  "Erbarmen",
+  "Erhalt",
+  "Ettel",
+  "Euch",
+  "Gebe",
+  "Gruße",
+  "Grüße",
+  "Gute",
+  "Ich",
+  "Josef",
+  "Kalman",
+  "Kinder",
+  "Lea",
+  "Liebe",
+  "Luftpost",
+  "Mala",
+  "Mann",
+  "Meine",
+  "Mittleid",
+  "Nachricht",
+  "Nächte",
+  "Perez",
+  "Rachel",
+  "Schreiben",
+  "Schwägerin",
+  "Silbe",
+  "Stillschweigen",
+  "Taube",
+  "Teuerste",
+  "Von",
+  "Wohlbefinden",
+  "Zuschrift"
+ ],
+ "names_not_in_family_set": [
+  "Additional",
+  "Alle",
+  "Allmächtige",
+  "Ausputz",
+  "Bitte",
+  "Brief",
+  "Briefes",
+  "Chawczu",
+  "Dein",
+  "Deinem",
+  "Der",
+  "Dich",
+  "Dir",
+  "Du",
+  "Erbarmen",
+  "Erhalt",
+  "Euch",
+  "Gebe",
+  "Gruße",
+  "Grüße",
+  "Gute",
+  "Ich",
+  "Kinder",
+  "Liebe",
+  "Luftpost",
+  "Mala",
+  "Mann",
+  "Meine",
+  "Mittleid",
+  "Nachricht",
+  "Nächte",
+  "Perez",
+  "Schreiben",
+  "Schwägerin",
+  "Silbe",
+  "Stillschweigen",
+  "Teuerste",
+  "Von",
+  "Wohlbefinden",
+  "Zuschrift"
+ ],
+ "hebrew_yiddish_insertions": 0
+}

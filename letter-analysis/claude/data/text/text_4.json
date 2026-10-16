@@ -1,0 +1,399 @@
+{
+ "letter": "4",
+ "source": "<!-- drive_id: 1SMw-cJDD0uWoTCMU5ngQRfxprwpL1Uk1 | url: https://drive.google.com/file/d/1SMw-cJDD0uWoTCMU5ngQRfxprwpL1Uk1/view?usp=drivesdk | title: Transcription 4.docx -->",
+ "n_lines": 68,
+ "n_words": 271,
+ "n_letters": 1279,
+ "editorial_markers": {
+  "Hebrew/Yiddish": 8,
+  "unclear": 1,
+  "deletion": 1,
+  "?": 3
+ },
+ "footnotes": [
+  "1 Word squeezed in at end of line and somewhat unclear – ‘werdet’ is to be expected here.",
+  "2 Ending depends on whether ‘Pepi’ is a masculine or feminine name.",
+  "3 Word is corrected but the result remains slightly unclear – most likely ‘weil’."
+ ],
+ "footnotes_physical": [
+  "1 Word squeezed in at end of line and somewhat unclear – ‘werdet’ is to be expected here.",
+  "3 Word is corrected but the result remains slightly unclear – most likely ‘weil’."
+ ],
+ "editorial_notes": [
+  "[Note in upper right-hand corner:]",
+  "[Letter continues overleaf:]",
+  "[Letter by a second author follows below:]",
+  "[Additional letter by first author follows on facing page of folded sheet:]",
+  "[Letter continues overleaf:]",
+  "[Additional note on previous page from second author:]"
+ ],
+ "els": [
+  {
+   "target": "mord",
+   "observed": 2,
+   "null_mean": 0.47,
+   "null_sd": 0.59,
+   "z": 2.58,
+   "examples": [
+    {
+     "start": 1022,
+     "skip": 78,
+     "reversed": true
+    },
+    {
+     "start": 519,
+     "skip": 103,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "edit",
+   "observed": 11,
+   "null_mean": 5.2,
+   "null_sd": 2.38,
+   "z": 2.44,
+   "examples": [
+    {
+     "start": 609,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 86,
+     "skip": 37,
+     "reversed": false
+    },
+    {
+     "start": 584,
+     "skip": 39,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "erna",
+   "observed": 19,
+   "null_mean": 15.15,
+   "null_sd": 3.71,
+   "z": 1.04,
+   "examples": [
+    {
+     "start": 993,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 854,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 765,
+     "skip": 43,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "hilf",
+   "observed": 1,
+   "null_mean": 0.45,
+   "null_sd": 0.8,
+   "z": 0.68,
+   "examples": [
+    {
+     "start": 68,
+     "skip": 20,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "mina",
+   "observed": 5,
+   "null_mean": 4.03,
+   "null_sd": 2.06,
+   "z": 0.47,
+   "examples": [
+    {
+     "start": 481,
+     "skip": 15,
+     "reversed": false
+    },
+    {
+     "start": 737,
+     "skip": 57,
+     "reversed": false
+    },
+    {
+     "start": 742,
+     "skip": 73,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "joel",
+   "observed": 1,
+   "null_mean": 0.7,
+   "null_sd": 0.87,
+   "z": 0.34,
+   "examples": [
+    {
+     "start": 890,
+     "skip": 116,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "nazi",
+   "observed": 1,
+   "null_mean": 0.72,
+   "null_sd": 0.81,
+   "z": 0.34,
+   "examples": [
+    {
+     "start": 1125,
+     "skip": 3,
+     "reversed": true
+    }
+   ]
+  },
+  {
+   "target": "etel",
+   "observed": 20,
+   "null_mean": 18.8,
+   "null_sd": 4.35,
+   "z": 0.28,
+   "examples": [
+    {
+     "start": 1023,
+     "skip": 14,
+     "reversed": false
+    },
+    {
+     "start": 731,
+     "skip": 17,
+     "reversed": false
+    },
+    {
+     "start": 713,
+     "skip": 23,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "tote",
+   "observed": 2,
+   "null_mean": 1.62,
+   "null_sd": 1.51,
+   "z": 0.25,
+   "examples": [
+    {
+     "start": 802,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 304,
+     "skip": 48,
+     "reversed": false
+    }
+   ]
+  },
+  {
+   "target": "wien",
+   "observed": 6,
+   "null_mean": 6.72,
+   "null_sd": 2.72,
+   "z": -0.27,
+   "examples": [
+    {
+     "start": 247,
+     "skip": 39,
+     "reversed": false
+    },
+    {
+     "start": 366,
+     "skip": 103,
+     "reversed": false
+    },
+    {
+     "start": 626,
+     "skip": 60,
+     "reversed": true
+    }
+   ]
+  }
+ ],
+ "els_total": {
+  "observed": 68,
+  "null_mean": 63.7,
+  "null_sd": 9.7
+ },
+ "nth_word_hits_total": 1,
+ "nth_word_hits_null_mean": 1.3,
+ "acrostic": "wldjesiikesimpwmsgluleekadzdbevbwldzmugiinasmmkjkasdlbhusursllegjiz",
+ "telestich": "nnndhksswrnktnthreinlieeanenheelnnrdenehiieemtllnhnnhtnfnsekrihdrnnn",
+ "first_words": "Wien Lieber Dein Jakob erhalten sehr in Ihr können eine solt in mit Paket wan möglich sonst Grüße lässt und liebe eine Euere Klara An Da zu den bestens Euch von Bermann Wien Lieber Deinen Zuschrift Mali und gelesen immer ist nert Allen sagt Mutti mitn Kalman Jakob könen Amerika Sonst die liebe bekommen hat und sonst und Reise solt lieben Lieber eine gruße Josel ich Zeit",
+ "last_words": "den Kousin von Dankend mich dank daß w Ihr haben Glück solt Liebesgaben schreibt wirklich sehr viele Mali grüßen Onkel Pepi Reise Kusine Klara Lieben habe dringen Euch wunsche Reise Jossel Bermann Wien Bruder und goldige erhalten freude noch Mali erri die sie warum nicht Onkel Onkel häten nach fahren von auch Post Stern Brief erhalten vielmals glückliche Glück der Mali Euch und Euer Berman kein schreiben",
+ "word_initials": "wdlkdlbavjhdeifmsddljgsdiaiudisbfwkgdiegrhsumvgiassmdlpwjswewmisbssknvgammlasguwdloltnulpegrekkamldikzmhzswieddwhslebguweegrvmjbwlbdlbuzvdgmhdeuwmfgbuinikmmisssensnadavfssnwmswnmojokoojgwhkanadfsknvdlekalmhkpbadfshvlmebuekesgkevuweegrumvgsizmdlmsekmljiweegrugebejbihmkzzs",
+ "sentence_initials": "dgekddosvksei",
+ "line_hits": {
+  "acrostic": [],
+  "telestich": [],
+  "acrostic_rev": [],
+  "word_initials": [],
+  "word_finals": [],
+  "sentence_initials": [],
+  "first_words": [],
+  "last_words": []
+ },
+ "word_initials_null_mean": 0.03,
+ "nth_word_hits": {
+  "8/6": [
+   "erna"
+  ]
+ },
+ "anagram_pairs_in_letter": [],
+ "anagrams_of_targets": [],
+ "reversals_of_targets": [],
+ "targets_plain": [
+  "amerika",
+  "bermann",
+  "jakob",
+  "joel",
+  "kalman",
+  "klara",
+  "mali",
+  "mina",
+  "wien"
+ ],
+ "caps_string": "kbdjgagirgaljemaotnprklzwerjbbdmfojooekmpfsmbkeegimekmjiereeb",
+ "caps_hits": [],
+ "bacon_from_caps": "zkia?sawrldkaatrftqyiairtq?siaaralcd?aka?enliitfbq?kpc",
+ "bacon_hits": [],
+ "caesar_hits": {},
+ "plain_lexicon_hits_len5plus": [
+  "amerika",
+  "bermann",
+  "gefahr",
+  "jakob",
+  "kalman",
+  "klara"
+ ],
+ "numbers": [
+  "382/67",
+  "7/4",
+  "40",
+  "7/4",
+  "40"
+ ],
+ "book_cipher_reading": [
+  "und"
+ ],
+ "gematria_notable_numbers": [],
+ "code_name_hits": {},
+ "capitalised_words": [
+  "Alle",
+  "Allen",
+  "Amerika",
+  "An",
+  "Berman",
+  "Bermann",
+  "Brief",
+  "Bruder",
+  "Da",
+  "Dankend",
+  "Dankent",
+  "Dein",
+  "Deinen",
+  "Euch",
+  "Euer",
+  "Euere",
+  "Eva",
+  "Familie",
+  "Frau",
+  "Gebe",
+  "Glück",
+  "Gott",
+  "Grüße",
+  "Ich",
+  "Ihr",
+  "Jakob",
+  "Joel",
+  "Josel",
+  "Jossel",
+  "Kalman",
+  "Karte",
+  "Kinder",
+  "Klara",
+  "Kousin",
+  "Kusine",
+  "Lieben",
+  "Lieber",
+  "Liebesgaben",
+  "Mali",
+  "Mina",
+  "Mutti",
+  "Netsche",
+  "Onkel",
+  "Paket",
+  "Pepi",
+  "Post",
+  "Reise",
+  "Sonst",
+  "Stern",
+  "Tante",
+  "Weg",
+  "Wien",
+  "Zeit",
+  "Zuschrift"
+ ],
+ "names_not_in_family_set": [
+  "Alle",
+  "Allen",
+  "Amerika",
+  "An",
+  "Brief",
+  "Bruder",
+  "Da",
+  "Dankend",
+  "Dankent",
+  "Dein",
+  "Deinen",
+  "Euch",
+  "Euer",
+  "Euere",
+  "Familie",
+  "Frau",
+  "Gebe",
+  "Glück",
+  "Gott",
+  "Grüße",
+  "Ich",
+  "Ihr",
+  "Karte",
+  "Kinder",
+  "Kousin",
+  "Kusine",
+  "Lieben",
+  "Lieber",
+  "Liebesgaben",
+  "Mutti",
+  "Onkel",
+  "Paket",
+  "Post",
+  "Reise",
+  "Sonst",
+  "Tante",
+  "Weg",
+  "Wien",
+  "Zeit",
+  "Zuschrift"
+ ],
+ "hebrew_yiddish_insertions": 8
+}
