@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letter Analysis — Blot Lab</title>
+<style>
+  :root { --ink:#1c1a17; --paper:#faf7f0; --accent:#1f4e79; --line:#ddd5c3; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Georgia,serif; color:var(--ink); background:var(--paper); line-height:1.6; }
+  .sitenav { background:#efe9da; border-bottom:1px solid var(--line);
+             padding:.55rem 1.2rem; font-size:.9rem; }
+  .sitenav a { color:var(--accent); text-decoration:none; margin-right:1rem; }
+  .sitenav a:hover { text-decoration:underline; }
+  .wrap { max-width:72rem; margin:0 auto; padding:1.2rem 1.2rem 2rem; }
+  h1 { font-size:1.5rem; margin:.2rem 0 .3rem; }
+  .sub { opacity:.8; max-width:46rem; margin:0 0 .6rem; }
+  .switcher { display:flex; gap:.6rem; margin:0 0 1rem; position:sticky; top:0;
+              background:var(--paper); padding:.6rem 0; z-index:10; border-bottom:1px solid var(--line); }
+  .switcher button { font-family:inherit; font-size:1rem; line-height:1.3; padding:.5rem 1.3rem;
+    border-radius:999px; border:1px solid var(--accent); background:transparent;
+    color:var(--accent); cursor:pointer; }
+  .switcher button[aria-pressed="true"] { background:var(--accent); color:#fff; }
+  .switcher button .tag { display:block; font-size:.72rem; opacity:.75; }
+  iframe { width:100%; height:calc(100vh - 230px); min-height:420px;
+           border:1px solid var(--line); border-radius:8px; background:#fff; }
+  .note { font-size:.85rem; opacity:.7; margin-top:.8rem; max-width:48rem; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<nav class="sitenav"><a href="../index.html">Lab home</a><a href="../lab.html">Lab</a><a href="../experiments.html">Experiments</a><a href="../scrubber.html">Scrubber</a><a href="../ink-layer-report.html">Ink-layer report</a><a href="../forensics-report.html">Forensics report</a><a href="../invisible-ink-report.html">Invisible-ink survey</a><a href="index.html">Letter analysis</a><a href="../ink-age-report.html">Ink-age report</a></nav>
+<div class="wrap">
+<h1>Letter Analysis</h1>
+<p class="sub">Two independent passes over the 1940&ndash;42 family letters, each examining the corpus
+against eight technique families (visible text, lighter words, markings, word skips, anagrams,
+religious code patterns, cryptography, WWI plain-sight conventions).</p>
+<div class="switcher" role="group" aria-label="Report version">
+  <button id="btn-muse" aria-pressed="true">Muse<span class="tag">coded-language report</span></button>
+  <button id="btn-claude" aria-pressed="false">Claude<span class="tag">letter analysis</span></button>
+</div>
+<iframe id="frame" title="Letter analysis report" src="../coded-language-report.html"></iframe>
+<p class="note">Muse pass (16 Oct 2026): 53 letters, fresh eyes, no prior conclusions. Claude pass
+(16 Oct 2026): 54 scans, 45 transcribed letters. Both found no cipher and no hidden writing;
+both document the plain-sight findings, and the Muse report adds a table of facts that should
+exist in an archive. Each report keeps its own page too.</p>
+</div>
+<script>
+"use strict";
+var frame = document.getElementById('frame');
+var bM = document.getElementById('btn-muse');
+var bC = document.getElementById('btn-claude');
+function show(which) {
+  var isClaude = (which === 'claude');
+  frame.src = isClaude ? 'claude/index.html' : '../coded-language-report.html';
+  bM.setAttribute('aria-pressed', String(!isClaude));
+  bC.setAttribute('aria-pressed', String(isClaude));
+  history.replaceState(null, '', isClaude ? '#claude' : '#muse');
+}
+bM.addEventListener('click', function(){ show('muse'); });
+bC.addEventListener('click', function(){ show('claude'); });
+if (location.hash === '#claude') show('claude');
+</script>
+</body>
+</html>

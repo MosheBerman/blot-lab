@@ -98,6 +98,23 @@
   .counts { font-size: 0.78rem; color: #999; margin: 0 0 14px; }
   .footer { font-size: 0.74rem; color: #666; margin-top: 24px; line-height: 1.6; }
   .footer a { color: #4da3ff; }
+  .archive-leads { background: #181818; border: 1px solid #2c2c2c; border-radius: 10px;
+    padding: 14px 16px; margin: 0 0 14px; }
+  .archive-leads h2 { font-size: 1rem; margin: 0 0 8px; color: #ddd; }
+  .archive-leads .disclaimer { font-size: 0.8rem; color: #999; margin: 0 0 10px; line-height: 1.5; }
+  .archive-leads table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  .archive-leads th, .archive-leads td { text-align: left; vertical-align: top;
+    padding: 7px 8px; border-top: 1px solid #2c2c2c; line-height: 1.45; }
+  .archive-leads th { color: #bbb; font-size: 0.74rem; text-transform: uppercase;
+    letter-spacing: 0.04em; border-top: none; }
+  .archive-leads td { color: #ccc; }
+  @media (max-width: 640px) {
+    .archive-leads table, .archive-leads tbody, .archive-leads tr, .archive-leads td { display: block; width: 100%; }
+    .archive-leads thead { display: none; }
+    .archive-leads tr { border-top: 1px solid #2c2c2c; padding: 6px 0; }
+    .archive-leads td { border: none; padding: 2px 0; }
+    .archive-leads td:last-child { color: #999; }
+  }
 </style>
 </head>
 <body>
@@ -109,7 +126,7 @@
 <p class="sub">A letter-by-letter hunt for hidden messages, censorship-evasion phrasing, and plain-sight
 coding in the 1940&ndash;1942 family letters. Every letter was examined against eight technique families,
 with fresh eyes and no prior conclusions. <a href="letter-analysis/muse/coded-language-report.md">Markdown version (Muse pass)</a>.</p>
-<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a><a href="forensics-report.html">Forensics report</a><a href="invisible-ink-report.html">Invisible-ink survey</a><a href="coded-language-report.html">Coded-language report</a><a href="letter-analysis/claude/index.html">Letter analysis (Claude)</a></nav>
+<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="experiments.html">Experiments</a><a href="scrubber.html">Scrubber</a><a href="ink-layer-report.html">Ink-layer report</a><a href="forensics-report.html">Forensics report</a><a href="invisible-ink-report.html">Invisible-ink survey</a><a href="letter-analysis/index.html">Letter analysis</a></nav>
 
 <div class="legend"><b>Confidence:</b>
 <span class="cbadge c-high">high</span> evidence directly supports it &nbsp;
@@ -118,7 +135,29 @@ with fresh eyes and no prior conclusions. <a href="letter-analysis/muse/coded-la
 <span class="cbadge c-none">none</span> examined, nothing found.<br>
 <i>Citations in italics</i> point at Helen Hunter's translation footnotes or the German transcripts.
 &ldquo;Drive link (private)&rdquo; opens the original scan on the family's Drive.</div>
-<div class="legend"><b>Muse pass, 2026-10-16.</b> 53 letters &times; 8 technique families, fresh eyes, no prior conclusions. Claude's parallel pass arrives separately; this page will show the merged report after that lands.</div>
+<div class="legend"><b>Muse pass, 2026-10-16.</b> 53 letters &times; 8 technique families, fresh eyes, no prior conclusions. Claude's parallel pass is consolidated with this report under the <a href="letter-analysis/index.html">Letter analysis</a> nav entry, with a version switcher.</div>
+<section class="archive-leads">
+<h2>Facts in the letters that should exist in an archive</h2>
+<p class="disclaimer">Each fact below is stated in the letters and should have left a paper trail somewhere.
+Archive names are <b>suggestions to check</b>, not confirmed holdings. None has been verified to hold the record.</p>
+<table>
+<tr><th>Fact (letters)</th><th>Suggested archive to check</th></tr>
+<tr><td>Deportation transport Vienna&rarr;Opole, 15 Feb 1941 (Josef Bermann; Chaja and Maly Willner possibly listed). L19, L36.</td><td>D&Ouml;W Vienna transport lists; Yad Vashem transport database</td></tr>
+<tr><td>US visa case files: affidavits for Josef, Chaja, Malka; &ldquo;14 Bogen&rdquo; consular forms; &ldquo;affidavit too weak&rdquo;. L8, L10, L34, L37.</td><td>NARA RG 59, US consulate Vienna / Jerusalem visa files</td></tr>
+<tr><td>Meilech Goldberg: US visa issued 7 Sep 1939; arrested 9 Sep 1939. (IKG dossier already in family hands.)</td><td>NARA RG 59, US consulate Vienna</td></tr>
+<tr><td>Paul Biller: Gestapo arrest 2 Oct 1939; Buchenwald prisoner 6912; died 5 Apr 1940. (Camp file in family hands.)</td><td>Arolsen Archives</td></tr>
+<tr><td>Szaje Biller: died Buchenwald 27 Nov 1939 (&ldquo;Chei Biller&rdquo; death register).</td><td>Arolsen Archives</td></tr>
+<tr><td>HIAS $50 notice, Oct 1940 (L18); HIAS Lisbon food parcel, Jun 1941 (L45).</td><td>YIVO, HIAS-HICEM archives; JDC Archives, Lisbon office</td></tr>
+<tr><td>Parcels to Josef via G. Gerhardi, c/o Norddeutscher Lloyd, Bremen (L40).</td><td>Staatsarchiv Bremen, Norddeutscher Lloyd records</td></tr>
+<tr><td>30 RM via Dresdner Bank, Christmas 1940 (L43); 40 RM via Hamburg-Amerika Linie, Berlin 1941 (L45).</td><td>Commerzbank historical archive (Dresdner Bank); HAPAG archive, Hamburg</td></tr>
+<tr><td>Chaja Willner tax clearance / Unbedenklichkeitsbescheinigung for emigration (L37).</td><td>Austrian State Archives, AdR (Finanzamt / Verm&ouml;gensverkehrsstelle); IKG Vienna emigration questionnaires</td></tr>
+<tr><td>Malka Bermann: Youth Aliyah stipend, Beth Zeiroth, Kfar Haroe (L10, L32, L34).</td><td>Central Zionist Archives, Youth Aliyah records</td></tr>
+<tr><td>Lea Fr&ouml;hlich emigration transport, spring 1940; &ldquo;Spesen&rdquo; sent (L46).</td><td>IKG Vienna emigration department records</td></tr>
+<tr><td>Josef Bermann died Opole 22 Jan 1942, civil record Nr. 89.</td><td>Archiwum Pa&#324;stwowe w Lublinie, Opole Lubelskie Jewish records</td></tr>
+<tr><td>Salomon Willner, forced labor in Strzy&#380;&oacute;w, Kreis Reichshof (L3, L5, L11).</td><td>Polish state archives</td></tr>
+<tr><td>Censor examiner numbers on the letters (1517, 1398a, 1820&ndash;2622, 1834&hellip;).</td><td>German military archives, OKW Auslandsbriefpr&uuml;fstelle Wien (long shot)</td></tr>
+</table>
+</section>
 <div class="counts" id="counts"></div>
 
 <main id="report"></main>
