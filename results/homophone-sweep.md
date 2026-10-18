@@ -75,3 +75,18 @@ Chicago, N. Y., Amerika, Polen, Rumänien). The odd-spelling-for-place
 pattern in this corpus is limited to the four known cases above. The
 coded-language angle in these letters lives in the Hebrew/Yiddish
 insertions, abbreviations, and phrasing — not in disguised place names.
+
+## Post-sweep resolutions (2026-10-18)
+
+- **"Wielen" (L24) — resolved as a person, not a place.** "auch Fategrafie von Wielen
+  mit den susen Kind" is Ruchel Leah's spelling of **Willi**: Josef's part of the same
+  letter greets "die lieben Berta Willi und das süsse Kind" (HH: "dear Berta, Willi and
+  their sweet little one"), and L46 has a "Lieber Wiely" sign-off (HH footnote:
+  variant spelling of 'Willi'). The photograph is of Willi with the sweet child.
+  Confidence: medium. (User's catch.)
+- **"Steiermarkt" (L1) — alternative reading recorded: Steyr.** The Upper Austrian town
+  of Steyr lies in the Reichsgau Oberdonau, so reading Chaja's "Steiermarkt" as Steyr
+  would reconcile with Josef's own "auf Arbeit in Oberdonau" (L25) and close the known
+  Styria-vs-Oberdonau discrepancy. Uncorroborated: no other Steyr mention in the
+  corpus, and the plain typo theory (Steiermark + intrusive t) remains simpler.
+  Confidence: low. (Claude's suggestion.)
