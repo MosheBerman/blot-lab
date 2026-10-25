@@ -341,3 +341,119 @@ markings on the edges of our postcards.
   stamp half-covered; green-stamp mask caught the design, not the rect).
 - Fibers (10-30um) are 0.13-0.46px at this scale: still sub-pixel,
   unresolvable, no separable fiber channel (see results/fiber-noise-and-scale.md).
+
+## 2026-10-16 — Document-photo cleanup pass (`scripts/biller_cleanup.py`)
+
+Motivation: make a photographed album page (Biller letter IMG_0132, re: Tante Ruschel Lea's
+expulsion order) maximally readable for a human reader.
+
+Algorithm:
+1. Crop album margins to the document region.
+2. Rotate +0.6° (measured tilt) with bicubic resampling to straighten text lines.
+3. Flatten uneven illumination: divide grayscale by a 60 px Gaussian background estimate,
+   rescaled to the background mean (removes vignetting/album-page shading).
+4. Autocontrast (1.5% cutoff) + unsharp mask (radius 2.2, 90%, threshold 2).
+
+Outcome: text lines straight, background even, ink contrast up. No content invented —
+purely photometric. Applied to IMG_0132 (Biller letter describing the expulsion-order
+photocopy enclosure). Note: the enclosed expulsion-order photocopy itself was not
+photographed in the collection; only the describing letter exists.
+
+## 2026-10-25 — Five new lab tabs: Spectral, Sources, Binarize, Neural, Score (`lab.html`)
+
+All five run client-side on the existing RGB photo; no new capture
+hardware. New tabs are appended after Dot trace, so old snapshot links
+(tab indices 0-11) still restore to the same tabs. Style follows the
+existing file (ES5, one tab object per algorithm, slider/segment
+controls, snapshot + side-by-side export).
+
+### Spectral (PCA decorrelation stretch + ICA)
+
+- Covariance of a 128px thumbnail, Jacobi eigendecomposition, sorted
+  principal components. Decorrelation stretch: each PC stretched to the
+  mean PC standard deviation, then rotated back. False color maps
+  PC1/2/3 to R/G/B. Component view shows one PC at a time; sign is
+  arbitrary, Invert flips it.
+- ICA mode: symmetric FastICA (tanh, whitened samples, deterministic
+  rotation start, never random), unmixing rows applied per pixel in
+  WebGL. Falls back to PCA when the data is too flat.
+- Stack treatment: components are layers (PC1/PC2/3 or ICA1/2/3), not a
+  sweep. Honest limit: one RGB photo cannot create spectral bands the
+  camera never recorded; this only re-weights the three it did.
+- Verified in Node on synthetic data before shipping: Jacobi
+  eigenvalues exact to 1e-6 on a known matrix; FastICA recovered three
+  mixed non-Gaussian sources at |corr| >= 0.999.
+
+### Sources (NMF + ICA blind source separation, recto-verso)
+
+- NMF: 96px thumbnail, 40 Lee-Seung multiplicative updates,
+  deterministic PCA-based start, canonical order (paper brightest,
+  then inks darkest first). Per-pixel shares by 12-step projected
+  gradient NNLS in WebGL against the fitted source colours. Rank 2 =
+  paper + ink, 3 = + second ink, 4 = + stain. The additive mixture
+  model is an approximation to ink over paper, not a physical ink
+  model. ICA mode reuses the Spectral ICA sources (rank ignored).
+- Stack sweep: NMF rank 2, 3, 4 as three layers, each showing the
+  union-ink mask (1 minus paper share, thresholded). Join links those
+  masks across ranks: only ink present at every rank survives Min span.
+- Recto-verso (NMF only): upload a back-side photo; it is mirrored,
+  cover-fitted, and coarsely translated (brute-force luminance
+  correlation at 96px, plus manual shift/scale sliders), then the
+  recto is brightened toward paper where the aligned verso has ink,
+  before unmixing. Translation + mirror only, no warp: check the ghost
+  against the recto before trusting a subtraction.
+- NMF verified in Node on synthetic mixtures: fitted source colours
+  matched the true ones at cosine >= 0.999.
+
+### Binarize (Sauvola, Niblack, Wolf, background normalisation)
+
+- DIBCO formulas on local mean/std from a separable box window
+  (horizontal BLUR mode 1 packing L and L^2, vertical blur of the
+  pair): Sauvola t=m(1+k(s/R-1)), Niblack t=m+k s, Wolf
+  t=(1-k)m+kM+k(s/R)(m-M), with R=0.5 and M the image 2nd L percentile
+  (bandLo). Niblack usually wants a negative k; Sauvola/Wolf a
+  positive one. Background normalisation: large-kernel blur estimate,
+  divide, then a fixed threshold.
+- Stack/Join priority sweeps: k or window, chosen by the Binarize
+  sweep control in the stack/Join panels (with Background normalisation
+  neither parameter applies, so those layers are identical — use a
+  local method for a real sweep). Joining binary masks across the
+  sweep surfaces strokes that survive the threshold choice.
+
+### Neural (tf.js U-Net-style, single output only)
+
+- Small U-Net in tf.js (two down, bottleneck, two up, skip
+  connections), run at 512px width (even height, so pooling/upsampling
+  line up), strength mixes the cleaned luminance with the original,
+  views Cleaned/Binary/Overlay. Loaded from the tf.js CDN on demand;
+  if it cannot load, no neural output is shown rather than a fake one.
+- Demo weights are hand-set averaging filters, not a trained model:
+  they smooth, they do not know handwriting. A trained tf.js
+  LayersModel can be pasted as a model.json URL (1-channel in/out).
+- Deliberately excluded from the 3D stack and Join: one
+  reconstruction is not a sweep, and joining it would launder a guess
+  into a stable-looking stroke. Every neural output carries a visible
+  "reconstruction, not evidence" label: banner in the UI, warning row
+  in the panel, header + red bar + filename in exports, and a tag in
+  Score rows.
+
+### Score (pipeline ranking)
+
+- Runs a checked pipeline (all filter tabs except the 3D stack, which
+  is a view not a filter; Join/Dots unchecked by default as slow) and
+  ranks the outputs. Proxy = 100 x (0.5 x coverage + 0.5 x contrast),
+  coverage from ink fraction vs a 0.12 ideal, contrast from luminance
+  std / 0.35 — a ranking aid, explicitly not an HTR score. Manual mode
+  takes typed HTR confidences per algorithm. Endpoint mode POSTs each
+  output (512px JPEG data URL) as {algorithm, params, image} and reads
+  {confidence} (0-1 or 0-100) or {score} (0-100). Tap a row to preview
+  that algorithm on the canvas; the preview is what Score exports.
+
+### What was not verified on a device
+
+- No GPU was available in this environment, so the new shaders were
+  reviewed and syntax-checked (node --check on the extracted script)
+  but not compiled in WebGL, and the tf.js demo path was not run in a
+  browser. If a new tab renders black or throws on a phone, report the
+  tab and the status line: the status line names the method, rank,
+  eigenvalues, or error for exactly that reason.
