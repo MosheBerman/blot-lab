@@ -359,6 +359,14 @@ purely photometric. Applied to IMG_0132 (Biller letter describing the expulsion-
 photocopy enclosure). Note: the enclosed expulsion-order photocopy itself was not
 photographed in the collection; only the describing letter exists.
 
+## 2026-10-25 — One dropdown + 3D checkbox (follow-up to the UX pass)
+
+- The main dropdown is the single algorithm selector. A 3D checkbox pill now sits in the topbar between the dropdown and the info button: checked from a flat tab goes to the stack with that tab as source, unchecked from the stack returns to the flat tab of the stack's current source. It is dimmed and disabled for tabs with no stack source (Tune, Ridge, Neural, Score, Dots, Join). The topbar was re-budgeted to fit it on a phone (image button 28vw, dropdown 36vw).
+- The stack's Algorithm row and Join's Algorithm row are dropdowns now, not 7-10 buttons in one squished row. Any segment row with more than 6 options becomes a dropdown; the stack dropdown uses full tab names. Remaining segment buttons got a 64px floor so they wrap instead of squishing.
+- The panel jump buttons from the previous pass ("Open flat tab", "View in 3D stack") are removed: the 3D checkbox is the one mechanism now, so there is no third way to move between flat and stack. The previous pass's follow rule (opening the stack from the dropdown follows the last flat tab) and the snapshot exemption are unchanged.
+
+Not device-verified: syntax-checked only, as before. Check the topbar on your phone: the dropdown, the 3D pill, and the info button should all fit on one row.
+
 ## 2026-10-25 — UX pass (canvas, fly-out, web app, stack/flat combine)
 
 - Canvas: the bottom dock (wipebar + panel handle) now sits below the canvas box instead of over it. The stage ends 92px above the bottom (plus safe area); the wipebar is flush above the panel handle, with its own grabber pill, and the panel handle has one too. Top bars are slimmer (sitenav and topbar padding cut). The top bars still overlay the top of the canvas: docking them as well would shrink the image by another quarter of a phone screen, so they stay as slim translucent overlays.

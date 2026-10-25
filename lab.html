@@ -24,17 +24,29 @@
      (side panel) resets this below. */
   #stage { position:fixed; inset:0; bottom:calc(92px + env(safe-area-inset-bottom)); background:#000; }
   #stage canvas { width:100%; height:100%; object-fit:contain; display:block; touch-action:none; }
-  #topbar { position:fixed; top:0; left:0; right:0; z-index:20; display:flex; gap:8px;
+  #topbar { position:fixed; top:0; left:0; right:0; z-index:20; display:flex; gap:6px;
             align-items:center; justify-content:space-between;
             padding:calc(8px + env(safe-area-inset-top)) 10px 6px; pointer-events:none; }
   #topbar button { pointer-events:auto; font-size:0.82rem; border-radius:20px;
             border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
-            padding:8px 12px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-            max-width:44vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+            padding:8px 10px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            max-width:28vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   #sel-tab { pointer-events:auto; font-size:0.82rem; border-radius:20px;
             border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
-            padding:9px 10px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-            max-width:40vw; text-overflow:ellipsis; }
+            padding:9px 8px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            max-width:36vw; text-overflow:ellipsis; }
+  /* The 3D checkbox: a toggle pill in the topbar. Checked = stack view
+     of the algorithm in the dropdown; unchecked = that algorithm flat. */
+  #lab-3d { position:relative; pointer-events:auto; font-size:0.82rem; font-weight:600; border-radius:20px;
+            border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
+            padding:8px 12px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            flex:0 0 auto; cursor:pointer; }
+  #lab-3d input { position:absolute; opacity:0; pointer-events:none; }
+  #lab-3d input:checked + span { color:#fff; }
+  #lab-3d:has(input:checked) { background:#1c4d8f; border-color:#4da3ff; }
+  #lab-3d.on { background:#1c4d8f; border-color:#4da3ff; }
+  #lab-3d:has(input:disabled) { opacity:0.35; cursor:default; }
+  #lab-3d.off { opacity:0.35; cursor:default; }
   #btn-info { max-width:none; }
   #sheet { position:fixed; left:0; right:0; bottom:0; z-index:30;
            background:rgba(22,22,22,0.97); border-top:1px solid #333; border-radius:16px 16px 0 0;
@@ -93,7 +105,12 @@
   .seg { display:flex; flex-wrap:wrap; gap:6px; flex:1; }
   .seg button { flex:1; padding:11px 4px; font-size:0.8rem; border-radius:8px;
                 border:1px solid #444; background:#242424; color:#ddd;
-                min-width:0; white-space:normal; overflow-wrap:anywhere; }
+                min-width:64px; white-space:normal; overflow-wrap:anywhere; }
+  /* Long algorithm lists are dropdowns, not buttons (see buildControls):
+     one full-width row, never a squished button row. */
+  .row select { flex:1; min-width:0; background:#222; color:#eee;
+                border:1px solid #444; border-radius:8px; padding:11px 8px;
+                font-size:0.85rem; }
   .seg button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   /* Wipebar dock: flush below the canvas box (panel handle height below
      it), with its own grabber pill. The toggle collapses it to the
@@ -192,6 +209,7 @@
 <div id="topbar">
   <button id="btn-img">&#128444; <span id="imgname"></span></button>
   <select id="sel-tab" aria-label="Algorithm"></select>
+  <label id="lab-3d" title="3D stack view"><input type="checkbox" id="chk-3d" aria-label="3D stack"><span>3D</span></label>
   <button id="btn-info">&#9432;</button>
 </div>
 <div id="toolbar">
@@ -1383,7 +1401,7 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber: the wipe\'s original side is rendered under the top layer\'s tilt, so it stays aligned with the stack as you tumble it. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation. Spectral layers are the PCA/ICA components (not a sweep); Sources layers are the NMF union-ink masks at ranks 2, 3, 4; Binarize sweeps k or window per the Binarize sweep control (with Background normalisation the sweep does nothing, since neither parameter applies). Neural is not a stack source: its output is a single reconstruction, not a sweep. Settings live in the flat tab, not here: the stack sweeps one parameter and takes every other setting from that tab (use Open flat tab below, or View in 3D stack from the flat tab, to move between them).' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber: the wipe\'s original side is rendered under the top layer\'s tilt, so it stays aligned with the stack as you tumble it. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation. Spectral layers are the PCA/ICA components (not a sweep); Sources layers are the NMF union-ink masks at ranks 2, 3, 4; Binarize sweeps k or window per the Binarize sweep control (with Background normalisation the sweep does nothing, since neither parameter applies). Neural is not a stack source: its output is a single reconstruction, not a sweep. Settings live in the flat tab, not here: the stack sweeps one parameter and takes every other setting from that tab. The 3D toggle in the topbar moves between flat and stack for the algorithm in the dropdown.' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking','Gabor','Spectral','Sources','Binarize'], val:0},
     {key:'bsweep', label:'Binarize sweep', seg:['k','Window'], val:0},
@@ -2515,6 +2533,35 @@ document.getElementById('sel-tab').addEventListener('change', function(){
   }
   selectTab(idx);
 });
+
+/* The 3D checkbox: one dropdown for the algorithm, one toggle for
+   flat vs stack. Checked from a flat tab goes to the stack with that
+   tab as source; unchecked from the stack returns to the flat tab of
+   the stack's current source. Disabled for tabs with no stack source. */
+var chk3dEl = document.getElementById('chk-3d');
+var lab3dEl = document.getElementById('lab-3d');
+function sync3dToggle(){
+  if (!chk3dEl) return;
+  var t = TABS[curTab];
+  var isStack = t && t.id === 'stack';
+  var mapped = isStack || (t && STACK_SRC_BY_TAB[t.id] != null);
+  chk3dEl.checked = !!isStack;
+  chk3dEl.disabled = !mapped;
+  if (lab3dEl){ lab3dEl.classList.toggle('on', !!isStack); lab3dEl.classList.toggle('off', !mapped); }
+}
+if (chk3dEl) chk3dEl.addEventListener('change', function(){
+  var t = TABS[curTab];
+  if (chk3dEl.checked){
+    if (t && t.id !== 'stack' && STACK_SRC_BY_TAB[t.id] != null){
+      var si = tabIndexById('stack');
+      if (si >= 0){ TABS[si].state.src = STACK_SRC_BY_TAB[t.id]; selectTab(si); }
+    } else { sync3dToggle(); }
+  } else if (t && t.id === 'stack'){
+    var tid = STACK_TAB_BY_SRC[t.state.src] || lastFlatTabId;
+    var fi = tid ? tabIndexById(tid) : -1;
+    if (fi >= 0) selectTab(fi); else sync3dToggle();
+  }
+});
 document.getElementById('btn-info').addEventListener('click', function(){
   infoEl.classList.toggle('hidden');
   closeSheet();
@@ -2610,7 +2657,30 @@ function buildControls(){
     var row = document.createElement('div'); row.className = 'row';
     var lab = document.createElement('label'); lab.textContent = c.label;
     row.appendChild(lab);
-    if (c.seg){
+    if (c.seg && c.seg.length > 6 && c.key === 'src' &&
+        (t.id === 'stack' || t.id === 'join')){
+      /* Algorithm lists in the multi-layer tabs are dropdowns: 7-10
+         buttons in one row were unreadable. Full tab names, not the
+         abbreviated segment labels. */
+      var names = (t.id === 'stack')
+        ? STACK_TAB_BY_SRC.map(function(id){ var ft = tabById(id); return ft ? ft.name : id; })
+        : ['Bands','A2 gate','Chroma','Directional','Ridge','Sources','Binarize'];
+      var dsel = document.createElement('select');
+      names.forEach(function(nm, oi){
+        var o = document.createElement('option');
+        o.value = oi; o.textContent = nm;
+        if (oi === t.state[c.key]) o.selected = true;
+        dsel.appendChild(o);
+      });
+      dsel.addEventListener('change', function(){
+        var oi = +dsel.value;
+        t.state[c.key] = oi;
+        if (t.id === 'stack' && STACK_TAB_BY_SRC[oi])
+          lastFlatTabId = STACK_TAB_BY_SRC[oi];
+        render();
+      });
+      row.appendChild(dsel);
+    } else if (c.seg){
       var seg = document.createElement('div'); seg.className = 'seg';
       c.seg.forEach(function(opt, oi){
         var b = document.createElement('button');
@@ -2690,18 +2760,6 @@ function buildControls(){
     tc.style.cssText = 'flex:1;font-size:0.78rem;color:#bbb;line-height:1.35';
     tr.appendChild(tc);
     controlsEl.appendChild(tr);
-    var fr = document.createElement('div'); fr.className = 'row'; fr.id = 'flatjumprow';
-    var fl = document.createElement('label'); fl.textContent = 'Flat settings';
-    fr.appendChild(fl);
-    var fb = document.createElement('button');
-    fb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
-    fb.addEventListener('click', function(){
-      var tid = STACK_TAB_BY_SRC[t.state.src];
-      var fi = tid ? tabIndexById(tid) : -1;
-      if (fi >= 0) selectTab(fi);
-    });
-    fr.appendChild(fb); controlsEl.appendChild(fr);
-    t._openFlatBtn = fb;
   }
   if (t.id === 'sources'){
     var vr = document.createElement('div'); vr.className = 'row';
@@ -2745,18 +2803,6 @@ function buildControls(){
     mr.appendChild(mb); controlsEl.appendChild(mr);
   }
   if (t.id === 'score') buildScoreUI(t);
-  if (STACK_SRC_BY_TAB[t.id] != null){
-    var sr = document.createElement('div'); sr.className = 'row';
-    var sl = document.createElement('label'); sl.textContent = '3D stack';
-    sr.appendChild(sl);
-    var sb = document.createElement('button'); sb.textContent = 'View in 3D stack';
-    sb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
-    sb.addEventListener('click', function(){
-      var si = tabIndexById('stack');
-      if (si >= 0){ TABS[si].state.src = STACK_SRC_BY_TAB[t.id]; selectTab(si); }
-    });
-    sr.appendChild(sb); controlsEl.appendChild(sr);
-  }
   if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
   if (t._inputs.pos){ t._inputs.pos.inp.max = Math.max(0, t.state.n - 1); t._inputs.width.inp.max = t.state.n; }
   var rrow = document.createElement('div'); rrow.className = 'row';
@@ -2890,11 +2936,6 @@ function syncStackUI(){
       ' ≈ ' + Math.round(bandUm(nn-1, nn)) + 'µm' +
       ' · scale K·X=1 ↔ 30µm (forensics report §§2–5)';
   }
-  if (t._openFlatBtn){
-    var ft = tabById(STACK_TAB_BY_SRC[s.src]);
-    t._openFlatBtn.textContent = 'Open ' + (ft ? ft.name : 'flat') +
-      ' tab (stack uses its settings)';
-  }
   var noSweep = isBands || s.src === 7 || s.src === 8;
   ['sweep0','sweep1'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = noSweep ? 'none' : ''; });
   if (s.src !== t._lastSrc || (s.src === 9 && s.bsweep !== t._lastBsweep)){
@@ -2945,6 +2986,7 @@ function selectTab(i){
   curTab = i;
   var t = TABS[i];
   if (t && STACK_SRC_BY_TAB[t.id] != null) lastFlatTabId = t.id;
+  if (typeof sync3dToggle === 'function') sync3dToggle();
   selTabEl.value = String(i);
   panelTitleEl.textContent = t.name;
   infoEl.innerHTML = t.desc;
