@@ -7,8 +7,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#000000">
+<meta name="application-name" content="Blot Lab">
+<meta name="apple-mobile-web-app-title" content="Blot Lab">
+<link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%234da3ff'/%3E%3Ccircle cx='39' cy='25' r='7' fill='%23111111' opacity='0.6'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%234da3ff'/%3E%3Ccircle cx='39' cy='25' r='7' fill='%23111111' opacity='0.6'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
 <title>Blot Lab — WebGL Lab</title>
 <style>
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -16,14 +19,17 @@
   body { margin:0; font-family:-apple-system,system-ui,sans-serif; background:#000; color:#eee;
          overflow:hidden; overscroll-behavior:none; position:fixed; inset:0; width:100%; height:100dvh;
          user-select:none; -webkit-user-select:none; }
-  #stage { position:fixed; inset:0; background:#000; }
+  /* Canvas box ends above the bottom dock (wipebar + panel handle), so
+     the dock sits flush below the canvas instead of over it. Landscape
+     (side panel) resets this below. */
+  #stage { position:fixed; inset:0; bottom:calc(92px + env(safe-area-inset-bottom)); background:#000; }
   #stage canvas { width:100%; height:100%; object-fit:contain; display:block; touch-action:none; }
   #topbar { position:fixed; top:0; left:0; right:0; z-index:20; display:flex; gap:8px;
             align-items:center; justify-content:space-between;
-            padding:calc(10px + env(safe-area-inset-top)) 10px 8px; pointer-events:none; }
+            padding:calc(8px + env(safe-area-inset-top)) 10px 6px; pointer-events:none; }
   #topbar button { pointer-events:auto; font-size:0.82rem; border-radius:20px;
             border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
-            padding:9px 14px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            padding:8px 12px; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
             max-width:44vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   #sel-tab { pointer-events:auto; font-size:0.82rem; border-radius:20px;
             border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
@@ -38,15 +44,19 @@
   #sheet-head { display:flex; align-items:center; justify-content:space-between;
                 padding:12px 16px 2px; font-size:0.92rem; font-weight:600; }
   #sheet-head button { background:none; border:none; color:#999; font-size:1.1rem; padding:8px; }
-  #sheet-body { overflow-y:auto; padding:8px 12px 14px; display:grid; gap:8px;
-                grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
+  /* Sheets wrap, never scroll horizontally: narrow columns on phones,
+     buttons wrap their labels instead of overflowing the sheet. */
+  #sheet { overflow-x:hidden; }
+  #sheet-body { overflow-y:auto; overflow-x:hidden; padding:8px 12px 14px; display:grid; gap:8px;
+                grid-template-columns:repeat(auto-fill, minmax(min(140px, 44vw), 1fr)); }
   #sheet-body button { padding:13px 8px; font-size:0.82rem; border-radius:10px;
-                border:1px solid #444; background:#242424; color:#ddd; }
+                border:1px solid #444; background:#242424; color:#ddd;
+                min-width:0; white-space:normal; overflow-wrap:anywhere; }
   #sheet-body button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   .sitenav { position:fixed; top:0; left:0; right:0; z-index:40; display:flex;
              align-items:center; overflow-x:auto; white-space:nowrap;
              background:rgba(18,18,18,0.92); border-bottom:1px solid #333;
-             padding:calc(8px + env(safe-area-inset-top)) 12px 8px;
+             padding:calc(6px + env(safe-area-inset-top)) 12px 6px;
              font-size:0.8rem; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
   .sitenav a { color:#4da3ff; text-decoration:none; margin-right:14px; }
   .sitenav a:last-child { margin-right:0; }
@@ -54,7 +64,7 @@
               top:calc(64px + env(safe-area-inset-top));
               background:rgba(22,22,22,0.97); border:1px solid #333; border-radius:12px;
               padding:14px 16px; font-size:0.86rem; line-height:1.55; color:#ccc;
-              max-height:52dvh; overflow-y:auto; }
+              max-height:52dvh; overflow-y:auto; overflow-x:hidden; overflow-wrap:break-word; }
   #infocard.hidden { display:none; }
   #infocard b { color:#fff; }
   #panel { position:fixed; left:0; right:0; bottom:0; z-index:20;
@@ -62,14 +72,17 @@
            border-top:1px solid #2c2c2c; border-radius:14px 14px 0 0;
            padding-bottom:env(safe-area-inset-bottom); }
   #panel-handle { display:flex; justify-content:space-between; align-items:center;
-                  padding:14px 16px; font-size:0.88rem; font-weight:600; cursor:pointer; }
+                  padding:10px 16px; font-size:0.88rem; font-weight:600; cursor:pointer; }
+  #panel-handle::before { content:''; position:absolute; top:4px; left:50%; width:36px; height:4px;
+    border-radius:2px; background:#555; transform:translateX(-50%); }
+  #panel-handle { position:relative; }
   #panel-chev { color:#4da3ff; font-size:0.7rem; transition:transform 0.18s ease; }
   #panel.open #panel-chev { transform:rotate(180deg); }
-  #panel-body { display:none; max-height:54dvh; overflow-y:auto; padding:0 14px 14px; }
+  #panel-body { display:none; max-height:54dvh; overflow-y:auto; overflow-x:hidden; padding:0 14px 14px; }
   #panel.open #panel-body { display:block; }
   .row { display:flex; gap:8px; align-items:center; padding:2px 0; }
   .row label { font-size:0.82rem; color:#bbb; min-width:96px; }
-  input[type=range] { flex:1; min-width:120px; height:44px; accent-color:#4da3ff; }
+  input[type=range] { flex:1; min-width:80px; height:44px; accent-color:#4da3ff; }
   .val { font-size:0.85rem; color:#4da3ff; min-width:52px; text-align:right; cursor:pointer; }
   #laychips { display:flex; flex-wrap:wrap; gap:6px; flex:1; }
   #laychips button { min-width:34px; padding:8px 6px; font-size:0.78rem; border-radius:8px;
@@ -77,16 +90,22 @@
   #laychips button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   #laychips button.wide { min-width:0; padding:8px 12px; }
   #laychips button small { display:block; font-size:0.62rem; opacity:0.72; line-height:1.15; }
-  .seg { display:flex; gap:6px; flex:1; }
+  .seg { display:flex; flex-wrap:wrap; gap:6px; flex:1; }
   .seg button { flex:1; padding:11px 4px; font-size:0.8rem; border-radius:8px;
-                border:1px solid #444; background:#242424; color:#ddd; }
+                border:1px solid #444; background:#242424; color:#ddd;
+                min-width:0; white-space:normal; overflow-wrap:anywhere; }
   .seg button.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
+  /* Wipebar dock: flush below the canvas box (panel handle height below
+     it), with its own grabber pill. The toggle collapses it to the
+     button alone; it never floats over the image. */
   #wipebar { position:fixed; z-index:25; left:12px; right:12px;
-           bottom:calc(62px + env(safe-area-inset-bottom));
+           bottom:calc(38px + env(safe-area-inset-bottom));
            display:flex; align-items:center; gap:8px;
-           background:rgba(20,20,20,0.72); border:1px solid rgba(255,255,255,0.14);
-           border-radius:24px; padding:6px 14px 6px 6px;
+           background:rgba(20,20,20,0.92); border:1px solid rgba(255,255,255,0.14);
+           border-radius:24px; padding:10px 14px 6px 6px;
            -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+  #wipebar::before { content:''; position:absolute; top:3px; left:50%; width:36px; height:4px;
+    border-radius:2px; background:#555; transform:translateX(-50%); }
   #wipebar input { flex:1; height:38px; min-width:80px; }
   #wipe-toggle { background:#1c4d8f; border:1px solid #4da3ff; color:#fff; border-radius:19px;
                  width:38px; height:38px; font-size:1rem; flex:0 0 auto; }
@@ -99,13 +118,19 @@
   #sheet-head::before { content:''; position:absolute; top:6px; left:50%; width:40px; height:4px;
     border-radius:2px; background:#555; transform:translateX(-50%); }
   #sheet-head { position:relative; }
-  #toolbar { position:fixed; z-index:20; left:10px; top:calc(70px + env(safe-area-inset-top));
-             display:flex; flex-direction:column; gap:8px; }
+  /* Toolbar is a single fly-out button on mobile: one small pill over the
+     canvas instead of a four-button column. On wide landscape the
+     column is back and the fly-out button hides. */
+  #toolbar { position:fixed; z-index:20; left:10px; top:calc(84px + env(safe-area-inset-top));
+             display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+  #toolbar-menu { display:none; flex-direction:column; gap:8px; }
+  #toolbar.open #toolbar-menu { display:flex; }
   #toolbar button { width:48px; border-radius:14px; font-size:1.05rem;
              border:1px solid rgba(255,255,255,0.16); background:rgba(20,20,20,0.72); color:#eee;
              -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
              display:flex; flex-direction:column; align-items:center; justify-content:center;
              padding:7px 2px 6px; gap:3px; }
+  #btn-fab.on { background:#1c4d8f; border-color:#4da3ff; color:#fff; }
   #toolbar button .tlab { font-size:0.58rem; color:#bbb; line-height:1; }
   #btn-minimap { overflow:hidden; }
   #btn-minimap img { width:34px; height:34px; border-radius:17px; object-fit:cover; display:block; }
@@ -117,7 +142,7 @@
                 border-radius:12px; border:1px solid rgba(255,255,255,0.25);
                 background:#000; box-shadow:0 8px 28px rgba(0,0,0,0.55);
                 cursor:pointer; }
-  #toast { position:fixed; z-index:50; left:50%; bottom:120px; transform:translateX(-50%);
+  #toast { position:fixed; z-index:50; left:50%; bottom:calc(108px + env(safe-area-inset-bottom)); transform:translateX(-50%);
            background:rgba(20,20,20,0.92); border:1px solid #444; color:#fff;
            padding:10px 18px; border-radius:20px; font-size:0.82rem; opacity:0;
            transition:opacity 0.25s; pointer-events:none; white-space:nowrap; }
@@ -145,7 +170,9 @@
   #stage { transition:transform 0.25s ease; }
   body.sheet-open #stage { transform:translateY(-28dvh); }
   @media (orientation:landscape) and (min-width:700px) {
-    #stage { right:36%; }
+    #stage { right:36%; bottom:0; }
+    #btn-fab { display:none; }
+    #toolbar-menu { display:flex; }
     #topbar { right:36%; }
     #wipebar { right:calc(36% + 12px); bottom:12px; }
     #infocard { right:calc(36% + 12px); }
@@ -168,10 +195,13 @@
   <button id="btn-info">&#9432;</button>
 </div>
 <div id="toolbar">
-  <button id="btn-minimap" title="Original preview"><img id="btn-minimap-img" alt=""><span class="tlab">Map</span></button>
-  <button id="btn-export" title="Export side-by-side">&#10515;<span class="tlab">Export</span></button>
-  <button id="btn-snap" title="Snapshot link">&#128279;<span class="tlab">Link</span></button>
-  <button id="btn-reset" title="Reset view">&#10226;<span class="tlab">Reset</span></button>
+  <button id="btn-fab" title="Tools">&#8942;<span class="tlab">Tools</span></button>
+  <div id="toolbar-menu">
+    <button id="btn-minimap" title="Original preview"><img id="btn-minimap-img" alt=""><span class="tlab">Map</span></button>
+    <button id="btn-export" title="Export side-by-side">&#10515;<span class="tlab">Export</span></button>
+    <button id="btn-snap" title="Snapshot link">&#128279;<span class="tlab">Link</span></button>
+    <button id="btn-reset" title="Reset view">&#10226;<span class="tlab">Reset</span></button>
+  </div>
 </div>
 <div id="bigmap" class="hidden"><canvas id="bigmap-canvas" width="640" height="640"></canvas></div>
 <div id="toast"></div>
@@ -197,7 +227,23 @@
 "use strict";
 /* site nav sits above the topbar: push the topbar down by the nav height */
 (function(){ var nav=document.querySelector('.sitenav'), tb=document.getElementById('topbar');
-  if(nav&&tb){ tb.style.top=nav.offsetHeight+'px'; tb.style.paddingTop='10px'; } })();
+  if(nav&&tb){ tb.style.top=nav.offsetHeight+'px'; tb.style.paddingTop='8px'; } })();
+/* Toolbar fly-out: one button on mobile, the four tools inside it.
+   Tapping any tool closes the fly-out again, so the canvas is clear. */
+(function(){
+  var tb2 = document.getElementById('toolbar'), fab = document.getElementById('btn-fab');
+  if (!tb2 || !fab) return;
+  fab.addEventListener('click', function(){
+    tb2.classList.toggle('open');
+    fab.classList.toggle('on', tb2.classList.contains('open'));
+  });
+  var menu = document.getElementById('toolbar-menu');
+  if (menu) Array.prototype.forEach.call(menu.querySelectorAll('button'), function(b){
+    b.addEventListener('click', function(){
+      tb2.classList.remove('open'); fab.classList.remove('on');
+    });
+  });
+})();
 /* ============ WebGL boilerplate ============ */
 var canvas = document.getElementById('gl');
 var gl = canvas.getContext('webgl', {antialias:false, preserveDrawingBuffer:false});
@@ -1337,7 +1383,7 @@ var TABS = [
       u_view:s.view, u_light:lightAz, u_gain:s.gain}, renderTarget);
   }},
 { id:'stack', name:'3D stack',
-  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber: the wipe\'s original side is rendered under the top layer\'s tilt, so it stays aligned with the stack as you tumble it. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation. Spectral layers are the PCA/ICA components (not a sweep); Sources layers are the NMF union-ink masks at ranks 2, 3, 4; Binarize sweeps k or window per the Binarize sweep control (with Background normalisation the sweep does nothing, since neither parameter applies). Neural is not a stack source: its output is a single reconstruction, not a sweep.' ,
+  desc:'<b>Exploded algorithm stack.</b> Pick any algorithm: each step of its sweep becomes a translucent sheet. Collapse the spacing to fuse the sheets, explode to read the sweep in depth. Sweep from/to sets the window each algorithm sweeps (tap a value to type it). Drag with one finger to tumble, pinch to zoom, two-finger twist to roll, double-tap to reset the view. Wipe with the scrubber: the wipe\'s original side is rendered under the top layer\'s tilt, so it stays aligned with the stack as you tumble it. Layer pick Advanced: toggle individual layers by hand, in a column, instead of the sliding window. With the Bands source, each layer chip shows its estimated ink thickness in µm (Kubelka–Munk glaze inversion, forensics report §§2–5) and the Thickness row reports the layer–thickness correlation. Spectral layers are the PCA/ICA components (not a sweep); Sources layers are the NMF union-ink masks at ranks 2, 3, 4; Binarize sweeps k or window per the Binarize sweep control (with Background normalisation the sweep does nothing, since neither parameter applies). Neural is not a stack source: its output is a single reconstruction, not a sweep. Settings live in the flat tab, not here: the stack sweeps one parameter and takes every other setting from that tab (use Open flat tab below, or View in 3D stack from the flat tab, to move between them).' ,
   controls:[
     {key:'src', label:'Algorithm', seg:['Bands','A2 gate','Chroma','Direct.','Emboss','Raking','Gabor','Spectral','Sources','Binarize'], val:0},
     {key:'bsweep', label:'Binarize sweep', seg:['k','Window'], val:0},
@@ -1380,19 +1426,24 @@ var TABS = [
       }
       return {};
     }
-    // shared precomputes (once, at layer res)
+    // shared precomputes (once, at layer res). Directional and Emboss
+    // take their window/cutoff from the flat tab, scaled to layer
+    // resolution, instead of the old fixed 20px / 8px.
+    var a2s=tabSt('a2'), chs=tabSt('chroma'), dis=tabSt('dir'), ems=tabSt('emboss'), rks=tabSt('rake'), gbs=tabSt('gabor');
+    var sps=tabSt('spectral'), sos=tabSt('sources'), bis=tabSt('binarize'), bds=tabSt('bands');
     var dirMean=null, embBlur=null, rakeFlat=null, rakeSmall=null;
-    if(src===3){ dirMean=scratch(0,bw,bh); blurInto(imgTex,bw,bh,20,1,0,1,dirMean); }
-    if(src===4){ var e0=scratch(0,bw,bh); blurInto(imgTex,bw,bh,8,1,0,0,e0);
-                 embBlur=scratch(1,bw,bh); blurInto(e0.tex,bw,bh,8,0,1,0,embBlur); }
+    if(src===3){ var ddir = dis.dir===1?[0,1]:dis.dir===2?[0.7071,0.7071]:[1,0];
+                 var drad = Math.floor((dis.win||31)/2*bw/imgW);
+                 dirMean=scratch(0,bw,bh); blurInto(imgTex,bw,bh,drad,ddir[0],ddir[1],1,dirMean); }
+    if(src===4){ var ecut = Math.max(1, Math.round((ems.cutoff||8)*bw/imgW));
+                 var e0=scratch(0,bw,bh); blurInto(imgTex,bw,bh,ecut,1,0,0,e0);
+                 embBlur=scratch(1,bw,bh); blurInto(e0.tex,bw,bh,ecut,0,1,0,embBlur); }
     if(src===5){ var g0=scratch(0,bw,bh); blurInto(imgTex,bw,bh,40,1,0,0,g0);
                  var g1=scratch(1,bw,bh); blurInto(g0.tex,bw,bh,40,0,1,0,g1);
                  rakeFlat=scratch(2,bw,bh);
                  draw(program(FS_FLAT),{u_img:{tex:imgTex},u_big:{tex:g1.tex}},rakeFlat);
                  var g2=scratch(3,bw,bh); blurInto(rakeFlat.tex,bw,bh,3,1,0,0,g2);
                  rakeSmall=scratch(4,bw,bh); blurInto(g2.tex,bw,bh,3,0,1,0,rakeSmall); }
-    var a2s=tabSt('a2'), chs=tabSt('chroma'), dis=tabSt('dir'), ems=tabSt('emboss'), rks=tabSt('rake'), gbs=tabSt('gabor');
-    var sps=tabSt('spectral'), sos=tabSt('sources'), bis=tabSt('binarize');
     var binMean=null, binBg=null;
     if(src===9){
       if(bis.method === 3){
@@ -1412,7 +1463,15 @@ var TABS = [
       if(!isVis(i)) continue;
       t=scratch(20+i,bw,bh);
       var lu=layerU(i), uu={u_img:{tex:imgTex}};
-      if(src===0) draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},t);
+      if(src===0){
+        if (bds.desp){
+          var dp0=scratch(50,bw,bh);
+          draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},dp0);
+          var dp1=scratch(51,bw,bh);
+          draw(program(FS_OPEN),{u_src:{tex:dp0.tex},u_texel:[1/bw,1/bh],u_op:0},dp1);
+          draw(program(FS_OPEN),{u_src:{tex:dp1.tex},u_texel:[1/bw,1/bh],u_op:1},t);
+        } else draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:i},t);
+      }
       else if(src===1) draw(program(FS_A2),{u_img:{tex:imgTex},u_lt:lu.lt,u_st:a2s.st||150,u_inkmode:a2s.inkmode||0,u_view:1},t);
       else if(src===2) draw(program(FS_CHROMA),{u_img:{tex:imgTex},u_center:lu.center,u_width:chs.width||8,u_view:0},t);
       else if(src===3) draw(program(FS_DIR),{u_img:{tex:imgTex},u_mean:{tex:dirMean.tex},u_k:lu.kk},t);
@@ -1534,8 +1593,11 @@ var TABS = [
     var W=bw, H=bh, N=(src===5 ? 3 : n);
     var a2s=tabSt('a2'), chs=tabSt('chroma'), rgs=tabSt('ridge');
     var sos=tabSt('sources'), bis=tabSt('binarize');
+    var disJ=tabSt('dir'), bdsJ=tabSt('bands');
     var dirMean=null;
-    if(src===3){ dirMean=scratch(60,bw,bh); blurInto(imgTex,bw,bh,20,1,0,1,dirMean); }
+    if(src===3){ var jdir = disJ.dir===1?[0,1]:disJ.dir===2?[0.7071,0.7071]:[1,0];
+                 var jrad = Math.floor((disJ.win||31)/2*bw/imgW);
+                 dirMean=scratch(60,bw,bh); blurInto(imgTex,bw,bh,jrad,jdir[0],jdir[1],1,dirMean); }
     var binMean=null, binBg=null;
     if(src===6){
       if(bis.method === 3){
@@ -1567,7 +1629,15 @@ var TABS = [
     for(var k=0;k<N;k++){
       var t=scratch(70+k,bw,bh);
       var lu=layerU(k);
-      if(src===0) draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:k},t);
+      if(src===0){
+        if (bdsJ.desp){
+          var jp0=scratch(86,bw,bh);
+          draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:k},jp0);
+          var jp1=scratch(87,bw,bh);
+          draw(program(FS_OPEN),{u_src:{tex:jp0.tex},u_texel:[1/bw,1/bh],u_op:0},jp1);
+          draw(program(FS_OPEN),{u_src:{tex:jp1.tex},u_texel:[1/bw,1/bh],u_op:1},t);
+        } else draw(program(FS_BAND1),{u_img:{tex:imgTex},u_lo:bandLo,u_hi:bandHi,u_n:n,u_i:k},t);
+      }
       else if(src===1) draw(program(FS_A2),{u_img:{tex:imgTex},u_lt:lu.lt,u_st:a2s.st||150,u_inkmode:a2s.inkmode||0,u_view:1},t);
       else if(src===2) draw(program(FS_CHROMA),{u_img:{tex:imgTex},u_center:lu.center,u_width:chs.width||8,u_view:0},t);
       else if(src===3) draw(program(FS_DIR),{u_img:{tex:imgTex},u_mean:{tex:dirMean.tex},u_k:lu.kk},t);
@@ -2393,6 +2463,17 @@ var controlsEl = document.getElementById('controls');
 var wipeSlider = document.getElementById('wipeslider');
 function syncWipe(){ wipeSlider.value = Math.round(cmpX*100); }
 
+/* Stack source <-> flat tab mapping: the stack no longer has a second,
+   independent algorithm menu. Its source is the flat tab of the same
+   algorithm, and the flat tab holds the settings (the stack only sweeps
+   one parameter and takes the rest from that tab). lastFlatTabId tracks
+   the last flat tab the user actually opened. */
+var STACK_SRC_BY_TAB = {bands:0, a2:1, chroma:2, dir:3, emboss:4, rake:5,
+  gabor:6, spectral:7, sources:8, binarize:9};
+var STACK_TAB_BY_SRC = ['bands','a2','chroma','dir','emboss','rake','gabor',
+  'spectral','sources','binarize'];
+var lastFlatTabId = 'bands';
+
 TABS.forEach(function(t){
   t.state = {};
   t.controls.forEach(function(c){ t.state[c.key] = c.val; c.def = c.val; });
@@ -2422,7 +2503,17 @@ document.getElementById('btn-img').addEventListener('click', function(){
     curImg, function(i){ if (i < IMAGES.length) loadImage(i); else fileInput.click(); });
 });
 document.getElementById('sel-tab').addEventListener('change', function(){
-  selectTab(+document.getElementById('sel-tab').value);
+  var idx = +document.getElementById('sel-tab').value;
+  /* Opening the stack from the main menu follows the last flat tab
+     opened, instead of offering a duplicate algorithm menu. Programmatic
+     selects (snapshot restore, jump buttons) do not do this, so a saved
+     stack source is never overwritten. */
+  if (TABS[idx] && TABS[idx].id === 'stack'){
+    var si = tabIndexById('stack');
+    if (si >= 0 && STACK_SRC_BY_TAB[lastFlatTabId] != null)
+      TABS[si].state.src = STACK_SRC_BY_TAB[lastFlatTabId];
+  }
+  selectTab(idx);
 });
 document.getElementById('btn-info').addEventListener('click', function(){
   infoEl.classList.toggle('hidden');
@@ -2489,7 +2580,8 @@ function drawMinimap(){
   var s = Math.min(S/imgW, S/imgH), w = imgW*s, hh = imgH*s;
   var ox = (S-w)/2, oy = (S-hh)/2;
   g.drawImage(thumbSrc, ox, oy, w, hh);
-  var ca = Math.cos(rot), sa = Math.sin(rot);
+  var vrot = (TABS[curTab].id === 'stack') ? rot : 0;
+  var ca = Math.cos(vrot), sa = Math.sin(vrot);
   g.strokeStyle = '#4da3ff'; g.lineWidth = 5;
   g.beginPath();
   [[0,0],[1,0],[1,1],[0,1]].forEach(function(pt, i){
@@ -2526,6 +2618,8 @@ function buildControls(){
         if (oi === t.state[c.key]) b.classList.add('on');
         b.addEventListener('click', function(){
           t.state[c.key] = oi;
+          if (t.id === 'stack' && c.key === 'src' && STACK_TAB_BY_SRC[oi])
+            lastFlatTabId = STACK_TAB_BY_SRC[oi];
           Array.prototype.forEach.call(seg.children, function(x, xi){
             x.classList.toggle('on', xi === oi);
           });
@@ -2596,6 +2690,18 @@ function buildControls(){
     tc.style.cssText = 'flex:1;font-size:0.78rem;color:#bbb;line-height:1.35';
     tr.appendChild(tc);
     controlsEl.appendChild(tr);
+    var fr = document.createElement('div'); fr.className = 'row'; fr.id = 'flatjumprow';
+    var fl = document.createElement('label'); fl.textContent = 'Flat settings';
+    fr.appendChild(fl);
+    var fb = document.createElement('button');
+    fb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
+    fb.addEventListener('click', function(){
+      var tid = STACK_TAB_BY_SRC[t.state.src];
+      var fi = tid ? tabIndexById(tid) : -1;
+      if (fi >= 0) selectTab(fi);
+    });
+    fr.appendChild(fb); controlsEl.appendChild(fr);
+    t._openFlatBtn = fb;
   }
   if (t.id === 'sources'){
     var vr = document.createElement('div'); vr.className = 'row';
@@ -2639,6 +2745,18 @@ function buildControls(){
     mr.appendChild(mb); controlsEl.appendChild(mr);
   }
   if (t.id === 'score') buildScoreUI(t);
+  if (STACK_SRC_BY_TAB[t.id] != null){
+    var sr = document.createElement('div'); sr.className = 'row';
+    var sl = document.createElement('label'); sl.textContent = '3D stack';
+    sr.appendChild(sl);
+    var sb = document.createElement('button'); sb.textContent = 'View in 3D stack';
+    sb.style.cssText = 'flex:1;padding:11px;border-radius:8px;border:1px solid #444;background:#222;color:#ddd;font-size:0.85rem';
+    sb.addEventListener('click', function(){
+      var si = tabIndexById('stack');
+      if (si >= 0){ TABS[si].state.src = STACK_SRC_BY_TAB[t.id]; selectTab(si); }
+    });
+    sr.appendChild(sb); controlsEl.appendChild(sr);
+  }
   if (t._inputs.idx){ t._inputs.idx.inp.max = t.state.n - 1; t._inputs.width.inp.max = t.state.n; }
   if (t._inputs.pos){ t._inputs.pos.inp.max = Math.max(0, t.state.n - 1); t._inputs.width.inp.max = t.state.n; }
   var rrow = document.createElement('div'); rrow.className = 'row';
@@ -2772,6 +2890,11 @@ function syncStackUI(){
       ' ≈ ' + Math.round(bandUm(nn-1, nn)) + 'µm' +
       ' · scale K·X=1 ↔ 30µm (forensics report §§2–5)';
   }
+  if (t._openFlatBtn){
+    var ft = tabById(STACK_TAB_BY_SRC[s.src]);
+    t._openFlatBtn.textContent = 'Open ' + (ft ? ft.name : 'flat') +
+      ' tab (stack uses its settings)';
+  }
   var noSweep = isBands || s.src === 7 || s.src === 8;
   ['sweep0','sweep1'].forEach(function(k){ if (t._rows[k]) t._rows[k].style.display = noSweep ? 'none' : ''; });
   if (s.src !== t._lastSrc || (s.src === 9 && s.bsweep !== t._lastBsweep)){
@@ -2809,7 +2932,8 @@ function render(){
   }
   var origTex = (t._syncOrig && t._syncOrig.tex) ? t._syncOrig.tex : imgTex;
   draw(program(FS_VIEW), {u_proc:{tex:tgt.tex}, u_orig:{tex:origTex},
-    u_mode:vm, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY], u_rot:rot}, null);
+    u_mode:vm, u_div:cmpX, u_zoom:zoom, u_pan:[panX,panY],
+    u_rot:(t.id === 'stack' ? rot : 0)}, null);
   var ge = gl.getError();
   if (ge !== 0) statusEl.textContent += ' [GL err ' + ge + ']';
   } catch(err){ statusEl.textContent = 'Render error: ' + err.message; }
@@ -2820,6 +2944,7 @@ function render(){
 function selectTab(i){
   curTab = i;
   var t = TABS[i];
+  if (t && STACK_SRC_BY_TAB[t.id] != null) lastFlatTabId = t.id;
   selTabEl.value = String(i);
   panelTitleEl.textContent = t.name;
   infoEl.innerHTML = t.desc;
@@ -3088,8 +3213,9 @@ canvas.addEventListener('pointermove', function(e){
     var dA = ang - angPrev;
     if (dA > Math.PI) dA -= 2*Math.PI; else if (dA < -Math.PI) dA += 2*Math.PI;
     angPrev = ang;
+    /* Flat tabs stay head-on: a two-finger twist does nothing there.
+       Only the 3D stack rolls (rz); flat rotation came from this line. */
     if (TABS[curTab].id === 'stack') TABS[curTab].state.rz -= dA*180/Math.PI;
-    else rot -= dA;
     var mid = [(a[0]+b[0])/2, (a[1]+b[1])/2];
     panX = pStart[0] - (mid[0]-mid0[0])/cr[2]/zoom;
     panY = pStart[1] + (mid[1]-mid0[1])/cr[3]/zoom;

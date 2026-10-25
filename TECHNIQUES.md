@@ -359,6 +359,18 @@ purely photometric. Applied to IMG_0132 (Biller letter describing the expulsion-
 photocopy enclosure). Note: the enclosed expulsion-order photocopy itself was not
 photographed in the collection; only the describing letter exists.
 
+## 2026-10-25 — UX pass (canvas, fly-out, web app, stack/flat combine)
+
+- Canvas: the bottom dock (wipebar + panel handle) now sits below the canvas box instead of over it. The stage ends 92px above the bottom (plus safe area); the wipebar is flush above the panel handle, with its own grabber pill, and the panel handle has one too. Top bars are slimmer (sitenav and topbar padding cut). The top bars still overlay the top of the canvas: docking them as well would shrink the image by another quarter of a phone screen, so they stay as slim translucent overlays.
+- Toolbar: on mobile the four floating buttons (Map, Export, Link, Reset) collapse into one Tools fly-out button at the top left. Tapping a tool closes the fly-out again. On wide landscape the old column returns and the fly-out button hides.
+- Web app: `manifest.json` (standalone, start at lab.html, black theme) plus 180/192/512 PNG icons under `icons/` and the matching meta tags. No service worker, deliberately: a cached lab.html would go stale on the next deploy, and the manifest plus the existing iOS meta tags are enough for Add to Home Screen.
+- Stack and flat selection combined: there is no longer a second algorithm menu in the stack. Opening the stack from the main menu follows the last flat tab opened; the stack panel has an "Open flat tab" button that jumps to that algorithm's flat tab, and every flat tab has a "View in 3D stack" button that sets the stack source to it and switches to it. Snapshot restore is exempt from the follow rule, so a saved stack source is never overwritten by the sync.
+- Stack and Join now carry flat settings instead of fixed values: Directional uses the flat tab's direction (rows/cols/diag) and window, scaled to layer resolution; Emboss uses the flat tab's cutoff, scaled the same way; Bands despeckle (flat tab) is applied per stack/Join layer as an opening pass. A2, Chroma, Gabor, Raking, Spectral, Sources, and Binarize already took their non-swept settings from the flat tabs; the stack still sweeps only its own parameter.
+- Flat view is head-on: the two-finger twist no longer rotates flat tabs (it used to change the view rotation). The 3D stack still rolls with the twist (rz), and its view rotation is unchanged. Old snapshots with a flat rotation are ignored in flat tabs.
+- Sheets wrap: sheet buttons use `minmax(min(140px, 44vw), 1fr)` columns with wrapping labels, and sheets, the panel body, the info card, and segment buttons all forbid horizontal overflow. Segment buttons wrap too.
+
+Not device-verified: this pass was syntax-checked and reasoned about, but no phone render was seen. If the dock heights are off on your phone (wipebar overlapping the panel handle, or a gap under the canvas), tell me and I will adjust the 38px/92px dock constants.
+
 ## 2026-10-25 — Five new lab tabs: Spectral, Sources, Binarize, Neural, Score (`lab.html`)
 
 All five run client-side on the existing RGB photo; no new capture
