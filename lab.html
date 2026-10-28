@@ -13,6 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%234da3ff'/%3E%3Ccircle cx='39' cy='25' r='7' fill='%23111111' opacity='0.6'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <title>Blot Lab — WebGL Lab</title>
+<meta name="description" content="WebGL lab for recovering writing hidden under blots, overwrites and show-through on photos of family letters.">
 <style>
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html, body { height:100%; }
@@ -164,6 +165,20 @@
            padding:10px 18px; border-radius:20px; font-size:0.82rem; opacity:0;
            transition:opacity 0.25s; pointer-events:none; white-space:nowrap; }
   #toast.show { opacity:1; }
+  /* Upload progress: a fixed bar over the canvas, below the topbar,
+     so a large phone photo shows reading/decoding progress instead of
+     a frozen screen while FileReader and image processing run. */
+  #upload-progress { position:fixed; z-index:45; left:12px; right:12px;
+           top:calc(96px + env(safe-area-inset-top));
+           background:rgba(20,20,20,0.92); border:1px solid rgba(255,255,255,0.16);
+           border-radius:12px; padding:10px 12px;
+           -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+  #upload-progress.hidden { display:none; }
+  #upload-progress-track { height:8px; background:#333; border-radius:4px; overflow:hidden; }
+  #upload-progress-fill { height:100%; width:0; background:#4da3ff; border-radius:4px;
+           transition:width 0.15s ease; }
+  #upload-progress-label { display:block; margin-top:6px; font-size:0.78rem; color:#ccc;
+           white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   #neural-banner { position:fixed; z-index:26; left:50%; transform:translateX(-50%);
     top:calc(64px + env(safe-area-inset-top)); background:#7a1010; color:#fff;
     border:1px solid #ff5a5a; border-radius:20px; padding:8px 16px;
@@ -200,6 +215,7 @@
     #panel-handle { cursor:default; }
     #panel-chev { display:none; }
     #panel-body { display:block !important; max-height:none; flex:1; }
+    #upload-progress { right:calc(36% + 12px); }
   }
 </style>
 </head>
@@ -223,6 +239,7 @@
 </div>
 <div id="bigmap" class="hidden"><canvas id="bigmap-canvas" width="640" height="640"></canvas></div>
 <div id="toast"></div>
+<div id="upload-progress" class="hidden" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Image upload progress"><div id="upload-progress-track"><div id="upload-progress-fill"></div></div><span id="upload-progress-label"></span></div>
 <div id="neural-banner">Neural reconstruction &mdash; not evidence</div>
 <div id="sheet" class="hidden">
   <div id="sheet-head"><span id="sheet-title"></span><button id="sheet-x">&#10005;</button></div>
@@ -2133,21 +2150,45 @@ versoInput.type = 'file'; versoInput.accept = 'image/*'; versoInput.style.displa
 document.body.appendChild(versoInput);
 versoInput.addEventListener('change', function(){
   if (!versoInput.files || !versoInput.files[0]) return;
+  /* Capture the file up front: versoInput.value = '' below clears the
+     file list, so reading versoInput.files[0] in the async callbacks
+     would throw and the verso upload would silently die. */
+  var file = versoInput.files[0];
+  if (file.type && file.type.indexOf('image/') !== 0){
+    if (typeof toast === 'function') toast('That file is not an image');
+    versoInput.value = '';
+    return;
+  }
   var tab = tabById('sources');
+  setUploadProgress(0, 'Reading ' + file.name + '…');
   var rd = new FileReader();
+  rd.onprogress = function(e){
+    if (e.lengthComputable && e.total > 0)
+      setUploadProgress(Math.round(e.loaded / e.total * 50), 'Reading ' + file.name + '…');
+  };
+  rd.onerror = function(){
+    hideUploadProgress();
+    if (typeof toast === 'function') toast('Could not read ' + file.name);
+  };
   rd.onload = function(){
+    setUploadProgress(80, 'Decoding verso ' + file.name + '…');
     var img = new Image();
     img.onload = function(){
       var cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height;
       cv.getContext('2d').drawImage(img, 0, 0);
-      tab._versoCanvas = cv; tab._versoName = versoInput.files[0].name;
+      tab._versoCanvas = cv; tab._versoName = file.name;
       tab._versoTex = null; tab._versoKey = null;
       if (TABS[curTab].id === 'sources'){ buildControls(); render(); }
+      setUploadProgress(100, 'Verso loaded: ' + file.name);
       if (typeof toast === 'function') toast('Verso loaded: ' + tab._versoName);
+    };
+    img.onerror = function(){
+      hideUploadProgress();
+      if (typeof toast === 'function') toast('Could not load verso photo');
     };
     img.src = rd.result;
   };
-  rd.readAsDataURL(versoInput.files[0]);
+  rd.readAsDataURL(file);
   versoInput.value = '';
 });
 /* --- Neural: tf.js loading, demo U-Net, inference --- */
@@ -3028,6 +3069,7 @@ function loadImageURL(src, label){
     statusEl.textContent = label + ' — ' + imgW + '×' + imgH +
       ' · band range L ' + bandLo.toFixed(0) + '–' + bandHi.toFixed(0) +
       ' · est. light ' + Math.round(((lightAz%360)+360)%360) + '°';
+    if (uploadProgressActive){ uploadProgressActive = false; setUploadProgress(100, label + ' loaded'); }
     render();
     if (pendingRestore){
       var pr = pendingRestore; pendingRestore = null;
@@ -3038,8 +3080,41 @@ function loadImageURL(src, label){
     }
     requestAnimationFrame(function(){ render(); });
   };
-  img.onerror = function(){ statusEl.textContent = 'Could not load ' + src; };
+  img.onerror = function(){
+    if (uploadProgressActive){ uploadProgressActive = false; hideUploadProgress(); }
+    statusEl.textContent = 'Could not load ' + src;
+  };
   img.src = src;
+}
+/* Upload progress: staged, because a local-file "upload" has no network
+   transfer to measure. FileReader progress covers reading (0-50%),
+   decoding/processing covers the rest; the bar stays visible through
+   the synchronous canvas/texture/analysis work so it never looks frozen.
+   uploadProgressActive is set by the upload handlers and cleared by
+   loadImageURL on success or error, so built-in image loads are untouched. */
+var uploadProgressActive = false;
+var uploadProgressTimer = null;
+function setUploadProgress(pct, label){
+  var el = document.getElementById('upload-progress');
+  var fill = document.getElementById('upload-progress-fill');
+  var lab = document.getElementById('upload-progress-label');
+  if (!el || !fill || !lab) return;
+  pct = Math.max(0, Math.min(100, pct));
+  if (uploadProgressTimer){ clearTimeout(uploadProgressTimer); uploadProgressTimer = null; }
+  el.classList.remove('hidden');
+  el.setAttribute('aria-valuenow', String(Math.round(pct)));
+  fill.style.width = pct + '%';
+  if (label) lab.textContent = label;
+  if (pct >= 100){
+    uploadProgressTimer = setTimeout(function(){
+      el.classList.add('hidden'); uploadProgressTimer = null;
+    }, 600);
+  }
+}
+function hideUploadProgress(){
+  var el = document.getElementById('upload-progress');
+  if (uploadProgressTimer){ clearTimeout(uploadProgressTimer); uploadProgressTimer = null; }
+  if (el) el.classList.add('hidden');
 }
 // local file upload
 var fileInput = document.createElement('input');
@@ -3048,15 +3123,35 @@ document.body.appendChild(fileInput);
 
 fileInput.addEventListener('change', function(){
   if (!fileInput.files || !fileInput.files[0]) return;
+  var file = fileInput.files[0];
+  if (file.type && file.type.indexOf('image/') !== 0){
+    if (typeof toast === 'function') toast('That file is not an image');
+    fileInput.value = '';
+    return;
+  }
   if (lastObjURL && lastObjURL.indexOf('blob:') === 0) URL.revokeObjectURL(lastObjURL);
+  uploadProgressActive = true;
+  setUploadProgress(0, 'Reading ' + file.name + '…');
   var rd = new FileReader();
-  rd.onload = function(){
-    try { localStorage.setItem('blotlab.up', rd.result); } catch(e){}
-    lastObjURL = rd.result;
-    curImg = -1;
-    loadImageURL(rd.result, fileInput.files[0].name);
+  rd.onprogress = function(e){
+    if (e.lengthComputable && e.total > 0)
+      setUploadProgress(Math.round(e.loaded / e.total * 50), 'Reading ' + file.name + '…');
   };
-  rd.readAsDataURL(fileInput.files[0]);
+  rd.onerror = function(){
+    uploadProgressActive = false; hideUploadProgress();
+    if (typeof toast === 'function') toast('Could not read ' + file.name);
+  };
+  rd.onload = function(){
+    setUploadProgress(65, 'Decoding and processing ' + file.name + '…');
+    /* Let the bar paint before the synchronous decode/analysis work. */
+    setTimeout(function(){
+      try { localStorage.setItem('blotlab.up', rd.result); } catch(e){}
+      lastObjURL = rd.result;
+      curImg = -1;
+      loadImageURL(rd.result, file.name);
+    }, 30);
+  };
+  rd.readAsDataURL(file);
   fileInput.value = '';
 });
 
