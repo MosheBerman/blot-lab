@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Postcard 17 black bars: what is measurable, what is not — Blot Lab</title>
+<meta name="description" content="Postcard 17, Ch. Willner, 19 July 1940: black ink bars hide two lines. Image tests by Claude, October 2026, show no recoverable ink trace under the real bars. Length estimates only, no reading.">
+<meta name="theme-color" content="#1c1a17">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="application-name" content="Blot Lab">
+<meta name="apple-mobile-web-app-title" content="Blot Lab">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<style>
+  :root{--bg:#f7f5f0;--surface:#fffdf8;--ink:#1c1a16;--ink-soft:#4a463d;--line:#d8d2c2;--blue:#1d4e89;--red:#a4261f;--red-wash:#f6e3df;--amber-wash:#f3e8cf}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,serif;font-size:17px;line-height:1.6}
+  .sitenav{background:#efe9da;border-bottom:1px solid var(--line);padding:.55rem 1.2rem;font-size:.9rem}
+  .sitenav a{color:var(--blue);text-decoration:none;margin-right:1rem}
+  .sitenav a:hover{text-decoration:underline}
+  main{max-width:46rem;margin:0 auto;padding:1.4rem 1.2rem 3rem}
+  h1{font-size:1.7rem;line-height:1.2}
+  h2{font-size:1.35rem;margin:2.4rem 0 .6rem;border-bottom:2px solid var(--ink);padding-bottom:.3rem}
+  h3{font-size:1.1rem;margin:1.6rem 0 .4rem}
+  figure{margin:1.2rem 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--line);background:#fff}
+  figcaption{font-size:.85rem;font-style:italic;opacity:.8;margin-top:.35rem}
+  .verdict{background:#f0ead9;border-left:4px solid var(--blue);padding:.8rem 1rem;margin:1.2rem 0}
+  .verdict strong{display:block;margin-bottom:.2rem}
+  .warning{background:var(--red-wash);border-left:4px solid var(--red);padding:.8rem 1rem;margin:1.2rem 0}
+  table{border-collapse:collapse;width:100%;font-size:.95rem}
+  th,td{border:1px solid var(--line);padding:.4rem .6rem;text-align:left}
+  footer{border-top:1px solid var(--line);padding:1.2rem;font-size:.85rem;opacity:.75;max-width:46rem;margin:0 auto}
+  a{color:var(--blue)}
+</style>
+</head>
+<body>
+<nav class="sitenav"><a href="index.html">Lab home</a><a href="lab.html">Lab</a><a href="forensics-report.html">Forensics report</a><a href="postcard-17-black-bars.html">Postcard 17 black bars</a></nav>
+<main>
+<h1>Postcard 17: black bars, what is measurable, what is not</h1>
+<p><strong>Postcard:</strong> Ch. Willner, Wien II Taborstrasse 67, to Jakob Willner, 94 Sheriff Street, New York City. Postmark 19 July 1940, censor number 1517. Scan 17 in the postcard survey, message side, lower left.</p>
+<p><strong>What was blacked out:</strong> heavy black ink, fully opaque, deliberate obliteration by the writer's own pen, covering about two lines of handwriting, just above the closing line. This is not the blue wash blot in Letter 39, and it is not the blue scribble in the pangram test. It is a different ink, and a different problem.</p>
+<p><strong>Who did these tests:</strong> Claude, October 2026, figures supplied by Moshe. This page files Claude's figures and verdict, with the length estimates kept separate from any reading. Ozzy did not run these black-bar tests. The pangram work, blue ballpoint scribble, is a separate test, and its signal does not transfer here, as the figures below show.</p>
+
+<div class="verdict">
+<strong>Verdict, in one paragraph</strong>
+Hidden text under the real black bars on Postcard 17 is not recoverable by any image method tested here, including a hand-made hue and darkness map, a learned map trained on blue ballpoint, and a stroke tracer. The only defensible statements are length estimates and one visible fragment, listed below. Do not turn those estimates into a claimed text in the book.
+</div>
+
+<h2>What is measurable, and nothing more</h2>
+<ul>
+<li>Fully hidden line: about <strong>16 to 17 characters</strong>.</li>
+<li>Hidden start of the next line: about <strong>7 to 10 characters</strong>.</li>
+<li>One visible fragment, boxed in red in the middle of the upper bar, in the figure below. The fragment alone does not identify the hidden words.</li>
+<li>Visible lines around the bars, for context only: above, in part, "mir schreiben", below, in part, a closing line beginning with a capital D, with "ich" visible. Those visible words are not the hidden words.</li>
+</ul>
+<figure>
+<img src="img/postcard17/03-measurable-and-tracer.jpg" alt="Postcard 17 measurable lines and trained tracer" loading="lazy">
+<figcaption>Top: what is measurable in red, fully hidden line about 16 to 17 characters, hidden start of next line about 7 to 10 characters, box = visible fragment of the hidden line. Bottom: trained tracer on the real bars, dark = predicted ink, arrows = stroke ends entering the black. The tracer darkens edges only, it forms no letters.</figcaption>
+</figure>
+<figure>
+<img src="img/postcard17/02-row-lines.jpg" alt="Postcard 17 with row lines marked in red" loading="lazy">
+<figcaption>Row lines marked in red and yellow over the black bars, showing the two hidden lines in relation to the visible lines above and below. The yellow segments mark the hidden line extents used for the character counts above.</figcaption>
+</figure>
+
+<h2>Real bars give no ink trace, synthetic blots do</h2>
+<p>A detector that flags a faint ink trace under a synthetic blue scribble flags nothing under the real black bars.</p>
+<table>
+<tr><th>Test</th><th>Pixels flagged as ink</th></tr>
+<tr><td>Synthetic blot, no ink trace added</td><td>0.10%</td></tr>
+<tr><td>Synthetic blot, trace 0.25x postmark strength</td><td>0.18%</td></tr>
+<tr><td>Synthetic blot, trace 0.5x</td><td>0.29%</td></tr>
+<tr><td>Synthetic blot, trace 0.84x</td><td>0.60%</td></tr>
+<tr><td>Real bar 1, Postcard 17</td><td>0.00%</td></tr>
+<tr><td>Real bar 2, Postcard 17</td><td>0.00%</td></tr>
+</table>
+<figure>
+<img src="img/postcard17/01-real-vs-synthetic-chart.jpg" alt="Chart: real bars vs synthetic blots, pixels flagged as ink" loading="lazy">
+<figcaption>Real bars look like synthetic blots with no ink trace. The detector response rises with trace strength in synthetic blots, and is zero for both real bars.</figcaption>
+</figure>
+<figure>
+<img src="img/postcard17/09-synthetic-blot-test.jpg" alt="Synthetic blot test: real black bar over visible writing" loading="lazy">
+<figcaption>Control: a real black bar laid over visible writing on Postcard 17, held out. Detector output, middle column, flags only a few scattered pixels, no letter shapes, even with an ink trace added at handwriting strength, 0.84x postmark. The bar itself destroys the signal, the detector is not merely too weak.</figcaption>
+</figure>
+
+<h2>Hand-made map and learned map, both fail on the real bars</h2>
+<p>The hand-made map is hue plus darkness vs the same row, the recipe that found a signal under blue scribble. The learned map is a model trained on blue ballpoint, not refit for black ink. Neither forms letters under the real bars.</p>
+<figure>
+<img src="img/postcard17/05-handmade-learned-maps.jpg" alt="Postcard 17 input, hand-made map, learned map" loading="lazy">
+<figcaption>Top: input, Postcard 17 page 1, bottom left. Middle: hand-made map, hue plus darkness vs the same row. Bottom: learned map, trained on blue ballpoint, not refit. Both give blobs and edge darkening on the real bars, not letters.</figcaption>
+</figure>
+<figure>
+<img src="img/postcard17/07-stretched-bar.jpg" alt="Each black bar stretched on its own" loading="lazy">
+<figcaption>Each black bar stretched on its own, red outline = bar. Stretching the bar's own grey values does not reveal letter shapes inside it.</figcaption>
+</figure>
+
+<h2>Tracer test: it never forms letters, even where it should</h2>
+<p>The tracer was tested on visible handwriting it never saw, with parts hidden by synthetic black bars, so its prediction could be checked against the real writing under the cover.</p>
+<figure>
+<img src="img/postcard17/04-tracer-heldout.jpg" alt="Tracer test on visible handwriting it never saw" loading="lazy">
+<figcaption>Each row is one test. A: what the tracer is given, black = hidden from it. B: its prediction, dark = where it expects ink. C: the real writing, answer, red outline = hidden area. Result, in the figure: B never forms letters. It only darkens the edges where strokes go in. Score 0.72 with or without stroke-following, so following strokes adds nothing.</figcaption>
+</figure>
+<figure>
+<img src="img/postcard17/08-heldout-lines.jpg" alt="Held-out visible lines: tracer input, prediction, hidden truth" loading="lazy">
+<figcaption>Held-out visible lines, in triples: what the tracer sees, its prediction with dark = ink and red arrows = stroke ends, and the hidden truth. Again, prediction darkens edges only, it does not reconstruct the hidden letters.</figcaption>
+</figure>
+
+<h2>Show-through does not reveal the hidden line either</h2>
+<figure>
+<img src="img/postcard17/06-showthrough.jpg" alt="Address side vs letter side show-through" loading="lazy">
+<figcaption>A: address side, blacked-out lines. B: letter side at the same spot, flipped to line up, red = where the bars are. C: letter side with its own writing removed, dark = shows through, grey = its writing, left out. Show-through inside the red outlines is mostly the other side's writing and paper texture, not the hidden address text.</figcaption>
+</figure>
+
+<div class="warning">
+<strong>For the book: do not claim a reading</strong>
+The hidden line is 16 to 17 characters long, the next line starts hidden for 7 to 10 characters, and one fragment is visible in the middle of the upper bar. That is all that can be stated from these photos. Any fuller text for that line would have to come from another source, another copy, a draft, or a reply that quotes it, not from image processing of these bars.
+</div>
+
+<h2>How this differs from the pangram test</h2>
+<p>Under blue ballpoint scribble, original stroke pixels were darker and more violet than scribble-only pixels in the same row, pixel AUC 0.85 to 0.93, and a learned map ranked middle letters first 7 of 18 times, but no word ranked first. That signal depends on translucent blue ink. Under black ink, the signal is zero in the chart above, and the learned blue-ballpoint map, not refit, gives blobs. Do not apply pangram thresholds or pangram ranks to Postcard 17.</p>
+
+<h2>Sources and files</h2>
+<ul>
+<li>Postcard identification: postcard survey, scan 17, Ch. Willner, 19 July 1940, censor 1517, in <code>postcard-redaction-candidates.md</code> in this repo.</li>
+<li>Figures on this page: Claude, October 2026, supplied as uploads, copied to <code>img/postcard17/</code> in this repo, with original captions preserved in the figure captions above.</li>
+<li>This page was added 28 October 2026, local working tree only, not yet pushed, pending Moshe's review.</li>
+</ul>
+</main>
+<footer>Blot Lab · Bermann family letters · Methods and honest negatives. Length estimates are not readings.</footer>
+</body>
+</html>
